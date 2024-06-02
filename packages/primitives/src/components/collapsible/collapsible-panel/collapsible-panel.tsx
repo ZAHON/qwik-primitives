@@ -11,6 +11,9 @@ export const CollapsiblePanel = component$<CollapsiblePanelProps>((props) => {
   const { isOpen, isContentHide, disabled, panelId } = useContext(CollapsibleContext);
 
   const panelRef = useSignal<HTMLDivElement>();
+  // We just want to cancel the first firing of the animation when the component
+  // is open after the first initial rendering. When a component is closed after initial
+  // rendering, the animation will not execute because it has a `hidden` attribute with a value of `true`.
   const cancelFirstAnimation = useSignal(isOpen.value);
   const currentAnimationName = useSignal<string | undefined>(undefined);
 
@@ -20,10 +23,10 @@ export const CollapsiblePanel = component$<CollapsiblePanelProps>((props) => {
     if (isServer) return;
 
     if (panelRef.value && cancelFirstAnimation.value) {
-      Object.assign(panelRef.value.style, {
-        animationName: undefined,
-      });
-
+      // During the first change of the open state in the browser, we
+      // remove the animation cancellation. So the component will respond
+      // to animations provided by the user.
+      panelRef.value.style.setProperty('animationName', null);
       cancelFirstAnimation.value = false;
     }
 
