@@ -1,0 +1,15 @@
+---
+import { BaseLayout } from '@/layouts';
+import { UncontrolledClosedByDefault } from '@/demos/collapsible/uncontrolled-closed-by-default';
+
+const title = 'Collapsible uncontrolled closed by default | Qwik Primitives Astro Playground';
+const description = 'An interactive component which expands/collapses a panel.';
+---
+
+<BaseLayout title={title} description={description}>
+  <a href="/collapsible">
+    <h1>Collapsible</h1>
+  </a>
+  <p>An interactive component which expands/collapses a panel.</p>
+  <UncontrolledClosedByDefault />
+</BaseLayout>

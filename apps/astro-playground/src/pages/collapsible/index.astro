@@ -1,0 +1,23 @@
+---
+import { BaseLayout } from '@/layouts';
+
+const title = 'Collapsible | Qwik Primitives Astro Playground';
+const description = 'An interactive component which expands/collapses a panel.';
+---
+
+<BaseLayout title={title} description={description}>
+  <h1>Collapsible</h1>
+  <p>An interactive component which expands/collapses a panel.</p>
+  <div style="display: flex; flex-direction: column; row-gap: 0.5rem;">
+    <a href="/collapsible/disabled-closed-by-default">Disabled closed by default</a>
+    <a href="/collapsible/disabled-open-by-default">Disabled open by default</a>
+    <a href="/collapsible/uncontrolled-closed-by-default">Uncontrolled closed by default</a>
+    <a href="/collapsible/uncontrolled-open-by-default">Uncontrolled open by default</a>
+    <a href="/collapsible/controlled-closed-by-default">Controlled closed by default</a>
+    <a href="/collapsible/controlled-open-by-default">Controlled open by default</a>
+    <a href="/collapsible/animated-uncontrolled-closed-by-default">Animated uncontrolled closed by default</a>
+    <a href="/collapsible/animated-uncontrolled-open-by-default">Animated uncontrolled open by default</a>
+    <a href="/collapsible/animated-controlled-closed-by-default">Animated controlled closed by default</a>
+    <a href="/collapsible/animated-controlled-open-by-default">Animated controlled open by default</a>
+  </div>
+</BaseLayout>
