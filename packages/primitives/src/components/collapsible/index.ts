@@ -29,6 +29,7 @@ export const Collapsible = {
 
   /**
    * The component that contains the collapsible content.
+   * Must be rendered inside `Collapsible.Panel`.
    * This component is based on the `div` element.
    */
   Content: CollapsibleContent,

@@ -107,9 +107,8 @@ Contains all the parts of a collapsible. This component is based on the `div` el
 | `onOpenChange$` | `QRL<(open: boolean) => void>` | `-`     | Event handler called when the open state of the collapsible changes.                                                 |
 | `disabled`      | `boolean`                      | `-`     | When `true`, prevents the user from interacting with the collapsible.                                                |
 
-<!-- prettier-ignore -->
 | Data attribute    | Values                |
-| --- | --- |
+| ----------------- | --------------------- |
 | `[data-state]`    | `"open" \| "closed"`  |
 | `[data-disabled]` | Present when disabled |
 
@@ -117,9 +116,8 @@ Contains all the parts of a collapsible. This component is based on the `div` el
 
 The button that toggles the collapsible. This component is based on the `button` element.
 
-<!-- prettier-ignore -->
 | Data attribute    | Values                |
-| --- | --- |
+| ----------------- | --------------------- |
 | `[data-state]`    | `"open" \| "closed"`  |
 | `[data-disabled]` | Present when disabled |
 
@@ -127,19 +125,17 @@ The button that toggles the collapsible. This component is based on the `button`
 
 The panel that expands/collapses. This component is based on the `div` element.
 
-<!-- prettier-ignore -->
 | Data attribute    | Values                |
-| --- | --- |
+| ----------------- | --------------------- |
 | `[data-state]`    | `"open" \| "closed"`  |
 | `[data-disabled]` | Present when disabled |
 
 ### Content
 
-The component that contains the collapsible content. This component is based on the `div` element.
+The component that contains the collapsible content. Must be rendered inside `Collapsible.Panel`. This component is based on the `div` element.
 
-<!-- prettier-ignore -->
 | Data attribute    | Values                |
-| --- | --- |
+| ----------------- | --------------------- |
 | `[data-state]`    | `"open" \| "closed"`  |
 | `[data-disabled]` | Present when disabled |
 
