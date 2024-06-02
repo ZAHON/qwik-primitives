@@ -19,7 +19,9 @@ export default component$(() => {
   return (
     <>
       <nav>
-        <Link href="/">Home</Link>
+        <Link href="/" prefetch={false}>
+          Home
+        </Link>
       </nav>
       <main>
         <Slot />

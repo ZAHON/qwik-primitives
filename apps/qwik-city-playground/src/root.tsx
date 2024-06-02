@@ -1,6 +1,6 @@
 import { component$ } from '@builder.io/qwik';
 import { QwikCityProvider, RouterOutlet, ServiceWorkerRegister } from '@builder.io/qwik-city';
-import { RouterHead } from '@/components';
+import { RouterHead } from '@/components/router-head';
 import '@/styles/globals.css';
 
 export default component$(() => {

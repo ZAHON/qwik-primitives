@@ -13,9 +13,11 @@
   "type": "module",
   "scripts": {
     "build": "qwik build",
-    "build:client": "vite build",
-    "build:preview": "vite build --ssr src/entry.preview.tsx",
-    "build:types": "tsc --incremental --noEmit",
+    "build.server": "vite build -c adapters/static/vite.config.ts",
+    "build.client": "vite build",
+    "build.preview": "vite build --ssr src/entry.preview.tsx",
+    "build.types": "tsc --incremental --noEmit",
+    "clean": "rm -rf .turbo node_modules dist server",
     "deploy": "echo 'Run \"npm run qwik add\" to install a server adapter'",
     "dev": "vite --mode ssr",
     "dev:debug": "node --inspect-brk ./node_modules/vite/bin/vite.js --mode ssr --force",
@@ -24,8 +26,7 @@
     "lint": "eslint \"src/**/*.ts*\"",
     "preview": "qwik build preview && vite preview --open",
     "start": "vite --open --mode ssr",
-    "qwik": "qwik",
-    "clean": "rm -rf .turbo node_modules dist server"
+    "qwik": "qwik"
   },
   "devDependencies": {
     "@builder.io/qwik": "^1.5.5",
