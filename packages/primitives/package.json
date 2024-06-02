@@ -1,0 +1,81 @@
+{
+  "version": "0.0.1",
+  "name": "qwik-primitives",
+  "description": "",
+  "homepage": "",
+  "repository": "",
+  "license": "MIT",
+  "private": false,
+  "keywords": [
+    ""
+  ],
+  "main": "./lib/index.qwik.mjs",
+  "qwik": "./lib/index.qwik.mjs",
+  "types": "./lib-types/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./lib/index.qwik.mjs",
+      "require": "./lib/index.qwik.cjs",
+      "types": "./lib-types/index.d.ts"
+    }
+  },
+  "files": [
+    "lib",
+    "lib-types"
+  ],
+  "engines": {
+    "node": "^18.17.0 || ^20.3.0 || >=21.0.0"
+  },
+  "type": "module",
+  "scripts": {
+    "build": "pnpm run lint && pnpm run build:types && pnpm run build:lib",
+    "build:lib": "vite build --mode lib",
+    "build:types": "tsc --emitDeclarationOnly --project tsconfig.build.json",
+    "cypress:open": "cypress open --component",
+    "cypress:run": "cypress run --component",
+    "dev": "vite --mode ssr",
+    "dev:debug": "node --inspect-brk ./node_modules/vite/bin/vite.js --mode ssr --force",
+    "fmt": "prettier --write .",
+    "fmt:check": "prettier --check .",
+    "lint": "eslint \"src/**/*.ts*\"",
+    "qwik": "qwik",
+    "start": "vite --open --mode ssr",
+    "storybook": "storybook dev -p 6006 --no-open",
+    "storybook:build": "storybook build",
+    "test": "vitest run",
+    "test:watch": "vitest --reporter verbose",
+    "clean": "rm -rf .turbo node_modules lib lib-types storybook-static"
+  },
+  "devDependencies": {
+    "@builder.io/qwik": "1.5.5",
+    "@storybook/addon-a11y": "^8.1.4",
+    "@storybook/addon-essentials": "^8.1.4",
+    "@storybook/addon-links": "^8.1.4",
+    "@storybook/blocks": "^8.1.4",
+    "@storybook/builder-vite": "^8.1.4",
+    "@storybook/html": "^8.1.4",
+    "@storybook/html-vite": "^8.1.4",
+    "@storybook/theming": "^8.1.4",
+    "@types/eslint": "^8.56.10",
+    "@types/node": "^20.12.13",
+    "@typescript-eslint/eslint-plugin": "^7.11.0",
+    "@typescript-eslint/parser": "^7.11.0",
+    "@vitest/ui": "^1.6.0",
+    "cypress": "~13.10.0",
+    "cypress-ct-qwik": "~0.3.0",
+    "cypress-real-events": "^1.12.0",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-jsx-a11y": "^6.8.0",
+    "eslint-plugin-qwik": "^1.5.5",
+    "eslint-plugin-storybook": "^0.8.0",
+    "prettier": "^3.2.5",
+    "storybook": "^8.1.4",
+    "storybook-dark-mode": "^4.0.1",
+    "storybook-framework-qwik": "^0.4.0",
+    "typescript": "5.4.5",
+    "vite": "^5.2.12",
+    "vite-tsconfig-paths": "^4.3.2",
+    "vitest": "^1.6.0"
+  }
+}
