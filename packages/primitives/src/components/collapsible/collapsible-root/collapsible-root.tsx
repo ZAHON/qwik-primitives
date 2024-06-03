@@ -11,7 +11,7 @@ export const CollapsibleRoot = component$<CollapsibleRootProps>((props) => {
   const { defaultOpen, open, onOpenChange$, disabled, ...others } = props;
 
   const id = useId();
-  const isOpen = useControllableState({ defaultProp: defaultOpen, prop: open, finalProp: false });
+  const isOpen = useControllableState({ uncontrolledValue: defaultOpen, controlledSignal: open, finalValue: false });
   const isContentHide = useSignal(!isOpen.value);
 
   useTask$(({ track }) => {
