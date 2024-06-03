@@ -2,17 +2,17 @@ import type { Signal } from '@builder.io/qwik';
 
 export interface UseControllableStateParams<T> {
   /**
-   * Value for controlled state.
+   * The controlled signal.
    */
-  prop?: Signal<T> | undefined;
+  controlledSignal: Signal<T> | undefined;
 
   /**
    * Initial value for uncontrolled state.
    */
-  defaultProp?: T | undefined;
+  uncontrolledValue: T | undefined;
 
   /**
-   * Final value for uncontrolled state when value and defaultValue are not provided.
+   * Final value for uncontrolled state when `controlledSignal` and `uncontrolledValue` are not provided.
    */
-  finalProp?: T;
+  finalValue: T;
 }

@@ -3,9 +3,12 @@ import type { UseControllableStateParams } from './use-controllable-state.types'
 import { useSignal } from '@builder.io/qwik';
 
 export const useControllableState = <T>(params: UseControllableStateParams<T>) => {
-  const { prop, defaultProp, finalProp } = params;
+  const { controlledSignal, uncontrolledValue, finalValue } = params;
 
-  const uncontrolledState = useSignal(defaultProp !== undefined ? defaultProp : finalProp);
+  // If a controlled signal has been passed, we return it immediately.
+  if (controlledSignal !== undefined) return controlledSignal;
 
-  return prop !== undefined ? prop : (uncontrolledState as Signal<T>);
+  // If the controlled signal is not passed, we create our own signal and return it.
+  const uncontrolledState = useSignal(uncontrolledValue !== undefined ? uncontrolledValue : finalValue);
+  return uncontrolledState as Signal<T>;
 };
