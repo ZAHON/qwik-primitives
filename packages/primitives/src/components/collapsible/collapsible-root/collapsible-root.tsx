@@ -12,7 +12,7 @@ export const CollapsibleRoot = component$<CollapsibleRootProps>((props) => {
 
   const id = useId();
   const isOpen = useControllableState({ uncontrolledValue: defaultOpen, controlledSignal: open, finalValue: false });
-  const isContentHide = useSignal(!isOpen.value);
+  const isPanelHide = useSignal(!isOpen.value);
 
   useTask$(({ track }) => {
     track(() => isOpen.value);
@@ -21,7 +21,7 @@ export const CollapsibleRoot = component$<CollapsibleRootProps>((props) => {
 
   const panelId = `collapsible-panel-${id}`;
 
-  useContextProvider(CollapsibleContext, { isOpen, isContentHide, disabled, panelId });
+  useContextProvider(CollapsibleContext, { isOpen, isPanelHide, panelId, disabled });
 
   return (
     <div data-state={isOpen.value ? 'open' : 'closed'} data-disabled={disabled ? '' : undefined} {...others}>

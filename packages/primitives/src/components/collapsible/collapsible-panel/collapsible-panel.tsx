@@ -12,7 +12,7 @@ import { CollapsibleContext } from '../collapsible-context';
 export const CollapsiblePanel = component$<CollapsiblePanelProps>((props) => {
   const { ref, style, ...others } = props;
 
-  const { isOpen, isContentHide, disabled, panelId } = useContext(CollapsibleContext);
+  const { isOpen, isPanelHide, panelId, disabled } = useContext(CollapsibleContext);
 
   const panelRef = useSignal<HTMLDivElement>();
   // We just want to cancel the first firing of the animation when the component
@@ -35,7 +35,7 @@ export const CollapsiblePanel = component$<CollapsiblePanelProps>((props) => {
     }
 
     if (isOpen.value) {
-      isContentHide.value = false;
+      isPanelHide.value = false;
 
       setTimeout(() => {
         if (panelRef.value) {
@@ -67,15 +67,15 @@ export const CollapsiblePanel = component$<CollapsiblePanelProps>((props) => {
               eventName: 'animationend',
               handler: () => {
                 if (currentAnimationName.value === animationName) {
-                  isContentHide.value = true;
+                  isPanelHide.value = true;
                 }
               },
             });
           } else {
-            isContentHide.value = true;
+            isPanelHide.value = true;
           }
         } else {
-          isContentHide.value = true;
+          isPanelHide.value = true;
         }
       }, 0);
     }
@@ -85,7 +85,7 @@ export const CollapsiblePanel = component$<CollapsiblePanelProps>((props) => {
     <div
       ref={composeRefs(ref, panelRef)}
       id={panelId}
-      hidden={isContentHide.value}
+      hidden={isPanelHide.value}
       data-state={isOpen.value ? 'open' : 'closed'}
       data-disabled={disabled ? '' : undefined}
       style={{
