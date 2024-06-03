@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from 'storybook-framework-qwik';
 import { component$, useSignal, useStyles$ } from '@builder.io/qwik';
-import { Collapsible } from '.';
+import * as Collapsible from '.';
 
 const meta: Meta<typeof Collapsible.Root> = {
   title: 'Collapsible',

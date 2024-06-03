@@ -5,6 +5,10 @@ import { composeRefs } from '@/utils/compose-refs';
 import { addEventListenerOnce } from '@/utils/add-event-listener-once';
 import { CollapsibleContext } from '../collapsible-context';
 
+/**
+ * The panel that expands/collapses.
+ * This component is based on the `div` element.
+ */
 export const CollapsiblePanel = component$<CollapsiblePanelProps>((props) => {
   const { ref, style, ...others } = props;
 

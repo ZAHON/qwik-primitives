@@ -3,6 +3,10 @@ import { component$, useId, useSignal, useTask$, useContextProvider, Slot } from
 import { useControllableState } from '@/hooks/use-controllable-state';
 import { CollapsibleContext } from '../collapsible-context';
 
+/**
+ * Contains all the parts of a collapsible.
+ * This component is based on the `div` element.
+ */
 export const CollapsibleRoot = component$<CollapsibleRootProps>((props) => {
   const { defaultOpen, open, onOpenChange$, disabled, ...others } = props;
 
