@@ -1,3 +1,8 @@
-import type { PropsOf } from '@builder.io/qwik';
+import type { PropsOf, CSSProperties } from '@builder.io/qwik';
 
-export type CollapsibleContentProps = PropsOf<'div'>;
+export interface CollapsibleContentProps extends PropsOf<'div'> {
+  /**
+   * The inline style for the element.
+   */
+  style?: CSSProperties;
+}

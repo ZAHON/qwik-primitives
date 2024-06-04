@@ -8,10 +8,20 @@ import { CollapsibleContext } from '../collapsible-context';
  * This component is based on the `div` element.
  */
 export const CollapsibleContent = component$<CollapsibleContentProps>((props) => {
-  const { isOpen, isPanelHide, disabled } = useContext(CollapsibleContext);
+  const { style, ...others } = props;
+
+  const { isOpen, isPanelHide, panelStatus, disabled } = useContext(CollapsibleContext);
 
   return (
-    <div data-state={isOpen.value ? 'open' : 'closed'} data-disabled={disabled ? '' : undefined} {...props}>
+    <div
+      data-state={isOpen.value ? 'open' : 'closed'}
+      data-disabled={disabled ? '' : undefined}
+      style={{
+        overflow: panelStatus.value === 'open' ? undefined : 'hidden',
+        ...style,
+      }}
+      {...others}
+    >
       {!isPanelHide.value && <Slot />}
     </div>
   );

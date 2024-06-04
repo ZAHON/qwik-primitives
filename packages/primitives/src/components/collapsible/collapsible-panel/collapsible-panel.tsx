@@ -1,5 +1,5 @@
 import type { CollapsiblePanelProps } from './collapsible-panel.types';
-import { component$, useContext, useSignal, useTask$, Slot } from '@builder.io/qwik';
+import { component$, useContext, useSignal, useTask$, $, Slot } from '@builder.io/qwik';
 import { isServer } from '@builder.io/qwik/build';
 import { composeRefs } from '@/utils/compose-refs';
 import { addEventListenerOnce } from '@/utils/add-event-listener-once';
@@ -10,40 +10,50 @@ import { CollapsibleContext } from '../collapsible-context';
  * This component is based on the `div` element.
  */
 export const CollapsiblePanel = component$<CollapsiblePanelProps>((props) => {
-  const { ref, style, ...others } = props;
+  const { ref, style, onAnimationEnd$, ...others } = props;
 
-  const { isOpen, isPanelHide, panelId, disabled } = useContext(CollapsibleContext);
+  const { isOpen, isPanelHide, panelStatus, panelId, disabled } = useContext(CollapsibleContext);
 
   const panelRef = useSignal<HTMLDivElement>();
-  // We just want to cancel the first firing of the animation when the component
-  // is open after the first initial rendering. When a component is closed after initial
-  // rendering, the animation will not execute because it has a `hidden` attribute with a value of `true`.
-  const cancelFirstAnimation = useSignal(isOpen.value);
-  const currentAnimationName = useSignal<string | undefined>(undefined);
 
-  useTask$(({ track }) => {
+  const cancelFirstAnimation = useSignal(true);
+
+  useTask$(async ({ track }) => {
     track(() => isOpen.value);
 
     if (isServer) return;
-
-    if (panelRef.value && cancelFirstAnimation.value) {
-      // During the first change of the open state in the browser, we
-      // remove the animation cancellation. So the component will respond
-      // to animations provided by the user.
-      panelRef.value.style.setProperty('animationName', null);
-      cancelFirstAnimation.value = false;
-    }
 
     if (isOpen.value) {
       isPanelHide.value = false;
 
       setTimeout(() => {
         if (panelRef.value) {
-          addEventListenerOnce({
-            target: panelRef.value,
-            eventName: 'animationstart',
-            handler: (event) => (currentAnimationName.value = event.animationName),
-          });
+          const { animationName } = getComputedStyle(panelRef.value);
+
+          if (animationName !== 'none') {
+            let currentAnimationName: string | undefined = undefined;
+
+            addEventListenerOnce({
+              target: panelRef.value,
+              eventName: 'animationstart',
+              handler: (event) => {
+                currentAnimationName = event.animationName;
+                panelStatus.value = 'indeterminate';
+              },
+            });
+
+            addEventListenerOnce({
+              target: panelRef.value,
+              eventName: 'animationend',
+              handler: (event) => {
+                if (currentAnimationName === event.animationName) {
+                  panelStatus.value = 'open';
+                }
+              },
+            });
+          } else {
+            panelStatus.value = 'open';
+          }
         }
       }, 0);
 
@@ -55,29 +65,46 @@ export const CollapsiblePanel = component$<CollapsiblePanelProps>((props) => {
         if (panelRef.value) {
           const { animationName } = getComputedStyle(panelRef.value);
 
-          addEventListenerOnce({
-            target: panelRef.value,
-            eventName: 'animationstart',
-            handler: (event) => (currentAnimationName.value = event.animationName),
-          });
-
           if (animationName !== 'none') {
+            let currentAnimationName: string | undefined = undefined;
+
+            addEventListenerOnce({
+              target: panelRef.value,
+              eventName: 'animationstart',
+              handler: (event) => {
+                currentAnimationName = event.animationName;
+                panelStatus.value = 'indeterminate';
+              },
+            });
+
             addEventListenerOnce({
               target: panelRef.value,
               eventName: 'animationend',
-              handler: () => {
-                if (currentAnimationName.value === animationName) {
-                  isPanelHide.value = true;
+              handler: (event) => {
+                if (panelRef.value) {
+                  if (currentAnimationName === event.animationName) {
+                    isPanelHide.value = true;
+                    panelStatus.value = 'closed';
+                  }
                 }
               },
             });
           } else {
             isPanelHide.value = true;
+            panelStatus.value = 'closed';
           }
         } else {
           isPanelHide.value = true;
+          panelStatus.value = 'closed';
         }
-      }, 0);
+      }, 1);
+    }
+  });
+
+  const handleAnimationEnd$ = $(() => {
+    if (panelRef.value && cancelFirstAnimation.value) {
+      cancelFirstAnimation.value = false;
+      panelRef.value.style.removeProperty('animationDuration');
     }
   });
 
@@ -88,10 +115,13 @@ export const CollapsiblePanel = component$<CollapsiblePanelProps>((props) => {
       hidden={isPanelHide.value}
       data-state={isOpen.value ? 'open' : 'closed'}
       data-disabled={disabled ? '' : undefined}
+      onAnimationEnd$={[handleAnimationEnd$, onAnimationEnd$]}
       style={{
         display: 'grid',
         gridTemplateRows: isOpen.value ? '1fr' : '0fr',
-        animationName: cancelFirstAnimation.value ? 'none' : undefined,
+        // animationName: cancelFirstAnimation.value ? 'none' : undefined,
+        animationDuration: cancelFirstAnimation.value ? '0s' : undefined,
+        // animation: cancelFirstAnimation.value ? 'none' : undefined,
         ...style,
       }}
       {...others}

@@ -12,6 +12,11 @@ export interface CollapsibleContextValue {
   isPanelHide: Signal<boolean>;
 
   /**
+   * The controlled status state of the collapsible panel.
+   */
+  panelStatus: Signal<'open' | 'closed' | 'indeterminate'>;
+
+  /**
    * The unique id of the collapsible panel.
    */
   panelId: string;
