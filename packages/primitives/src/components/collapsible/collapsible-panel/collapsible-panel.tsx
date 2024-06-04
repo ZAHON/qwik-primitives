@@ -10,13 +10,20 @@ import { CollapsibleContext } from '../collapsible-context';
  * This component is based on the `div` element.
  */
 export const CollapsiblePanel = component$<CollapsiblePanelProps>((props) => {
-  const { ref, style, ...others } = props;
+  const { ref, onOpen$, onClose$, style, ...others } = props;
 
   const { isOpen, isPanelHide, panelStatus, panelId, disabled } = useContext(CollapsibleContext);
 
   const panelRef = useSignal<HTMLDivElement>();
 
   const cancelFirstAnimation = useSignal(isOpen.value);
+
+  useTask$(({ track }) => {
+    track(() => panelStatus.value);
+    if (isServer) return;
+    if (panelStatus.value === 'open' && onOpen$) onOpen$();
+    if (panelStatus.value === 'closed' && onClose$) onClose$();
+  });
 
   useTask$(async ({ track }) => {
     track(() => isOpen.value);
