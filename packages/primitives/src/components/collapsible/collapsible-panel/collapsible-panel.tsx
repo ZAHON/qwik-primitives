@@ -1,5 +1,5 @@
 import type { CollapsiblePanelProps } from './collapsible-panel.types';
-import { component$, useContext, useSignal, useTask$, $, Slot } from '@builder.io/qwik';
+import { component$, useContext, useSignal, useTask$, Slot } from '@builder.io/qwik';
 import { isServer } from '@builder.io/qwik/build';
 import { composeRefs } from '@/utils/compose-refs';
 import { addEventListenerOnce } from '@/utils/add-event-listener-once';
@@ -10,18 +10,23 @@ import { CollapsibleContext } from '../collapsible-context';
  * This component is based on the `div` element.
  */
 export const CollapsiblePanel = component$<CollapsiblePanelProps>((props) => {
-  const { ref, style, onAnimationEnd$, ...others } = props;
+  const { ref, style, ...others } = props;
 
   const { isOpen, isPanelHide, panelStatus, panelId, disabled } = useContext(CollapsibleContext);
 
   const panelRef = useSignal<HTMLDivElement>();
 
-  const cancelFirstAnimation = useSignal(true);
+  const cancelFirstAnimation = useSignal(isOpen.value);
 
   useTask$(async ({ track }) => {
     track(() => isOpen.value);
 
     if (isServer) return;
+
+    if (panelRef.value && cancelFirstAnimation.value) {
+      cancelFirstAnimation.value = false;
+      panelRef.value.style.removeProperty('animationDuration');
+    }
 
     if (isOpen.value) {
       isPanelHide.value = false;
@@ -101,13 +106,6 @@ export const CollapsiblePanel = component$<CollapsiblePanelProps>((props) => {
     }
   });
 
-  const handleAnimationEnd$ = $(() => {
-    if (panelRef.value && cancelFirstAnimation.value) {
-      cancelFirstAnimation.value = false;
-      panelRef.value.style.removeProperty('animationDuration');
-    }
-  });
-
   return (
     <div
       ref={composeRefs(ref, panelRef)}
@@ -115,7 +113,6 @@ export const CollapsiblePanel = component$<CollapsiblePanelProps>((props) => {
       hidden={isPanelHide.value}
       data-state={isOpen.value ? 'open' : 'closed'}
       data-disabled={disabled ? '' : undefined}
-      onAnimationEnd$={[handleAnimationEnd$, onAnimationEnd$]}
       style={{
         display: 'grid',
         gridTemplateRows: isOpen.value ? '1fr' : '0fr',
