@@ -119,9 +119,7 @@ export const CollapsiblePanel = component$<CollapsiblePanelProps>((props) => {
       style={{
         display: 'grid',
         gridTemplateRows: isOpen.value ? '1fr' : '0fr',
-        // animationName: cancelFirstAnimation.value ? 'none' : undefined,
         animationDuration: cancelFirstAnimation.value ? '0s' : undefined,
-        // animation: cancelFirstAnimation.value ? 'none' : undefined,
         ...style,
       }}
       {...others}
