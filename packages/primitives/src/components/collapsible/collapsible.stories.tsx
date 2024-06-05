@@ -3,7 +3,7 @@ import { component$, useSignal, useStyles$ } from '@builder.io/qwik';
 import * as Collapsible from '.';
 
 const meta: Meta<typeof Collapsible.Root> = {
-  title: 'Collapsible',
+  title: 'Components/Collapsible',
 };
 
 export default meta;
