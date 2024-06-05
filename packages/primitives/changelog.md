@@ -2,4 +2,7 @@
 
 ## 0.0.1
 
-- Isolate resets
+- Add `useControllableState` hook.
+- Add `composeRefs` utility function.
+- Add `addEventListenerOnce` utility function.
+- Add `Collapsible` component.
