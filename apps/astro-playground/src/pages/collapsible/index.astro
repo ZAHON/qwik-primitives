@@ -1,5 +1,19 @@
 ---
 import { BaseLayout } from '@/layouts';
+import { Link, List } from '@/components';
+
+const links = [
+  { href: '/collapsible/disabled-closed-by-default', label: 'Disabled closed by default' },
+  { href: '/collapsible/disabled-open-by-default', label: 'Disabled open by default' },
+  { href: '/collapsible/uncontrolled-closed-by-default', label: 'Uncontrolled closed by default' },
+  { href: '/collapsible/uncontrolled-open-by-default', label: 'Uncontrolled open by default' },
+  { href: '/collapsible/controlled-closed-by-default', label: 'Controlled closed by default' },
+  { href: '/collapsible/controlled-open-by-default', label: 'Controlled open by default' },
+  { href: '/collapsible/animated-uncontrolled-closed-by-default', label: 'Animated uncontrolled closed by default' },
+  { href: '/collapsible/animated-uncontrolled-open-by-default', label: 'Animated uncontrolled open by default' },
+  { href: '/collapsible/animated-controlled-closed-by-default', label: 'Animated controlled closed by default' },
+  { href: '/collapsible/animated-controlled-open-by-default', label: 'Animated controlled open by default' },
+];
 
 const title = 'Collapsible | Qwik Primitives Astro Playground';
 const description = 'An interactive component which expands/collapses a panel.';
@@ -8,16 +22,14 @@ const description = 'An interactive component which expands/collapses a panel.';
 <BaseLayout title={title} description={description}>
   <h1>Collapsible</h1>
   <p>An interactive component which expands/collapses a panel.</p>
-  <div style="display: flex; flex-direction: column; row-gap: 0.5rem;">
-    <a href="/collapsible/disabled-closed-by-default">Disabled closed by default</a>
-    <a href="/collapsible/disabled-open-by-default">Disabled open by default</a>
-    <a href="/collapsible/uncontrolled-closed-by-default">Uncontrolled closed by default</a>
-    <a href="/collapsible/uncontrolled-open-by-default">Uncontrolled open by default</a>
-    <a href="/collapsible/controlled-closed-by-default">Controlled closed by default</a>
-    <a href="/collapsible/controlled-open-by-default">Controlled open by default</a>
-    <a href="/collapsible/animated-uncontrolled-closed-by-default">Animated uncontrolled closed by default</a>
-    <a href="/collapsible/animated-uncontrolled-open-by-default">Animated uncontrolled open by default</a>
-    <a href="/collapsible/animated-controlled-closed-by-default">Animated controlled closed by default</a>
-    <a href="/collapsible/animated-controlled-open-by-default">Animated controlled open by default</a>
-  </div>
+
+  <List.Root>
+    {
+      links.map(({ href, label }) => (
+        <List.Item>
+          <Link {href}>{label}</Link>
+        </List.Item>
+      ))
+    }
+  </List.Root>
 </BaseLayout>

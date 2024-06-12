@@ -1,15 +1,14 @@
 ---
 import { BaseLayout } from '@/layouts';
-import { DisabledClosedByDefault } from '@/demos/collapsible/disabled-closed-by-default';
+import { Collapsible } from '@/demos';
 
 const title = 'Collapsible disabled closed by default | Qwik Primitives Astro Playground';
 const description = 'An interactive component which expands/collapses a panel.';
 ---
 
 <BaseLayout title={title} description={description}>
-  <a href="/collapsible">
-    <h1>Collapsible</h1>
-  </a>
+  <h1>Collapsible</h1>
   <p>An interactive component which expands/collapses a panel.</p>
-  <DisabledClosedByDefault />
+
+  <Collapsible.DisabledClosedByDefault />
 </BaseLayout>

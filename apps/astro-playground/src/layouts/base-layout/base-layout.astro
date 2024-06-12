@@ -1,5 +1,6 @@
 ---
 import '@/styles/globals.css';
+import { Link } from '@/components';
 
 interface Props {
   /**
@@ -29,7 +30,7 @@ const { title, description } = Astro.props;
   </head>
   <body>
     <nav>
-      <a href="/">Home</a>
+      <Link href="/">Home</Link>
     </nav>
     <main>
       <slot />
