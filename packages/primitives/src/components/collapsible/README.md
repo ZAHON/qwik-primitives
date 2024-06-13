@@ -6,7 +6,9 @@ An interactive component which expands/collapses a panel.
 
 - Full keyboard navigation.
 
-- Can be controlled or uncontrolled.
+- Can be uncontrolled or controlled.
+
+- Adheres to the [Disclosure WAI-ARIA design pattern](https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/).
 
 ## Import
 
@@ -36,7 +38,7 @@ const CollapsibleDemo = component$(() => {
 
 ## Usage
 
-Collapsible component can be controlled or uncontrolled.
+Collapsible component can be uncontrolled or controlled.
 
 ### Uncontrolled
 
@@ -47,17 +49,12 @@ import { Collapsible } from 'qwik-primitives';
 const CollapsibleDemo = component$(() => {
   return (
     <Collapsible.Root>
-      <Collapsible.Trigger>Toggle</Collapsible.Trigger>
+      <Collapsible.Trigger>What is Qwik Primitives?</Collapsible.Trigger>
       <Collapsible.Panel>
         <Collapsible.Content>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odio, aut voluptatibus laudantium necessitatibus
-          rerum animi vel recusandae consequatur eligendi pariatur eius veniam itaque natus molestiae hic doloremque.
-          Laborum eaque pariatur velit veniam ad? Qui consectetur vel eius voluptatibus magni recusandae voluptatem,
-          mollitia illo tenetur eum enim blanditiis, nam pariatur vitae necessitatibus, illum adipisci sit reprehenderit
-          quas odit. Recusandae quas totam accusamus esse deleniti asperiores voluptatibus natus ut, tempora expedita
-          tempore corrupti minima quaerat autem aliquam quisquam quidem nostrum nesciunt neque. Excepturi, nostrum.
-          Eveniet, placeat consequatur, eligendi dolor quibusdam illum blanditiis officia sed nesciunt quia ipsam
-          veritatis odio illo. Optio, perferendis?
+          Qwik Primitives is a UI toolkit for building accessible web apps and design systems with Qwik. It provides a
+          set of low-level UI components and primitives which can be the foundation for your design system
+          implementation.
         </Collapsible.Content>
       </Collapsible.Panel>
     </Collapsible.Root>
@@ -76,17 +73,12 @@ const CollapsibleDemo = component$(() => {
 
   return (
     <Collapsible.Root open={open}>
-      <Collapsible.Trigger>Toggle</Collapsible.Trigger>
+      <Collapsible.Trigger>What is Qwik Primitives?</Collapsible.Trigger>
       <Collapsible.Panel>
         <Collapsible.Content>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odio, aut voluptatibus laudantium necessitatibus
-          rerum animi vel recusandae consequatur eligendi pariatur eius veniam itaque natus molestiae hic doloremque.
-          Laborum eaque pariatur velit veniam ad? Qui consectetur vel eius voluptatibus magni recusandae voluptatem,
-          mollitia illo tenetur eum enim blanditiis, nam pariatur vitae necessitatibus, illum adipisci sit reprehenderit
-          quas odit. Recusandae quas totam accusamus esse deleniti asperiores voluptatibus natus ut, tempora expedita
-          tempore corrupti minima quaerat autem aliquam quisquam quidem nostrum nesciunt neque. Excepturi, nostrum.
-          Eveniet, placeat consequatur, eligendi dolor quibusdam illum blanditiis officia sed nesciunt quia ipsam
-          veritatis odio illo. Optio, perferendis?
+          Qwik Primitives is a UI toolkit for building accessible web apps and design systems with Qwik. It provides a
+          set of low-level UI components and primitives which can be the foundation for your design system
+          implementation.
         </Collapsible.Content>
       </Collapsible.Panel>
     </Collapsible.Root>
@@ -125,6 +117,11 @@ The button that toggles the collapsible. This component is based on the `button`
 
 The panel that expands/collapses. This component is based on the `div` element.
 
+| Prop       | Type              | Default | Description                                                                                                                                              |
+| ---------- | ----------------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `onOpen$`  | `QRL<() => void>` | `-`     | Event handler called when the panel is fully open. If you animate the size of the panel when it opens this event handler was call after animation end.   |
+| `onClose$` | `QRL<()=> void>`  | `-`     | Event handler called when the panel is fully close. If you animate the size of the panel when it closes this event handler was call after animation end. |
+
 | Data attribute    | Values                |
 | ----------------- | --------------------- |
 | `[data-state]`    | `"open" \| "closed"`  |
@@ -159,10 +156,6 @@ const CollapsibleDemo = component$(() => {
 			animation: collapsible-panel-up 300ms ease-out;
 		}
 		
-		.collapsible-content {
-			overflow: hidden;
-		}
-		
 		@keyframes collapsible-panel-down {
 			0% {
 				grid-template-rows: 0fr;
@@ -184,17 +177,12 @@ const CollapsibleDemo = component$(() => {
 
   return (
     <Collapsible.Root>
-      <Collapsible.Trigger>Toggle</Collapsible.Trigger>
+      <Collapsible.Trigger>What is Qwik Primitives?</Collapsible.Trigger>
       <Collapsible.Panel class="collapsible-panel">
-        <Collapsible.Content class="collapsible-content">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odio, aut voluptatibus laudantium necessitatibus
-          rerum animi vel recusandae consequatur eligendi pariatur eius veniam itaque natus molestiae hic doloremque.
-          Laborum eaque pariatur velit veniam ad? Qui consectetur vel eius voluptatibus magni recusandae voluptatem,
-          mollitia illo tenetur eum enim blanditiis, nam pariatur vitae necessitatibus, illum adipisci sit reprehenderit
-          quas odit. Recusandae quas totam accusamus esse deleniti asperiores voluptatibus natus ut, tempora expedita
-          tempore corrupti minima quaerat autem aliquam quisquam quidem nostrum nesciunt neque. Excepturi, nostrum.
-          Eveniet, placeat consequatur, eligendi dolor quibusdam illum blanditiis officia sed nesciunt quia ipsam
-          veritatis odio illo. Optio, perferendis?
+        <Collapsible.Content>
+          Qwik Primitives is a UI toolkit for building accessible web apps and design systems with Qwik. It provides a
+          set of low-level UI components and primitives which can be the foundation for your design system
+          implementation.
         </Collapsible.Content>
       </Collapsible.Panel>
     </Collapsible.Root>
@@ -204,7 +192,7 @@ const CollapsibleDemo = component$(() => {
 
 ## Accessibility
 
-Adheres to the Disclosure [Disclosure WAI-ARIA design pattern](https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/).
+Adheres to the [Disclosure WAI-ARIA design pattern](https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/).
 
 ### Keyboard Interactions
 
