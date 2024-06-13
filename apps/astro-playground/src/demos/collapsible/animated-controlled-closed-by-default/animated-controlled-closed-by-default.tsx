@@ -15,10 +15,6 @@ export const AnimatedControlledClosedByDefault = component$(() => {
 			animation: ${id}-collapsible-panel-up 300ms ease-out;
 		}
 		
-		.${id}-collapsible-content {
-			overflow: hidden;
-		}
-		
 		@keyframes ${id}-collapsible-panel-down {
 			0% {
 				grid-template-rows: 0fr;
@@ -44,7 +40,7 @@ export const AnimatedControlledClosedByDefault = component$(() => {
       <Collapsible.Root open={open}>
         <Collapsible.Trigger>Toggle</Collapsible.Trigger>
         <Collapsible.Panel class={`${id}-collapsible-panel`}>
-          <Collapsible.Content class={`${id}-collapsible-content`}>
+          <Collapsible.Content>
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odio, aut voluptatibus laudantium necessitatibus
             rerum animi vel recusandae consequatur eligendi pariatur eius veniam itaque natus molestiae hic doloremque.
             Laborum eaque pariatur velit veniam ad? Qui consectetur vel eius voluptatibus magni recusandae voluptatem,
