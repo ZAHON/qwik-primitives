@@ -1,16 +1,14 @@
 import type { DocumentHead } from '@builder.io/qwik-city';
 import { component$ } from '@builder.io/qwik';
-import { Link } from '@builder.io/qwik-city';
-import { DisabledOpenByDefault } from '@/demos/collapsible/disabled-open-by-default';
+import { Collapsible } from '@/demos';
 
 export default component$(() => {
   return (
     <>
-      <Link href="/collapsible" prefetch={false}>
-        <h1>Collapsible</h1>
-      </Link>
+      <h1>Collapsible</h1>
       <p>An interactive component which expands/collapses a panel.</p>
-      <DisabledOpenByDefault />
+
+      <Collapsible.DisabledOpenByDefault />
     </>
   );
 });

@@ -1,44 +1,33 @@
 import type { DocumentHead } from '@builder.io/qwik-city';
 import { component$ } from '@builder.io/qwik';
-import { Link } from '@builder.io/qwik-city';
+import { Link, List } from '@/components';
+
+const links = [
+  { href: '/collapsible/disabled-closed-by-default', label: 'Disabled closed by default' },
+  { href: '/collapsible/disabled-open-by-default', label: 'Disabled open by default' },
+  { href: '/collapsible/uncontrolled-closed-by-default', label: 'Uncontrolled closed by default' },
+  { href: '/collapsible/uncontrolled-open-by-default', label: 'Uncontrolled open by default' },
+  { href: '/collapsible/controlled-closed-by-default', label: 'Controlled closed by default' },
+  { href: '/collapsible/controlled-open-by-default', label: 'Controlled open by default' },
+  { href: '/collapsible/animated-uncontrolled-closed-by-default', label: 'Animated uncontrolled closed by default' },
+  { href: '/collapsible/animated-uncontrolled-open-by-default', label: 'Animated uncontrolled open by default' },
+  { href: '/collapsible/animated-controlled-closed-by-default', label: 'Animated controlled closed by default' },
+  { href: '/collapsible/animated-controlled-open-by-default', label: 'Animated controlled open by default' },
+];
 
 export default component$(() => {
   return (
     <>
       <h1>Collapsible</h1>
       <p>An interactive component which expands/collapses a panel.</p>
-      <div style="display: flex; flex-direction: column; row-gap: 0.5rem;">
-        <Link href="/collapsible/disabled-closed-by-default" prefetch={false}>
-          Disabled closed by default
-        </Link>
-        <Link href="/collapsible/disabled-open-by-default" prefetch={false}>
-          Disabled open by default
-        </Link>
-        <Link href="/collapsible/uncontrolled-closed-by-default" prefetch={false}>
-          Uncontrolled closed by default
-        </Link>
-        <Link href="/collapsible/uncontrolled-open-by-default" prefetch={false}>
-          Uncontrolled open by default
-        </Link>
-        <Link href="/collapsible/controlled-closed-by-default" prefetch={false}>
-          Controlled closed by default
-        </Link>
-        <Link href="/collapsible/controlled-open-by-default" prefetch={false}>
-          Controlled open by default
-        </Link>
-        <Link href="/collapsible/animated-uncontrolled-closed-by-default" prefetch={false}>
-          Animated uncontrolled closed by default
-        </Link>
-        <Link href="/collapsible/animated-uncontrolled-open-by-default" prefetch={false}>
-          Animated uncontrolled open by default
-        </Link>
-        <Link href="/collapsible/animated-controlled-closed-by-default" prefetch={false}>
-          Animated controlled closed by default
-        </Link>
-        <Link href="/collapsible/animated-controlled-open-by-default" prefetch={false}>
-          Animated controlled open by default
-        </Link>
-      </div>
+
+      <List.Root>
+        {links.map(({ href, label }) => (
+          <List.Item key={href}>
+            <Link href={href}>{label}</Link>
+          </List.Item>
+        ))}
+      </List.Root>
     </>
   );
 });
