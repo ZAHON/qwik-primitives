@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.0.3
+
+### 🚀 Features
+
+- Add `addEventListenerOnce` utility function.
+
 ## 0.0.2
 
 ### 🚀 Features
