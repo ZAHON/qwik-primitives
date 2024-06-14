@@ -4,4 +4,4 @@
 
 ### 🚀 Features
 
-- Add `Collapsible` component.
+- Add `useControllableState` hook.
