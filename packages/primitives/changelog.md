@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.0.4
+
+### 🚀 Features
+
+- Add `Collapsible` component.
+
 ## 0.0.3
 
 ### 🚀 Features
