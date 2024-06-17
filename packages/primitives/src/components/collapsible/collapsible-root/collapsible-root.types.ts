@@ -1,6 +1,13 @@
-import type { PropsOf, Signal, QRL } from '@builder.io/qwik';
+import type { PropsOf, FunctionComponent, Signal, QRL } from '@builder.io/qwik';
 
 export interface CollapsibleRootProps extends PropsOf<'div'> {
+  /**
+   * Change the default rendered element for the one passed as, merging their props and behavior.
+   *
+   * Read our [Composition](https://github.com/ZAHON/qwik-primitives/blob/main/packages/primitives/docs/composition.md) guide for more details.
+   */
+  as?: FunctionComponent;
+
   /**
    * The open state of the collapsible when it is initially rendered.
    * Use when you do not need to control its open state.

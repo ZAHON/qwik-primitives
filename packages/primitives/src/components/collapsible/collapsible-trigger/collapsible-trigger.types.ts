@@ -1,3 +1,10 @@
-import type { PropsOf } from '@builder.io/qwik';
+import type { PropsOf, FunctionComponent } from '@builder.io/qwik';
 
-export type CollapsibleTriggerProps = PropsOf<'button'>;
+export interface CollapsibleTriggerProps extends PropsOf<'button'> {
+  /**
+   * Change the default rendered element for the one passed as, merging their props and behavior.
+   *
+   * Read our [Composition](https://github.com/ZAHON/qwik-primitives/blob/main/packages/primitives/docs/composition.md) guide for more details.
+   */
+  as?: FunctionComponent;
+}

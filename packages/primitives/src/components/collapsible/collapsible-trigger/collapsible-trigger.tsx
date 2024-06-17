@@ -7,7 +7,7 @@ import { CollapsibleContext } from '../collapsible-context';
  * This component is based on the `button` element.
  */
 export const CollapsibleTrigger = component$<CollapsibleTriggerProps>((props) => {
-  const { onClick$, ...others } = props;
+  const { as, onClick$, ...others } = props;
 
   const { isOpen, disabled, panelId } = useContext(CollapsibleContext);
 
@@ -15,8 +15,10 @@ export const CollapsibleTrigger = component$<CollapsibleTriggerProps>((props) =>
     isOpen.value = !isOpen.value;
   });
 
+  const Component = as || 'button';
+
   return (
-    <button
+    <Component
       type="button"
       disabled={disabled}
       aria-controls={panelId}
@@ -27,6 +29,6 @@ export const CollapsibleTrigger = component$<CollapsibleTriggerProps>((props) =>
       {...others}
     >
       <Slot />
-    </button>
+    </Component>
   );
 });

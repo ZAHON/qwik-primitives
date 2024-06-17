@@ -9,7 +9,7 @@ import { CollapsibleContext } from '../collapsible-context';
  * This component is based on the `div` element.
  */
 export const CollapsibleRoot = component$<CollapsibleRootProps>((props) => {
-  const { defaultOpen, open, onOpenChange$, disabled, ...others } = props;
+  const { as, defaultOpen, open, onOpenChange$, disabled, ...others } = props;
 
   const id = useId();
   const isOpen = useControllableState({ uncontrolledValue: defaultOpen, controlledSignal: open, finalValue: false });
@@ -26,9 +26,11 @@ export const CollapsibleRoot = component$<CollapsibleRootProps>((props) => {
 
   useContextProvider(CollapsibleContext, { isOpen, isPanelHide, panelStatus, panelId, disabled });
 
+  const Component = as || 'div';
+
   return (
-    <div data-state={isOpen.value ? 'open' : 'closed'} data-disabled={disabled ? '' : undefined} {...others}>
+    <Component data-state={isOpen.value ? 'open' : 'closed'} data-disabled={disabled ? '' : undefined} {...others}>
       <Slot />
-    </div>
+    </Component>
   );
 });
