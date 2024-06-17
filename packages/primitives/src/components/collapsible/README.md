@@ -92,12 +92,13 @@ const CollapsibleDemo = component$(() => {
 
 Contains all the parts of a collapsible. This component is based on the `div` element.
 
-| Prop            | Type                           | Default | Description                                                                                                          |
-| --------------- | ------------------------------ | ------- | -------------------------------------------------------------------------------------------------------------------- |
-| `defaultOpen`   | `boolean`                      | `-`     | The open state of the collapsible when it is initially rendered. Use when you do not need to control its open state. |
-| `open`          | `Signal<boolean>`              | `-`     | The controlled open state of the collapsible.                                                                        |
-| `onOpenChange$` | `QRL<(open: boolean) => void>` | `-`     | Event handler called when the open state of the collapsible changes.                                                 |
-| `disabled`      | `boolean`                      | `-`     | When `true`, prevents the user from interacting with the collapsible.                                                |
+| Prop            | Type                           | Default | Description                                                                                                                                                                                                                             |
+| --------------- | ------------------------------ | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `as`            | `FunctionComponent`            | `-`     | Change the default rendered element for the one passed as, merging their props and behavior. Read our [Composition](https://github.com/ZAHON/qwik-primitives/blob/main/packages/primitives/docs/composition.md) guide for more details. |
+| `defaultOpen`   | `boolean`                      | `-`     | The open state of the collapsible when it is initially rendered. Use when you do not need to control its open state.                                                                                                                    |
+| `open`          | `Signal`                       | `-`     | The controlled open state of the collapsible.                                                                                                                                                                                           |
+| `onOpenChange$` | `QRL<(open: boolean) => void>` | `-`     | Event handler called when the open state of the collapsible changes.                                                                                                                                                                    |
+| `disabled`      | `boolean`                      | `-`     | When `true`, prevents the user from interacting with the collapsible.                                                                                                                                                                   |
 
 | Data attribute    | Values                |
 | ----------------- | --------------------- |
@@ -108,6 +109,10 @@ Contains all the parts of a collapsible. This component is based on the `div` el
 
 The button that toggles the collapsible. This component is based on the `button` element.
 
+| Prop | Type                | Default | Description                                                                                                                                                                                                                             |
+| ---- | ------------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `as` | `FunctionComponent` | `-`     | Change the default rendered element for the one passed as, merging their props and behavior. Read our [Composition](https://github.com/ZAHON/qwik-primitives/blob/main/packages/primitives/docs/composition.md) guide for more details. |
+
 | Data attribute    | Values                |
 | ----------------- | --------------------- |
 | `[data-state]`    | `"open" \| "closed"`  |
@@ -117,10 +122,11 @@ The button that toggles the collapsible. This component is based on the `button`
 
 The panel that expands/collapses. This component is based on the `div` element.
 
-| Prop       | Type              | Default | Description                                                                                                                                              |
-| ---------- | ----------------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `onOpen$`  | `QRL<() => void>` | `-`     | Event handler called when the panel is fully open. If you animate the size of the panel when it opens this event handler was call after animation end.   |
-| `onClose$` | `QRL<()=> void>`  | `-`     | Event handler called when the panel is fully close. If you animate the size of the panel when it closes this event handler was call after animation end. |
+| Prop       | Type                | Default | Description                                                                                                                                                                                                                             |
+| ---------- | ------------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `as`       | `FunctionComponent` | `-`     | Change the default rendered element for the one passed as, merging their props and behavior. Read our [Composition](https://github.com/ZAHON/qwik-primitives/blob/main/packages/primitives/docs/composition.md) guide for more details. |
+| `onOpen$`  | `QRL<() => void>`   | `-`     | Event handler called when the panel is fully open. If you animate the size of the panel when it opens this event handler was call after animation end.                                                                                  |
+| `onClose$` | `QRL<() => void>`   | `-`     | Event handler called when the panel is fully close. If you animate the size of the panel when it closes this event handler was call after animation end.                                                                                |
 
 | Data attribute    | Values                |
 | ----------------- | --------------------- |
@@ -130,6 +136,10 @@ The panel that expands/collapses. This component is based on the `div` element.
 ### Content
 
 The component that contains the collapsible content. Must be rendered inside `Collapsible.Panel`. This component is based on the `div` element.
+
+| Prop | Type                | Default | Description                                                                                                                                                                                                                             |
+| ---- | ------------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `as` | `FunctionComponent` | `-`     | Change the default rendered element for the one passed as, merging their props and behavior. Read our [Composition](https://github.com/ZAHON/qwik-primitives/blob/main/packages/primitives/docs/composition.md) guide for more details. |
 
 | Data attribute    | Values                |
 | ----------------- | --------------------- |
