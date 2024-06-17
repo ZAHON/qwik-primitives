@@ -1,8 +1,7 @@
 import type { CollapsiblePanelProps } from './collapsible-panel.types';
 import { component$, useContext, useSignal, useTask$, Slot } from '@builder.io/qwik';
 import { isServer } from '@builder.io/qwik/build';
-import { composeRefs } from '@/utils/compose-refs';
-import { addEventListenerOnce } from '@/utils/add-event-listener-once';
+import { addEventListenerOnce, composeRefs } from '@/utils';
 import { CollapsibleContext } from '../collapsible-context';
 
 /**
@@ -117,7 +116,7 @@ export const CollapsiblePanel = component$<CollapsiblePanelProps>((props) => {
 
   return (
     <Component
-      ref={composeRefs(ref, panelRef)}
+      ref={composeRefs([ref, panelRef])}
       id={panelId}
       hidden={isPanelHide.value}
       data-state={isOpen.value ? 'open' : 'closed'}
