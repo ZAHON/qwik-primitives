@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.0.5
+
+### 🚀 Features
+
+- Add `as` prop to all parts of the `Collapsible` component.
+
 ## 0.0.4
 
 ### 🚀 Features
