@@ -25,7 +25,7 @@ export const CollapsibleTrigger = component$<CollapsibleTriggerProps>((props) =>
       aria-expanded={isOpen.value}
       data-state={isOpen.value ? 'open' : 'closed'}
       data-disabled={disabled ? '' : undefined}
-      onClick$={[handleClick$, onClick$]}
+      onClick$={[onClick$, handleClick$]}
       {...others}
     >
       <Slot />
