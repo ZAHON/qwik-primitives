@@ -12,7 +12,7 @@ export const CollapsibleTrigger = component$<CollapsibleTriggerProps>((props) =>
   const { isOpen, disabled, panelId } = useContext(CollapsibleContext);
 
   const handleClick$ = $(() => {
-    isOpen.value = !isOpen.value;
+    if (!disabled) isOpen.value = !isOpen.value;
   });
 
   const Component = as || 'button';
