@@ -1,4 +1,4 @@
-import type { PropsOf, FunctionComponent, QRL, CSSProperties } from '@builder.io/qwik';
+import type { PropsOf, FunctionComponent, QRL } from '@builder.io/qwik';
 
 export interface CollapsiblePanelProps extends PropsOf<'div'> {
   /**
@@ -19,9 +19,4 @@ export interface CollapsiblePanelProps extends PropsOf<'div'> {
    * If you animate the size of the panel when it closes this event handler was call after animation end.
    */
   onClose$?: QRL<() => void>;
-
-  /**
-   * The inline style for the element.
-   */
-  style?: CSSProperties;
 }

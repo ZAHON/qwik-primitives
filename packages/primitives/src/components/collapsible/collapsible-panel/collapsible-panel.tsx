@@ -1,7 +1,7 @@
 import type { CollapsiblePanelProps } from './collapsible-panel.types';
 import { component$, useContext, useSignal, useTask$, Slot } from '@builder.io/qwik';
 import { isServer } from '@builder.io/qwik/build';
-import { addEventListenerOnce, composeRefs } from '@/utils';
+import { addEventListenerOnce, composeRefs, mergeStyles } from '@/utils';
 import { CollapsibleContext } from '../collapsible-context';
 
 /**
@@ -121,12 +121,14 @@ export const CollapsiblePanel = component$<CollapsiblePanelProps>((props) => {
       hidden={isPanelHide.value}
       data-state={isOpen.value ? 'open' : 'closed'}
       data-disabled={disabled ? '' : undefined}
-      style={{
-        display: 'grid',
-        gridTemplateRows: isOpen.value ? '1fr' : '0fr',
-        animationDuration: cancelFirstAnimation.value ? '0s' : undefined,
-        ...style,
-      }}
+      style={mergeStyles([
+        {
+          display: 'grid',
+          gridTemplateRows: isOpen.value ? '1fr' : '0fr',
+          animationDuration: cancelFirstAnimation.value ? '0s' : undefined,
+        },
+        style,
+      ])}
       {...others}
     >
       <Slot />
