@@ -2,7 +2,7 @@
 
 ## 0.0.6
 
-🚨 Breaking Changes
+### 🚨 Breaking Changes
 
 - Change `composeRefs` utility function API. From now on, the function takes an array as an argument.
 
@@ -10,7 +10,7 @@
 
 - Add `mergeStyles` utility function. This function allow merge array of style into one style object.
 
-🐞 Bug Fixes
+### 🐞 Bug Fixes
 
 - Change event handlers order in `onClick$` attribute inside `Collapsible.Trigger` component implementation. From now event handlers passed to the component will be called first.
 
