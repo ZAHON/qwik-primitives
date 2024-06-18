@@ -1,5 +1,22 @@
 # Changelog
 
+## 0.0.6
+
+🚨 Breaking Changes
+
+- Change `composeRefs` utility function API. From now on, the function takes an array as an argument.
+
+### 🚀 Features
+
+- Add `mergeStyles` utility function. This function allow merge array of style into one style object.
+
+🐞 Bug Fixes
+
+- Change event handlers order in `onClick$` attribute inside `Collapsible.Trigger` component implementation. From now event handlers passed to the component will be called first.
+
+- Add a condition in the `handleClick$` event handler of the `Collapsible.Trigger` component to avoid calling the code when the `Collapsible` component is `disabled`. This change prevents expansion and collapse
+  panel when the `Collapsible` component is uncontrolled and the default rendered element of the `Collapsible.Trigger` component has been changed using `as` prop.
+
 ## 0.0.5
 
 ### 🚀 Features
