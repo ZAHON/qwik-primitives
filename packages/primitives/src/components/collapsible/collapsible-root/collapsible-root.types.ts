@@ -1,4 +1,4 @@
-import type { PropsOf, FunctionComponent, Signal, QRL } from '@builder.io/qwik';
+import type { PropsOf, FunctionComponent, Signal, QRL, CSSProperties } from '@builder.io/qwik';
 
 export interface CollapsibleRootProps extends PropsOf<'div'> {
   /**
@@ -28,4 +28,9 @@ export interface CollapsibleRootProps extends PropsOf<'div'> {
    * When `true`, prevents the user from interacting with the collapsible.
    */
   disabled?: boolean;
+
+  /**
+   * The inline style for the element.
+   */
+  style?: CSSProperties;
 }

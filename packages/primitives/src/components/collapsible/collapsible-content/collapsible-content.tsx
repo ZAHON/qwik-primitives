@@ -1,6 +1,5 @@
 import type { CollapsibleContentProps } from './collapsible-content.types';
 import { component$, useContext, Slot } from '@builder.io/qwik';
-import { mergeStyles } from '@/utils';
 import { CollapsibleContext } from '../collapsible-context';
 
 /**
@@ -19,7 +18,7 @@ export const CollapsibleContent = component$<CollapsibleContentProps>((props) =>
     <Component
       data-state={isOpen.value ? 'open' : 'closed'}
       data-disabled={disabled ? '' : undefined}
-      style={mergeStyles([{ overflow: panelStatus.value === 'open' ? undefined : 'hidden' }, style])}
+      style={{ overflow: panelStatus.value === 'open' ? undefined : 'hidden', ...style }}
       {...others}
     >
       {!isPanelHide.value && <Slot />}
