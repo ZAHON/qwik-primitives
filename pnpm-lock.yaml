@@ -107,10 +107,6 @@ importers:
         version: 4.3.2(typescript@5.4.5)(vite@5.2.12(@types/node@20.13.0))
 
   packages/primitives:
-    dependencies:
-      style-to-object:
-        specifier: ^1.0.6
-        version: 1.0.6
     devDependencies:
       '@builder.io/qwik':
         specifier: 1.5.5
@@ -189,7 +185,7 @@ importers:
         version: 4.0.1(@types/react-dom@18.2.19)(@types/react@18.2.61)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       storybook-framework-qwik:
         specifier: ^0.4.0
-        version: 0.4.0(@builder.io/qwik@1.5.5(@types/node@20.13.0)(undici@6.18.2))(@types/node@20.13.0)(prettier@3.3.0)(typescript@5.4.5)(vite@5.2.12(@types/node@20.13.0))
+        version: 0.4.0(@builder.io/qwik@1.5.5(@types/node@20.13.0)(undici@6.18.2))(@types/node@20.13.0)(prettier@3.3.0)(rollup@4.18.0)(typescript@5.4.5)(vite@5.2.12(@types/node@20.13.0))
       typescript:
         specifier: 5.4.5
         version: 5.4.5
@@ -7079,7 +7075,7 @@ snapshots:
       '@babel/helper-validator-identifier': 7.24.6
       to-fast-properties: 2.0.0
 
-  '@builder.io/qwik-city@1.4.1(@types/node@20.13.0)':
+  '@builder.io/qwik-city@1.4.1(@types/node@20.13.0)(rollup@4.18.0)':
     dependencies:
       '@mdx-js/mdx': 2.3.0
       '@types/mdx': 2.0.13
@@ -13060,7 +13056,7 @@ snapshots:
       - react
       - react-dom
 
-  storybook-framework-qwik@0.4.0(@builder.io/qwik@1.5.5(@types/node@20.13.0)(undici@6.18.2))(@types/node@20.13.0)(prettier@3.3.0)(typescript@5.4.5)(vite@5.2.12(@types/node@20.13.0)):
+  storybook-framework-qwik@0.4.0(@builder.io/qwik@1.5.5(@types/node@20.13.0)(undici@6.18.2))(@types/node@20.13.0)(prettier@3.3.0)(rollup@4.18.0)(typescript@5.4.5)(vite@5.2.12(@types/node@20.13.0)):
     dependencies:
       '@builder.io/qwik': 1.5.5(@types/node@20.13.0)(undici@6.18.2)
       '@storybook/builder-vite': 8.1.5(prettier@3.3.0)(typescript@5.4.5)(vite@5.2.12(@types/node@20.13.0))
@@ -13068,7 +13064,7 @@ snapshots:
       magic-string: 0.30.10
       react-docgen-typescript: 2.2.2(typescript@5.4.5)
     optionalDependencies:
-      '@builder.io/qwik-city': 1.4.1(@types/node@20.13.0)
+      '@builder.io/qwik-city': 1.4.1(@types/node@20.13.0)(rollup@4.18.0)
     transitivePeerDependencies:
       - '@preact/preset-vite'
       - '@types/node'
