@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.0.7
+
+### 🚨 Breaking Changes
+
+- Remove `mergeStyles` utility function.
+
+### 🚀 Features
+
+- Add `style` prop with type `CSSProperties` to all parts of the `Collapsible` component.
+
 ## 0.0.6
 
 ### 🚨 Breaking Changes
