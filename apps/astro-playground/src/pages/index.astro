@@ -2,6 +2,8 @@
 import { BaseLayout } from '@/layouts';
 import { Link, List } from '@/components';
 
+const componentsLinks = [{ slug: 'collapsible', label: 'Collapsible' }];
+
 const title = 'Qwik Primitives Astro Playground';
 const description = 'The astro playground for Qwik Primitives.';
 ---
@@ -10,9 +12,18 @@ const description = 'The astro playground for Qwik Primitives.';
   <h1>Qwik Primitives Astro Playground</h1>
   <p>The astro playground for Qwik Primitives.</p>
 
+  <h2>Components</h2>
   <List.Root>
-    <List.Item>
-      <Link href="/collapsible">Collapsible</Link>
-    </List.Item>
+    {
+      componentsLinks.map(({ slug, label }) => (
+        <List.Item>
+          <Link href={`/components/${slug}`}>{label}</Link>
+        </List.Item>
+      ))
+    }
   </List.Root>
+
+  <h2>Hooks</h2>
+
+  <h2>Utilities</h2>
 </BaseLayout>
