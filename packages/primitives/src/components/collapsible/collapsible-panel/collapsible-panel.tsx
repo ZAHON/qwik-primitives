@@ -1,7 +1,7 @@
 import type { CollapsiblePanelProps } from './collapsible-panel.types';
 import { component$, useContext, useSignal, useTask$, Slot } from '@builder.io/qwik';
 import { isServer } from '@builder.io/qwik/build';
-import { addEventListenerOnce, composeRefs } from '@/utils';
+import { addEventListenerOnce, composeRefs } from '@/utilities';
 import { CollapsibleContext } from '../collapsible-context';
 
 /**
