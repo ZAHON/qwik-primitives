@@ -153,37 +153,13 @@ The component that contains the collapsible content. Must be rendered inside `Co
 Use the `grid-template-rows` CSS property with `0fr` or `1fr` value to animate the size of the panel when it opens/closes. Here's a demo:
 
 ```tsx
+// index.tsx
 import { component$, useStyles$ } from '@builder.io/qwik';
 import { Collapsible } from 'qwik-primitives';
+import styles from './styles.css?inline';
 
 const CollapsibleDemo = component$(() => {
-  useStyles$(`
-		.collapsible-panel[data-state='open'] {
-			animation: collapsible-panel-down 300ms ease-out;
-		}
-		
-		.collapsible-panel[data-state='closed'] {
-			animation: collapsible-panel-up 300ms ease-out;
-		}
-		
-		@keyframes collapsible-panel-down {
-			0% {
-				grid-template-rows: 0fr;
-			}
-			100% {
-				grid-template-rows: 1fr;
-			}
-		}
-		
-		@keyframes collapsible-panel-up {
-			0% {
-				grid-template-rows: 1fr;
-			}
-			100% {
-				grid-template-rows: 0fr;
-			}
-		}
-	`);
+  useStyles$(styles);
 
   return (
     <Collapsible.Root>
@@ -198,6 +174,35 @@ const CollapsibleDemo = component$(() => {
     </Collapsible.Root>
   );
 });
+```
+
+```css
+/* styles.css */
+.collapsible-panel[data-state='open'] {
+  animation: collapsible-panel-down 300ms ease-out;
+}
+
+.collapsible-panel[data-state='closed'] {
+  animation: collapsible-panel-up 300ms ease-out;
+}
+
+@keyframes collapsible-panel-down {
+  0% {
+    grid-template-rows: 0fr;
+  }
+  100% {
+    grid-template-rows: 1fr;
+  }
+}
+
+@keyframes collapsible-panel-up {
+  0% {
+    grid-template-rows: 1fr;
+  }
+  100% {
+    grid-template-rows: 0fr;
+  }
+}
 ```
 
 ## Accessibility
