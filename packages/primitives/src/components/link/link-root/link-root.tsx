@@ -6,7 +6,7 @@ import { component$, sync$, Slot } from '@builder.io/qwik';
  * This component is based on the `a` element.
  */
 export const LinkRoot = component$<LinkRootProps>((props) => {
-  const { as, disabled, external, onClick$, ...others } = props;
+  const { as, disabled, external, onClick$, style, ...others } = props;
 
   const handleClickSync$ = sync$((event: MouseEvent, currentTarget: HTMLElement) => {
     const disabled = currentTarget.getAttribute('aria-disabled') === 'true';
@@ -23,6 +23,7 @@ export const LinkRoot = component$<LinkRootProps>((props) => {
       data-disabled={disabled ? '' : undefined}
       data-external={external ? '' : undefined}
       onClick$={[onClick$, handleClickSync$]}
+      style={{ pointerEvents: disabled ? 'none' : undefined, outline: disabled ? 'none' : undefined, ...style }}
       {...others}
     >
       <Slot />
