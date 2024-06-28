@@ -2,7 +2,10 @@ import type { DocumentHead } from '@builder.io/qwik-city';
 import { component$ } from '@builder.io/qwik';
 import { Link, List } from '@/components';
 
-const componentsLinks = [{ slug: 'collapsible', label: 'Collapsible' }];
+const componentsLinks = [
+  { slug: 'collapsible', label: 'Collapsible' },
+  { slug: 'link', label: 'Link' },
+];
 
 export default component$(() => {
   return (
