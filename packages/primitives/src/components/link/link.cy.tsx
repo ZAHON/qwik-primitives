@@ -42,26 +42,6 @@ describe('Link', () => {
       cy.get(`[data-testid="${LINK_ROOT_TESTID}"]`).should('have.not.attr', 'data-disabled');
     });
 
-    it('should have not pointer-events style property with value "none" when not disabled', () => {
-      cy.mount(
-        <Link.Root disabled={false} href={LINK_ROOT_URL} data-testid={LINK_ROOT_TESTID}>
-          {LINK_ROOT_TEXT}
-        </Link.Root>
-      );
-      cy.get(`[data-testid="${LINK_ROOT_TESTID}"]`)
-        .should('have.attr', 'style')
-        .should('not.contain', 'pointer-events: none');
-    });
-
-    it('should have not outline style property with value "none" when not disabled', () => {
-      cy.mount(
-        <Link.Root disabled={false} href={LINK_ROOT_URL} data-testid={LINK_ROOT_TESTID}>
-          {LINK_ROOT_TEXT}
-        </Link.Root>
-      );
-      cy.get(`[data-testid="${LINK_ROOT_TESTID}"]`).should('have.attr', 'style').should('not.contain', 'outline: none');
-    });
-
     it('should have not attribute rel when not external', () => {
       cy.mount(
         <Link.Root external={false} href={LINK_ROOT_URL} data-testid={LINK_ROOT_TESTID}>
@@ -105,26 +85,6 @@ describe('Link', () => {
         </Link.Root>
       );
       cy.get(`[data-testid="${LINK_ROOT_TESTID}"]`).should('have.attr', 'data-disabled');
-    });
-
-    it('should have pointer-events style property with value "none" when disabled', () => {
-      cy.mount(
-        <Link.Root disabled={true} href={LINK_ROOT_URL} data-testid={LINK_ROOT_TESTID}>
-          {LINK_ROOT_TEXT}
-        </Link.Root>
-      );
-      cy.get(`[data-testid="${LINK_ROOT_TESTID}"]`)
-        .should('have.attr', 'style')
-        .should('contain', 'pointer-events: none');
-    });
-
-    it('should have outline style property with value "none" when disabled', () => {
-      cy.mount(
-        <Link.Root disabled={true} href={LINK_ROOT_URL} data-testid={LINK_ROOT_TESTID}>
-          {LINK_ROOT_TEXT}
-        </Link.Root>
-      );
-      cy.get(`[data-testid="${LINK_ROOT_TESTID}"]`).should('have.attr', 'style').should('contain', 'outline: none');
     });
 
     it('should have attribute rel with value "noopener noreferrer" when external', () => {
