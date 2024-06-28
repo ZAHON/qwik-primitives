@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.0.8
+
+### 🚀 Features
+
+- Add `Link` component.
+
 ## 0.0.7
 
 ### 🚨 Breaking Changes
