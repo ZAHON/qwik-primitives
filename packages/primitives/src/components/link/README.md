@@ -75,7 +75,7 @@ const LinkDemo = component$(() => {
 });
 ```
 
-## External
+### External
 
 Use the `external` prop if you want the link to open in a new tab.
 
