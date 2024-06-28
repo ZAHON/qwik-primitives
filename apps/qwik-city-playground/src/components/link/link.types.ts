@@ -1,14 +1,14 @@
-import type { LinkProps as QwikCityLinkProps } from '@builder.io/qwik-city';
+import type { PropsOf } from '@builder.io/qwik';
 
-export interface LinkProps extends QwikCityLinkProps {
+export interface LinkProps extends PropsOf<'a'> {
+  /**
+   * If you `true`, the link will have the `target="_blank"` and `rel="noopener noreferrer"` attributes.
+   * @default false
+   */
+  external?: boolean;
+
   /**
    * The URL that the hyperlink points to.
    */
   href: string;
-
-  /**
-   * Whether Qwik should prefetch and cache the target page of this `Link`, this includes invoking any `routeLoader$`, `onGet`, etc.
-   * @default false
-   */
-  prefetch?: boolean;
 }

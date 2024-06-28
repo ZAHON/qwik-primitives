@@ -3,10 +3,14 @@ import { component$, Slot } from '@builder.io/qwik';
 import { Link as QwikCityLink } from '@builder.io/qwik-city';
 
 export const Link = component$<LinkProps>((props) => {
-  const { prefetch = false, ...others } = props;
+  const { external = false, ...others } = props;
 
   return (
-    <QwikCityLink prefetch={prefetch} {...others}>
+    <QwikCityLink
+      rel={external ? 'noopener noreferrer' : undefined}
+      target={external ? '_blank' : undefined}
+      {...others}
+    >
       <Slot />
     </QwikCityLink>
   );
