@@ -1,0 +1,193 @@
+# Breadcrumbs
+
+Show hierarchy and navigational context for a user`s location within an application.
+
+## Features
+
+- Support for disabled breadcrumb links.
+
+## Import
+
+```tsx
+import { Breadcrumbs } from 'qwik-primitives';
+```
+
+## Anatomy
+
+Import the component and piece the parts together.
+
+```tsx
+import { component$ } from '@builder.io/qwik';
+import { Breadcrumbs } from 'qwik-primitives';
+
+const BreadcrumbsDemo = component$(() => {
+  return (
+    <Breadcrumbs.Root>
+      <Breadcrumbs.List>
+        <Breadcrumbs.Item>
+          <Breadcrumbs.Link />
+          <Breadcrumbs.Separator />
+        </Breadcrumbs.Item>
+        <Breadcrumbs.Item>
+          <Breadcrumbs.Page />
+        </Breadcrumbs.Item>
+      </Breadcrumbs.List>
+    </Breadcrumbs.Root>
+  );
+});
+```
+
+## Usage
+
+```tsx
+import { component$ } from '@builder.io/qwik';
+import { Breadcrumbs } from 'qwik-primitives';
+
+const BreadcrumbsDemo = component$(() => {
+  return (
+    <Breadcrumbs.Root>
+      <Breadcrumbs.List>
+        <Breadcrumbs.Item>
+          <Breadcrumbs.Link href="/">Home</Breadcrumbs.Link>
+          <Breadcrumbs.Separator>{'>'}</Breadcrumbs.Separator>
+        </Breadcrumbs.Item>
+        <Breadcrumbs.Item>
+          <Breadcrumbs.Link href="/components">Components</Breadcrumbs.Link>
+          <Breadcrumbs.Separator>{'>'}</Breadcrumbs.Separator>
+        </Breadcrumbs.Item>
+        <Breadcrumbs.Item>
+          <Breadcrumbs.Page>Breadcrumbs</Breadcrumbs.Page>
+        </Breadcrumbs.Item>
+      </Breadcrumbs.List>
+    </Breadcrumbs.Root>
+  );
+});
+```
+
+## API Reference
+
+### Root
+
+Contains all the parts of a breadcrumbs. This component is based on the `nav` element.
+
+| Prop         | Type                | Default         | Description                                                                                                                                                                                                                             |
+| ------------ | ------------------- | --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `as`         | `FunctionComponent` | `-`             | Change the default rendered element for the one passed as, merging their props and behavior. Read our [Composition](https://github.com/ZAHON/qwik-primitives/blob/main/packages/primitives/docs/composition.md) guide for more details. |
+| `aria-label` | `string`            | `"Breadcrumbs"` | The label of the breadcrumbs.                                                                                                                                                                                                           |
+| `disabled`   | `boolean`           | `-`             | Whether the breadcrumbs are disabled.                                                                                                                                                                                                   |
+
+### List
+
+Contains the breadcrumbs items. his component is based on the `ol` element.
+
+| Prop | Type                | Default | Description                                                                                                                                                                                                                             |
+| ---- | ------------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `as` | `FunctionComponent` | `-`     | Change the default rendered element for the one passed as, merging their props and behavior. Read our [Composition](https://github.com/ZAHON/qwik-primitives/blob/main/packages/primitives/docs/composition.md) guide for more details. |
+
+### Item
+
+A breadcrumbs item. This component is based on the `li` element.
+
+| Prop | Type                | Default | Description                                                                                                                                                                                                                             |
+| ---- | ------------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `as` | `FunctionComponent` | `-`     | Change the default rendered element for the one passed as, merging their props and behavior. Read our [Composition](https://github.com/ZAHON/qwik-primitives/blob/main/packages/primitives/docs/composition.md) guide for more details. |
+
+### Link
+
+A breadcrumbs link. Must be rendered inside `Breadcrumbs.Item`. his component is based on the `a` element.
+
+| Prop       | Type                | Default | Description                                                                                                                                                                                                                             |
+| ---------- | ------------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `as`       | `FunctionComponent` | `-`     | Change the default rendered element for the one passed as, merging their props and behavior. Read our [Composition](https://github.com/ZAHON/qwik-primitives/blob/main/packages/primitives/docs/composition.md) guide for more details. |
+| `disabled` | `boolean`           | `-`     | Whether the link is disabled. Native navigation will be disabled, and the link will be exposed as disabled to assistive technology.                                                                                                     |
+| `href`     | `string`            | `-`     | A URL to link to.                                                                                                                                                                                                                       |
+
+| Data attribute    | Values                |
+| ----------------- | --------------------- |
+| `[data-disabled]` | Present when disabled |
+
+### Page
+
+A component that represents the current page. Must be rendered inside `Breadcrumbs.Item`. This component is based on the `span` element.
+
+| Prop | Type                | Default | Description                                                                                                                                                                                                                             |
+| ---- | ------------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `as` | `FunctionComponent` | `-`     | Change the default rendered element for the one passed as, merging their props and behavior. Read our [Composition](https://github.com/ZAHON/qwik-primitives/blob/main/packages/primitives/docs/composition.md) guide for more details. |
+
+### Separator
+
+Used to visually separate breadcrumbs items. Must be rendered inside `Breadcrumbs.Item`. This component is based on the `span` element.
+
+| Prop | Type                | Default | Description                                                                                                                                                                                                                             |
+| ---- | ------------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `as` | `FunctionComponent` | `-`     | Change the default rendered element for the one passed as, merging their props and behavior. Read our [Composition](https://github.com/ZAHON/qwik-primitives/blob/main/packages/primitives/docs/composition.md) guide for more details. |
+
+## Examples
+
+### Disabled
+
+Use the `disabled` prop on `Breadcrumbs.Root` component to disable all links while keeping it accessible for screen readers.
+
+```tsx
+import { component$ } from '@builder.io/qwik';
+import { Breadcrumbs } from 'qwik-primitives';
+
+const BreadcrumbsDemo = component$(() => {
+  return (
+    <Breadcrumbs.Root disabled={true}>
+      <Breadcrumbs.List>
+        <Breadcrumbs.Item>
+          <Breadcrumbs.Link href="/">Home</Breadcrumbs.Link>
+          <Breadcrumbs.Separator>{'>'}</Breadcrumbs.Separator>
+        </Breadcrumbs.Item>
+        <Breadcrumbs.Item>
+          <Breadcrumbs.Link href="/components">Components</Breadcrumbs.Link>
+          <Breadcrumbs.Separator>{'>'}</Breadcrumbs.Separator>
+        </Breadcrumbs.Item>
+        <Breadcrumbs.Item>
+          <Breadcrumbs.Page>Breadcrumbs</Breadcrumbs.Page>
+        </Breadcrumbs.Item>
+      </Breadcrumbs.List>
+    </Breadcrumbs.Root>
+  );
+});
+```
+
+### Disabled link
+
+Use the `disabled` prop on `Breadcrumbs.Link` component to disable a link while keeping it accessible for screen readers.
+
+```tsx
+import { component$ } from '@builder.io/qwik';
+import { Breadcrumbs } from 'qwik-primitives';
+
+const BreadcrumbsDemo = component$(() => {
+  return (
+    <Breadcrumbs.Root>
+      <Breadcrumbs.List>
+        <Breadcrumbs.Item>
+          <Breadcrumbs.Link disabled={true} href="/">
+            Home
+          </Breadcrumbs.Link>
+          <Breadcrumbs.Separator>{'>'}</Breadcrumbs.Separator>
+        </Breadcrumbs.Item>
+        <Breadcrumbs.Item>
+          <Breadcrumbs.Link href="/components">Components</Breadcrumbs.Link>
+          <Breadcrumbs.Separator>{'>'}</Breadcrumbs.Separator>
+        </Breadcrumbs.Item>
+        <Breadcrumbs.Item>
+          <Breadcrumbs.Page>Breadcrumbs</Breadcrumbs.Page>
+        </Breadcrumbs.Item>
+      </Breadcrumbs.List>
+    </Breadcrumbs.Root>
+  );
+});
+```
+
+## Accessibility
+
+### Keyboard Interactions
+
+| Key     | Description         |
+| ------- | ------------------- |
+| `Enter` | Activates the link. |
