@@ -3,6 +3,7 @@ import { component$ } from '@builder.io/qwik';
 import { Link, List } from '@/components';
 
 const componentsLinks = [
+  { slug: 'breadcrumbs', label: 'Breadcrumbs' },
   { slug: 'collapsible', label: 'Collapsible' },
   { slug: 'link', label: 'Link' },
 ];
