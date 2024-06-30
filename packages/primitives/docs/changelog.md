@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.0.9
+
+### 🚀 Features
+
+- Add `Breadcrumbs` component.
+
 ## 0.0.8
 
 ### 🚀 Features
