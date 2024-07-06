@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.0.10
+
+### 🚀 Features
+
+- Add `Primitive` component.
+
 ## 0.0.9
 
 ### 🚀 Features
