@@ -1,3 +1,4 @@
+import { Primitive } from '@/components';
 import * as Breadcrumbs from '.';
 
 const BREADCRUMBS_ROOT_TESTID = 'BREADCRUMBS_ROOT_TESTID';
@@ -23,6 +24,16 @@ describe('Breadcrumbs', () => {
     it('should be <nav> element', () => {
       cy.mount(<Breadcrumbs.Root data-testid={BREADCRUMBS_ROOT_TESTID}>{BREADCRUMBS_ROOT_TEXT}</Breadcrumbs.Root>);
       cy.get(`[data-testid="${BREADCRUMBS_ROOT_TESTID}"]`).should('have.prop', 'tagName', 'NAV');
+    });
+
+    it('should be element provided via as prop', () => {
+      cy.mount(
+        <Breadcrumbs.Root as={Primitive.div} data-testid={BREADCRUMBS_ROOT_TESTID}>
+          {BREADCRUMBS_ROOT_TEXT}
+        </Breadcrumbs.Root>
+      );
+      cy.get(`[data-testid="${BREADCRUMBS_ROOT_TESTID}"]`).should('have.prop', 'tagName').should('not.eq', 'NAV');
+      cy.get(`[data-testid="${BREADCRUMBS_ROOT_TESTID}"]`).should('have.prop', 'tagName').should('eq', 'DIV');
     });
 
     it('should have attribute aria-label with value "Breadcrumbs"', () => {
@@ -51,6 +62,18 @@ describe('Breadcrumbs', () => {
       );
       cy.get(`[data-testid="${BREADCRUMBS_LIST_TESTID}"]`).should('have.prop', 'tagName', 'OL');
     });
+
+    it('should be element provided via as prop', () => {
+      cy.mount(
+        <Breadcrumbs.Root>
+          <Breadcrumbs.List as={Primitive.div} data-testid={BREADCRUMBS_LIST_TESTID}>
+            {BREADCRUMBS_LIST_TEXT}
+          </Breadcrumbs.List>
+        </Breadcrumbs.Root>
+      );
+      cy.get(`[data-testid="${BREADCRUMBS_LIST_TESTID}"]`).should('have.prop', 'tagName').should('not.eq', 'OL');
+      cy.get(`[data-testid="${BREADCRUMBS_LIST_TESTID}"]`).should('have.prop', 'tagName').should('eq', 'DIV');
+    });
   });
 
   describe('Item', () => {
@@ -63,6 +86,20 @@ describe('Breadcrumbs', () => {
         </Breadcrumbs.Root>
       );
       cy.get(`[data-testid="${BREADCRUMBS_ITEM_TESTID}"]`).should('have.prop', 'tagName', 'LI');
+    });
+
+    it('should be element provided via as prop', () => {
+      cy.mount(
+        <Breadcrumbs.Root>
+          <Breadcrumbs.List>
+            <Breadcrumbs.Item as={Primitive.div} data-testid={BREADCRUMBS_ITEM_TESTID}>
+              {BREADCRUMBS_ITEM_TEXT}
+            </Breadcrumbs.Item>
+          </Breadcrumbs.List>
+        </Breadcrumbs.Root>
+      );
+      cy.get(`[data-testid="${BREADCRUMBS_ITEM_TESTID}"]`).should('have.prop', 'tagName').should('not.eq', 'LI');
+      cy.get(`[data-testid="${BREADCRUMBS_ITEM_TESTID}"]`).should('have.prop', 'tagName').should('eq', 'DIV');
     });
   });
 
@@ -78,6 +115,22 @@ describe('Breadcrumbs', () => {
         </Breadcrumbs.Root>
       );
       cy.get(`[data-testid="${BREADCRUMBS_LINK_TESTID}"]`).should('have.prop', 'tagName', 'A');
+    });
+
+    it('should be element provided via as prop', () => {
+      cy.mount(
+        <Breadcrumbs.Root>
+          <Breadcrumbs.List>
+            <Breadcrumbs.Item>
+              <Breadcrumbs.Link as={Primitive.div} data-testid={BREADCRUMBS_LINK_TESTID}>
+                {BREADCRUMBS_LINK_TEXT}
+              </Breadcrumbs.Link>
+            </Breadcrumbs.Item>
+          </Breadcrumbs.List>
+        </Breadcrumbs.Root>
+      );
+      cy.get(`[data-testid="${BREADCRUMBS_LINK_TESTID}"]`).should('have.prop', 'tagName').should('not.eq', 'A');
+      cy.get(`[data-testid="${BREADCRUMBS_LINK_TESTID}"]`).should('have.prop', 'tagName').should('eq', 'DIV');
     });
 
     it('should have not attribute aria-disabled when not disabled', () => {
@@ -267,6 +320,22 @@ describe('Breadcrumbs', () => {
       cy.get(`[data-testid="${BREADCRUMBS_PAGE_TESTID}"]`).should('have.prop', 'tagName', 'SPAN');
     });
 
+    it('should be element provided via as prop', () => {
+      cy.mount(
+        <Breadcrumbs.Root>
+          <Breadcrumbs.List>
+            <Breadcrumbs.Item>
+              <Breadcrumbs.Page as={Primitive.div} data-testid={BREADCRUMBS_PAGE_TESTID}>
+                {BREADCRUMBS_PAGE_TEXT}
+              </Breadcrumbs.Page>
+            </Breadcrumbs.Item>
+          </Breadcrumbs.List>
+        </Breadcrumbs.Root>
+      );
+      cy.get(`[data-testid="${BREADCRUMBS_PAGE_TESTID}"]`).should('have.prop', 'tagName').should('not.eq', 'SPAN');
+      cy.get(`[data-testid="${BREADCRUMBS_PAGE_TESTID}"]`).should('have.prop', 'tagName').should('eq', 'DIV');
+    });
+
     it('should have attribute role with value "link"', () => {
       cy.mount(
         <Breadcrumbs.Root>
@@ -321,6 +390,22 @@ describe('Breadcrumbs', () => {
         </Breadcrumbs.Root>
       );
       cy.get(`[data-testid="${BREADCRUMBS_SEPARATOR_TESTID}"]`).should('have.prop', 'tagName', 'SPAN');
+    });
+
+    it('should be element provided via as prop', () => {
+      cy.mount(
+        <Breadcrumbs.Root>
+          <Breadcrumbs.List>
+            <Breadcrumbs.Item>
+              <Breadcrumbs.Separator as={Primitive.div} data-testid={BREADCRUMBS_SEPARATOR_TESTID}>
+                {BREADCRUMBS_SEPARATOR_TEXT}
+              </Breadcrumbs.Separator>
+            </Breadcrumbs.Item>
+          </Breadcrumbs.List>
+        </Breadcrumbs.Root>
+      );
+      cy.get(`[data-testid="${BREADCRUMBS_SEPARATOR_TESTID}"]`).should('have.prop', 'tagName').should('not.eq', 'SPAN');
+      cy.get(`[data-testid="${BREADCRUMBS_SEPARATOR_TESTID}"]`).should('have.prop', 'tagName').should('eq', 'DIV');
     });
 
     it('should have attribute role with value "presentation"', () => {
