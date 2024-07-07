@@ -75,22 +75,25 @@ Contains all the parts of a breadcrumbs. This component is based on the `nav` el
 | `as`         | `FunctionComponent` | `-`             | Change the default rendered element for the one passed as, merging their props and behavior. Read our [Composition](https://github.com/ZAHON/qwik-primitives/blob/main/packages/primitives/docs/composition.md) guide for more details. |
 | `aria-label` | `string`            | `"Breadcrumbs"` | The label of the breadcrumbs.                                                                                                                                                                                                           |
 | `disabled`   | `boolean`           | `-`             | Whether the breadcrumbs are disabled.                                                                                                                                                                                                   |
+| `style`      | `CSSProperties`     | `-`             | The inline style for the element.                                                                                                                                                                                                       |
 
 ### List
 
 Contains the breadcrumbs items. his component is based on the `ol` element.
 
-| Prop | Type                | Default | Description                                                                                                                                                                                                                             |
-| ---- | ------------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `as` | `FunctionComponent` | `-`     | Change the default rendered element for the one passed as, merging their props and behavior. Read our [Composition](https://github.com/ZAHON/qwik-primitives/blob/main/packages/primitives/docs/composition.md) guide for more details. |
+| Prop    | Type                | Default | Description                                                                                                                                                                                                                             |
+| ------- | ------------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `as`    | `FunctionComponent` | `-`     | Change the default rendered element for the one passed as, merging their props and behavior. Read our [Composition](https://github.com/ZAHON/qwik-primitives/blob/main/packages/primitives/docs/composition.md) guide for more details. |
+| `style` | `CSSProperties`     | `-`     | The inline style for the element.                                                                                                                                                                                                       |
 
 ### Item
 
 A breadcrumbs item. This component is based on the `li` element.
 
-| Prop | Type                | Default | Description                                                                                                                                                                                                                             |
-| ---- | ------------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `as` | `FunctionComponent` | `-`     | Change the default rendered element for the one passed as, merging their props and behavior. Read our [Composition](https://github.com/ZAHON/qwik-primitives/blob/main/packages/primitives/docs/composition.md) guide for more details. |
+| Prop    | Type                | Default | Description                                                                                                                                                                                                                             |
+| ------- | ------------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `as`    | `FunctionComponent` | `-`     | Change the default rendered element for the one passed as, merging their props and behavior. Read our [Composition](https://github.com/ZAHON/qwik-primitives/blob/main/packages/primitives/docs/composition.md) guide for more details. |
+| `style` | `CSSProperties`     | `-`     | The inline style for the element.                                                                                                                                                                                                       |
 
 ### Link
 
@@ -101,6 +104,7 @@ A breadcrumbs link. Must be rendered inside `Breadcrumbs.Item`. his component is
 | `as`       | `FunctionComponent` | `-`     | Change the default rendered element for the one passed as, merging their props and behavior. Read our [Composition](https://github.com/ZAHON/qwik-primitives/blob/main/packages/primitives/docs/composition.md) guide for more details. |
 | `disabled` | `boolean`           | `-`     | Whether the link is disabled. Native navigation will be disabled, and the link will be exposed as disabled to assistive technology.                                                                                                     |
 | `href`     | `string`            | `-`     | A URL to link to.                                                                                                                                                                                                                       |
+| `style`    | `CSSProperties`     | `-`     | The inline style for the element.                                                                                                                                                                                                       |
 
 | Data attribute    | Values                |
 | ----------------- | --------------------- |
@@ -110,17 +114,19 @@ A breadcrumbs link. Must be rendered inside `Breadcrumbs.Item`. his component is
 
 A component that represents the current page. Must be rendered inside `Breadcrumbs.Item`. This component is based on the `span` element.
 
-| Prop | Type                | Default | Description                                                                                                                                                                                                                             |
-| ---- | ------------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `as` | `FunctionComponent` | `-`     | Change the default rendered element for the one passed as, merging their props and behavior. Read our [Composition](https://github.com/ZAHON/qwik-primitives/blob/main/packages/primitives/docs/composition.md) guide for more details. |
+| Prop    | Type                | Default | Description                                                                                                                                                                                                                             |
+| ------- | ------------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `as`    | `FunctionComponent` | `-`     | Change the default rendered element for the one passed as, merging their props and behavior. Read our [Composition](https://github.com/ZAHON/qwik-primitives/blob/main/packages/primitives/docs/composition.md) guide for more details. |
+| `style` | `CSSProperties`     | `-`     | The inline style for the element.                                                                                                                                                                                                       |
 
 ### Separator
 
 Used to visually separate breadcrumbs items. Must be rendered inside `Breadcrumbs.Item`. This component is based on the `span` element.
 
-| Prop | Type                | Default | Description                                                                                                                                                                                                                             |
-| ---- | ------------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `as` | `FunctionComponent` | `-`     | Change the default rendered element for the one passed as, merging their props and behavior. Read our [Composition](https://github.com/ZAHON/qwik-primitives/blob/main/packages/primitives/docs/composition.md) guide for more details. |
+| Prop    | Type                | Default | Description                                                                                                                                                                                                                             |
+| ------- | ------------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `as`    | `FunctionComponent` | `-`     | Change the default rendered element for the one passed as, merging their props and behavior. Read our [Composition](https://github.com/ZAHON/qwik-primitives/blob/main/packages/primitives/docs/composition.md) guide for more details. |
+| `style` | `CSSProperties`     | `-`     | The inline style for the element.                                                                                                                                                                                                       |
 
 ## Examples
 
