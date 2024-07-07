@@ -6,6 +6,7 @@ const componentsLinks = [
   { slug: 'breadcrumbs', label: 'Breadcrumbs' },
   { slug: 'collapsible', label: 'Collapsible' },
   { slug: 'link', label: 'Link' },
+  { slug: 'visually-hidden', label: 'Visually Hidden' },
 ];
 
 export default component$(() => {
