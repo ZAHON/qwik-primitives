@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.0.11
+
+### 🚀 Features
+
+- Add `VisuallyHidden` component.
+
 ## 0.0.10
 
 ### 🚀 Features
