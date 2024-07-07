@@ -50,6 +50,7 @@ Contains the content for the link. This component is based on the `a` element.
 | `disabled` | `boolean`           | `-`     | Whether the link is disabled. Native navigation will be disabled, and the link will be exposed as disabled to assistive technology.                                                                                                     |
 | `external` | `boolean`           | `-`     | Whether the link should open in a new tab.                                                                                                                                                                                              |
 | `href`     | `string`            | `-`     | A URL to link to.                                                                                                                                                                                                                       |
+| `style`    | `CSSProperties`     | `-`     | The inline style for the element.                                                                                                                                                                                                       |
 
 | Data attribute    | Values                |
 | ----------------- | --------------------- |
