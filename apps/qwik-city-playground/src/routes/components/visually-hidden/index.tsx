@@ -22,7 +22,7 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = {
-  title: 'Visually Hidden | Qwik Primitives Astro Playground',
+  title: 'Visually Hidden | Qwik Primitives Qwik City Playground',
   meta: [
     {
       name: 'description',
