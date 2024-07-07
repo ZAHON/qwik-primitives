@@ -1,0 +1,17 @@
+---
+import { BaseLayout } from '@/layouts';
+import { Alert } from '@/demos';
+
+const title = 'Alert example | Qwik Primitives Astro Playground';
+const description =
+  "Display a brief, important message in a way that attracts the user's attention without interrupting the user's task.";
+---
+
+<BaseLayout title={title} description={description}>
+  <h1>Alert</h1>
+  <p>
+    Display a brief, important message in a way that attracts the user's attention without interrupting the user's task.
+  </p>
+
+  <Alert.Example />
+</BaseLayout>
