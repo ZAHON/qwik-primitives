@@ -1,0 +1,14 @@
+---
+import { BaseLayout } from '@/layouts';
+import { VisuallyHidden } from '@/demos';
+
+const title = 'Visually Hidden example | Qwik Primitives Astro Playground';
+const description = 'Hides content from the screen in an accessible way.';
+---
+
+<BaseLayout title={title} description={description}>
+  <h1>Visually Hidden</h1>
+  <p>Hides content from the screen in an accessible way.</p>
+
+  <VisuallyHidden.Example />
+</BaseLayout>

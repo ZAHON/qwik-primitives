@@ -1,0 +1,24 @@
+---
+import { BaseLayout } from '@/layouts';
+import { Link, List } from '@/components';
+
+const links = [{ slug: 'example', label: 'Example' }];
+
+const title = 'Visually Hidden | Qwik Primitives Astro Playground';
+const description = 'Hides content from the screen in an accessible way.';
+---
+
+<BaseLayout title={title} description={description}>
+  <h1>Visually Hidden</h1>
+  <p>Hides content from the screen in an accessible way.</p>
+
+  <List.Root>
+    {
+      links.map(({ slug, label }) => (
+        <List.Item>
+          <Link href={`/components/visually-hidden/${slug}`}>{label}</Link>
+        </List.Item>
+      ))
+    }
+  </List.Root>
+</BaseLayout>
