@@ -1,3 +1,4 @@
+import { Primitive } from '@/components';
 import * as Link from '.';
 
 const LINK_ROOT_TESTID = 'LINK_ROOT_TESTID';
@@ -6,13 +7,23 @@ const LINK_ROOT_URL = 'https://github.com/ZAHON/qwik-primitives';
 
 describe('Link', () => {
   describe('Root', () => {
-    it('should be <a> element by default', () => {
+    it('should be <a> element', () => {
       cy.mount(
         <Link.Root href={LINK_ROOT_URL} data-testid={LINK_ROOT_TESTID}>
           {LINK_ROOT_TEXT}
         </Link.Root>
       );
       cy.get(`[data-testid="${LINK_ROOT_TESTID}"]`).should('have.prop', 'tagName').should('eq', 'A');
+    });
+
+    it('should be element provided via as prop', () => {
+      cy.mount(
+        <Link.Root as={Primitive.div} href={LINK_ROOT_URL} data-testid={LINK_ROOT_TESTID}>
+          {LINK_ROOT_TEXT}
+        </Link.Root>
+      );
+      cy.get(`[data-testid="${LINK_ROOT_TESTID}"]`).should('have.prop', 'tagName').should('not.eq', 'A');
+      cy.get(`[data-testid="${LINK_ROOT_TESTID}"]`).should('have.prop', 'tagName').should('eq', 'DIV');
     });
 
     it('should have attribute href with value provided via href prop', () => {
