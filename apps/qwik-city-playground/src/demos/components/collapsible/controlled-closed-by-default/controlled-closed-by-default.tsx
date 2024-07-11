@@ -2,12 +2,12 @@ import { component$, useSignal } from '@builder.io/qwik';
 import { Collapsible } from 'qwik-primitives';
 
 export const ControlledClosedByDefault = component$(() => {
-  const open = useSignal(false);
+  const isOpen = useSignal(false);
 
   return (
     <>
       <h2>Controlled closed by default</h2>
-      <Collapsible.Root open={open}>
+      <Collapsible.Root open={isOpen} onOpenChange$={(open) => (isOpen.value = open)}>
         <Collapsible.Trigger>Toggle</Collapsible.Trigger>
         <Collapsible.Panel>
           <Collapsible.Content>
