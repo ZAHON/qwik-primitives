@@ -9,48 +9,6 @@ const meta: Meta<typeof Collapsible.Root> = {
 export default meta;
 type Story = StoryObj<typeof Collapsible.Root>;
 
-export const Disabled: Story = {
-  render: () => {
-    return (
-      <>
-        <h2>Disabled closed by default</h2>
-        <Collapsible.Root disabled={true} defaultOpen={false}>
-          <Collapsible.Trigger>Toggle</Collapsible.Trigger>
-          <Collapsible.Panel>
-            <Collapsible.Content>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odio, aut voluptatibus laudantium necessitatibus
-              rerum animi vel recusandae consequatur eligendi pariatur eius veniam itaque natus molestiae hic
-              doloremque. Laborum eaque pariatur velit veniam ad? Qui consectetur vel eius voluptatibus magni recusandae
-              voluptatem, mollitia illo tenetur eum enim blanditiis, nam pariatur vitae necessitatibus, illum adipisci
-              sit reprehenderit quas odit. Recusandae quas totam accusamus esse deleniti asperiores voluptatibus natus
-              ut, tempora expedita tempore corrupti minima quaerat autem aliquam quisquam quidem nostrum nesciunt neque.
-              Excepturi, nostrum. Eveniet, placeat consequatur, eligendi dolor quibusdam illum blanditiis officia sed
-              nesciunt quia ipsam veritatis odio illo. Optio, perferendis?
-            </Collapsible.Content>
-          </Collapsible.Panel>
-        </Collapsible.Root>
-
-        <h2>Disabled open by default</h2>
-        <Collapsible.Root disabled={true} defaultOpen={true}>
-          <Collapsible.Trigger>Toggle</Collapsible.Trigger>
-          <Collapsible.Panel>
-            <Collapsible.Content>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odio, aut voluptatibus laudantium necessitatibus
-              rerum animi vel recusandae consequatur eligendi pariatur eius veniam itaque natus molestiae hic
-              doloremque. Laborum eaque pariatur velit veniam ad? Qui consectetur vel eius voluptatibus magni recusandae
-              voluptatem, mollitia illo tenetur eum enim blanditiis, nam pariatur vitae necessitatibus, illum adipisci
-              sit reprehenderit quas odit. Recusandae quas totam accusamus esse deleniti asperiores voluptatibus natus
-              ut, tempora expedita tempore corrupti minima quaerat autem aliquam quisquam quidem nostrum nesciunt neque.
-              Excepturi, nostrum. Eveniet, placeat consequatur, eligendi dolor quibusdam illum blanditiis officia sed
-              nesciunt quia ipsam veritatis odio illo. Optio, perferendis?
-            </Collapsible.Content>
-          </Collapsible.Panel>
-        </Collapsible.Root>
-      </>
-    );
-  },
-};
-
 export const Uncontrolled: Story = {
   render: () => {
     return (
@@ -96,12 +54,12 @@ export const Uncontrolled: Story = {
 export const Controlled: Story = {
   render: () => {
     const ControlledClosedByDefault = component$(() => {
-      const open = useSignal(false);
+      const isOpen = useSignal(false);
 
       return (
         <>
           <h2>Controlled closed by default</h2>
-          <Collapsible.Root open={open}>
+          <Collapsible.Root open={isOpen} onOpenChange$={(open) => (isOpen.value = open)}>
             <Collapsible.Trigger>Toggle</Collapsible.Trigger>
             <Collapsible.Panel>
               <Collapsible.Content>
@@ -122,12 +80,12 @@ export const Controlled: Story = {
     });
 
     const ControlledOpenByDefault = component$(() => {
-      const open = useSignal(true);
+      const isOpen = useSignal(true);
 
       return (
         <>
           <h2>Controlled open by default</h2>
-          <Collapsible.Root open={open}>
+          <Collapsible.Root open={isOpen} onOpenChange$={(open) => (isOpen.value = open)}>
             <Collapsible.Trigger>Toggle</Collapsible.Trigger>
             <Collapsible.Panel>
               <Collapsible.Content>
@@ -278,7 +236,7 @@ export const AnimatedUncontrolled: Story = {
 export const AnimatedControlled: Story = {
   render: () => {
     const AnimatedControlledClosedByDefault = component$(() => {
-      const open = useSignal(false);
+      const isOpen = useSignal(false);
 
       const id = 'CqPUhUdjAG';
 
@@ -313,7 +271,7 @@ export const AnimatedControlled: Story = {
       return (
         <>
           <h2>Animated controlled closed by default</h2>
-          <Collapsible.Root open={open}>
+          <Collapsible.Root open={isOpen} onOpenChange$={(open) => (isOpen.value = open)}>
             <Collapsible.Trigger>Toggle</Collapsible.Trigger>
             <Collapsible.Panel class={`${id}-collapsible-panel`}>
               <Collapsible.Content>
@@ -334,7 +292,7 @@ export const AnimatedControlled: Story = {
     });
 
     const AnimatedControlledOpenByDefault = component$(() => {
-      const open = useSignal(true);
+      const isOpen = useSignal(true);
 
       const id = 'AWfwqgHzXz';
 
@@ -369,7 +327,7 @@ export const AnimatedControlled: Story = {
       return (
         <>
           <h2>Animated controlled open by default</h2>
-          <Collapsible.Root open={open}>
+          <Collapsible.Root open={isOpen} onOpenChange$={(open) => (isOpen.value = open)}>
             <Collapsible.Trigger>Toggle</Collapsible.Trigger>
             <Collapsible.Panel class={`${id}-collapsible-panel`}>
               <Collapsible.Content>
