@@ -1,6 +1,5 @@
 import type { CollapsibleRootProps } from './collapsible-root.types';
-import { component$, useId, useSignal, useTask$, useContextProvider, Slot } from '@builder.io/qwik';
-import { isServer } from '@builder.io/qwik/build';
+import { component$, useId, useSignal, useContextProvider, Slot } from '@builder.io/qwik';
 import { useControllableState } from '@/hooks/use-controllable-state';
 import { CollapsibleContext } from '../collapsible-context';
 
@@ -12,19 +11,18 @@ export const CollapsibleRoot = component$<CollapsibleRootProps>((props) => {
   const { as, defaultOpen, open, onOpenChange$, disabled, ...others } = props;
 
   const id = useId();
-  const isOpen = useControllableState({ uncontrolledValue: defaultOpen, controlledSignal: open, finalValue: false });
+  const [isOpen, setIsOpen$] = useControllableState({
+    uncontrolledValue: defaultOpen,
+    controlledSignal: open,
+    finalValue: false,
+    onChange$: onOpenChange$,
+  });
   const isPanelHide = useSignal(!isOpen.value);
   const panelStatus = useSignal<'open' | 'closed' | 'indeterminate'>(isOpen.value ? 'open' : 'closed');
 
-  useTask$(({ track }) => {
-    track(() => isOpen.value);
-    if (isServer) return;
-    if (onOpenChange$) onOpenChange$(isOpen.value);
-  });
+  const panelId = `qwik-primitives-collapsible-panel-${id}`;
 
-  const panelId = `collapsible-panel-${id}`;
-
-  useContextProvider(CollapsibleContext, { isOpen, isPanelHide, panelStatus, panelId, disabled });
+  useContextProvider(CollapsibleContext, { isOpen, setIsOpen$, isPanelHide, panelStatus, panelId, disabled });
 
   const Component = as || 'div';
 

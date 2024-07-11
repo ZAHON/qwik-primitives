@@ -1,10 +1,15 @@
-import type { Signal } from '@builder.io/qwik';
+import type { ReadonlySignal, QRL, Signal } from '@builder.io/qwik';
 
 export interface CollapsibleContextValue {
   /**
    * The controlled open state of the collapsible.
    */
-  isOpen: Signal<boolean>;
+  isOpen: ReadonlySignal<boolean>;
+
+  /**
+   * The function that allow change controlled open state of the collapsible.
+   */
+  setIsOpen$: QRL<(open: boolean) => void>;
 
   /**
    * The controlled hide state of the collapsible panel.

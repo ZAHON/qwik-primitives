@@ -9,10 +9,10 @@ import { CollapsibleContext } from '../collapsible-context';
 export const CollapsibleTrigger = component$<CollapsibleTriggerProps>((props) => {
   const { as, onClick$, ...others } = props;
 
-  const { isOpen, disabled, panelId } = useContext(CollapsibleContext);
+  const { isOpen, setIsOpen$, disabled, panelId } = useContext(CollapsibleContext);
 
   const handleClick$ = $(() => {
-    if (!disabled) isOpen.value = !isOpen.value;
+    if (!disabled) setIsOpen$(!isOpen.value);
   });
 
   const Component = as || 'button';

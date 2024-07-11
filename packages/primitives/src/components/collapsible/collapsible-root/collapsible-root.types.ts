@@ -16,6 +16,7 @@ export interface CollapsibleRootProps extends PropsOf<'div'> {
 
   /**
    * The controlled open state of the collapsible.
+   * Must be used in conjunction with `onOpenChange$`.
    */
   open?: Signal<boolean>;
 
