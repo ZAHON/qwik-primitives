@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.0.13
+
+### 🚨 Breaking Changes
+
+- Remove `addEventListenerOnce` utility function.
+
+- Change `useControllableState` hook api.
+
+- Refactor `Collapsible` component.
+
 ## 0.0.12
 
 ### 🚀 Features
