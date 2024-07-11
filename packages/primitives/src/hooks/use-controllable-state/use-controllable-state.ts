@@ -1,14 +1,29 @@
-import type { Signal } from '@builder.io/qwik';
+import type { ReadonlySignal } from '@builder.io/qwik';
 import type { UseControllableStateParams } from './use-controllable-state.types';
-import { useSignal } from '@builder.io/qwik';
+import { useSignal, $ } from '@builder.io/qwik';
 
+/**
+ * Manage state of both controlled and uncontrolled components.
+ */
 export const useControllableState = <T>(params: UseControllableStateParams<T>) => {
-  const { controlledSignal, uncontrolledValue, finalValue } = params;
+  const { controlledSignal, uncontrolledValue, finalValue, onChange$ } = params;
 
   // If a controlled signal has been passed, we return it immediately.
-  if (controlledSignal !== undefined) return controlledSignal;
+  if (controlledSignal !== undefined) {
+    const handleControlledChange$ = $((value: T) => {
+      onChange$?.(value);
+    });
+
+    return [controlledSignal as ReadonlySignal<T>, handleControlledChange$, true] as const;
+  }
 
   // If the controlled signal is not passed, we create our own signal and return it.
   const uncontrolledState = useSignal(uncontrolledValue !== undefined ? uncontrolledValue : finalValue);
-  return uncontrolledState as Signal<T>;
+
+  const handleUncontrolledChange$ = $((value: T) => {
+    uncontrolledState.value = value;
+    onChange$?.(value);
+  });
+
+  return [uncontrolledState as ReadonlySignal<T>, handleUncontrolledChange$, false] as const;
 };
