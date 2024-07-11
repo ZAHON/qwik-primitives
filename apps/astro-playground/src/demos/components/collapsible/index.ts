@@ -1,5 +1,3 @@
-export { DisabledClosedByDefault } from './disabled-closed-by-default';
-export { DisabledOpenByDefault } from './disabled-open-by-default';
 export { UncontrolledClosedByDefault } from './uncontrolled-closed-by-default';
 export { UncontrolledOpenByDefault } from './uncontrolled-open-by-default';
 export { ControlledClosedByDefault } from './controlled-closed-by-default';

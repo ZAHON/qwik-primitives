@@ -2,7 +2,7 @@ import { component$, useSignal, useStyles$ } from '@builder.io/qwik';
 import { Collapsible } from 'qwik-primitives';
 
 export const AnimatedControlledOpenByDefault = component$(() => {
-  const open = useSignal(true);
+  const isOpen = useSignal(true);
 
   const id = 'AWfwqgHzXz';
 
@@ -37,7 +37,7 @@ export const AnimatedControlledOpenByDefault = component$(() => {
   return (
     <>
       <h2>Animated controlled open by default</h2>
-      <Collapsible.Root open={open}>
+      <Collapsible.Root open={isOpen} onOpenChange$={(open) => (isOpen.value = open)}>
         <Collapsible.Trigger>Toggle</Collapsible.Trigger>
         <Collapsible.Panel class={`${id}-collapsible-panel`}>
           <Collapsible.Content>
