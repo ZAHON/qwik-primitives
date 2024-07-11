@@ -69,10 +69,10 @@ import { component$, useSignal } from '@builder.io/qwik';
 import { Collapsible } from 'qwik-primitives';
 
 const CollapsibleDemo = component$(() => {
-  const open = useSignal(false);
+  const isOpen = useSignal(false);
 
   return (
-    <Collapsible.Root open={open}>
+    <Collapsible.Root open={isOpen} onOpenChange$={(open) => (isOpen.value = open)}>
       <Collapsible.Trigger>What is Qwik Primitives?</Collapsible.Trigger>
       <Collapsible.Panel>
         <Collapsible.Content>
@@ -99,6 +99,7 @@ Contains all the parts of a collapsible. This component is based on the `div` el
 | `open`          | `Signal`                       | `-`     | The controlled open state of the collapsible.                                                                                                                                                                                           |
 | `onOpenChange$` | `QRL<(open: boolean) => void>` | `-`     | Event handler called when the open state of the collapsible changes.                                                                                                                                                                    |
 | `disabled`      | `boolean`                      | `-`     | When `true`, prevents the user from interacting with the collapsible.                                                                                                                                                                   |
+| `style`         | `CSSProperties`                | `-`     | The inline style for the element.                                                                                                                                                                                                       |
 
 | Data attribute    | Values                |
 | ----------------- | --------------------- |
@@ -109,9 +110,10 @@ Contains all the parts of a collapsible. This component is based on the `div` el
 
 The button that toggles the collapsible. This component is based on the `button` element.
 
-| Prop | Type                | Default | Description                                                                                                                                                                                                                             |
-| ---- | ------------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `as` | `FunctionComponent` | `-`     | Change the default rendered element for the one passed as, merging their props and behavior. Read our [Composition](https://github.com/ZAHON/qwik-primitives/blob/main/packages/primitives/docs/composition.md) guide for more details. |
+| Prop    | Type                | Default | Description                                                                                                                                                                                                                             |
+| ------- | ------------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `as`    | `FunctionComponent` | `-`     | Change the default rendered element for the one passed as, merging their props and behavior. Read our [Composition](https://github.com/ZAHON/qwik-primitives/blob/main/packages/primitives/docs/composition.md) guide for more details. |
+| `style` | `CSSProperties`     | `-`     | The inline style for the element.                                                                                                                                                                                                       |
 
 | Data attribute    | Values                |
 | ----------------- | --------------------- |
@@ -127,6 +129,7 @@ The panel that expands/collapses. This component is based on the `div` element.
 | `as`       | `FunctionComponent` | `-`     | Change the default rendered element for the one passed as, merging their props and behavior. Read our [Composition](https://github.com/ZAHON/qwik-primitives/blob/main/packages/primitives/docs/composition.md) guide for more details. |
 | `onOpen$`  | `QRL<() => void>`   | `-`     | Event handler called when the panel is fully open. If you animate the size of the panel when it opens this event handler was call after animation end.                                                                                  |
 | `onClose$` | `QRL<() => void>`   | `-`     | Event handler called when the panel is fully close. If you animate the size of the panel when it closes this event handler was call after animation end.                                                                                |
+| `style`    | `CSSProperties`     | `-`     | The inline style for the element.                                                                                                                                                                                                       |
 
 | Data attribute    | Values                |
 | ----------------- | --------------------- |
@@ -137,9 +140,10 @@ The panel that expands/collapses. This component is based on the `div` element.
 
 The component that contains the collapsible content. Must be rendered inside `Collapsible.Panel`. This component is based on the `div` element.
 
-| Prop | Type                | Default | Description                                                                                                                                                                                                                             |
-| ---- | ------------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `as` | `FunctionComponent` | `-`     | Change the default rendered element for the one passed as, merging their props and behavior. Read our [Composition](https://github.com/ZAHON/qwik-primitives/blob/main/packages/primitives/docs/composition.md) guide for more details. |
+| Prop    | Type                | Default | Description                                                                                                                                                                                                                             |
+| ------- | ------------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `as`    | `FunctionComponent` | `-`     | Change the default rendered element for the one passed as, merging their props and behavior. Read our [Composition](https://github.com/ZAHON/qwik-primitives/blob/main/packages/primitives/docs/composition.md) guide for more details. |
+| `style` | `CSSProperties`     | `-`     | The inline style for the element.                                                                                                                                                                                                       |
 
 | Data attribute    | Values                |
 | ----------------- | --------------------- |
@@ -211,8 +215,7 @@ Adheres to the [Disclosure WAI-ARIA design pattern](https://www.w3.org/WAI/ARIA/
 
 ### Keyboard Interactions
 
-<!-- prettier-ignore -->
 | Key     | Description                   |
-| --- | --- |
+| ------- | ----------------------------- |
 | `Space` | Opens/closes the collapsible. |
 | `Enter` | Opens/closes the collapsible. |
