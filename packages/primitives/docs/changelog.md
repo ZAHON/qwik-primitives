@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.0.14
+
+### 🚀 Features
+
+- Add `AccessibleIcon` component.
+
 ## 0.0.13
 
 ### 🚨 Breaking Changes
