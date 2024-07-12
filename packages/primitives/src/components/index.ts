@@ -1,3 +1,4 @@
+export * as AccessibleIcon from './accessible-icon';
 export * as Alert from './alert';
 export * as Breadcrumbs from './breadcrumbs';
 export * as Collapsible from './collapsible';
