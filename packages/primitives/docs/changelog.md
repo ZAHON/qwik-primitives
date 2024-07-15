@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.0.15
+
+### 🚀 Features
+
+- Add `Label` component.
+
 ## 0.0.14
 
 ### 🚀 Features
