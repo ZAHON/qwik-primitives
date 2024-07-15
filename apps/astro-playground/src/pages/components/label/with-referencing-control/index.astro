@@ -1,0 +1,14 @@
+---
+import { BaseLayout } from '@/layouts';
+import { Label } from '@/demos';
+
+const title = 'Label with referencing control | Qwik Primitives Astro Playground';
+const description = 'Renders an accessible label associated with controls.';
+---
+
+<BaseLayout title={title} description={description}>
+  <h1>Label</h1>
+  <p>Renders an accessible label associated with controls.</p>
+
+  <Label.WithReferencingControl />
+</BaseLayout>
