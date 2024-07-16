@@ -52,7 +52,7 @@
     "@storybook/addon-a11y": "^8.2.4",
     "@storybook/addon-essentials": "^8.2.4",
     "@storybook/addon-links": "^8.2.4",
-    "@storybook/blocks": "^8.1.4",
+    "@storybook/blocks": "^8.2.4",
     "@storybook/builder-vite": "^8.1.4",
     "@storybook/html": "^8.1.4",
     "@storybook/html-vite": "^8.1.4",
