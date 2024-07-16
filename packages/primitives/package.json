@@ -67,7 +67,7 @@
     "cypress-real-events": "^1.13.0",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-jsx-a11y": "^6.8.0",
+    "eslint-plugin-jsx-a11y": "^6.9.0",
     "eslint-plugin-qwik": "^1.5.5",
     "eslint-plugin-storybook": "^0.8.0",
     "prettier": "^3.3.3",
