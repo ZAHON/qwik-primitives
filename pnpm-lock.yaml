@@ -181,8 +181,8 @@ importers:
         specifier: ^8.2.4
         version: 8.2.4(@babel/preset-env@7.24.6(@babel/core@7.24.6))
       storybook-dark-mode:
-        specifier: ^4.0.1
-        version: 4.0.1(@types/react-dom@18.2.19)(@types/react@18.2.61)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+        specifier: ^4.0.2
+        version: 4.0.2(@types/react-dom@18.2.19)(@types/react@18.2.61)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       storybook-framework-qwik:
         specifier: ^0.4.0
         version: 0.4.0(@builder.io/qwik@1.7.1(@types/node@20.14.11)(undici@6.18.2))(@types/node@20.14.11)(prettier@3.3.3)(typescript@5.5.3)(vite@5.3.4(@types/node@20.14.11))
@@ -5509,8 +5509,8 @@ packages:
   store2@2.14.3:
     resolution: {integrity: sha512-4QcZ+yx7nzEFiV4BMLnr/pRa5HYzNITX2ri0Zh6sT9EyQHbBHacC6YigllUPU9X3D0f/22QCgfokpKs52YRrUg==}
 
-  storybook-dark-mode@4.0.1:
-    resolution: {integrity: sha512-9l3qY8NdgwZnY+NlO1XHB3eUb6FmZo9GazJeUSeFkjRqwA5FmnMSeq0YVqEOqfwniM/TvQwOiTYd5g/hC2wugA==}
+  storybook-dark-mode@4.0.2:
+    resolution: {integrity: sha512-zjcwwQ01R5t1VsakA6alc2JDIRVtavryW8J3E3eKLDIlAMcvsgtpxlelWkZs2cuNspk6Z10XzhQVrUWtYc3F0w==}
 
   storybook-framework-qwik@0.4.0:
     resolution: {integrity: sha512-b3eEhq8a4dTHeh/lPheY4b4FxIxwVQp48DhRNhgX2EzX+JpWz1MpJm5kyD788ZrXw5A3s7CIL9wrOfnJHyXxzQ==}
@@ -13506,7 +13506,7 @@ snapshots:
 
   store2@2.14.3: {}
 
-  storybook-dark-mode@4.0.1(@types/react-dom@18.2.19)(@types/react@18.2.61)(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
+  storybook-dark-mode@4.0.2(@types/react-dom@18.2.19)(@types/react@18.2.61)(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
     dependencies:
       '@storybook/components': 8.1.5(@types/react-dom@18.2.19)(@types/react@18.2.61)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@storybook/core-events': 8.1.5
