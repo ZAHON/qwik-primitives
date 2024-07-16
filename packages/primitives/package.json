@@ -54,7 +54,7 @@
     "@storybook/addon-links": "^8.2.4",
     "@storybook/blocks": "^8.2.4",
     "@storybook/builder-vite": "^8.2.4",
-    "@storybook/html": "^8.1.4",
+    "@storybook/html": "^8.2.4",
     "@storybook/html-vite": "^8.1.4",
     "@storybook/theming": "^8.1.4",
     "@types/eslint": "^8.56.10",
