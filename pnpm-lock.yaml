@@ -157,8 +157,8 @@ importers:
         specifier: ~0.3.0
         version: 0.3.0(@builder.io/qwik@1.7.1(@types/node@20.14.11)(undici@6.18.2))(cypress@13.13.1)
       cypress-real-events:
-        specifier: ^1.12.0
-        version: 1.12.0(cypress@13.13.1)
+        specifier: ^1.13.0
+        version: 1.13.0(cypress@13.13.1)
       eslint:
         specifier: ^8.57.0
         version: 8.57.0
@@ -2779,8 +2779,8 @@ packages:
       '@builder.io/qwik': '>0.23.0'
       cypress: '>=12.8.1'
 
-  cypress-real-events@1.12.0:
-    resolution: {integrity: sha512-oiy+4kGKkzc2PT36k3GGQqkGxNiVypheWjMtfyi89iIk6bYmTzeqxapaLHS3pnhZOX1IEbTDUVxh8T4Nhs1tyQ==}
+  cypress-real-events@1.13.0:
+    resolution: {integrity: sha512-LoejtK+dyZ1jaT8wGT5oASTPfsNV8/ClRp99ruN60oPj8cBJYod80iJDyNwfPAu4GCxTXOhhAv9FO65Hpwt6Hg==}
     peerDependencies:
       cypress: ^4.x || ^5.x || ^6.x || ^7.x || ^8.x || ^9.x || ^10.x || ^11.x || ^12.x || ^13.x
 
@@ -9580,7 +9580,7 @@ snapshots:
       '@cypress/mount-utils': 4.1.0
       cypress: 13.13.1
 
-  cypress-real-events@1.12.0(cypress@13.13.1):
+  cypress-real-events@1.13.0(cypress@13.13.1):
     dependencies:
       cypress: 13.13.1
 
