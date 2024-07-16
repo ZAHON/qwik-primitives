@@ -85,8 +85,8 @@ importers:
         specifier: ^8.57.0
         version: 8.57.0
       eslint-plugin-qwik:
-        specifier: ^1.5.5
-        version: 1.5.5(eslint@8.57.0)
+        specifier: ^1.7.1
+        version: 1.7.1(eslint@8.57.0)
       prettier:
         specifier: ^3.3.0
         version: 3.3.0
@@ -3309,12 +3309,6 @@ packages:
     engines: {node: '>=4.0'}
     peerDependencies:
       eslint: ^3 || ^4 || ^5 || ^6 || ^7 || ^8
-
-  eslint-plugin-qwik@1.5.5:
-    resolution: {integrity: sha512-0mWNC9al7ynL1rrH23lAH0WiIQGr5ttmGSvMBpXrULD+XFjryzcyGlhfUVsxlpzkNsvIRtTnrUiqWFUue6O9XA==}
-    engines: {node: '>=16.8.0 <18.0.0 || >=18.11'}
-    peerDependencies:
-      eslint: ^8.57.0
 
   eslint-plugin-qwik@1.7.1:
     resolution: {integrity: sha512-fvjIEnUwkgltqpg/RGd3WqtqRaAmqRu81qi3B/BLCJtlizEtIe2/xU4X+BBF8CubhCliyYSj4D55nXKlBeBLAA==}
@@ -10168,11 +10162,6 @@ snapshots:
       object.fromentries: 2.0.8
       safe-regex-test: 1.0.3
       string.prototype.includes: 2.0.0
-
-  eslint-plugin-qwik@1.5.5(eslint@8.57.0):
-    dependencies:
-      eslint: 8.57.0
-      jsx-ast-utils: 3.3.5
 
   eslint-plugin-qwik@1.7.1(eslint@8.57.0):
     dependencies:
