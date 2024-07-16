@@ -58,7 +58,7 @@
     "@storybook/html-vite": "^8.1.4",
     "@storybook/theming": "^8.1.4",
     "@types/eslint": "^8.56.10",
-    "@types/node": "^20.12.13",
+    "@types/node": "^20.14.11",
     "@typescript-eslint/eslint-plugin": "^7.11.0",
     "@typescript-eslint/parser": "^7.11.0",
     "@vitest/ui": "^1.6.0",
