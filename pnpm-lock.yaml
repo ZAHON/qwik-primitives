@@ -109,8 +109,8 @@ importers:
   packages/primitives:
     devDependencies:
       '@builder.io/qwik':
-        specifier: 1.5.5
-        version: 1.5.5(@types/node@20.13.0)(undici@6.18.2)
+        specifier: 1.7.1
+        version: 1.7.1(@types/node@20.13.0)(undici@6.18.2)
       '@storybook/addon-a11y':
         specifier: ^8.1.4
         version: 8.1.5
@@ -155,7 +155,7 @@ importers:
         version: 13.10.0
       cypress-ct-qwik:
         specifier: ~0.3.0
-        version: 0.3.0(@builder.io/qwik@1.5.5(@types/node@20.13.0)(undici@6.18.2))(cypress@13.10.0)
+        version: 0.3.0(@builder.io/qwik@1.7.1(@types/node@20.13.0)(undici@6.18.2))(cypress@13.10.0)
       cypress-real-events:
         specifier: ^1.12.0
         version: 1.12.0(cypress@13.10.0)
@@ -185,7 +185,7 @@ importers:
         version: 4.0.1(@types/react-dom@18.2.19)(@types/react@18.2.61)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       storybook-framework-qwik:
         specifier: ^0.4.0
-        version: 0.4.0(@builder.io/qwik@1.5.5(@types/node@20.13.0)(undici@6.18.2))(@types/node@20.13.0)(prettier@3.3.3)(typescript@5.5.3)(vite@5.2.12(@types/node@20.13.0))
+        version: 0.4.0(@builder.io/qwik@1.7.1(@types/node@20.13.0)(undici@6.18.2))(@types/node@20.13.0)(prettier@3.3.3)(typescript@5.5.3)(vite@5.2.12(@types/node@20.13.0))
       typescript:
         specifier: 5.5.3
         version: 5.5.3
@@ -891,6 +891,13 @@ packages:
 
   '@builder.io/qwik@1.5.5':
     resolution: {integrity: sha512-ZgeWVfkgdBcv/SwfB0RJtSR6YCVBnFtZ4dH1yxDqeShzgFrVqeVIE7l7A5wwb0hXtA6ESxskLgui6ayZlKSnWQ==}
+    engines: {node: '>=16.8.0 <18.0.0 || >=18.11'}
+    hasBin: true
+    peerDependencies:
+      undici: '*'
+
+  '@builder.io/qwik@1.7.1':
+    resolution: {integrity: sha512-Ncf4amVMxCNWlf4lsi+KVuU4SoVXcqLAeZfceWLfptZldOWFscF0Hm+NOopSOO7lkpARlhi7PhlBaPOJZkR3rw==}
     engines: {node: '>=16.8.0 <18.0.0 || >=18.11'}
     hasBin: true
     peerDependencies:
@@ -7144,6 +7151,20 @@ snapshots:
       - sugarss
       - terser
 
+  '@builder.io/qwik@1.7.1(@types/node@20.13.0)(undici@6.18.2)':
+    dependencies:
+      csstype: 3.1.3
+      undici: 6.18.2
+      vite: 5.2.12(@types/node@20.13.0)
+    transitivePeerDependencies:
+      - '@types/node'
+      - less
+      - lightningcss
+      - sass
+      - stylus
+      - sugarss
+      - terser
+
   '@colors/colors@1.5.0':
     optional: true
 
@@ -9530,9 +9551,9 @@ snapshots:
 
   csstype@3.1.3: {}
 
-  cypress-ct-qwik@0.3.0(@builder.io/qwik@1.5.5(@types/node@20.13.0)(undici@6.18.2))(cypress@13.10.0):
+  cypress-ct-qwik@0.3.0(@builder.io/qwik@1.7.1(@types/node@20.13.0)(undici@6.18.2))(cypress@13.10.0):
     dependencies:
-      '@builder.io/qwik': 1.5.5(@types/node@20.13.0)(undici@6.18.2)
+      '@builder.io/qwik': 1.7.1(@types/node@20.13.0)(undici@6.18.2)
       '@cypress/mount-utils': 4.1.0
       cypress: 13.10.0
 
@@ -13137,9 +13158,9 @@ snapshots:
       - react
       - react-dom
 
-  storybook-framework-qwik@0.4.0(@builder.io/qwik@1.5.5(@types/node@20.13.0)(undici@6.18.2))(@types/node@20.13.0)(prettier@3.3.3)(typescript@5.5.3)(vite@5.2.12(@types/node@20.13.0)):
+  storybook-framework-qwik@0.4.0(@builder.io/qwik@1.7.1(@types/node@20.13.0)(undici@6.18.2))(@types/node@20.13.0)(prettier@3.3.3)(typescript@5.5.3)(vite@5.2.12(@types/node@20.13.0)):
     dependencies:
-      '@builder.io/qwik': 1.5.5(@types/node@20.13.0)(undici@6.18.2)
+      '@builder.io/qwik': 1.7.1(@types/node@20.13.0)(undici@6.18.2)
       '@storybook/builder-vite': 8.1.5(prettier@3.3.3)(typescript@5.5.3)(vite@5.2.12(@types/node@20.13.0))
       '@storybook/docs-tools': 8.1.5(prettier@3.3.3)
       magic-string: 0.30.10
