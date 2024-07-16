@@ -22,7 +22,7 @@
     "@builder.io/qwik": "1.5.5",
     "@qwikdev/astro": "^0.5.15",
     "@typescript-eslint/eslint-plugin": "^7.16.1",
-    "@typescript-eslint/parser": "^7.11.0",
+    "@typescript-eslint/parser": "^7.16.1",
     "astro": "^4.9.2",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
