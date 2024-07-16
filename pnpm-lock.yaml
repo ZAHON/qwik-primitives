@@ -100,11 +100,11 @@ importers:
         specifier: ^6.19.2
         version: 6.19.2
       vite:
-        specifier: ^5.2.12
-        version: 5.2.12(@types/node@20.13.0)
+        specifier: ^5.3.4
+        version: 5.3.4(@types/node@20.13.0)
       vite-tsconfig-paths:
         specifier: ^4.3.2
-        version: 4.3.2(typescript@5.5.3)(vite@5.2.12(@types/node@20.13.0))
+        version: 4.3.2(typescript@5.5.3)(vite@5.3.4(@types/node@20.13.0))
 
   packages/primitives:
     devDependencies:
@@ -5022,10 +5022,6 @@ packages:
     resolution: {integrity: sha512-UMz42UD0UY0EApS0ZL9o1XnLhSTtvvvLe5Dc2H2O56fvRZi+KulDyf5ctDhhtYJBGKStV2FL1fy6253cmLgqVQ==}
     engines: {node: '>=4'}
 
-  postcss@8.4.38:
-    resolution: {integrity: sha512-Wglpdk03BSfXkHoQa3b/oulrotAkwrlLDRSOb9D0bN86FdRyE9lppSp33aHNPgBa0JKCoB+drFLZkQoRRYae5A==}
-    engines: {node: ^10 || ^12 || >=14}
-
   postcss@8.4.39:
     resolution: {integrity: sha512-0vzE+lAiG7hZl1/9I8yzKLx3aR9Xbof3fBHKunvMfOCYAtMhrsnccJY2iTURb9EZd5+pLuiNV9/c/GZJOHsgIw==}
     engines: {node: ^10 || ^12 || >=14}
@@ -6104,34 +6100,6 @@ packages:
       vite: '*'
     peerDependenciesMeta:
       vite:
-        optional: true
-
-  vite@5.2.12:
-    resolution: {integrity: sha512-/gC8GxzxMK5ntBwb48pR32GGhENnjtY30G4A0jemunsBkiEZFw60s8InGpN8gkhHEkjnRK1aSAxeQgwvFhUHAA==}
-    engines: {node: ^18.0.0 || >=20.0.0}
-    hasBin: true
-    peerDependencies:
-      '@types/node': ^18.0.0 || >=20.0.0
-      less: '*'
-      lightningcss: ^1.21.0
-      sass: '*'
-      stylus: '*'
-      sugarss: '*'
-      terser: ^5.4.0
-    peerDependenciesMeta:
-      '@types/node':
-        optional: true
-      less:
-        optional: true
-      lightningcss:
-        optional: true
-      sass:
-        optional: true
-      stylus:
-        optional: true
-      sugarss:
-        optional: true
-      terser:
         optional: true
 
   vite@5.3.4:
@@ -7455,7 +7423,7 @@ snapshots:
       svgo: 3.3.2
       undici: 6.19.2
       vfile: 6.0.1
-      vite: 5.2.12(@types/node@20.13.0)
+      vite: 5.3.4(@types/node@20.13.0)
       vite-imagetools: 6.2.9(rollup@4.18.0)
       zod: 3.23.8
     transitivePeerDependencies:
@@ -7473,7 +7441,7 @@ snapshots:
     dependencies:
       csstype: 3.1.3
       undici: 6.19.2
-      vite: 5.2.12(@types/node@20.13.0)
+      vite: 5.3.4(@types/node@20.13.0)
     transitivePeerDependencies:
       - '@types/node'
       - less
@@ -12640,12 +12608,6 @@ snapshots:
       cssesc: 3.0.0
       util-deprecate: 1.0.2
 
-  postcss@8.4.38:
-    dependencies:
-      nanoid: 3.3.7
-      picocolors: 1.0.0
-      source-map-js: 1.2.0
-
   postcss@8.4.39:
     dependencies:
       nanoid: 3.3.7
@@ -14006,13 +13968,13 @@ snapshots:
       - supports-color
       - terser
 
-  vite-tsconfig-paths@4.3.2(typescript@5.5.3)(vite@5.2.12(@types/node@20.13.0)):
+  vite-tsconfig-paths@4.3.2(typescript@5.5.3)(vite@5.3.4(@types/node@20.13.0)):
     dependencies:
       debug: 4.3.4
       globrex: 0.1.2
       tsconfck: 3.1.0(typescript@5.5.3)
     optionalDependencies:
-      vite: 5.2.12(@types/node@20.13.0)
+      vite: 5.3.4(@types/node@20.13.0)
     transitivePeerDependencies:
       - supports-color
       - typescript
@@ -14028,10 +13990,10 @@ snapshots:
       - supports-color
       - typescript
 
-  vite@5.2.12(@types/node@20.13.0):
+  vite@5.3.4(@types/node@20.13.0):
     dependencies:
-      esbuild: 0.20.2
-      postcss: 8.4.38
+      esbuild: 0.21.4
+      postcss: 8.4.39
       rollup: 4.18.0
     optionalDependencies:
       '@types/node': 20.13.0
