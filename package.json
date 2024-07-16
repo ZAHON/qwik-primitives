@@ -10,7 +10,7 @@
     "fmt:check": "turbo fmt:check"
   },
   "devDependencies": {
-    "prettier": "^3.3.2",
+    "prettier": "^3.3.3",
     "turbo": "^2.0.4",
     "typescript": "^5.5.3"
   },
