@@ -18,7 +18,7 @@
     "qwik-primitives": "workspace:*"
   },
   "devDependencies": {
-    "@astrojs/check": "^0.8.1",
+    "@astrojs/check": "^0.9.1",
     "@builder.io/qwik": "1.7.3",
     "@qwikdev/astro": "^0.6.3",
     "@typescript-eslint/eslint-plugin": "^7.16.1",
