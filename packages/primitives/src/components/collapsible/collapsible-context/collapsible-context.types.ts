@@ -24,10 +24,10 @@ export interface CollapsibleContextValue {
   /**
    * The unique id of the collapsible panel.
    */
-  panelId: string;
+  panelId: Signal<string | undefined>;
 
   /**
    * When `true`, prevents the user from interacting with the collapsible.
    */
-  disabled?: boolean;
+  isDisabled: ReadonlySignal<boolean | undefined>;
 }

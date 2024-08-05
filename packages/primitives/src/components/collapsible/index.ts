@@ -1,23 +1,9 @@
-import type { CollapsibleRootProps } from './collapsible-root';
-import type { CollapsibleTriggerProps } from './collapsible-trigger';
-import type { CollapsiblePanelProps } from './collapsible-panel';
-import type { CollapsibleContentProps } from './collapsible-content';
+export type { CollapsibleRootProps as RootProps } from './collapsible-root';
+export type { CollapsibleTriggerProps as TriggerProps } from './collapsible-trigger';
+export type { CollapsiblePanelProps as PanelProps } from './collapsible-panel';
+export type { CollapsibleContentProps as ContentProps } from './collapsible-content';
 
-import { CollapsibleRoot } from './collapsible-root';
-import { CollapsibleTrigger } from './collapsible-trigger';
-import { CollapsiblePanel } from './collapsible-panel';
-import { CollapsibleContent } from './collapsible-content';
-
-export type {
-  CollapsibleRootProps as RootProps,
-  CollapsibleTriggerProps as TriggerProps,
-  CollapsiblePanelProps as PanelProps,
-  CollapsibleContentProps as ContentProps,
-};
-
-export {
-  CollapsibleRoot as Root,
-  CollapsibleTrigger as Trigger,
-  CollapsiblePanel as Panel,
-  CollapsibleContent as Content,
-};
+export { CollapsibleRoot as Root } from './collapsible-root';
+export { CollapsibleTrigger as Trigger } from './collapsible-trigger';
+export { CollapsiblePanel as Panel } from './collapsible-panel';
+export { CollapsibleContent as Content } from './collapsible-content';

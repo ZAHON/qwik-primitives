@@ -1,6 +1,6 @@
 import type { CollapsiblePanelProps } from './collapsible-panel.types';
-import { component$, useContext, useSignal, useTask$, Slot } from '@builder.io/qwik';
-import { isServer } from '@builder.io/qwik/build';
+import { component$, useContext, useId, useSignal, useTask$, Slot } from '@builder.io/qwik';
+import { isServer, isBrowser } from '@builder.io/qwik/build';
 import { composeRefs } from '@/utilities';
 import { CollapsibleContext } from '../collapsible-context';
 
@@ -9,13 +9,26 @@ import { CollapsibleContext } from '../collapsible-context';
  * This component is based on the `div` element.
  */
 export const CollapsiblePanel = component$<CollapsiblePanelProps>((props) => {
-  const { as, ref, onOpen$, onClose$, style, ...others } = props;
+  const { as, ref, id, onOpen$, onClose$, style, ...others } = props;
 
-  const { isOpen, isPanelHide, panelStatus, panelId, disabled } = useContext(CollapsibleContext);
+  const { isOpen, isPanelHide, panelStatus, panelId, isDisabled } = useContext(CollapsibleContext);
+
+  const autoId = useId();
 
   const panelRef = useSignal<HTMLDivElement>();
-
   const cancelFirstAnimation = useSignal(isOpen.value);
+
+  useTask$(({ track }) => {
+    track(() => id);
+
+    panelId.value = id || `qwik-primitives-collapsible-panel-${autoId}`;
+  });
+
+  useTask$(({ cleanup }) => {
+    cleanup(() => {
+      if (isBrowser) panelId.value = undefined;
+    });
+  });
 
   useTask$(({ track }) => {
     track(() => isOpen.value);
@@ -61,9 +74,7 @@ export const CollapsiblePanel = component$<CollapsiblePanelProps>((props) => {
             onOpen$?.();
           }
         }
-      }, 0);
-
-      return;
+      });
     }
 
     if (!isOpen.value) {
@@ -104,7 +115,7 @@ export const CollapsiblePanel = component$<CollapsiblePanelProps>((props) => {
           panelStatus.value = 'closed';
           onClose$?.();
         }
-      }, 0);
+      });
     }
   });
 
@@ -113,10 +124,11 @@ export const CollapsiblePanel = component$<CollapsiblePanelProps>((props) => {
   return (
     <Component
       ref={composeRefs([ref, panelRef])}
-      id={panelId}
+      id={panelId.value}
       hidden={isPanelHide.value}
+      data-qwik-primitives-collapsible-panel=""
       data-state={isOpen.value ? 'open' : 'closed'}
-      data-disabled={disabled ? '' : undefined}
+      data-disabled={isDisabled.value ? '' : undefined}
       style={{
         display: 'grid',
         gridTemplateRows: isOpen.value ? '1fr' : '0fr',

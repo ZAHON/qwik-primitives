@@ -10,14 +10,15 @@ import { CollapsibleContext } from '../collapsible-context';
 export const CollapsibleContent = component$<CollapsibleContentProps>((props) => {
   const { as, style, ...others } = props;
 
-  const { isOpen, isPanelHide, panelStatus, disabled } = useContext(CollapsibleContext);
+  const { isOpen, isPanelHide, panelStatus, isDisabled } = useContext(CollapsibleContext);
 
   const Component = as || 'div';
 
   return (
     <Component
+      data-qwik-primitives-collapsible-content=""
       data-state={isOpen.value ? 'open' : 'closed'}
-      data-disabled={disabled ? '' : undefined}
+      data-disabled={isDisabled.value ? '' : undefined}
       style={{ overflow: panelStatus.value === 'open' ? undefined : 'hidden', ...style }}
       {...others}
     >
