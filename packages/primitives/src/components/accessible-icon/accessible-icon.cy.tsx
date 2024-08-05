@@ -29,6 +29,17 @@ describe('AccessibleIcon', () => {
       cy.get(`[data-testid="${ACCESSIBLE_ICON_TESTID}"]`).should('have.attr', 'focusable', 'false');
     });
 
+    it('should have attribute data-qwik-primitives-accessible-icon-root with empty value', () => {
+      cy.mount(
+        <AccessibleIcon.Root as={CROSS_ICON} label={ACCESSIBLE_ICON_LABEL} data-testid={ACCESSIBLE_ICON_TESTID} />
+      );
+      cy.get(`[data-testid="${ACCESSIBLE_ICON_TESTID}"]`).should(
+        'have.attr',
+        'data-qwik-primitives-accessible-icon-root',
+        ''
+      );
+    });
+
     it('label should be <span> element', () => {
       cy.mount(
         <AccessibleIcon.Root as={CROSS_ICON} label={ACCESSIBLE_ICON_LABEL} data-testid={ACCESSIBLE_ICON_TESTID} />
@@ -41,6 +52,13 @@ describe('AccessibleIcon', () => {
         <AccessibleIcon.Root as={CROSS_ICON} label={ACCESSIBLE_ICON_LABEL} data-testid={ACCESSIBLE_ICON_TESTID} />
       );
       cy.get('span').contains(ACCESSIBLE_ICON_LABEL);
+    });
+
+    it('should have attribute data-qwik-primitives-accessible-icon-label with empty value', () => {
+      cy.mount(
+        <AccessibleIcon.Root as={CROSS_ICON} label={ACCESSIBLE_ICON_LABEL} data-testid={ACCESSIBLE_ICON_TESTID} />
+      );
+      cy.get('span').should('have.attr', 'data-qwik-primitives-accessible-icon-label', '');
     });
   });
 });

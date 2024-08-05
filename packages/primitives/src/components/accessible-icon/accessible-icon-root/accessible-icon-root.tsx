@@ -12,8 +12,13 @@ export const AccessibleIconRoot = component$<AccessibleIconRootProps>((props) =>
 
   return (
     <>
-      <Component {...{ 'aria-hidden': 'true', focusable: 'false' }} {...others} />
+      <Component
+        data-qwik-primitives-accessible-icon-root=""
+        {...{ 'aria-hidden': 'true', focusable: 'false' }}
+        {...others}
+      />
       <span
+        data-qwik-primitives-accessible-icon-label=""
         style={{
           position: 'absolute',
           border: 0,
