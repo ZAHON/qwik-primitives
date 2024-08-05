@@ -11,7 +11,7 @@ export const AlertRoot = component$<AlertRootProps>((props) => {
   const Component = as || 'div';
 
   return (
-    <Component role="alert" {...others}>
+    <Component data-qwik-primitives-alert-root="" role="alert" {...others}>
       <Slot />
     </Component>
   );

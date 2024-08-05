@@ -25,5 +25,10 @@ describe('Alert', () => {
       cy.mount(<Alert.Root data-testid={ALERT_ROOT_TESTID}>{ALERT_ROOT_TEXT}</Alert.Root>);
       cy.get(`[data-testid="${ALERT_ROOT_TESTID}"]`).should('have.attr', 'role', 'alert');
     });
+
+    it('should have attribute data-qwik-primitives-alert-root with empty value', () => {
+      cy.mount(<Alert.Root data-testid={ALERT_ROOT_TESTID}>{ALERT_ROOT_TEXT}</Alert.Root>);
+      cy.get(`[data-testid="${ALERT_ROOT_TESTID}"]`).should('have.attr', 'data-qwik-primitives-alert-root', '');
+    });
   });
 });
