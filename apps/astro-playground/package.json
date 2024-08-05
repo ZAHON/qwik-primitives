@@ -19,7 +19,7 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.8.1",
-    "@builder.io/qwik": "1.7.1",
+    "@builder.io/qwik": "1.7.3",
     "@qwikdev/astro": "^0.6.3",
     "@typescript-eslint/eslint-plugin": "^7.16.1",
     "@typescript-eslint/parser": "^7.16.1",
