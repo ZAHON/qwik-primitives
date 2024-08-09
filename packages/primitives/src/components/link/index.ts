@@ -1,7 +1,3 @@
-import type { LinkRootProps } from './link-root';
+export type { LinkRootProps as RootProps } from './link-root';
 
-import { LinkRoot } from './link-root';
-
-export type { LinkRootProps as RootProps };
-
-export { LinkRoot as Root };
+export { LinkRoot as Root } from './link-root';

@@ -1,5 +1,5 @@
 import type { LinkRootProps } from './link-root.types';
-import { component$, sync$, Slot } from '@builder.io/qwik';
+import { component$, useComputed$, sync$, Slot } from '@builder.io/qwik';
 
 /**
  * Contains the content for the link.
@@ -7,6 +7,8 @@ import { component$, sync$, Slot } from '@builder.io/qwik';
  */
 export const LinkRoot = component$<LinkRootProps>((props) => {
   const { as, disabled, external, onClick$, ...others } = props;
+
+  const isDisabled = useComputed$(() => disabled);
 
   const handleClickSync$ = sync$((event: MouseEvent, currentTarget: HTMLElement) => {
     const disabled = currentTarget.getAttribute('aria-disabled') === 'true';
@@ -19,8 +21,9 @@ export const LinkRoot = component$<LinkRootProps>((props) => {
     <Componet
       rel={external ? 'noopener noreferrer' : undefined}
       target={external ? '_blank' : undefined}
-      aria-disabled={disabled ? true : undefined}
-      data-disabled={disabled ? '' : undefined}
+      data-qwik-primitives-link-root=""
+      aria-disabled={isDisabled.value ? true : undefined}
+      data-disabled={isDisabled.value ? '' : undefined}
       data-external={external ? '' : undefined}
       onClick$={[onClick$, handleClickSync$]}
       {...others}

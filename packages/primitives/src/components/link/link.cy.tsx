@@ -124,5 +124,14 @@ describe('Link', () => {
       );
       cy.get(`[data-testid="${LINK_ROOT_TESTID}"]`).should('have.attr', 'data-external');
     });
+
+    it('should have attribute data-qwik-primitives-link-root with empty value', () => {
+      cy.mount(
+        <Link.Root href={LINK_ROOT_URL} data-testid={LINK_ROOT_TESTID}>
+          {LINK_ROOT_TEXT}
+        </Link.Root>
+      );
+      cy.get(`[data-testid="${LINK_ROOT_TESTID}"]`).should('have.attr', 'data-qwik-primitives-link-root', '');
+    });
   });
 });
