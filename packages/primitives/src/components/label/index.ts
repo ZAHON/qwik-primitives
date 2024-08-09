@@ -1,7 +1,3 @@
-import type { LabelRootProps } from './label-root';
+export type { LabelRootProps as RootProps } from './label-root';
 
-import { LabelRoot } from './label-root';
-
-export { LabelRootProps as RootProps };
-
-export { LabelRoot as Root };
+export { LabelRoot as Root } from './label-root';

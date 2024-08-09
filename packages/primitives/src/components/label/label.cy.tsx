@@ -26,5 +26,10 @@ describe('Label', () => {
       cy.get(`[data-testid=${LABEL_ROOT_TESTID}]`).realClick({ clickCount: 2 });
       cy.window().then((window) => expect(window.getSelection()?.toString()).to.eq(''));
     });
+
+    it('should have attribute data-qwik-primitives-label-root with empty value', () => {
+      cy.mount(<Label.Root data-testid={LABEL_ROOT_TESTID}>{LABEL_ROOT_TEXT}</Label.Root>);
+      cy.get(`[data-testid="${LABEL_ROOT_TESTID}"]`).should('have.attr', 'data-qwik-primitives-label-root', '');
+    });
   });
 });

@@ -20,7 +20,7 @@ export const LabelRoot = component$<LabelRootProps>((props) => {
   const Component = as || 'label';
 
   return (
-    <Component onMouseDown$={[onMouseDown$, handleMouseDownSync$]} {...others}>
+    <Component data-qwik-primitives-label-root="" onMouseDown$={[onMouseDown$, handleMouseDownSync$]} {...others}>
       <Slot />
     </Component>
   );
