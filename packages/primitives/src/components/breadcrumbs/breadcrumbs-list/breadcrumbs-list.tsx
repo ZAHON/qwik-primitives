@@ -1,5 +1,6 @@
 import type { BreadcrumbsListProps } from './breadcrumbs-list.types';
-import { component$, Slot } from '@builder.io/qwik';
+import { component$, useContext, Slot } from '@builder.io/qwik';
+import { BreadcrumbsContext } from '../breadcrumbs-context';
 
 /**
  * Contains the breadcrumbs items.
@@ -8,10 +9,12 @@ import { component$, Slot } from '@builder.io/qwik';
 export const BreadcrumbsList = component$<BreadcrumbsListProps>((props) => {
   const { as, ...others } = props;
 
+  const { isDisabled } = useContext(BreadcrumbsContext);
+
   const Component = as || 'ol';
 
   return (
-    <Component {...others}>
+    <Component data-qwik-primitives-breadcrumbs-list="" data-disabled={isDisabled.value ? '' : undefined} {...others}>
       <Slot />
     </Component>
   );

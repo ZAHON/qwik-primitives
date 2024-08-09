@@ -1,31 +1,13 @@
-import type { BreadcrumbsRootProps } from './breadcrumbs-root';
-import type { BreadcrumbsListProps } from './breadcrumbs-list';
-import type { BreadcrumbsItemProps } from './breadcrumbs-item';
-import type { BreadcrumbsLinkProps } from './breadcrumbs-link';
-import type { BreadcrumbsPageProps } from './breadcrumbs-page';
-import type { BreadcrumbsSeparatorProps } from './breadcrumbs-separator';
+export type { BreadcrumbsRootProps as RootProps } from './breadcrumbs-root';
+export type { BreadcrumbsListProps as ListProps } from './breadcrumbs-list';
+export type { BreadcrumbsItemProps as ItemProps } from './breadcrumbs-item';
+export type { BreadcrumbsLinkProps as LinkProps } from './breadcrumbs-link';
+export type { BreadcrumbsPageProps as PageProps } from './breadcrumbs-page';
+export type { BreadcrumbsSeparatorProps as SeparatorProps } from './breadcrumbs-separator';
 
-import { BreadcrumbsRoot } from './breadcrumbs-root';
-import { BreadcrumbsList } from './breadcrumbs-list';
-import { BreadcrumbsItem } from './breadcrumbs-item';
-import { BreadcrumbsLink } from './breadcrumbs-link';
-import { BreadcrumbsPage } from './breadcrumbs-page';
-import { BreadcrumbsSeparator } from './breadcrumbs-separator';
-
-export type {
-  BreadcrumbsRootProps as RootProps,
-  BreadcrumbsListProps as ListProps,
-  BreadcrumbsItemProps as ItemProps,
-  BreadcrumbsLinkProps as LinkProps,
-  BreadcrumbsPageProps as PageProps,
-  BreadcrumbsSeparatorProps as SeparatorProps,
-};
-
-export {
-  BreadcrumbsRoot as Root,
-  BreadcrumbsList as List,
-  BreadcrumbsItem as Item,
-  BreadcrumbsLink as Link,
-  BreadcrumbsPage as Page,
-  BreadcrumbsSeparator as Separator,
-};
+export { BreadcrumbsRoot as Root } from './breadcrumbs-root';
+export { BreadcrumbsList as List } from './breadcrumbs-list';
+export { BreadcrumbsItem as Item } from './breadcrumbs-item';
+export { BreadcrumbsLink as Link } from './breadcrumbs-link';
+export { BreadcrumbsPage as Page } from './breadcrumbs-page';
+export { BreadcrumbsSeparator as Separator } from './breadcrumbs-separator';

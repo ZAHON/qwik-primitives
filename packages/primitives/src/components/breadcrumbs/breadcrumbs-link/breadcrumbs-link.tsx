@@ -10,9 +10,9 @@ import { BreadcrumbsContext } from '../breadcrumbs-context';
 export const BreadcrumbsLink = component$<BreadcrumbsLinkProps>((props) => {
   const { as, disabled, onClick$, ...others } = props;
 
-  const { disabled: breadcrumbsDisabled } = useContext(BreadcrumbsContext);
+  const { isDisabled } = useContext(BreadcrumbsContext);
 
-  const isDisabled = useComputed$(() => disabled ?? breadcrumbsDisabled);
+  const isLinkDisabled = useComputed$(() => disabled ?? isDisabled.value);
 
   const handleClickSync$ = sync$((event: MouseEvent, currentTarget: HTMLElement) => {
     const disabled = currentTarget.getAttribute('aria-disabled') === 'true';
@@ -23,8 +23,9 @@ export const BreadcrumbsLink = component$<BreadcrumbsLinkProps>((props) => {
 
   return (
     <Component
-      aria-disabled={isDisabled.value ? true : undefined}
-      data-disabled={isDisabled.value ? '' : undefined}
+      aria-disabled={isLinkDisabled.value ? true : undefined}
+      data-qwik-primitives-breadcrumbs-link=""
+      data-disabled={isLinkDisabled.value ? '' : undefined}
       onClick$={[onClick$, handleClickSync$]}
       {...others}
     >

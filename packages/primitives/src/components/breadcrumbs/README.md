@@ -77,6 +77,10 @@ Contains all the parts of a breadcrumbs. This component is based on the `nav` el
 | `disabled`   | `boolean`           | `-`             | Whether the breadcrumbs are disabled.                                                                                                                                                                                                   |
 | `style`      | `CSSProperties`     | `-`             | The inline style for the element.                                                                                                                                                                                                       |
 
+| Data attribute    | Values                |
+| ----------------- | --------------------- |
+| `[data-disabled]` | Present when disabled |
+
 ### List
 
 Contains the breadcrumbs items. his component is based on the `ol` element.
@@ -86,6 +90,10 @@ Contains the breadcrumbs items. his component is based on the `ol` element.
 | `as`    | `FunctionComponent` | `-`     | Change the default rendered element for the one passed as, merging their props and behavior. Read our [Composition](https://github.com/ZAHON/qwik-primitives/blob/main/packages/primitives/docs/composition.md) guide for more details. |
 | `style` | `CSSProperties`     | `-`     | The inline style for the element.                                                                                                                                                                                                       |
 
+| Data attribute    | Values                |
+| ----------------- | --------------------- |
+| `[data-disabled]` | Present when disabled |
+
 ### Item
 
 A breadcrumbs item. This component is based on the `li` element.
@@ -94,6 +102,10 @@ A breadcrumbs item. This component is based on the `li` element.
 | ------- | ------------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `as`    | `FunctionComponent` | `-`     | Change the default rendered element for the one passed as, merging their props and behavior. Read our [Composition](https://github.com/ZAHON/qwik-primitives/blob/main/packages/primitives/docs/composition.md) guide for more details. |
 | `style` | `CSSProperties`     | `-`     | The inline style for the element.                                                                                                                                                                                                       |
+
+| Data attribute    | Values                |
+| ----------------- | --------------------- |
+| `[data-disabled]` | Present when disabled |
 
 ### Link
 
@@ -127,6 +139,10 @@ Used to visually separate breadcrumbs items. Must be rendered inside `Breadcrumb
 | ------- | ------------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `as`    | `FunctionComponent` | `-`     | Change the default rendered element for the one passed as, merging their props and behavior. Read our [Composition](https://github.com/ZAHON/qwik-primitives/blob/main/packages/primitives/docs/composition.md) guide for more details. |
 | `style` | `CSSProperties`     | `-`     | The inline style for the element.                                                                                                                                                                                                       |
+
+| Data attribute    | Values                |
+| ----------------- | --------------------- |
+| `[data-disabled]` | Present when disabled |
 
 ## Examples
 

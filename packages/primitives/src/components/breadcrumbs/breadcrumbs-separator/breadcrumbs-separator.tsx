@@ -1,5 +1,6 @@
 import type { BreadcrumbsSeparatorProps } from './breadcrumbs-separator.types';
-import { component$, Slot } from '@builder.io/qwik';
+import { component$, useContext, Slot } from '@builder.io/qwik';
+import { BreadcrumbsContext } from '../breadcrumbs-context';
 
 /**
  * Used to visually separate breadcrumbs items.
@@ -9,10 +10,17 @@ import { component$, Slot } from '@builder.io/qwik';
 export const BreadcrumbsSeparator = component$<BreadcrumbsSeparatorProps>((props) => {
   const { as, ...others } = props;
 
+  const { isDisabled } = useContext(BreadcrumbsContext);
+
   const Component = as || 'span';
 
   return (
-    <Component role="presentation" aria-hidden="true" {...others}>
+    <Component
+      aria-hidden="true"
+      data-qwik-primitives-breadcrumbs-separator=""
+      data-disabled={isDisabled.value ? '' : undefined}
+      {...others}
+    >
       <Slot />
     </Component>
   );

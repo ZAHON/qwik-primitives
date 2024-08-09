@@ -51,6 +51,33 @@ describe('Breadcrumbs', () => {
       );
       cy.get(`[data-testid="${BREADCRUMBS_ROOT_TESTID}"]`).should('have.attr', 'aria-label', ariaLabel);
     });
+
+    it('should have not attribute data-disabled when not disabled', () => {
+      cy.mount(
+        <Breadcrumbs.Root disabled={false} data-testid={BREADCRUMBS_ROOT_TESTID}>
+          {BREADCRUMBS_ROOT_TEXT}
+        </Breadcrumbs.Root>
+      );
+      cy.get(`[data-testid="${BREADCRUMBS_ROOT_TESTID}"]`).should('have.not.attr', 'data-disabled');
+    });
+
+    it('should have attribute data-disabled when disabled', () => {
+      cy.mount(
+        <Breadcrumbs.Root disabled={true} data-testid={BREADCRUMBS_ROOT_TESTID}>
+          {BREADCRUMBS_ROOT_TEXT}
+        </Breadcrumbs.Root>
+      );
+      cy.get(`[data-testid="${BREADCRUMBS_ROOT_TESTID}"]`).should('have.attr', 'data-disabled');
+    });
+
+    it('should have attribute data-qwik-primitives-breadcrumbs-root with empty value', () => {
+      cy.mount(<Breadcrumbs.Root data-testid={BREADCRUMBS_ROOT_TESTID}>{BREADCRUMBS_ROOT_TEXT}</Breadcrumbs.Root>);
+      cy.get(`[data-testid="${BREADCRUMBS_ROOT_TESTID}"]`).should(
+        'have.attr',
+        'data-qwik-primitives-breadcrumbs-root',
+        ''
+      );
+    });
   });
 
   describe('List', () => {
@@ -73,6 +100,37 @@ describe('Breadcrumbs', () => {
       );
       cy.get(`[data-testid="${BREADCRUMBS_LIST_TESTID}"]`).should('have.prop', 'tagName').should('not.eq', 'OL');
       cy.get(`[data-testid="${BREADCRUMBS_LIST_TESTID}"]`).should('have.prop', 'tagName').should('eq', 'DIV');
+    });
+
+    it('should have not attribute aria-disabled when <Breadcrumbs.Root> not disabled', () => {
+      cy.mount(
+        <Breadcrumbs.Root disabled={false}>
+          <Breadcrumbs.List data-testid={BREADCRUMBS_LIST_TESTID}>{BREADCRUMBS_LIST_TEXT}</Breadcrumbs.List>
+        </Breadcrumbs.Root>
+      );
+      cy.get(`[data-testid="${BREADCRUMBS_LIST_TESTID}"]`).should('have.not.attr', 'data-disabled');
+    });
+
+    it('should have attribute aria-disabled when <Breadcrumbs.Root> disabled', () => {
+      cy.mount(
+        <Breadcrumbs.Root disabled={true}>
+          <Breadcrumbs.List data-testid={BREADCRUMBS_LIST_TESTID}>{BREADCRUMBS_LIST_TEXT}</Breadcrumbs.List>
+        </Breadcrumbs.Root>
+      );
+      cy.get(`[data-testid="${BREADCRUMBS_LIST_TESTID}"]`).should('have.attr', 'data-disabled');
+    });
+
+    it('should have attribute data-qwik-primitives-breadcrumbs-list with empty value', () => {
+      cy.mount(
+        <Breadcrumbs.Root>
+          <Breadcrumbs.List data-testid={BREADCRUMBS_LIST_TESTID}>{BREADCRUMBS_LIST_TEXT}</Breadcrumbs.List>
+        </Breadcrumbs.Root>
+      );
+      cy.get(`[data-testid="${BREADCRUMBS_LIST_TESTID}"]`).should(
+        'have.attr',
+        'data-qwik-primitives-breadcrumbs-list',
+        ''
+      );
     });
   });
 
@@ -100,6 +158,43 @@ describe('Breadcrumbs', () => {
       );
       cy.get(`[data-testid="${BREADCRUMBS_ITEM_TESTID}"]`).should('have.prop', 'tagName').should('not.eq', 'LI');
       cy.get(`[data-testid="${BREADCRUMBS_ITEM_TESTID}"]`).should('have.prop', 'tagName').should('eq', 'DIV');
+    });
+
+    it('should have not attribute aria-disabled when <Breadcrumbs.Root> not disabled', () => {
+      cy.mount(
+        <Breadcrumbs.Root disabled={false}>
+          <Breadcrumbs.List>
+            <Breadcrumbs.Item data-testid={BREADCRUMBS_ITEM_TESTID}>{BREADCRUMBS_ITEM_TEXT}</Breadcrumbs.Item>
+          </Breadcrumbs.List>
+        </Breadcrumbs.Root>
+      );
+      cy.get(`[data-testid="${BREADCRUMBS_ITEM_TESTID}"]`).should('have.not.attr', 'data-disabled');
+    });
+
+    it('should have attribute aria-disabled when <Breadcrumbs.Root> disabled', () => {
+      cy.mount(
+        <Breadcrumbs.Root disabled={true}>
+          <Breadcrumbs.List>
+            <Breadcrumbs.Item data-testid={BREADCRUMBS_ITEM_TESTID}>{BREADCRUMBS_ITEM_TEXT}</Breadcrumbs.Item>
+          </Breadcrumbs.List>
+        </Breadcrumbs.Root>
+      );
+      cy.get(`[data-testid="${BREADCRUMBS_ITEM_TESTID}"]`).should('have.attr', 'data-disabled');
+    });
+
+    it('should have attribute data-qwik-primitives-breadcrumbs-item with empty value', () => {
+      cy.mount(
+        <Breadcrumbs.Root>
+          <Breadcrumbs.List>
+            <Breadcrumbs.Item data-testid={BREADCRUMBS_ITEM_TESTID}>{BREADCRUMBS_ITEM_TEXT}</Breadcrumbs.Item>
+          </Breadcrumbs.List>
+        </Breadcrumbs.Root>
+      );
+      cy.get(`[data-testid="${BREADCRUMBS_ITEM_TESTID}"]`).should(
+        'have.attr',
+        'data-qwik-primitives-breadcrumbs-item',
+        ''
+      );
     });
   });
 
@@ -304,6 +399,23 @@ describe('Breadcrumbs', () => {
       );
       cy.get(`[data-testid="${BREADCRUMBS_LINK_TESTID}"]`).should('have.attr', 'data-disabled');
     });
+
+    it('should have attribute data-qwik-primitives-breadcrumbs-link with empty value', () => {
+      cy.mount(
+        <Breadcrumbs.Root>
+          <Breadcrumbs.List>
+            <Breadcrumbs.Item>
+              <Breadcrumbs.Link data-testid={BREADCRUMBS_LINK_TESTID}>{BREADCRUMBS_LINK_TEXT}</Breadcrumbs.Link>
+            </Breadcrumbs.Item>
+          </Breadcrumbs.List>
+        </Breadcrumbs.Root>
+      );
+      cy.get(`[data-testid="${BREADCRUMBS_LINK_TESTID}"]`).should(
+        'have.attr',
+        'data-qwik-primitives-breadcrumbs-link',
+        ''
+      );
+    });
   });
 
   describe('Page', () => {
@@ -374,6 +486,49 @@ describe('Breadcrumbs', () => {
       );
       cy.get(`[data-testid="${BREADCRUMBS_PAGE_TESTID}"]`).should('have.attr', 'aria-disabled', 'true');
     });
+
+    it('should have not attribute aria-disabled when <Breadcrumbs.Root> not disabled', () => {
+      cy.mount(
+        <Breadcrumbs.Root disabled={false}>
+          <Breadcrumbs.List>
+            <Breadcrumbs.Item>
+              <Breadcrumbs.Page data-testid={BREADCRUMBS_PAGE_TESTID}>{BREADCRUMBS_PAGE_TEXT}</Breadcrumbs.Page>
+            </Breadcrumbs.Item>
+          </Breadcrumbs.List>
+        </Breadcrumbs.Root>
+      );
+      cy.get(`[data-testid="${BREADCRUMBS_PAGE_TESTID}"]`).should('have.not.attr', 'data-disabled');
+    });
+
+    it('should have attribute aria-disabled when <Breadcrumbs.Root> disabled', () => {
+      cy.mount(
+        <Breadcrumbs.Root disabled={true}>
+          <Breadcrumbs.List>
+            <Breadcrumbs.Item>
+              <Breadcrumbs.Page data-testid={BREADCRUMBS_PAGE_TESTID}>{BREADCRUMBS_PAGE_TEXT}</Breadcrumbs.Page>
+            </Breadcrumbs.Item>
+          </Breadcrumbs.List>
+        </Breadcrumbs.Root>
+      );
+      cy.get(`[data-testid="${BREADCRUMBS_PAGE_TESTID}"]`).should('have.attr', 'data-disabled');
+    });
+
+    it('should have attribute data-qwik-primitives-breadcrumbs-page with empty value', () => {
+      cy.mount(
+        <Breadcrumbs.Root>
+          <Breadcrumbs.List>
+            <Breadcrumbs.Item>
+              <Breadcrumbs.Page data-testid={BREADCRUMBS_PAGE_TESTID}>{BREADCRUMBS_PAGE_TEXT}</Breadcrumbs.Page>
+            </Breadcrumbs.Item>
+          </Breadcrumbs.List>
+        </Breadcrumbs.Root>
+      );
+      cy.get(`[data-testid="${BREADCRUMBS_PAGE_TESTID}"]`).should(
+        'have.attr',
+        'data-qwik-primitives-breadcrumbs-page',
+        ''
+      );
+    });
   });
 
   describe('Separator', () => {
@@ -408,21 +563,6 @@ describe('Breadcrumbs', () => {
       cy.get(`[data-testid="${BREADCRUMBS_SEPARATOR_TESTID}"]`).should('have.prop', 'tagName').should('eq', 'DIV');
     });
 
-    it('should have attribute role with value "presentation"', () => {
-      cy.mount(
-        <Breadcrumbs.Root>
-          <Breadcrumbs.List>
-            <Breadcrumbs.Item>
-              <Breadcrumbs.Separator data-testid={BREADCRUMBS_SEPARATOR_TESTID}>
-                {BREADCRUMBS_SEPARATOR_TEXT}
-              </Breadcrumbs.Separator>
-            </Breadcrumbs.Item>
-          </Breadcrumbs.List>
-        </Breadcrumbs.Root>
-      );
-      cy.get(`[data-testid="${BREADCRUMBS_SEPARATOR_TESTID}"]`).should('have.prop', 'role', 'presentation');
-    });
-
     it('should have attribute aria-hidden with value "true"', () => {
       cy.mount(
         <Breadcrumbs.Root>
@@ -440,6 +580,55 @@ describe('Breadcrumbs', () => {
         const isHidden = element?.getAttribute('aria-hidden');
         expect(isHidden).to.eq('true');
       });
+    });
+
+    it('should have not attribute aria-disabled when <Breadcrumbs.Root> not disabled', () => {
+      cy.mount(
+        <Breadcrumbs.Root disabled={false}>
+          <Breadcrumbs.List>
+            <Breadcrumbs.Item>
+              <Breadcrumbs.Separator data-testid={BREADCRUMBS_SEPARATOR_TESTID}>
+                {BREADCRUMBS_SEPARATOR_TEXT}
+              </Breadcrumbs.Separator>
+            </Breadcrumbs.Item>
+          </Breadcrumbs.List>
+        </Breadcrumbs.Root>
+      );
+      cy.get(`[data-testid="${BREADCRUMBS_SEPARATOR_TESTID}"]`).should('have.not.attr', 'data-disabled');
+    });
+
+    it('should have attribute aria-disabled when <Breadcrumbs.Root> disabled', () => {
+      cy.mount(
+        <Breadcrumbs.Root disabled={true}>
+          <Breadcrumbs.List>
+            <Breadcrumbs.Item>
+              <Breadcrumbs.Separator data-testid={BREADCRUMBS_SEPARATOR_TESTID}>
+                {BREADCRUMBS_SEPARATOR_TEXT}
+              </Breadcrumbs.Separator>
+            </Breadcrumbs.Item>
+          </Breadcrumbs.List>
+        </Breadcrumbs.Root>
+      );
+      cy.get(`[data-testid="${BREADCRUMBS_SEPARATOR_TESTID}"]`).should('have.attr', 'data-disabled');
+    });
+
+    it('should have attribute data-qwik-primitives-breadcrumbs-separator with empty value', () => {
+      cy.mount(
+        <Breadcrumbs.Root>
+          <Breadcrumbs.List>
+            <Breadcrumbs.Item>
+              <Breadcrumbs.Separator data-testid={BREADCRUMBS_SEPARATOR_TESTID}>
+                {BREADCRUMBS_SEPARATOR_TEXT}
+              </Breadcrumbs.Separator>
+            </Breadcrumbs.Item>
+          </Breadcrumbs.List>
+        </Breadcrumbs.Root>
+      );
+      cy.get(`[data-testid="${BREADCRUMBS_SEPARATOR_TESTID}"]`).should(
+        'have.attr',
+        'data-qwik-primitives-breadcrumbs-separator',
+        ''
+      );
     });
   });
 });
