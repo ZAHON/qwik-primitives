@@ -15,5 +15,14 @@ describe('VisuallyHidden', () => {
       cy.get(`[data-testid="${VISUALLY_HIDDEN_TESTID}"]`).should('have.prop', 'tagName').should('not.eq', 'SPAN');
       cy.get(`[data-testid="${VISUALLY_HIDDEN_TESTID}"]`).should('have.prop', 'tagName').should('eq', 'DIV');
     });
+
+    it('should have attribute data-qwik-primitives-visually-hidden-root with empty value', () => {
+      cy.mount(<VisuallyHidden.Root data-testid={VISUALLY_HIDDEN_TESTID} />);
+      cy.get(`[data-testid="${VISUALLY_HIDDEN_TESTID}"]`).should(
+        'have.attr',
+        'data-qwik-primitives-visually-hidden-root',
+        ''
+      );
+    });
   });
 });
