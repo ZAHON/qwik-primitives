@@ -1,5 +1,6 @@
 import type { AccessibleIconRootProps } from './accessible-icon-root.types';
 import { component$ } from '@builder.io/qwik';
+import { visuallyHiddenStyle } from '@/utilities';
 
 /**
  * Contains the icon to make accessible.
@@ -17,21 +18,7 @@ export const AccessibleIconRoot = component$<AccessibleIconRootProps>((props) =>
         {...{ 'aria-hidden': 'true', focusable: 'false' }}
         {...others}
       />
-      <span
-        data-qwik-primitives-accessible-icon-label=""
-        style={{
-          position: 'absolute',
-          border: 0,
-          width: 1,
-          height: 1,
-          padding: 0,
-          margin: -1,
-          overflow: 'hidden',
-          clip: 'rect(0, 0, 0, 0)',
-          whiteSpace: 'nowrap',
-          wordWrap: 'normal',
-        }}
-      >
+      <span data-qwik-primitives-accessible-icon-label="" style={visuallyHiddenStyle}>
         {label}
       </span>
     </>
