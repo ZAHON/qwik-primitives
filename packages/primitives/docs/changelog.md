@@ -1,5 +1,21 @@
 # Changelog
 
+## 0.0.17
+
+### 🚀 Features
+
+- Add `useFocusTrap` hook.
+
+- Add `useScrollLock` hook.
+
+- Add `visuallyHiddenStyle` utility.
+
+- Add `Dialog` component.
+
+- Use `visuallyHiddenStyle` utility in `VisuallyHidden.Root` component.
+
+- Use `visuallyHiddenStyle` utility in `AccessibleIcon.Root` component.
+
 ## 0.0.16
 
 ### 🚀 Features
