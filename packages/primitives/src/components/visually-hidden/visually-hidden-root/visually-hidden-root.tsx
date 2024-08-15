@@ -1,5 +1,6 @@
 import type { VisuallyHiddenRootProps } from './visually-hidden-root.types';
 import { component$, Slot } from '@builder.io/qwik';
+import { visuallyHiddenStyle } from '@/utilities';
 
 /**
  * Anything you put inside this component will be hidden from the screen but will be announced by screen readers.
@@ -14,16 +15,7 @@ export const VisuallyHiddenRoot = component$<VisuallyHiddenRootProps>((props) =>
     <Component
       data-qwik-primitives-visually-hidden-root=""
       style={{
-        position: 'absolute',
-        border: 0,
-        width: 1,
-        height: 1,
-        padding: 0,
-        margin: -1,
-        overflow: 'hidden',
-        clip: 'rect(0, 0, 0, 0)',
-        whiteSpace: 'nowrap',
-        wordWrap: 'normal',
+        ...visuallyHiddenStyle,
         ...style,
       }}
       {...others}
