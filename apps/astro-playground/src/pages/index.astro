@@ -7,6 +7,7 @@ const componentsLinks = [
   { slug: 'alert', label: 'Alert' },
   { slug: 'breadcrumbs', label: 'Breadcrumbs' },
   { slug: 'collapsible', label: 'Collapsible' },
+  { slug: 'dialog', label: 'Dialog' },
   { slug: 'label', label: 'Label' },
   { slug: 'link', label: 'Link' },
   { slug: 'visually-hidden', label: 'Visually Hidden' },

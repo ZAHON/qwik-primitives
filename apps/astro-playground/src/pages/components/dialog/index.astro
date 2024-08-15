@@ -1,0 +1,35 @@
+---
+import { BaseLayout } from '@/layouts';
+import { Link, List } from '@/components';
+
+const links = [
+  { slug: 'uncontrolled', label: 'Uncontrolled' },
+  { slug: 'controlled', label: 'Controlled' },
+  { slug: 'stacked-dialogs', label: 'Stacked dialogs' },
+  { slug: 'stacked-dialogs-animated', label: 'Stacked dialogs animated' },
+  { slug: 'initially-open', label: 'Initially open' },
+  { slug: 'initially-open-animated', label: 'Initially open animated' },
+  { slug: 'animated', label: 'Animated' },
+];
+
+const title = 'Dialog | Qwik Primitives Astro Playground';
+const description =
+  'A window overlaid on either the primary window or another dialog window, rendering the content underneath inert.';
+---
+
+<BaseLayout title={title} description={description}>
+  <h1>Dialog</h1>
+  <p>
+    A window overlaid on either the primary window or another dialog window, rendering the content underneath inert.
+  </p>
+
+  <List.Root>
+    {
+      links.map(({ slug, label }) => (
+        <List.Item>
+          <Link href={`/components/dialog/${slug}`}>{label}</Link>
+        </List.Item>
+      ))
+    }
+  </List.Root>
+</BaseLayout>
