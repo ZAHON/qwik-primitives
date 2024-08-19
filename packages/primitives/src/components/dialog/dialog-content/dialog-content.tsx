@@ -17,7 +17,7 @@ export const DialogContent = component$<DialogContentProps>((props) => {
     preventScroll = true,
     trapFocus = true,
     closeOnEscapeKeyDown = true,
-    closeOnPointerDownOutside = true,
+    closeOnClickOutside = true,
     onEscapeKeyDown$,
     onPointerDownOutside$,
     onOpen$,
@@ -202,7 +202,7 @@ export const DialogContent = component$<DialogContentProps>((props) => {
   });
 
   const handleClick$ = $((event: PointerEvent, currentTarget: HTMLDialogElement) => {
-    if (closeOnPointerDownOutside) {
+    if (closeOnClickOutside) {
       const rect = currentTarget.getBoundingClientRect();
 
       const isPointerDownOutside =

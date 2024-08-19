@@ -30,7 +30,7 @@ export interface DialogContentProps extends PropsOf<'dialog'> {
    * Whether to close the dialog when the outside is clicked.
    * @default true
    */
-  closeOnPointerDownOutside?: boolean;
+  closeOnClickOutside?: boolean;
 
   /**
    * Event handler called when the escape key is down.
