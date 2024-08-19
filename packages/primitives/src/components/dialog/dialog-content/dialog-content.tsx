@@ -24,7 +24,7 @@ export const DialogContent = component$<DialogContentProps>((props) => {
     onClose$,
     onCancel$,
     onKeyDown$,
-    onPointerDown$,
+    onClick$,
     style,
     ...others
   } = props;
@@ -197,11 +197,11 @@ export const DialogContent = component$<DialogContentProps>((props) => {
     }
   });
 
-  const handlePointerDownSync$ = sync$((event: PointerEvent) => {
-    event.preventDefault();
+  const handleClickSync$ = sync$((event: PointerEvent) => {
+    event.stopPropagation();
   });
 
-  const handlePointerDown$ = $((event: PointerEvent, currentTarget: HTMLDialogElement) => {
+  const handleClick$ = $((event: PointerEvent, currentTarget: HTMLDialogElement) => {
     if (closeOnPointerDownOutside) {
       const rect = currentTarget.getBoundingClientRect();
 
@@ -211,7 +211,7 @@ export const DialogContent = component$<DialogContentProps>((props) => {
         rect.top > event.clientY ||
         rect.bottom < event.clientY;
 
-      if (isPointerDownOutside) {
+      if (isPointerDownOutside && event.pointerId !== -1 && isOpen.value) {
         setIsOpen$(false);
         onPointerDownOutside$?.();
       }
@@ -230,7 +230,7 @@ export const DialogContent = component$<DialogContentProps>((props) => {
       data-state={isOpen.value ? 'open' : 'closed'}
       onCancel$={[onCancel$, handleCancelSync$]}
       onKeyDown$={[onKeyDown$, handleKeyDownSync$, handleKeyDown$]}
-      onPointerDown$={[onPointerDown$, handlePointerDownSync$, handlePointerDown$]}
+      onClick$={[onClick$, handleClickSync$, handleClick$]}
       style={{
         opacity: contentHide.value ? 0 : 1,
         animationName: cancelFirstAnimation.value ? 'none' : undefined,
