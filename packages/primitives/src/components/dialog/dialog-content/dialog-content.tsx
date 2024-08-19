@@ -19,7 +19,7 @@ export const DialogContent = component$<DialogContentProps>((props) => {
     closeOnEscapeKeyDown = true,
     closeOnClickOutside = true,
     onEscapeKeyDown$,
-    onPointerDownOutside$,
+    onClickOutside$,
     onOpen$,
     onClose$,
     onCancel$,
@@ -213,7 +213,7 @@ export const DialogContent = component$<DialogContentProps>((props) => {
 
       if (isPointerDownOutside && event.pointerId !== -1 && isOpen.value) {
         setIsOpen$(false);
-        onPointerDownOutside$?.();
+        onClickOutside$?.();
       }
     }
   });

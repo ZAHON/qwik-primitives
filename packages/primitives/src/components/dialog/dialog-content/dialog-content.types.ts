@@ -40,7 +40,7 @@ export interface DialogContentProps extends PropsOf<'dialog'> {
   /**
    * Event handler called when a pointer event occurs outside the bounds of the component.
    */
-  onPointerDownOutside$?: QRL<() => void>;
+  onClickOutside$?: QRL<() => void>;
 
   /**
    * Event handler called when the content is fully open.
