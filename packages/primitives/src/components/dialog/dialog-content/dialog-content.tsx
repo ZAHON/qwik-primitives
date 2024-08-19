@@ -117,6 +117,23 @@ export const DialogContent = component$<DialogContentProps>((props) => {
     if (isServer) return;
 
     if (!isOpen.value) {
+      const closeContent = () => {
+        if (!isOpen.value && contentRef.value) {
+          contentRef.value.removeAttribute('aria-labelledby');
+          contentRef.value.removeAttribute('aria-describedby');
+
+          if (preventScroll) scrollLock.unlock$();
+          if (trapFocus) focusTrap.deactivate$();
+
+          contentRef.value.close();
+          contentHide.value = true;
+
+          triggerRef.value?.focus();
+
+          onClose$?.();
+        }
+      };
+
       if (contentRef.value) {
         // In Firefox, there is a strange error that occurs when animating the closing of a component.
         // At the moment, its cause is unknown, it is possible that it is an implementation error or maybe
@@ -127,19 +144,7 @@ export const DialogContent = component$<DialogContentProps>((props) => {
         const isFirefox = 'MozAppearance' in contentRef.value.style;
 
         if (isFirefox) {
-          contentRef.value.removeAttribute('aria-labelledby');
-          contentRef.value.removeAttribute('aria-describedby');
-
-          if (preventScroll) scrollLock.unlock$();
-          if (trapFocus) focusTrap.deactivate$();
-
-          contentHide.value = true;
-          contentRef.value.close();
-
-          triggerRef.value?.focus();
-
-          onClose$?.();
-
+          closeContent();
           return;
         }
       }
@@ -161,37 +166,13 @@ export const DialogContent = component$<DialogContentProps>((props) => {
               'animationend',
               (event) => {
                 if (currentAnimationName === event.animationName) {
-                  const currentTarget = event.currentTarget as HTMLDialogElement;
-
-                  currentTarget.removeAttribute('aria-labelledby');
-                  currentTarget.removeAttribute('aria-describedby');
-
-                  if (preventScroll) scrollLock.unlock$();
-                  if (trapFocus) focusTrap.deactivate$();
-
-                  contentHide.value = true;
-                  currentTarget.close();
-
-                  triggerRef.value?.focus();
-
-                  onClose$?.();
+                  closeContent();
                 }
               },
               { once: true }
             );
           } else {
-            contentRef.value.removeAttribute('aria-labelledby');
-            contentRef.value.removeAttribute('aria-describedby');
-
-            if (preventScroll) scrollLock.unlock$();
-            if (trapFocus) focusTrap.deactivate$();
-
-            contentHide.value = true;
-            contentRef.value.close();
-
-            triggerRef.value?.focus();
-
-            onClose$?.();
+            closeContent();
           }
         }
       });
