@@ -180,7 +180,12 @@ export const useFocusTrap = (elementRef: Signal<HTMLElement | undefined>, option
     }
 
     if (elementRef.value) {
-      elementRef.value.tabIndex = -1;
+      const tabIndex = elementRef.value.tabIndex;
+
+      if (tabIndex !== -1) {
+        elementRef.value.tabIndex = -1;
+      }
+
       isActive.value = true;
     }
   });
