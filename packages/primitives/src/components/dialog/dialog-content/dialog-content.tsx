@@ -225,7 +225,6 @@ export const DialogContent = component$<DialogContentProps>((props) => {
       ref={composeRefs([ref, contentRef])}
       role="dialog"
       id={contentId.value}
-      tabIndex={trapFocus ? -1 : undefined}
       data-qwik-primitives-dialog-content=""
       data-state={isOpen.value ? 'open' : 'closed'}
       onCancel$={[onCancel$, handleCancelSync$]}
