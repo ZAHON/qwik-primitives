@@ -44,7 +44,7 @@ const DialogDemo = component$(() => {
 
 ## Usage
 
-Dialog component can be uncontrolled or controlled.
+Component can be uncontrolled or controlled.
 
 ### Uncontrolled
 
@@ -117,18 +117,18 @@ The button that opens the dialog. This component is based on the `button` elemen
 
 Contains content to be rendered in the open dialog. This component is based on the `dialog` element.
 
-| Prop                        | Type                | Default | Description                                                                                                                                                                                                                             |
-| --------------------------- | ------------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `as`                        | `FunctionComponent` | `-`     | Change the default rendered element for the one passed as, merging their props and behavior. Read our [Composition](https://github.com/ZAHON/qwik-primitives/blob/main/packages/primitives/docs/composition.md) guide for more details. |
-| `preventScroll`             | `boolean`           | `true`  | Whether to prevent scrolling behind the dialog when it's opened.                                                                                                                                                                        |
-| `trapFocus`                 | `boolean`           | `true`  | Whether to trap focus inside the dialog when it's opened.                                                                                                                                                                               |
-| `closeOnEscapeKeyDown`      | `boolean`           | `true`  | Whether to close the dialog when the escape key is down.                                                                                                                                                                                |
-| `closeOnPointerDownOutside` | `boolean`           | `true`  | Whether to close the dialog when the outside is clicked.                                                                                                                                                                                |
-| `onEscapeKeyDown$`          | `QRL<() => void>`   | `-`     | Event handler called when the escape key is down.                                                                                                                                                                                       |
-| `onPointerDownOutside$`     | `QRL<() => void>`   | `-`     | Event handler called when a pointer event occurs outside the bounds of the component.                                                                                                                                                   |
-| `onOpen$`                   | `QRL<() => void>`   | `-`     | Event handler called when the content is fully open. If you animate the content when it opens this event handler was call after animation end.                                                                                          |
-| `onClose$`                  | `QRL<() => void>`   | `-`     | Event handler called when the content is fully close. If you animate the content when it closes this event handler was call after animation end.                                                                                        |
-| `style`                     | `CSSProperties`     | `-`     | The inline style for the element.                                                                                                                                                                                                       |
+| Prop                   | Type                | Default | Description                                                                                                                                                                                                                             |
+| ---------------------- | ------------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `as`                   | `FunctionComponent` | `-`     | Change the default rendered element for the one passed as, merging their props and behavior. Read our [Composition](https://github.com/ZAHON/qwik-primitives/blob/main/packages/primitives/docs/composition.md) guide for more details. |
+| `preventScroll`        | `boolean`           | `true`  | Whether to prevent scrolling behind the dialog when it's opened.                                                                                                                                                                        |
+| `trapFocus`            | `boolean`           | `true`  | Whether to trap focus inside the dialog when it's opened.                                                                                                                                                                               |
+| `closeOnEscapeKeyDown` | `boolean`           | `true`  | Whether to close the dialog when the escape key is down.                                                                                                                                                                                |
+| `closeOnClickOutside`  | `boolean`           | `true`  | Whether to close the dialog when the outside is clicked.                                                                                                                                                                                |
+| `onEscapeKeyDown$`     | `QRL<() => void>`   | `-`     | Event handler called when the escape key is down.                                                                                                                                                                                       |
+| `onClickOutside$`      | `QRL<() => void>`   | `-`     | Event handler called when a pointer event occurs outside the bounds of the component.                                                                                                                                                   |
+| `onOpen$`              | `QRL<() => void>`   | `-`     | Event handler called when the content is fully open. If you animate the content when it opens this event handler was call after animation end.                                                                                          |
+| `onClose$`             | `QRL<() => void>`   | `-`     | Event handler called when the content is fully close. If you animate the content when it closes this event handler was call after animation end.                                                                                        |
+| `style`                | `CSSProperties`     | `-`     | The inline style for the element.                                                                                                                                                                                                       |
 
 | Data attribute | Values               |
 | -------------- | -------------------- |
@@ -200,7 +200,7 @@ const DialogDemo = component$(() => {
 
 ### Animations
 
-The example below shows how to animate Dialog content when it opens/closes.
+The example below shows how to animate `Dialog.Content` component when it opens/closes.
 
 ```tsx
 // index.tsx
@@ -246,18 +246,6 @@ const DialogDemo = component$(() => {
   animation: dialog-content-hide 150ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.dialog-content::backdrop {
-  background-color: rgba(0, 0, 0, 0.5);
-}
-
-.dialog-content[data-state='open']::backdrop {
-  animation: dialog-content-backdrop-show 150ms cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.dialog-content[data-state='closed']::backdrop {
-  animation: dialog-content-backdrop-hide 150ms cubic-bezier(0.16, 1, 0.3, 1);
-}
-
 @keyframes dialog-content-show {
   0% {
     opacity: 0;
@@ -278,6 +266,47 @@ const DialogDemo = component$(() => {
     opacity: 0;
     transform: translate(-50%, -48%) scale(0.96);
   }
+}
+```
+
+### Style the dialog overlay
+
+Use the `::backdrop` CSS pseudo-element to style `Dialog.Content` component overlay. The overlay can also be animated.
+
+```tsx
+// index.tsx
+import { component$, useStyles$ } from '@builder.io/qwik';
+import { Dialog } from 'qwik-primitives';
+import styles from './styles.css?inline';
+
+const DialogDemo = component$(() => {
+  useStyles$(styles);
+
+  return (
+    <Dialog.Root>
+      <Dialog.Trigger>Open dialog</Dialog.Trigger>
+      <Dialog.Content class="dialog-content">
+        <Dialog.Title>Dialog title</Dialog.Title>
+        <Dialog.Description>Dialog description</Dialog.Description>
+        <Dialog.Close>Close dialog</Dialog.Close>
+      </Dialog.Content>
+    </Dialog.Root>
+  );
+});
+```
+
+```css
+/* styles.css */
+.dialog-content::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.dialog-content[data-state='open']::backdrop {
+  animation: dialog-content-backdrop-show 150ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dialog-content[data-state='closed']::backdrop {
+  animation: dialog-content-backdrop-hide 150ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @keyframes dialog-content-backdrop-show {
@@ -301,7 +330,7 @@ const DialogDemo = component$(() => {
 
 ### Close after asynchronous form submission
 
-Use the controlled props to programmatically close the Dialog after an async operation has completed.
+Use the controlled props to programmatically close the `Dialog` component after an async operation has completed.
 
 ```tsx
 import { component$, useSignal, $ } from '@builder.io/qwik';
