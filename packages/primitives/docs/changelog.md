@@ -1,5 +1,23 @@
 # Changelog
 
+## 0.0.18
+
+### 🚀 Features
+
+- Add a condition checking if the element has a `tabIndex` attribute with a value not equal to `-1` in `useFocusTrap`.
+
+### 🚨 Breaking Changes
+
+- Change `Dialog.Content` component prop name from `closeOnPointerDownOutside` to `closeOnClickOutside`.
+
+- Change `Dialog.Content` component prop name from `onPointerDownOutside` to `onClickOutside`.
+
+### 🐞 Bug Fixes
+
+- Fix issue that occurs when first opening `Dialog` component.
+
+- Fix issue when user click outside `Dialog` component.
+
 ## 0.0.17
 
 ### 🚀 Features
