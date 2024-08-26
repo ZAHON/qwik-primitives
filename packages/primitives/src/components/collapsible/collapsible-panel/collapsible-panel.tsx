@@ -39,6 +39,12 @@ export const CollapsiblePanel = component$<CollapsiblePanelProps>((props) => {
       cancelFirstAnimation.value = false;
       panelRef.value.style.removeProperty('animationDuration');
     }
+  });
+
+  useTask$(({ track }) => {
+    track(() => isOpen.value);
+
+    if (isServer) return;
 
     if (isOpen.value) {
       isPanelHide.value = false;
@@ -76,8 +82,22 @@ export const CollapsiblePanel = component$<CollapsiblePanelProps>((props) => {
         }
       });
     }
+  });
+
+  useTask$(({ track }) => {
+    track(() => isOpen.value);
+
+    if (isServer) return;
 
     if (!isOpen.value) {
+      const closePanel = () => {
+        if (!isOpen.value) {
+          isPanelHide.value = true;
+          panelStatus.value = 'closed';
+          onClose$?.();
+        }
+      };
+
       setTimeout(() => {
         if (panelRef.value) {
           const { animationName } = getComputedStyle(panelRef.value);
@@ -98,22 +118,16 @@ export const CollapsiblePanel = component$<CollapsiblePanelProps>((props) => {
               'animationend',
               (event) => {
                 if (currentAnimationName === event.animationName) {
-                  isPanelHide.value = true;
-                  panelStatus.value = 'closed';
-                  onClose$?.();
+                  closePanel();
                 }
               },
               { once: true }
             );
           } else {
-            isPanelHide.value = true;
-            panelStatus.value = 'closed';
-            onClose$?.();
+            closePanel();
           }
         } else {
-          isPanelHide.value = true;
-          panelStatus.value = 'closed';
-          onClose$?.();
+          closePanel();
         }
       });
     }
