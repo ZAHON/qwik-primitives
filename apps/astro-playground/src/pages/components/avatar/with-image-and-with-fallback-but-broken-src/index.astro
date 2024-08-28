@@ -1,0 +1,14 @@
+---
+import { BaseLayout } from '@/layouts';
+import { Avatar } from '@/demos';
+
+const title = 'Avatar with image & with fallback (but broken src) | Qwik Primitives Astro Playground';
+const description = 'An image element with a fallback for representing the user.';
+---
+
+<BaseLayout title={title} description={description}>
+  <h1>Avatar</h1>
+  <p>An image element with a fallback for representing the user.</p>
+
+  <Avatar.WithImageAndWithFallbackButBrokenSrc />
+</BaseLayout>

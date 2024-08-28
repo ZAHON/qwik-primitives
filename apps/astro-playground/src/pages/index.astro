@@ -5,6 +5,7 @@ import { Link, List } from '@/components';
 const componentsLinks = [
   { slug: 'accessible-icon', label: 'Accessible Icon' },
   { slug: 'alert', label: 'Alert' },
+  { slug: 'avatar', label: 'Avatar' },
   { slug: 'breadcrumbs', label: 'Breadcrumbs' },
   { slug: 'collapsible', label: 'Collapsible' },
   { slug: 'dialog', label: 'Dialog' },
