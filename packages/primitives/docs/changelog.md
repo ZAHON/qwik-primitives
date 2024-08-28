@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.0.19
+
+### 🚀 Features
+
+- Add `Avatar` component.
+
 ## 0.0.18
 
 ### 🚀 Features
