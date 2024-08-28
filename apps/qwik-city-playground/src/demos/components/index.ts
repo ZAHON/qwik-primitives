@@ -1,5 +1,6 @@
 export * as AccessibleIcon from './accessible-icon';
 export * as Alert from './alert';
+export * as Avatar from './avatar';
 export * as Breadcrumbs from './breadcrumbs';
 export * as Collapsible from './collapsible';
 export * as Dialog from './dialog';
