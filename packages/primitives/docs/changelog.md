@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.0.20
+
+### 🚀 Features
+
+- Change `Primitive` component export structure.
+
+- Add `Toggle` component.
+
 ## 0.0.19
 
 ### 🚀 Features
