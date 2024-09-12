@@ -9,6 +9,11 @@ export interface DialogTriggerProps extends PropsOf<'button'> {
   as?: FunctionComponent;
 
   /**
+   * When `true`, prevents the user from interacting with the trigger.
+   */
+  disabled?: boolean;
+
+  /**
    * The inline style for the element.
    */
   style?: CSSProperties;

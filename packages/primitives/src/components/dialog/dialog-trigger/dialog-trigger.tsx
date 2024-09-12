@@ -32,11 +32,14 @@ export const DialogTrigger = component$<DialogTriggerProps>((props) => {
       ref={composeRefs([ref, triggerRef])}
       type="button"
       disabled={isDisabled.value}
-      aria-haspopup="dialog"
-      aria-expanded={isOpen.value}
+      aria-haspopup={contentId.value ? 'dialog' : undefined}
+      aria-expanded={contentId.value ? isOpen.value : undefined}
       aria-controls={contentId.value}
       data-qwik-primitives-dialog-trigger=""
+      data-scope="dialog"
+      data-part="trigger"
       data-state={isOpen.value ? 'open' : 'closed'}
+      data-disabled={isDisabled.value ? '' : undefined}
       onClick$={[onClick$, handleClick$]}
       {...others}
     >
