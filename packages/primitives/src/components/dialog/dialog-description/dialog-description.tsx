@@ -34,6 +34,8 @@ export const DialogDescription = component$<DialogDescriptionProps>((props) => {
     <Component
       id={descriptionId.value}
       data-qwik-primitives-dialog-description=""
+      data-scope="dialog"
+      data-part="description"
       style={{
         ...(visuallyHidden && visuallyHiddenStyle),
         ...style,
