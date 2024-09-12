@@ -18,10 +18,10 @@ export const createFocusTrapsStack = () => {
   return {
     add(focusTrap: FocusTrapAPI) {
       // pause the currently active focus scope (at the top of the stack)
-      const activeFocusScope = stack[0];
+      const activeFocusTrap = stack[0];
 
-      if (focusTrap !== activeFocusScope) {
-        activeFocusScope?.pause();
+      if (focusTrap !== activeFocusTrap) {
+        activeFocusTrap?.pause();
       }
 
       // remove in case it already exists (because we'll re-add it at the top of the stack)
