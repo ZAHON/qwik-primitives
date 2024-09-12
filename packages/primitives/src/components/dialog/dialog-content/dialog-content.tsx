@@ -14,8 +14,11 @@ export const DialogContent = component$<DialogContentProps>((props) => {
     as,
     ref,
     id,
+    loop = true,
+    autoFocus = true,
+    restoreFocus = true,
     preventScroll = true,
-    trapFocus = true,
+    closeOnBackPress = true,
     closeOnEscapeKeyDown = true,
     closeOnClickOutside = true,
     onEscapeKeyDown$,
@@ -38,7 +41,7 @@ export const DialogContent = component$<DialogContentProps>((props) => {
   const cancelFirstAnimation = useSignal(!isOpen.value);
 
   const scrollLock = useScrollLock();
-  const focusTrap = useFocusTrap(contentRef, { loop: true });
+  const focusTrap = useFocusTrap(contentRef, { loop, autoFocus, restoreFocus: false });
 
   useTask$(async () => undefined);
 
@@ -77,7 +80,8 @@ export const DialogContent = component$<DialogContentProps>((props) => {
         if (descriptionId.value) contentRef.value.setAttribute('aria-describedby', descriptionId.value);
 
         if (preventScroll) scrollLock.lock$();
-        if (trapFocus) focusTrap.active$();
+
+        focusTrap.active$();
 
         contentHide.value = false;
         contentRef.value.showModal();
@@ -123,12 +127,30 @@ export const DialogContent = component$<DialogContentProps>((props) => {
           contentRef.value.removeAttribute('aria-describedby');
 
           if (preventScroll) scrollLock.unlock$();
-          if (trapFocus) focusTrap.deactivate$();
+
+          focusTrap.deactivate$();
 
           contentRef.value.close();
           contentHide.value = true;
 
-          triggerRef.value?.focus();
+          setTimeout(() => {
+            if (restoreFocus) {
+              if (triggerRef.value) {
+                // Workaround after invoke `close` method on `HTMLDialogElement`
+                // focus will be move on element that was focused when the dialog opened.
+                // This is expect behavior but focus is only move on this element without
+                // scroll the document to bring the newly-focused element into view.
+                if ('blur' in triggerRef.value) triggerRef.value.blur();
+                if ('focus' in triggerRef.value) triggerRef.value.focus();
+              } else {
+                document.body.focus();
+              }
+            } else {
+              if (triggerRef.value && 'blur' in triggerRef.value) {
+                triggerRef.value.blur();
+              }
+            }
+          });
 
           onClose$?.();
         }
@@ -183,6 +205,14 @@ export const DialogContent = component$<DialogContentProps>((props) => {
     event.preventDefault();
   });
 
+  // In mobile browsers based on Chromium this little handler allow to close dialog after user press the back button.
+  // Works correctly on Android devices.
+  const handleCancel$ = $(() => {
+    if (closeOnBackPress) {
+      setIsOpen$(false);
+    }
+  });
+
   const handleKeyDownSync$ = sync$((event: KeyboardEvent) => {
     if (event.key === 'Escape') {
       event.preventDefault();
@@ -191,8 +221,11 @@ export const DialogContent = component$<DialogContentProps>((props) => {
   });
 
   const handleKeyDown$ = $((event: KeyboardEvent) => {
-    if (event.key === 'Escape' && closeOnEscapeKeyDown) {
-      setIsOpen$(false);
+    if (event.key === 'Escape') {
+      if (closeOnEscapeKeyDown) {
+        setIsOpen$(false);
+      }
+
       onEscapeKeyDown$?.();
     }
   });
@@ -202,19 +235,20 @@ export const DialogContent = component$<DialogContentProps>((props) => {
   });
 
   const handleClick$ = $((event: PointerEvent, currentTarget: HTMLDialogElement) => {
-    if (closeOnClickOutside) {
-      const rect = currentTarget.getBoundingClientRect();
+    const rect = currentTarget.getBoundingClientRect();
 
-      const isPointerDownOutside =
-        rect.left > event.clientX ||
-        rect.right < event.clientX ||
-        rect.top > event.clientY ||
-        rect.bottom < event.clientY;
+    const isPointerDownOutside =
+      rect.left > event.clientX ||
+      rect.right < event.clientX ||
+      rect.top > event.clientY ||
+      rect.bottom < event.clientY;
 
-      if (isPointerDownOutside && event.pointerId !== -1 && isOpen.value) {
+    if (isOpen.value && isPointerDownOutside && event.target === currentTarget && event.pointerId !== -1) {
+      if (closeOnClickOutside) {
         setIsOpen$(false);
-        onClickOutside$?.();
       }
+
+      onClickOutside$?.();
     }
   });
 
@@ -225,9 +259,12 @@ export const DialogContent = component$<DialogContentProps>((props) => {
       ref={composeRefs([ref, contentRef])}
       role="dialog"
       id={contentId.value}
+      tabIndex={-1}
       data-qwik-primitives-dialog-content=""
+      data-scope="dialog"
+      data-part="content"
       data-state={isOpen.value ? 'open' : 'closed'}
-      onCancel$={[onCancel$, handleCancelSync$]}
+      onCancel$={[onCancel$, handleCancelSync$, handleCancel$]}
       onKeyDown$={[onKeyDown$, handleKeyDownSync$, handleKeyDown$]}
       onClick$={[onClick$, handleClickSync$, handleClick$]}
       style={{

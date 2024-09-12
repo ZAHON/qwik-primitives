@@ -9,16 +9,36 @@ export interface DialogContentProps extends PropsOf<'dialog'> {
   as?: FunctionComponent;
 
   /**
+   * When `true`, tabbing from last focusable element will focus first focusable element
+   * and `Shift + Tab` from first focusable element will focus last focusable element.
+   * @default true
+   */
+  loop?: boolean;
+
+  /**
+   * Whether to auto focus the first focusable element in the component when it's opened.
+   * To specify the element that should receive initial focus, add `data-qwik-primitives-auto-focus` attribute on this element.
+   * @default true
+   */
+  autoFocus?: boolean;
+
+  /**
+   * Whether to restore focus back to the `Dialog.Trigger` when the dialog is closed.
+   * @default true
+   */
+  restoreFocus?: boolean;
+
+  /**
    * Whether to prevent scrolling behind the dialog when it's opened.
    * @default true
    */
   preventScroll?: boolean;
 
   /**
-   * Whether to trap focus inside the dialog when it's opened.
+   * Whether to close the dialog when the back is press on mobile devices.
    * @default true
    */
-  trapFocus?: boolean;
+  closeOnBackPress?: boolean;
 
   /**
    * Whether to close the dialog when the escape key is down.
