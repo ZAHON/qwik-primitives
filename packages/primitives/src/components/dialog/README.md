@@ -44,7 +44,7 @@ const DialogDemo = component$(() => {
 
 ## Usage
 
-Component can be uncontrolled or controlled.
+Dialog component can be uncontrolled or controlled.
 
 ### Uncontrolled
 
@@ -104,14 +104,18 @@ Contains all the parts of a dialog.
 
 The button that opens the dialog. This component is based on the `button` element.
 
-| Prop    | Type                | Default | Description                                                                                                                                                                                                                             |
-| ------- | ------------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `as`    | `FunctionComponent` | `-`     | Change the default rendered element for the one passed as, merging their props and behavior. Read our [Composition](https://github.com/ZAHON/qwik-primitives/blob/main/packages/primitives/docs/composition.md) guide for more details. |
-| `style` | `CSSProperties`     | `-`     | The inline style for the element.                                                                                                                                                                                                       |
+| Prop       | Type                | Default | Description                                                                                                                                                                                                                             |
+| ---------- | ------------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `as`       | `FunctionComponent` | `-`     | Change the default rendered element for the one passed as, merging their props and behavior. Read our [Composition](https://github.com/ZAHON/qwik-primitives/blob/main/packages/primitives/docs/composition.md) guide for more details. |
+| `disabled` | `boolean`           | `-`     | When `true`, prevents the user from interacting with the trigger.                                                                                                                                                                       |
+| `style`    | `CSSProperties`     | `-`     | The inline style for the element.                                                                                                                                                                                                       |
 
-| Data attribute | Values               |
-| -------------- | -------------------- |
-| `[data-state]` | `"open" \| "closed"` |
+| Data attribute    | Values                |
+| ----------------- | --------------------- |
+| `[data-scope]`    | `"dialog"`            |
+| `[data-part]`     | `"trigger"`           |
+| `[data-state]`    | `"open" \| "closed"`  |
+| `[data-disabled]` | Present when disabled |
 
 ### Content
 
@@ -120,8 +124,11 @@ Contains content to be rendered in the open dialog. This component is based on t
 | Prop                   | Type                | Default | Description                                                                                                                                                                                                                             |
 | ---------------------- | ------------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `as`                   | `FunctionComponent` | `-`     | Change the default rendered element for the one passed as, merging their props and behavior. Read our [Composition](https://github.com/ZAHON/qwik-primitives/blob/main/packages/primitives/docs/composition.md) guide for more details. |
+| `loop`                 | `boolean`           | `true`  | When `true`, tabbing from last focusable element will focus first focusable element and `Shift + Tab` from first focusable element will focus last focusable element.                                                                   |
+| `autoFocus`            | `boolean`           | `true`  | Whether to auto focus the first focusable element in the component when it's opened. To specify the element that should receive initial focus, add `data-qwik-primitives-auto-focus` attribute on this element.                         |
+| `restoreFocus`         | `boolean`           | `true`  | Whether to restore focus back to the `Dialog.Trigger` when the dialog is closed.                                                                                                                                                        |
 | `preventScroll`        | `boolean`           | `true`  | Whether to prevent scrolling behind the dialog when it's opened.                                                                                                                                                                        |
-| `trapFocus`            | `boolean`           | `true`  | Whether to trap focus inside the dialog when it's opened.                                                                                                                                                                               |
+| `closeOnBackPress`     | `boolean`           | `true`  | Whether to close the dialog when the back is press on mobile devices.                                                                                                                                                                   |
 | `closeOnEscapeKeyDown` | `boolean`           | `true`  | Whether to close the dialog when the escape key is down.                                                                                                                                                                                |
 | `closeOnClickOutside`  | `boolean`           | `true`  | Whether to close the dialog when the outside is clicked.                                                                                                                                                                                |
 | `onEscapeKeyDown$`     | `QRL<() => void>`   | `-`     | Event handler called when the escape key is down.                                                                                                                                                                                       |
@@ -132,16 +139,25 @@ Contains content to be rendered in the open dialog. This component is based on t
 
 | Data attribute | Values               |
 | -------------- | -------------------- |
+| `[data-scope]` | `"dialog"`           |
+| `[data-part]`  | `"content"`          |
 | `[data-state]` | `"open" \| "closed"` |
 
 ### Close
 
-The button that closes the dialog. his component is based on the `button` element.
+The button that closes the dialog. This component is based on the `button` element.
 
-| Prop    | Type                | Default | Description                                                                                                                                                                                                                             |
-| ------- | ------------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `as`    | `FunctionComponent` | `-`     | Change the default rendered element for the one passed as, merging their props and behavior. Read our [Composition](https://github.com/ZAHON/qwik-primitives/blob/main/packages/primitives/docs/composition.md) guide for more details. |
-| `style` | `CSSProperties`     | `-`     | The inline style for the element.                                                                                                                                                                                                       |
+| Prop       | Type                | Default | Description                                                                                                                                                                                                                             |
+| ---------- | ------------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `as`       | `FunctionComponent` | `-`     | Change the default rendered element for the one passed as, merging their props and behavior. Read our [Composition](https://github.com/ZAHON/qwik-primitives/blob/main/packages/primitives/docs/composition.md) guide for more details. |
+| `disabled` | `boolean`           | `-`     | When `true`, prevents the user from interacting with the close button.                                                                                                                                                                  |
+| `style`    | `CSSProperties`     | `-`     | The inline style for the element.                                                                                                                                                                                                       |
+
+| Data attribute    | Values                |
+| ----------------- | --------------------- |
+| `[data-scope]`    | `"dialog"`            |
+| `[data-part]`     | `"close"`             |
+| `[data-disabled]` | Present when disabled |
 
 ### Title
 
@@ -153,6 +169,11 @@ An accessible title to be announced when the dialog is opened. This component is
 | `visuallyHidden` | `boolean`           | `-`     | When `true`, title will be hide from the screen in an accessible way.                                                                                                                                                                   |
 | `style`          | `CSSProperties`     | `-`     | The inline style for the element.                                                                                                                                                                                                       |
 
+| Data attribute | Values     |
+| -------------- | ---------- |
+| `[data-scope]` | `"dialog"` |
+| `[data-part]`  | `"title"`  |
+
 ### Description
 
 An optional accessible description to be announced when the dialog is opened. This component is based on the `p` element.
@@ -162,6 +183,11 @@ An optional accessible description to be announced when the dialog is opened. Th
 | `as`             | `FunctionComponent` | `-`     | Change the default rendered element for the one passed as, merging their props and behavior. Read our [Composition](https://github.com/ZAHON/qwik-primitives/blob/main/packages/primitives/docs/composition.md) guide for more details. |
 | `visuallyHidden` | `boolean`           | `-`     | When `true`, title will be hide from the screen in an accessible way.                                                                                                                                                                   |
 | `style`          | `CSSProperties`     | `-`     | The inline style for the element.                                                                                                                                                                                                       |
+
+| Data attribute | Values          |
+| -------------- | --------------- |
+| `[data-scope]` | `"dialog"`      |
+| `[data-part]`  | `"description"` |
 
 ## Examples
 
@@ -198,9 +224,85 @@ const DialogDemo = component$(() => {
 });
 ```
 
+### Initial focus
+
+By default, focus will be move on the first focusable element inside `Dialog.Content` after dialog opened. To specify the element that should receive initial focus, add `data-qwik-primitives-auto-focus` attribute on this element.
+
+```tsx
+import { component$ } from '@builder.io/qwik';
+import { Dialog } from 'qwik-primitives';
+
+const DialogDemo = component$(() => {
+  return (
+    <Dialog.Root>
+      <Dialog.Trigger>Open dialog</Dialog.Trigger>
+      <Dialog.Content>
+        <Dialog.Title>Dialog title</Dialog.Title>
+        <Dialog.Description>Dialog description</Dialog.Description>
+
+        <label for="first-input">First input</label>
+        <input id="first-input" type="text" placeholder="First input" />
+
+        <label for="second-input">Second input (will have initial focus)</label>
+        <input
+          data-qwik-primitives-auto-focus=""
+          id="second-input"
+          type="text"
+          placeholder="Second input (will have initial focus)"
+        />
+
+        <label for="third-input">Third input</label>
+        <input id="third-input" type="text" placeholder="Third input" />
+
+        <Dialog.Close>Close dialog</Dialog.Close>
+      </Dialog.Content>
+    </Dialog.Root>
+  );
+});
+```
+
+### Restore focus
+
+By default, focus will be restore back to the `Dialog.Trigger` when the dialog is closed. To specify the element that should receive focus after close dialog pass `restoreFocus={false}` on `Dialog.Content` component. You must also implement how you want and witch element should recive focus after deativate. Below you have example implementation.
+
+```tsx
+import { component$, useSignal, $ } from '@builder.io/qwik';
+import { Dialog } from 'qwik-primitives';
+
+const DialogDemo = component$(() => {
+  const restoreFocusElementRef = useSignal<HTMLButtonElement | undefined>(undefined);
+
+  const handleClose$ = $(() => {
+    // Using `setTimeout` is required, without it the element will not receive focus.
+    setTimeout(() => {
+      if (restoreFocusElementRef.value) {
+        restoreFocusElementRef.value.focus();
+      }
+    });
+  });
+
+  return (
+    <>
+      <button ref={restoreFocusElementRef} type="button">
+        Button (focus will be move on this element after close dialog)
+      </button>
+
+      <Dialog.Root>
+        <Dialog.Trigger>Open dialog</Dialog.Trigger>
+        <Dialog.Content restoreFocus={false} onClose$={handleClose$}>
+          <Dialog.Title>Dialog title</Dialog.Title>
+          <Dialog.Description>Dialog description</Dialog.Description>
+          <Dialog.Close>Close dialog</Dialog.Close>
+        </Dialog.Content>
+      </Dialog.Root>
+    </>
+  );
+});
+```
+
 ### Animations
 
-The example below shows how to animate `Dialog.Content` component when it opens/closes.
+Use `data-state` attribute to provide animations for the `Dialog.Content` component when Dialog it opens/closes.
 
 ```tsx
 // index.tsx
@@ -269,9 +371,9 @@ const DialogDemo = component$(() => {
 }
 ```
 
-### Style the dialog overlay
+### Style the overlay
 
-Use the `::backdrop` CSS pseudo-element to style `Dialog.Content` component overlay. The overlay can also be animated.
+Use the `::backdrop` CSS pseudo-element to style `Dialog.Content` component overlay. The overlay can also be animated. Firefox currently does not support backdrop animations. The fallback for browsers that do not support animated backdrops is the same as a non-animated backdrop.
 
 ```tsx
 // index.tsx
