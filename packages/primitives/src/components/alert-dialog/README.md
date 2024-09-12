@@ -204,8 +204,6 @@ An accessible description to be announced when the alert dialog is opened. This 
 | `[data-scope]` | `"alert-dialog"` |
 | `[data-part]`  | `"description"`  |
 
-### Initially open
-
 ## Examples
 
 ### Initially open
