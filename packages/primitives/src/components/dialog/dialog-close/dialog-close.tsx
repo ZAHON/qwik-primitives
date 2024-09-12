@@ -24,6 +24,9 @@ export const DialogClose = component$<DialogCloseProps>((props) => {
       type="button"
       disabled={isDisabled.value}
       data-qwik-primitives-dialog-close=""
+      data-scope="dialog"
+      data-part="close"
+      data-disabled={isDisabled.value ? '' : undefined}
       onClick$={[onClick$, handleClick$]}
       {...others}
     >
