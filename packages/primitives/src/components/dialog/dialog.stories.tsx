@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from 'storybook-framework-qwik';
-import { component$, useSignal, useVisibleTask$, useStyles$ } from '@builder.io/qwik';
+import { component$, useSignal, $, useVisibleTask$, useStyles$ } from '@builder.io/qwik';
 import * as Dialog from '.';
 
 const meta: Meta<typeof Dialog.Root> = {
@@ -19,7 +19,19 @@ export const Uncontrolled: Story = {
           <Dialog.Content>
             <Dialog.Title>Dialog title</Dialog.Title>
             <Dialog.Description>Dialog description</Dialog.Description>
-            <Dialog.Close>Close dialog</Dialog.Close>
+
+            <div style={{ padding: '1rem', display: 'flex', flexDirection: 'column', rowGap: '0.75rem' }}>
+              <label for="first-input">First input</label>
+              <input id="first-input" type="text" placeholder="First input" />
+
+              <label for="second-input">Second input</label>
+              <input id="second-input" type="text" placeholder="Second input" />
+
+              <label for="third-input">Third input (disabled)</label>
+              <input disabled={true} id="third-input" type="text" placeholder="Third input (disabled)" />
+
+              <Dialog.Close>Close dialog</Dialog.Close>
+            </div>
           </Dialog.Content>
         </Dialog.Root>
         <div style={{ height: '200vh' }} />
@@ -41,7 +53,19 @@ export const Controlled: Story = {
             <Dialog.Content>
               <Dialog.Title>Dialog title</Dialog.Title>
               <Dialog.Description>Dialog description</Dialog.Description>
-              <Dialog.Close>Close dialog</Dialog.Close>
+
+              <div style={{ padding: '1rem', display: 'flex', flexDirection: 'column', rowGap: '0.75rem' }}>
+                <label for="first-input">First input</label>
+                <input id="first-input" type="text" placeholder="First input" />
+
+                <label for="second-input">Second input</label>
+                <input id="second-input" type="text" placeholder="Second input" />
+
+                <label for="third-input">Third input (disabled)</label>
+                <input disabled={true} id="third-input" type="text" placeholder="Third input (disabled)" />
+
+                <Dialog.Close>Close dialog</Dialog.Close>
+              </div>
             </Dialog.Content>
           </Dialog.Root>
           <div style={{ height: '200vh' }} />
@@ -53,31 +77,473 @@ export const Controlled: Story = {
   },
 };
 
-export const StackedDialogs: Story = {
+export const WithoutCloseOnEscapeKeyDown: Story = {
   render: () => {
     return (
       <>
-        <h2>Stacked dialogs</h2>
+        <h2>Without close on escape key down</h2>
+        <Dialog.Root>
+          <Dialog.Trigger>Open dialog</Dialog.Trigger>
+          <Dialog.Content closeOnEscapeKeyDown={false}>
+            <Dialog.Title>Dialog title</Dialog.Title>
+            <Dialog.Description>Dialog description</Dialog.Description>
+
+            <div style={{ padding: '1rem', display: 'flex', flexDirection: 'column', rowGap: '0.75rem' }}>
+              <label for="first-input">First input</label>
+              <input id="first-input" type="text" placeholder="First input" />
+
+              <label for="second-input">Second input</label>
+              <input id="second-input" type="text" placeholder="Second input" />
+
+              <label for="third-input">Third input (disabled)</label>
+              <input disabled={true} id="third-input" type="text" placeholder="Third input (disabled)" />
+
+              <Dialog.Close>Close dialog</Dialog.Close>
+            </div>
+          </Dialog.Content>
+        </Dialog.Root>
+        <div style={{ height: '200vh' }} />
+      </>
+    );
+  },
+};
+
+export const WithCloseOnEscapeKeyDown: Story = {
+  render: () => {
+    return (
+      <>
+        <h2>With close on escape key down</h2>
+        <Dialog.Root>
+          <Dialog.Trigger>Open dialog</Dialog.Trigger>
+          <Dialog.Content closeOnEscapeKeyDown={true}>
+            <Dialog.Title>Dialog title</Dialog.Title>
+            <Dialog.Description>Dialog description</Dialog.Description>
+
+            <div style={{ padding: '1rem', display: 'flex', flexDirection: 'column', rowGap: '0.75rem' }}>
+              <label for="first-input">First input</label>
+              <input id="first-input" type="text" placeholder="First input" />
+
+              <label for="second-input">Second input</label>
+              <input id="second-input" type="text" placeholder="Second input" />
+
+              <label for="third-input">Third input (disabled)</label>
+              <input disabled={true} id="third-input" type="text" placeholder="Third input (disabled)" />
+
+              <Dialog.Close>Close dialog</Dialog.Close>
+            </div>
+          </Dialog.Content>
+        </Dialog.Root>
+        <div style={{ height: '200vh' }} />
+      </>
+    );
+  },
+};
+
+export const WithoutCloseOnClickOutside: Story = {
+  render: () => {
+    return (
+      <>
+        <h2>Without close on click outside</h2>
+        <Dialog.Root>
+          <Dialog.Trigger>Open dialog</Dialog.Trigger>
+          <Dialog.Content closeOnClickOutside={false}>
+            <Dialog.Title>Dialog title</Dialog.Title>
+            <Dialog.Description>Dialog description</Dialog.Description>
+
+            <div style={{ padding: '1rem', display: 'flex', flexDirection: 'column', rowGap: '0.75rem' }}>
+              <label for="first-input">First input</label>
+              <input id="first-input" type="text" placeholder="First input" />
+
+              <label for="second-input">Second input</label>
+              <input id="second-input" type="text" placeholder="Second input" />
+
+              <label for="third-input">Third input (disabled)</label>
+              <input disabled={true} id="third-input" type="text" placeholder="Third input (disabled)" />
+
+              <Dialog.Close>Close dialog</Dialog.Close>
+            </div>
+          </Dialog.Content>
+        </Dialog.Root>
+        <div style={{ height: '200vh' }} />
+      </>
+    );
+  },
+};
+
+export const WithCloseOnClickOutside: Story = {
+  render: () => {
+    return (
+      <>
+        <h2>With close on click outside</h2>
+        <Dialog.Root>
+          <Dialog.Trigger>Open dialog</Dialog.Trigger>
+          <Dialog.Content closeOnClickOutside={true}>
+            <Dialog.Title>Dialog title</Dialog.Title>
+            <Dialog.Description>Dialog description</Dialog.Description>
+
+            <div style={{ padding: '1rem', display: 'flex', flexDirection: 'column', rowGap: '0.75rem' }}>
+              <label for="first-input">First input</label>
+              <input id="first-input" type="text" placeholder="First input" />
+
+              <label for="second-input">Second input</label>
+              <input id="second-input" type="text" placeholder="Second input" />
+
+              <label for="third-input">Third input (disabled)</label>
+              <input disabled={true} id="third-input" type="text" placeholder="Third input (disabled)" />
+
+              <Dialog.Close>Close dialog</Dialog.Close>
+            </div>
+          </Dialog.Content>
+        </Dialog.Root>
+        <div style={{ height: '200vh' }} />
+      </>
+    );
+  },
+};
+
+export const WithoutFocusableElements: Story = {
+  render: () => {
+    return (
+      <>
+        <h2>Without focusable elements</h2>
+        <Dialog.Root>
+          <Dialog.Trigger>Open dialog</Dialog.Trigger>
+          <Dialog.Content>
+            <Dialog.Title>Dialog title</Dialog.Title>
+            <Dialog.Description>Dialog description</Dialog.Description>
+
+            <div style={{ padding: '1rem', display: 'flex', flexDirection: 'column', rowGap: '0.75rem' }}>
+              <label for="first-input">First input (disabled)</label>
+              <input disabled={true} id="first-input" type="text" placeholder="First input (disabled)" />
+
+              <label for="second-input">Second input (disabled)</label>
+              <input disabled={true} id="second-input" type="text" placeholder="Second input (disabled)" />
+
+              <label for="third-input">Third input (disabled)</label>
+              <input disabled={true} id="third-input" type="text" placeholder="Third input (disabled)" />
+
+              <Dialog.Close disabled={true}>Close dialog (disabled)</Dialog.Close>
+            </div>
+          </Dialog.Content>
+        </Dialog.Root>
+        <div style={{ height: '200vh' }} />
+      </>
+    );
+  },
+};
+
+export const InitialFocus: Story = {
+  render: () => {
+    return (
+      <>
+        <h2>Initial focus</h2>
+        <Dialog.Root>
+          <Dialog.Trigger>Open dialog</Dialog.Trigger>
+          <Dialog.Content>
+            <Dialog.Title>Dialog title</Dialog.Title>
+            <Dialog.Description>Dialog description</Dialog.Description>
+
+            <div style={{ padding: '1rem', display: 'flex', flexDirection: 'column', rowGap: '0.75rem' }}>
+              <label for="first-input">First input</label>
+              <input id="first-input" type="text" placeholder="First input" />
+
+              <label for="second-input">Second input (will have initial focus)</label>
+              <input
+                data-qwik-primitives-auto-focus=""
+                id="second-input"
+                type="text"
+                placeholder="Second input (will have initial focus)"
+              />
+
+              <label for="third-input">Third input (disabled)</label>
+              <input disabled={true} id="third-input" type="text" placeholder="Third input (disabled)" />
+
+              <Dialog.Close>Close dialog</Dialog.Close>
+            </div>
+          </Dialog.Content>
+        </Dialog.Root>
+        <div style={{ height: '200vh' }} />
+      </>
+    );
+  },
+};
+
+export const WithDisabledInitialFocusElement: Story = {
+  render: () => {
+    return (
+      <>
+        <h2>With disabled initial focus element</h2>
+        <Dialog.Root>
+          <Dialog.Trigger>Open dialog</Dialog.Trigger>
+          <Dialog.Content>
+            <Dialog.Title>Dialog title</Dialog.Title>
+            <Dialog.Description>Dialog description</Dialog.Description>
+
+            <div style={{ padding: '1rem', display: 'flex', flexDirection: 'column', rowGap: '0.75rem' }}>
+              <label for="first-input">First input</label>
+              <input id="first-input" type="text" placeholder="First input" />
+
+              <label for="second-input">
+                Second input (have data-qwik-primitives-auto-focus attribute but is disabled)
+              </label>
+              <input
+                disabled={true}
+                data-qwik-primitives-auto-focus=""
+                id="second-input"
+                type="text"
+                placeholder="Second input (have data-qwik-primitives-auto-focus attribute but is disabled)"
+              />
+
+              <label for="third-input">Third input (disabled)</label>
+              <input disabled={true} id="third-input" type="text" placeholder="Third input (disabled)" />
+
+              <Dialog.Close>Close dialog</Dialog.Close>
+            </div>
+          </Dialog.Content>
+        </Dialog.Root>
+        <div style={{ height: '200vh' }} />
+      </>
+    );
+  },
+};
+
+export const WithoutInitialFocus: Story = {
+  render: () => {
+    return (
+      <>
+        <h2>Without initial focus</h2>
+        <Dialog.Root>
+          <Dialog.Trigger>Open dialog</Dialog.Trigger>
+          <Dialog.Content autoFocus={false}>
+            <Dialog.Title>Dialog title</Dialog.Title>
+            <Dialog.Description>Dialog description</Dialog.Description>
+
+            <div style={{ padding: '1rem', display: 'flex', flexDirection: 'column', rowGap: '0.75rem' }}>
+              <label for="first-input">First input</label>
+              <input id="first-input" type="text" placeholder="First input" />
+
+              <label for="second-input">Second input</label>
+              <input id="second-input" type="text" placeholder="Second input" />
+
+              <label for="third-input">Third input (disabled)</label>
+              <input disabled={true} id="third-input" type="text" placeholder="Third input (disabled)" />
+
+              <Dialog.Close>Close dialog</Dialog.Close>
+            </div>
+          </Dialog.Content>
+        </Dialog.Root>
+        <div style={{ height: '200vh' }} />
+      </>
+    );
+  },
+};
+
+export const WithoutRestoreFocus: Story = {
+  render: () => {
+    const RestoreFocus = component$(() => {
+      return (
+        <>
+          <h2>Without restore focus</h2>
+          <Dialog.Root>
+            <Dialog.Trigger>Open dialog</Dialog.Trigger>
+            <Dialog.Content restoreFocus={false}>
+              <Dialog.Title>Dialog title</Dialog.Title>
+              <Dialog.Description>Dialog description</Dialog.Description>
+
+              <div style={{ padding: '1rem', display: 'flex', flexDirection: 'column', rowGap: '0.75rem' }}>
+                <label for="first-input">First input</label>
+                <input id="first-input" type="text" placeholder="First input" />
+
+                <label for="second-input">Second input</label>
+                <input id="second-input" type="text" placeholder="Second input" />
+
+                <label for="third-input">Third input (disabled)</label>
+                <input disabled={true} id="third-input" type="text" placeholder="Third input (disabled)" />
+
+                <Dialog.Close>Close dialog</Dialog.Close>
+              </div>
+            </Dialog.Content>
+          </Dialog.Root>
+          <div style={{ height: '200vh' }} />
+        </>
+      );
+    });
+
+    return <RestoreFocus />;
+  },
+};
+
+export const RestoreFocus: Story = {
+  render: () => {
+    const RestoreFocus = component$(() => {
+      const restoreFocusElementRef = useSignal<HTMLButtonElement | undefined>(undefined);
+
+      const handleClose$ = $(() => {
+        // Using `setTimeout` is required, without it the element will not receive focus.
+        setTimeout(() => {
+          if (restoreFocusElementRef.value) {
+            restoreFocusElementRef.value.focus();
+          }
+        });
+      });
+
+      return (
+        <>
+          <h2>Restore focus</h2>
+          <Dialog.Root>
+            <div style={{ display: 'flex', columnGap: '0.25rem' }}>
+              <Dialog.Trigger>Open dialog</Dialog.Trigger>
+              <button ref={restoreFocusElementRef} type="button">
+                Button (focus will be move on this element after dialog close)
+              </button>
+            </div>
+            <Dialog.Content restoreFocus={false} onClose$={handleClose$}>
+              <Dialog.Title>Dialog title</Dialog.Title>
+              <Dialog.Description>Dialog description</Dialog.Description>
+
+              <div style={{ padding: '1rem', display: 'flex', flexDirection: 'column', rowGap: '0.75rem' }}>
+                <label for="first-input">First input</label>
+                <input id="first-input" type="text" placeholder="First input" />
+
+                <label for="second-input">Second input</label>
+                <input id="second-input" type="text" placeholder="Second input" />
+
+                <label for="third-input">Third input (disabled)</label>
+                <input disabled={true} id="third-input" type="text" placeholder="Third input (disabled)" />
+
+                <Dialog.Close>Close dialog</Dialog.Close>
+              </div>
+            </Dialog.Content>
+          </Dialog.Root>
+          <div style={{ height: '200vh' }} />
+        </>
+      );
+    });
+
+    return <RestoreFocus />;
+  },
+};
+
+export const WithoutLoop: Story = {
+  render: () => {
+    return (
+      <>
+        <h2>Without loop</h2>
+        <Dialog.Root>
+          <Dialog.Trigger>Open dialog</Dialog.Trigger>
+          <Dialog.Content loop={false}>
+            <Dialog.Title>Dialog title</Dialog.Title>
+            <Dialog.Description>Dialog description</Dialog.Description>
+
+            <div style={{ padding: '1rem', display: 'flex', flexDirection: 'column', rowGap: '0.75rem' }}>
+              <label for="first-input">First input</label>
+              <input id="first-input" type="text" placeholder="First input" />
+
+              <label for="second-input">Second input</label>
+              <input id="second-input" type="text" placeholder="Second input" />
+
+              <label for="third-input">Third input (disabled)</label>
+              <input disabled={true} id="third-input" type="text" placeholder="Third input (disabled)" />
+
+              <Dialog.Close>Close dialog</Dialog.Close>
+            </div>
+          </Dialog.Content>
+        </Dialog.Root>
+        <div style={{ height: '200vh' }} />
+      </>
+    );
+  },
+};
+
+export const WithLoop: Story = {
+  render: () => {
+    return (
+      <>
+        <h2>With loop</h2>
+        <Dialog.Root>
+          <Dialog.Trigger>Open dialog</Dialog.Trigger>
+          <Dialog.Content loop={true}>
+            <Dialog.Title>Dialog title</Dialog.Title>
+            <Dialog.Description>Dialog description</Dialog.Description>
+
+            <div style={{ padding: '1rem', display: 'flex', flexDirection: 'column', rowGap: '0.75rem' }}>
+              <label for="first-input">First input</label>
+              <input id="first-input" type="text" placeholder="First input" />
+
+              <label for="second-input">Second input</label>
+              <input id="second-input" type="text" placeholder="Second input" />
+
+              <label for="third-input">Third input (disabled)</label>
+              <input disabled={true} id="third-input" type="text" placeholder="Third input (disabled)" />
+
+              <Dialog.Close>Close dialog</Dialog.Close>
+            </div>
+          </Dialog.Content>
+        </Dialog.Root>
+        <div style={{ height: '200vh' }} />
+      </>
+    );
+  },
+};
+
+export const Nested: Story = {
+  render: () => {
+    return (
+      <>
+        <h2>Nested</h2>
         <Dialog.Root>
           <Dialog.Trigger>Open dialog 1</Dialog.Trigger>
           <Dialog.Content style={{ width: '380px', backgroundColor: 'black' }}>
             <Dialog.Title>Dialog title 1</Dialog.Title>
             <Dialog.Description>Dialog description 1</Dialog.Description>
-            <Dialog.Close>Close dialog 1</Dialog.Close>
+            <div style={{ padding: '1rem', display: 'flex', flexDirection: 'column', rowGap: '0.75rem' }}>
+              <label for="first-input">First input</label>
+              <input id="first-input" type="text" placeholder="First input" />
+
+              <label for="second-input">Second input</label>
+              <input id="second-input" type="text" placeholder="Second input" />
+
+              <label for="third-input">Third input (disabled)</label>
+              <input disabled={true} id="third-input" type="text" placeholder="Third input (disabled)" />
+
+              <Dialog.Close>Close dialog 1</Dialog.Close>
+            </div>
 
             <Dialog.Root>
               <Dialog.Trigger>Open dialog 2</Dialog.Trigger>
               <Dialog.Content style={{ width: '340px', backgroundColor: 'cadetblue' }}>
                 <Dialog.Title>Dialog title 2</Dialog.Title>
                 <Dialog.Description>Dialog description 2</Dialog.Description>
-                <Dialog.Close>Close dialog 2</Dialog.Close>
+                <div style={{ padding: '1rem', display: 'flex', flexDirection: 'column', rowGap: '0.75rem' }}>
+                  <label for="first-input">First input</label>
+                  <input id="first-input" type="text" placeholder="First input" />
+
+                  <label for="second-input">Second input</label>
+                  <input id="second-input" type="text" placeholder="Second input" />
+
+                  <label for="third-input">Third input (disabled)</label>
+                  <input disabled={true} id="third-input" type="text" placeholder="Third input (disabled)" />
+
+                  <Dialog.Close>Close dialog 2</Dialog.Close>
+                </div>
 
                 <Dialog.Root>
                   <Dialog.Trigger>Open dialog 3</Dialog.Trigger>
                   <Dialog.Content style={{ width: '300px', backgroundColor: 'violet' }}>
                     <Dialog.Title>Dialog title 3</Dialog.Title>
                     <Dialog.Description>Dialog description 3</Dialog.Description>
-                    <Dialog.Close>Close dialog 3</Dialog.Close>
+                    <div style={{ padding: '1rem', display: 'flex', flexDirection: 'column', rowGap: '0.75rem' }}>
+                      <label for="first-input">First input</label>
+                      <input id="first-input" type="text" placeholder="First input" />
+
+                      <label for="second-input">Second input</label>
+                      <input id="second-input" type="text" placeholder="Second input" />
+
+                      <label for="third-input">Third input (disabled)</label>
+                      <input disabled={true} id="third-input" type="text" placeholder="Third input (disabled)" />
+
+                      <Dialog.Close>Close dialog 3</Dialog.Close>
+                    </div>
                   </Dialog.Content>
                 </Dialog.Root>
               </Dialog.Content>
@@ -90,9 +556,9 @@ export const StackedDialogs: Story = {
   },
 };
 
-export const StackedDialogsAnimated: Story = {
+export const NestedAnimated: Story = {
   render: () => {
-    const StackedDialogsAnimated = component$(() => {
+    const NestedAnimated = component$(() => {
       useStyles$(`
 			.dialog-content {
 				margin: unset;
@@ -107,11 +573,11 @@ export const StackedDialogsAnimated: Story = {
 			}
 			
 			.dialog-content[data-state='open'] {
-				animation: dialog-content-show 150ms cubic-bezier(0.16, 1, 0.3, 1);
+				animation: dialog-content-show 1500ms cubic-bezier(0.16, 1, 0.3, 1);
 			}
 			
 			.dialog-content[data-state='closed'] {
-				animation: dialog-content-hide 150ms cubic-bezier(0.16, 1, 0.3, 1);
+				animation: dialog-content-hide 1500ms cubic-bezier(0.16, 1, 0.3, 1);
 			}
 			
 			.dialog-content::backdrop {
@@ -119,11 +585,11 @@ export const StackedDialogsAnimated: Story = {
 			}
 			
 			.dialog-content[data-state='open']::backdrop {
-				animation: dialog-content-backdrop-show 150ms cubic-bezier(0.16, 1, 0.3, 1);
+				animation: dialog-content-backdrop-show 1500ms cubic-bezier(0.16, 1, 0.3, 1);
 			}
 			
 			.dialog-content[data-state='closed']::backdrop {
-				animation: dialog-content-backdrop-hide 150ms cubic-bezier(0.16, 1, 0.3, 1);
+				animation: dialog-content-backdrop-hide 1500ms cubic-bezier(0.16, 1, 0.3, 1);
 			}
 			
 			@keyframes dialog-content-show {
@@ -169,27 +635,60 @@ export const StackedDialogsAnimated: Story = {
 
       return (
         <>
-          <h2>Stacked dialogs animated</h2>
+          <h2>Nested animated</h2>
           <Dialog.Root>
             <Dialog.Trigger>Open dialog 1</Dialog.Trigger>
             <Dialog.Content style={{ width: '380px', backgroundColor: 'black' }} class="dialog-content">
               <Dialog.Title>Dialog title 1</Dialog.Title>
               <Dialog.Description>Dialog description 1</Dialog.Description>
-              <Dialog.Close>Close dialog 1</Dialog.Close>
+              <div style={{ padding: '1rem', display: 'flex', flexDirection: 'column', rowGap: '0.75rem' }}>
+                <label for="first-input">First input</label>
+                <input id="first-input" type="text" placeholder="First input" />
+
+                <label for="second-input">Second input</label>
+                <input id="second-input" type="text" placeholder="Second input" />
+
+                <label for="third-input">Third input (disabled)</label>
+                <input disabled={true} id="third-input" type="text" placeholder="Third input (disabled)" />
+
+                <Dialog.Close>Close dialog 1</Dialog.Close>
+              </div>
 
               <Dialog.Root>
                 <Dialog.Trigger>Open dialog 2</Dialog.Trigger>
                 <Dialog.Content style={{ width: '340px', backgroundColor: 'cadetblue' }} class="dialog-content">
                   <Dialog.Title>Dialog title 2</Dialog.Title>
                   <Dialog.Description>Dialog description 2</Dialog.Description>
-                  <Dialog.Close>Close dialog 2</Dialog.Close>
+                  <div style={{ padding: '1rem', display: 'flex', flexDirection: 'column', rowGap: '0.75rem' }}>
+                    <label for="first-input">First input</label>
+                    <input id="first-input" type="text" placeholder="First input" />
+
+                    <label for="second-input">Second input</label>
+                    <input id="second-input" type="text" placeholder="Second input" />
+
+                    <label for="third-input">Third input (disabled)</label>
+                    <input disabled={true} id="third-input" type="text" placeholder="Third input (disabled)" />
+
+                    <Dialog.Close>Close dialog 2</Dialog.Close>
+                  </div>
 
                   <Dialog.Root>
                     <Dialog.Trigger>Open dialog 3</Dialog.Trigger>
                     <Dialog.Content style={{ width: '300px', backgroundColor: 'violet' }} class="dialog-content">
                       <Dialog.Title>Dialog title 3</Dialog.Title>
                       <Dialog.Description>Dialog description 3</Dialog.Description>
-                      <Dialog.Close>Close dialog 3</Dialog.Close>
+                      <div style={{ padding: '1rem', display: 'flex', flexDirection: 'column', rowGap: '0.75rem' }}>
+                        <label for="first-input">First input</label>
+                        <input id="first-input" type="text" placeholder="First input" />
+
+                        <label for="second-input">Second input</label>
+                        <input id="second-input" type="text" placeholder="Second input" />
+
+                        <label for="third-input">Third input (disabled)</label>
+                        <input disabled={true} id="third-input" type="text" placeholder="Third input (disabled)" />
+
+                        <Dialog.Close>Close dialog 3</Dialog.Close>
+                      </div>
                     </Dialog.Content>
                   </Dialog.Root>
                 </Dialog.Content>
@@ -201,7 +700,7 @@ export const StackedDialogsAnimated: Story = {
       );
     });
 
-    return <StackedDialogsAnimated />;
+    return <NestedAnimated />;
   },
 };
 
@@ -226,7 +725,18 @@ export const InitiallyOpen: Story = {
             <Dialog.Content>
               <Dialog.Title>Dialog title</Dialog.Title>
               <Dialog.Description>Dialog description</Dialog.Description>
-              <Dialog.Close>Close dialog</Dialog.Close>
+              <div style={{ padding: '1rem', display: 'flex', flexDirection: 'column', rowGap: '0.75rem' }}>
+                <label for="first-input">First input</label>
+                <input id="first-input" type="text" placeholder="First input" />
+
+                <label for="second-input">Second input</label>
+                <input id="second-input" type="text" placeholder="Second input" />
+
+                <label for="third-input">Third input (disabled)</label>
+                <input disabled={true} id="third-input" type="text" placeholder="Third input (disabled)" />
+
+                <Dialog.Close>Close dialog</Dialog.Close>
+              </div>
             </Dialog.Content>
           </Dialog.Root>
           <div style={{ height: '200vh' }} />
@@ -265,11 +775,11 @@ export const InitiallyOpenAnimated: Story = {
 				}
 				
 				.dialog-content[data-state='open'] {
-					animation: dialog-content-show 150ms cubic-bezier(0.16, 1, 0.3, 1);
+					animation: dialog-content-show 1500ms cubic-bezier(0.16, 1, 0.3, 1);
 				}
 				
 				.dialog-content[data-state='closed'] {
-					animation: dialog-content-hide 150ms cubic-bezier(0.16, 1, 0.3, 1);
+					animation: dialog-content-hide 1500ms cubic-bezier(0.16, 1, 0.3, 1);
 				}
 				
 				.dialog-content::backdrop {
@@ -277,11 +787,11 @@ export const InitiallyOpenAnimated: Story = {
 				}
 				
 				.dialog-content[data-state='open']::backdrop {
-					animation: dialog-content-backdrop-show 150ms cubic-bezier(0.16, 1, 0.3, 1);
+					animation: dialog-content-backdrop-show 1500ms cubic-bezier(0.16, 1, 0.3, 1);
 				}
 				
 				.dialog-content[data-state='closed']::backdrop {
-					animation: dialog-content-backdrop-hide 150ms cubic-bezier(0.16, 1, 0.3, 1);
+					animation: dialog-content-backdrop-hide 1500ms cubic-bezier(0.16, 1, 0.3, 1);
 				}
 				
 				@keyframes dialog-content-show {
@@ -333,7 +843,18 @@ export const InitiallyOpenAnimated: Story = {
             <Dialog.Content class="dialog-content">
               <Dialog.Title>Dialog title</Dialog.Title>
               <Dialog.Description>Dialog description</Dialog.Description>
-              <Dialog.Close>Close dialog</Dialog.Close>
+              <div style={{ padding: '1rem', display: 'flex', flexDirection: 'column', rowGap: '0.75rem' }}>
+                <label for="first-input">First input</label>
+                <input id="first-input" type="text" placeholder="First input" />
+
+                <label for="second-input">Second input</label>
+                <input id="second-input" type="text" placeholder="Second input" />
+
+                <label for="third-input">Third input (disabled)</label>
+                <input disabled={true} id="third-input" type="text" placeholder="Third input (disabled)" />
+
+                <Dialog.Close>Close dialog</Dialog.Close>
+              </div>
             </Dialog.Content>
           </Dialog.Root>
           <div style={{ height: '200vh' }} />
@@ -362,11 +883,11 @@ export const Animated: Story = {
 				}
 				
 				.dialog-content[data-state='open'] {
-					animation: dialog-content-show 150ms cubic-bezier(0.16, 1, 0.3, 1);
+					animation: dialog-content-show 1500ms cubic-bezier(0.16, 1, 0.3, 1);
 				}
 				
 				.dialog-content[data-state='closed'] {
-					animation: dialog-content-hide 150ms cubic-bezier(0.16, 1, 0.3, 1);
+					animation: dialog-content-hide 1500ms cubic-bezier(0.16, 1, 0.3, 1);
 				}
 				
 				.dialog-content::backdrop {
@@ -374,11 +895,11 @@ export const Animated: Story = {
 				}
 				
 				.dialog-content[data-state='open']::backdrop {
-					animation: dialog-content-backdrop-show 150ms cubic-bezier(0.16, 1, 0.3, 1);
+					animation: dialog-content-backdrop-show 1500ms cubic-bezier(0.16, 1, 0.3, 1);
 				}
 				
 				.dialog-content[data-state='closed']::backdrop {
-					animation: dialog-content-backdrop-hide 150ms cubic-bezier(0.16, 1, 0.3, 1);
+					animation: dialog-content-backdrop-hide 1500ms cubic-bezier(0.16, 1, 0.3, 1);
 				}
 				
 				@keyframes dialog-content-show {
@@ -430,7 +951,18 @@ export const Animated: Story = {
             <Dialog.Content class="dialog-content">
               <Dialog.Title>Dialog title</Dialog.Title>
               <Dialog.Description>Dialog description</Dialog.Description>
-              <Dialog.Close>Close dialog</Dialog.Close>
+              <div style={{ padding: '1rem', display: 'flex', flexDirection: 'column', rowGap: '0.75rem' }}>
+                <label for="first-input">First input</label>
+                <input id="first-input" type="text" placeholder="First input" />
+
+                <label for="second-input">Second input</label>
+                <input id="second-input" type="text" placeholder="Second input" />
+
+                <label for="third-input">Third input (disabled)</label>
+                <input disabled={true} id="third-input" type="text" placeholder="Third input (disabled)" />
+
+                <Dialog.Close>Close dialog</Dialog.Close>
+              </div>
             </Dialog.Content>
           </Dialog.Root>
           <div style={{ height: '200vh' }} />
