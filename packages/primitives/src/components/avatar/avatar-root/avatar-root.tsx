@@ -26,7 +26,7 @@ export const AvatarRoot = component$<AvatarRootProps>((props) => {
   const Component = as || 'span';
 
   return (
-    <Component data-qwik-primitives-avatar-root="" {...others}>
+    <Component data-qwik-primitives-avatar-root="" data-scope="avatar" {...others}>
       <span aria-hidden={true} data-qwik-primitives-avatar-observer="" style={visuallyHiddenStyle} />
       <Slot />
     </Component>
