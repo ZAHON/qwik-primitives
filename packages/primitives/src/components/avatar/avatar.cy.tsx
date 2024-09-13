@@ -33,6 +33,16 @@ describe('Avatar', () => {
       cy.mount(<Avatar.Root data-testid={AVATAR_ROOT_TESTID} />);
       cy.get(`[data-testid="${AVATAR_ROOT_TESTID}"]`).should('have.attr', 'data-qwik-primitives-avatar-root', '');
     });
+
+    it('should have attribute data-scope with value "avatar"', () => {
+      cy.mount(<Avatar.Root data-testid={AVATAR_ROOT_TESTID} />);
+      cy.get(`[data-testid="${AVATAR_ROOT_TESTID}"]`).should('have.attr', 'data-scope', 'avatar');
+    });
+
+    it('should have attribute data-part with value "root"', () => {
+      cy.mount(<Avatar.Root data-testid={AVATAR_ROOT_TESTID} />);
+      cy.get(`[data-testid="${AVATAR_ROOT_TESTID}"]`).should('have.attr', 'data-part', 'root');
+    });
   });
 
   describe('Image', () => {
@@ -43,6 +53,63 @@ describe('Avatar', () => {
         </Avatar.Root>
       );
       cy.get(`[data-testid="${AVATAR_IMAGE_TESTID}"]`).should('have.prop', 'tagName').should('eq', 'IMG');
+    });
+
+    it('should call onLoadingStatusChange$ event handler with value "loading" when image is loading', () => {
+      cy.window()
+        .its('console')
+        .then((console) => {
+          cy.spy(console, 'log').as('log');
+        });
+
+      cy.mount(
+        <Avatar.Root>
+          <Avatar.Image
+            src={AVATAR_IMAGE_SRC}
+            onLoadingStatusChange$={(status) => console.log(status)}
+            data-testid={AVATAR_IMAGE_TESTID}
+          />
+        </Avatar.Root>
+      );
+      cy.get('@log').should('be.calledWith', 'loading');
+    });
+
+    it('should call onLoadingStatusChange$ event handler with value "loaded" when image is loaded', () => {
+      cy.window()
+        .its('console')
+        .then((console) => {
+          cy.spy(console, 'log').as('log');
+        });
+
+      cy.mount(
+        <Avatar.Root>
+          <Avatar.Image
+            src={AVATAR_IMAGE_SRC}
+            onLoadingStatusChange$={(status) => console.log(status)}
+            data-testid={AVATAR_IMAGE_TESTID}
+          />
+        </Avatar.Root>
+      );
+      cy.get('@log').should('be.calledWith', 'loaded');
+    });
+
+    it('should call onLoadingStatusChange$ event handler with value "error" when an error occurred while loading the image', () => {
+      cy.window()
+        .its('console')
+        .then((console) => {
+          cy.spy(console, 'log').as('log');
+        });
+
+      cy.mount(
+        <Avatar.Root>
+          <Avatar.Image
+            src={AVATAR_IMAGE_SRC_BROKEN}
+            onLoadingStatusChange$={(status) => console.log(status)}
+            data-testid={AVATAR_IMAGE_TESTID}
+          />
+        </Avatar.Root>
+      );
+      cy.get('@log').should('be.calledWith', 'error');
     });
 
     it('should initially not exist', () => {
@@ -80,6 +147,24 @@ describe('Avatar', () => {
         </Avatar.Root>
       );
       cy.get(`[data-testid="${AVATAR_IMAGE_TESTID}"]`).should('have.attr', 'data-qwik-primitives-avatar-image', '');
+    });
+
+    it('should have attribute data-scope with value "avatar"', () => {
+      cy.mount(
+        <Avatar.Root>
+          <Avatar.Image src={AVATAR_IMAGE_SRC} data-testid={AVATAR_IMAGE_TESTID} />
+        </Avatar.Root>
+      );
+      cy.get(`[data-testid="${AVATAR_IMAGE_TESTID}"]`).should('have.attr', 'data-scope', 'avatar');
+    });
+
+    it('should have attribute data-part with value "image"', () => {
+      cy.mount(
+        <Avatar.Root>
+          <Avatar.Image src={AVATAR_IMAGE_SRC} data-testid={AVATAR_IMAGE_TESTID} />
+        </Avatar.Root>
+      );
+      cy.get(`[data-testid="${AVATAR_IMAGE_TESTID}"]`).should('have.attr', 'data-part', 'image');
     });
   });
 
@@ -158,6 +243,24 @@ describe('Avatar', () => {
         'data-qwik-primitives-avatar-fallback',
         ''
       );
+    });
+
+    it('should have attribute data-scope with value "avatar"', () => {
+      cy.mount(
+        <Avatar.Root>
+          <Avatar.Fallback data-testid={AVATAR_FALLBACK_TESTID} />
+        </Avatar.Root>
+      );
+      cy.get(`[data-testid="${AVATAR_FALLBACK_TESTID}"]`).should('have.attr', 'data-scope', 'avatar');
+    });
+
+    it('should have attribute data-part with value "fallback"', () => {
+      cy.mount(
+        <Avatar.Root>
+          <Avatar.Fallback data-testid={AVATAR_FALLBACK_TESTID} />
+        </Avatar.Root>
+      );
+      cy.get(`[data-testid="${AVATAR_FALLBACK_TESTID}"]`).should('have.attr', 'data-part', 'fallback');
     });
   });
 });
