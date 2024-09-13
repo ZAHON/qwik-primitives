@@ -63,6 +63,11 @@ Contains all the parts of an avatar. This component is based on the `span` eleme
 | `strategy` | `"intersection-observer" \| "document-ready" \| "document-idle"` | `"intersection-observer"` | The strategy to use to determine when the image should load. `"intersection-observer"` means that image will load when the element is visible in the viewport. `"document-ready"` means that image will load when the document is ready. `"document-idle"` means that image will load when the document is idle. |
 | `style`    | `CSSProperties`                                                  | `-`                       | The inline style for the element.                                                                                                                                                                                                                                                                                |
 
+| Data attribute | Values     |
+| -------------- | ---------- |
+| `[data-scope]` | `"avatar"` |
+| `[data-part]`  | `"root"`   |
+
 ### Image
 
 The image to render. By default it will only render when it has loaded. You can use the `onLoadingStatusChange$` handler if you need more control. This component is based on the `img` element.
@@ -73,6 +78,11 @@ The image to render. By default it will only render when it has loaded. You can 
 | `onLoadingStatusChange$` | `QRL<(status: "idle" \| "loading" \| "loaded" \| "error") => void>` | `-`     | A callback providing information about the loading status of the image. This is useful in case you want to control more precisely what to render as the image is loading.                                                               |
 | `style`                  | `CSSProperties`                                                     | `-`     | The inline style for the element.                                                                                                                                                                                                       |
 
+| Data attribute | Values     |
+| -------------- | ---------- |
+| `[data-scope]` | `"avatar"` |
+| `[data-part]`  | `"image"`  |
+
 ### Fallback
 
 An element that renders when the image hasn't loaded. This means whilst it's loading, or if there was an error. If you notice a flash during loading, you can provide a `delayMs` prop to delay its rendering so it only renders for those with slower connections. For more control, use the `onLoadingStatusChange$` handler on `Avatar.Image`. This component is based on the `span` element.
@@ -82,6 +92,11 @@ An element that renders when the image hasn't loaded. This means whilst it's loa
 | `as`      | `FunctionComponent` | `-`     | Change the default rendered element for the one passed as, merging their props and behavior. Read our [Composition](https://github.com/ZAHON/qwik-primitives/blob/main/packages/primitives/docs/composition.md) guide for more details. |
 | `delayMs` | `number`            | `-`     | Useful for delaying rendering so it only appears for those with slower connections.                                                                                                                                                     |
 | `style`   | `CSSProperties`     | `-`     | The inline style for the element.                                                                                                                                                                                                       |
+
+| Data attribute | Values       |
+| -------------- | ------------ |
+| `[data-scope]` | `"avatar"`   |
+| `[data-part]`  | `"fallback"` |
 
 ## Examples
 
