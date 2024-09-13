@@ -66,6 +66,7 @@ export const AvatarImage = component$<AvatarImageProps>((props) => {
         referrerPolicy={referrerPolicy}
         data-qwik-primitives-avatar-image=""
         data-scope="avatar"
+        data-part="image"
         {...others}
       />
     )
