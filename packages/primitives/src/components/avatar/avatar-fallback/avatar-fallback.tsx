@@ -39,7 +39,7 @@ export const AvatarFallback = component$<AvatarFallbackProps>((props) => {
   return (
     canRender.value &&
     imageLoadingStatus.value !== 'loaded' && (
-      <Component data-qwik-primitives-avatar-fallback="" data-scope="avatar" {...others}>
+      <Component data-qwik-primitives-avatar-fallback="" data-scope="avatar" data-part="fallback" {...others}>
         <Slot />
       </Component>
     )
