@@ -61,7 +61,13 @@ export const AvatarImage = component$<AvatarImageProps>((props) => {
 
   return (
     imageLoadingStatus.value === 'loaded' && (
-      <Component src={src} referrerPolicy={referrerPolicy} data-qwik-primitives-avatar-image="" {...others} />
+      <Component
+        src={src}
+        referrerPolicy={referrerPolicy}
+        data-qwik-primitives-avatar-image=""
+        data-scope="avatar"
+        {...others}
+      />
     )
   );
 });
