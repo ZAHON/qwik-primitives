@@ -59,6 +59,11 @@ Anything you put inside this component will be hidden from the screen but will b
 | `as`    | `FunctionComponent` | `-`     | Change the default rendered element for the one passed as, merging their props and behavior. Read our [Composition](https://github.com/ZAHON/qwik-primitives/blob/main/packages/primitives/docs/composition.md) guide for more details. |
 | `style` | `CSSProperties`     | `-`     | The inline style for the element.                                                                                                                                                                                                       |
 
+| Data attribute | Values              |
+| -------------- | ------------------- |
+| `[data-scope]` | `"visually-hidden"` |
+| `[data-part]`  | `"root"`            |
+
 ## Accessibility
 
 This is useful in certain scenarios as an alternative to traditional labelling with `aria-label` or `aria-labelledby`.
