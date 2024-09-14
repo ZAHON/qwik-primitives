@@ -14,7 +14,12 @@ export const BreadcrumbsList = component$<BreadcrumbsListProps>((props) => {
   const Component = as || 'ol';
 
   return (
-    <Component data-qwik-primitives-breadcrumbs-list="" data-disabled={isDisabled.value ? '' : undefined} {...others}>
+    <Component
+      data-qwik-primitives-breadcrumbs-list=""
+      data-scope="breadcrumbs"
+      data-disabled={isDisabled.value ? '' : undefined}
+      {...others}
+    >
       <Slot />
     </Component>
   );
