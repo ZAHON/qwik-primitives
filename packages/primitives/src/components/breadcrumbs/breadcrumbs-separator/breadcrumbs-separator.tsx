@@ -19,6 +19,7 @@ export const BreadcrumbsSeparator = component$<BreadcrumbsSeparatorProps>((props
       aria-hidden="true"
       data-qwik-primitives-breadcrumbs-separator=""
       data-scope="breadcrumbs"
+      data-part="separator"
       data-disabled={isDisabled.value ? '' : undefined}
       {...others}
     >
