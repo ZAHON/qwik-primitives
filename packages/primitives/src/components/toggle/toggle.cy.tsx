@@ -16,6 +16,13 @@ describe('Toggle', () => {
       cy.get(`[data-testid="${TOGGLE_ROOT_TESTID}"]`).should('have.prop', 'tagName').should('eq', 'DIV');
     });
 
+    it('should contain passed children', () => {
+      const TOGGLE_ROOT_TEXT = 'TOGGLE_ROOT_TEXT';
+
+      cy.mount(<Toggle.Root data-testid={TOGGLE_ROOT_TESTID}>{TOGGLE_ROOT_TEXT}</Toggle.Root>);
+      cy.get(`[data-testid="${TOGGLE_ROOT_TESTID}"]`).should('have.text', TOGGLE_ROOT_TEXT);
+    });
+
     it('should have attribute type with value "button"', () => {
       cy.mount(<Toggle.Root data-testid={TOGGLE_ROOT_TESTID} />);
       cy.get(`[data-testid="${TOGGLE_ROOT_TESTID}"]`).should('have.attr', 'type', 'button');
@@ -63,6 +70,16 @@ describe('Toggle', () => {
     it('should have attribute data-qwik-primitives-toggle-root with empty value', () => {
       cy.mount(<Toggle.Root data-testid={TOGGLE_ROOT_TESTID} />);
       cy.get(`[data-testid="${TOGGLE_ROOT_TESTID}"]`).should('have.attr', 'data-qwik-primitives-toggle-root', '');
+    });
+
+    it('should have attribute data-scope with value "toggle"', () => {
+      cy.mount(<Toggle.Root data-testid={TOGGLE_ROOT_TESTID} />);
+      cy.get(`[data-testid="${TOGGLE_ROOT_TESTID}"]`).should('have.attr', 'data-scope', 'toggle');
+    });
+
+    it('should have attribute data-part with value "root"', () => {
+      cy.mount(<Toggle.Root data-testid={TOGGLE_ROOT_TESTID} />);
+      cy.get(`[data-testid="${TOGGLE_ROOT_TESTID}"]`).should('have.attr', 'data-part', 'root');
     });
   });
 });
