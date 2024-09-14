@@ -33,16 +33,3 @@ export const Disabled: Story = {
     );
   },
 };
-
-export const External: Story = {
-  render: () => {
-    return (
-      <>
-        <h2>External</h2>
-        <Link.Root external={true} href={LINK_URL}>
-          Qwik Primitives
-        </Link.Root>
-      </>
-    );
-  },
-};
