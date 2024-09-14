@@ -30,6 +30,7 @@ export const CollapsibleRoot = component$<CollapsibleRootProps>((props) => {
   return (
     <Component
       data-qwik-primitives-collapsible-root=""
+      data-scope="collapsible"
       data-state={isOpen.value ? 'open' : 'closed'}
       data-disabled={isDisabled.value ? '' : undefined}
       {...others}
