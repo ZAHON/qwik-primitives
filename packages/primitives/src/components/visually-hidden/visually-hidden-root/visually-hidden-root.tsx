@@ -15,6 +15,7 @@ export const VisuallyHiddenRoot = component$<VisuallyHiddenRootProps>((props) =>
     <Component
       data-qwik-primitives-visually-hidden-root=""
       data-scope="visually-hidden"
+      data-part="root"
       style={{
         ...visuallyHiddenStyle,
         ...style,
