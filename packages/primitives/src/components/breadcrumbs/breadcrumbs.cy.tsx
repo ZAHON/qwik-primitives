@@ -2,81 +2,75 @@ import { Primitive } from '@/components';
 import * as Breadcrumbs from '.';
 
 const BREADCRUMBS_ROOT_TESTID = 'BREADCRUMBS_ROOT_TESTID';
-const BREADCRUMBS_ROOT_TEXT = 'BREADCRUMBS_ROOT_TEXT';
-
 const BREADCRUMBS_LIST_TESTID = 'BREADCRUMBS_LIST_TESTID';
-const BREADCRUMBS_LIST_TEXT = 'BREADCRUMBS_LIST_TEXT';
-
 const BREADCRUMBS_ITEM_TESTID = 'BREADCRUMBS_ITEM_TESTID';
-const BREADCRUMBS_ITEM_TEXT = 'BREADCRUMBS_ITEM_TEXT';
-
 const BREADCRUMBS_LINK_TESTID = 'BREADCRUMBS_LINK_TESTID';
-const BREADCRUMBS_LINK_TEXT = 'BREADCRUMBS_LINK_TEXT';
-
 const BREADCRUMBS_PAGE_TESTID = 'BREADCRUMBS_PAGE_TESTID';
-const BREADCRUMBS_PAGE_TEXT = 'BREADCRUMBS_PAGE_TEXT';
-
 const BREADCRUMBS_SEPARATOR_TESTID = 'BREADCRUMBS_SEPARATOR_TESTID';
-const BREADCRUMBS_SEPARATOR_TEXT = 'BREADCRUMBS_SEPARATOR_TEXT';
 
 describe('Breadcrumbs', () => {
   describe('Root', () => {
     it('should be <nav> element', () => {
-      cy.mount(<Breadcrumbs.Root data-testid={BREADCRUMBS_ROOT_TESTID}>{BREADCRUMBS_ROOT_TEXT}</Breadcrumbs.Root>);
+      cy.mount(<Breadcrumbs.Root data-testid={BREADCRUMBS_ROOT_TESTID} />);
       cy.get(`[data-testid="${BREADCRUMBS_ROOT_TESTID}"]`).should('have.prop', 'tagName', 'NAV');
     });
 
     it('should be element provided via as prop', () => {
-      cy.mount(
-        <Breadcrumbs.Root as={Primitive.div} data-testid={BREADCRUMBS_ROOT_TESTID}>
-          {BREADCRUMBS_ROOT_TEXT}
-        </Breadcrumbs.Root>
-      );
+      cy.mount(<Breadcrumbs.Root as={Primitive.div} data-testid={BREADCRUMBS_ROOT_TESTID} />);
       cy.get(`[data-testid="${BREADCRUMBS_ROOT_TESTID}"]`).should('have.prop', 'tagName').should('not.eq', 'NAV');
       cy.get(`[data-testid="${BREADCRUMBS_ROOT_TESTID}"]`).should('have.prop', 'tagName').should('eq', 'DIV');
     });
 
-    it('should have attribute aria-label with value "Breadcrumbs"', () => {
+    it('should contain passed children', () => {
+      const BREADCRUMBS_ROOT_TEXT = 'BREADCRUMBS_ROOT_TEXT';
+
       cy.mount(<Breadcrumbs.Root data-testid={BREADCRUMBS_ROOT_TESTID}>{BREADCRUMBS_ROOT_TEXT}</Breadcrumbs.Root>);
+      cy.get(`[data-testid="${BREADCRUMBS_ROOT_TESTID}"]`).should('have.text', BREADCRUMBS_ROOT_TEXT);
+    });
+
+    it('should have attribute aria-label with value "Breadcrumbs"', () => {
+      cy.mount(<Breadcrumbs.Root data-testid={BREADCRUMBS_ROOT_TESTID} />);
       cy.get(`[data-testid="${BREADCRUMBS_ROOT_TESTID}"]`).should('have.attr', 'aria-label', 'Breadcrumbs');
     });
 
     it('should have attribute aria-label with value provided via aria-label prop', () => {
-      const ariaLabel = 'Test';
+      const BREADCRUMBS_ROOT_ARIA_LABEL = 'BREADCRUMBS_ROOT_ARAI_LABEL';
 
-      cy.mount(
-        <Breadcrumbs.Root aria-label={ariaLabel} data-testid={BREADCRUMBS_ROOT_TESTID}>
-          {BREADCRUMBS_ROOT_TEXT}
-        </Breadcrumbs.Root>
+      cy.mount(<Breadcrumbs.Root aria-label={BREADCRUMBS_ROOT_ARIA_LABEL} data-testid={BREADCRUMBS_ROOT_TESTID} />);
+      cy.get(`[data-testid="${BREADCRUMBS_ROOT_TESTID}"]`).should(
+        'have.attr',
+        'aria-label',
+        BREADCRUMBS_ROOT_ARIA_LABEL
       );
-      cy.get(`[data-testid="${BREADCRUMBS_ROOT_TESTID}"]`).should('have.attr', 'aria-label', ariaLabel);
     });
 
     it('should have not attribute data-disabled when not disabled', () => {
-      cy.mount(
-        <Breadcrumbs.Root disabled={false} data-testid={BREADCRUMBS_ROOT_TESTID}>
-          {BREADCRUMBS_ROOT_TEXT}
-        </Breadcrumbs.Root>
-      );
+      cy.mount(<Breadcrumbs.Root disabled={false} data-testid={BREADCRUMBS_ROOT_TESTID} />);
       cy.get(`[data-testid="${BREADCRUMBS_ROOT_TESTID}"]`).should('have.not.attr', 'data-disabled');
     });
 
-    it('should have attribute data-disabled when disabled', () => {
-      cy.mount(
-        <Breadcrumbs.Root disabled={true} data-testid={BREADCRUMBS_ROOT_TESTID}>
-          {BREADCRUMBS_ROOT_TEXT}
-        </Breadcrumbs.Root>
-      );
-      cy.get(`[data-testid="${BREADCRUMBS_ROOT_TESTID}"]`).should('have.attr', 'data-disabled');
+    it('should have attribute data-disabled with empty value when disabled', () => {
+      cy.mount(<Breadcrumbs.Root disabled={true} data-testid={BREADCRUMBS_ROOT_TESTID} />);
+      cy.get(`[data-testid="${BREADCRUMBS_ROOT_TESTID}"]`).should('have.attr', 'data-disabled', '');
     });
 
     it('should have attribute data-qwik-primitives-breadcrumbs-root with empty value', () => {
-      cy.mount(<Breadcrumbs.Root data-testid={BREADCRUMBS_ROOT_TESTID}>{BREADCRUMBS_ROOT_TEXT}</Breadcrumbs.Root>);
+      cy.mount(<Breadcrumbs.Root data-testid={BREADCRUMBS_ROOT_TESTID} />);
       cy.get(`[data-testid="${BREADCRUMBS_ROOT_TESTID}"]`).should(
         'have.attr',
         'data-qwik-primitives-breadcrumbs-root',
         ''
       );
+    });
+
+    it('should have attribute data-scope with value "breadcrumbs"', () => {
+      cy.mount(<Breadcrumbs.Root data-testid={BREADCRUMBS_ROOT_TESTID} />);
+      cy.get(`[data-testid="${BREADCRUMBS_ROOT_TESTID}"]`).should('have.attr', 'data-scope', 'breadcrumbs');
+    });
+
+    it('should have attribute data-part with value "root"', () => {
+      cy.mount(<Breadcrumbs.Root data-testid={BREADCRUMBS_ROOT_TESTID} />);
+      cy.get(`[data-testid="${BREADCRUMBS_ROOT_TESTID}"]`).should('have.attr', 'data-part', 'root');
     });
   });
 
@@ -84,7 +78,7 @@ describe('Breadcrumbs', () => {
     it('should be <ol> element', () => {
       cy.mount(
         <Breadcrumbs.Root>
-          <Breadcrumbs.List data-testid={BREADCRUMBS_LIST_TESTID}>{BREADCRUMBS_LIST_TEXT}</Breadcrumbs.List>
+          <Breadcrumbs.List data-testid={BREADCRUMBS_LIST_TESTID} />
         </Breadcrumbs.Root>
       );
       cy.get(`[data-testid="${BREADCRUMBS_LIST_TESTID}"]`).should('have.prop', 'tagName', 'OL');
@@ -93,37 +87,46 @@ describe('Breadcrumbs', () => {
     it('should be element provided via as prop', () => {
       cy.mount(
         <Breadcrumbs.Root>
-          <Breadcrumbs.List as={Primitive.div} data-testid={BREADCRUMBS_LIST_TESTID}>
-            {BREADCRUMBS_LIST_TEXT}
-          </Breadcrumbs.List>
+          <Breadcrumbs.List as={Primitive.div} data-testid={BREADCRUMBS_LIST_TESTID} />
         </Breadcrumbs.Root>
       );
       cy.get(`[data-testid="${BREADCRUMBS_LIST_TESTID}"]`).should('have.prop', 'tagName').should('not.eq', 'OL');
       cy.get(`[data-testid="${BREADCRUMBS_LIST_TESTID}"]`).should('have.prop', 'tagName').should('eq', 'DIV');
     });
 
-    it('should have not attribute aria-disabled when <Breadcrumbs.Root> not disabled', () => {
+    it('should contain passed children', () => {
+      const BREADCRUMBS_LIST_TEXT = 'BREADCRUMBS_LIST_TEXT';
+
+      cy.mount(
+        <Breadcrumbs.Root>
+          <Breadcrumbs.List data-testid={BREADCRUMBS_LIST_TESTID}>{BREADCRUMBS_LIST_TEXT}</Breadcrumbs.List>
+        </Breadcrumbs.Root>
+      );
+      cy.get(`[data-testid="${BREADCRUMBS_LIST_TESTID}"]`).should('have.text', BREADCRUMBS_LIST_TEXT);
+    });
+
+    it('should have not attribute data-disabled when <Breadcrumbs.Root> not disabled', () => {
       cy.mount(
         <Breadcrumbs.Root disabled={false}>
-          <Breadcrumbs.List data-testid={BREADCRUMBS_LIST_TESTID}>{BREADCRUMBS_LIST_TEXT}</Breadcrumbs.List>
+          <Breadcrumbs.List data-testid={BREADCRUMBS_LIST_TESTID} />
         </Breadcrumbs.Root>
       );
       cy.get(`[data-testid="${BREADCRUMBS_LIST_TESTID}"]`).should('have.not.attr', 'data-disabled');
     });
 
-    it('should have attribute aria-disabled when <Breadcrumbs.Root> disabled', () => {
+    it('should have attribute data-disabled with empty value when <Breadcrumbs.Root> disabled', () => {
       cy.mount(
         <Breadcrumbs.Root disabled={true}>
-          <Breadcrumbs.List data-testid={BREADCRUMBS_LIST_TESTID}>{BREADCRUMBS_LIST_TEXT}</Breadcrumbs.List>
+          <Breadcrumbs.List data-testid={BREADCRUMBS_LIST_TESTID} />
         </Breadcrumbs.Root>
       );
-      cy.get(`[data-testid="${BREADCRUMBS_LIST_TESTID}"]`).should('have.attr', 'data-disabled');
+      cy.get(`[data-testid="${BREADCRUMBS_LIST_TESTID}"]`).should('have.attr', 'data-disabled', '');
     });
 
     it('should have attribute data-qwik-primitives-breadcrumbs-list with empty value', () => {
       cy.mount(
         <Breadcrumbs.Root>
-          <Breadcrumbs.List data-testid={BREADCRUMBS_LIST_TESTID}>{BREADCRUMBS_LIST_TEXT}</Breadcrumbs.List>
+          <Breadcrumbs.List data-testid={BREADCRUMBS_LIST_TESTID} />
         </Breadcrumbs.Root>
       );
       cy.get(`[data-testid="${BREADCRUMBS_LIST_TESTID}"]`).should(
@@ -132,6 +135,24 @@ describe('Breadcrumbs', () => {
         ''
       );
     });
+
+    it('should have attribute data-scope with value "breadcrumbs"', () => {
+      cy.mount(
+        <Breadcrumbs.Root>
+          <Breadcrumbs.List data-testid={BREADCRUMBS_LIST_TESTID} />
+        </Breadcrumbs.Root>
+      );
+      cy.get(`[data-testid="${BREADCRUMBS_LIST_TESTID}"]`).should('have.attr', 'data-scope', 'breadcrumbs');
+    });
+
+    it('should have attribute data-part with value "list"', () => {
+      cy.mount(
+        <Breadcrumbs.Root>
+          <Breadcrumbs.List data-testid={BREADCRUMBS_LIST_TESTID} />
+        </Breadcrumbs.Root>
+      );
+      cy.get(`[data-testid="${BREADCRUMBS_LIST_TESTID}"]`).should('have.attr', 'data-part', 'list');
+    });
   });
 
   describe('Item', () => {
@@ -139,7 +160,7 @@ describe('Breadcrumbs', () => {
       cy.mount(
         <Breadcrumbs.Root>
           <Breadcrumbs.List>
-            <Breadcrumbs.Item data-testid={BREADCRUMBS_ITEM_TESTID}>{BREADCRUMBS_ITEM_TEXT}</Breadcrumbs.Item>
+            <Breadcrumbs.Item data-testid={BREADCRUMBS_ITEM_TESTID} />
           </Breadcrumbs.List>
         </Breadcrumbs.Root>
       );
@@ -150,9 +171,7 @@ describe('Breadcrumbs', () => {
       cy.mount(
         <Breadcrumbs.Root>
           <Breadcrumbs.List>
-            <Breadcrumbs.Item as={Primitive.div} data-testid={BREADCRUMBS_ITEM_TESTID}>
-              {BREADCRUMBS_ITEM_TEXT}
-            </Breadcrumbs.Item>
+            <Breadcrumbs.Item as={Primitive.div} data-testid={BREADCRUMBS_ITEM_TESTID} />
           </Breadcrumbs.List>
         </Breadcrumbs.Root>
       );
@@ -160,33 +179,46 @@ describe('Breadcrumbs', () => {
       cy.get(`[data-testid="${BREADCRUMBS_ITEM_TESTID}"]`).should('have.prop', 'tagName').should('eq', 'DIV');
     });
 
-    it('should have not attribute aria-disabled when <Breadcrumbs.Root> not disabled', () => {
+    it('should contain passed children', () => {
+      const BREADCRUMBS_ITEM_TEXT = 'BREADCRUMBS_ITEM_TEXT';
+
+      cy.mount(
+        <Breadcrumbs.Root>
+          <Breadcrumbs.List>
+            <Breadcrumbs.Item data-testid={BREADCRUMBS_ITEM_TESTID}>{BREADCRUMBS_ITEM_TEXT}</Breadcrumbs.Item>
+          </Breadcrumbs.List>
+        </Breadcrumbs.Root>
+      );
+      cy.get(`[data-testid="${BREADCRUMBS_ITEM_TESTID}"]`).should('have.text', BREADCRUMBS_ITEM_TEXT);
+    });
+
+    it('should have not attribute data-disabled when <Breadcrumbs.Root> not disabled', () => {
       cy.mount(
         <Breadcrumbs.Root disabled={false}>
           <Breadcrumbs.List>
-            <Breadcrumbs.Item data-testid={BREADCRUMBS_ITEM_TESTID}>{BREADCRUMBS_ITEM_TEXT}</Breadcrumbs.Item>
+            <Breadcrumbs.Item data-testid={BREADCRUMBS_ITEM_TESTID} />
           </Breadcrumbs.List>
         </Breadcrumbs.Root>
       );
       cy.get(`[data-testid="${BREADCRUMBS_ITEM_TESTID}"]`).should('have.not.attr', 'data-disabled');
     });
 
-    it('should have attribute aria-disabled when <Breadcrumbs.Root> disabled', () => {
+    it('should have attribute data-disabled with empty value when <Breadcrumbs.Root> disabled', () => {
       cy.mount(
         <Breadcrumbs.Root disabled={true}>
           <Breadcrumbs.List>
-            <Breadcrumbs.Item data-testid={BREADCRUMBS_ITEM_TESTID}>{BREADCRUMBS_ITEM_TEXT}</Breadcrumbs.Item>
+            <Breadcrumbs.Item data-testid={BREADCRUMBS_ITEM_TESTID} />
           </Breadcrumbs.List>
         </Breadcrumbs.Root>
       );
-      cy.get(`[data-testid="${BREADCRUMBS_ITEM_TESTID}"]`).should('have.attr', 'data-disabled');
+      cy.get(`[data-testid="${BREADCRUMBS_ITEM_TESTID}"]`).should('have.attr', 'data-disabled', '');
     });
 
     it('should have attribute data-qwik-primitives-breadcrumbs-item with empty value', () => {
       cy.mount(
         <Breadcrumbs.Root>
           <Breadcrumbs.List>
-            <Breadcrumbs.Item data-testid={BREADCRUMBS_ITEM_TESTID}>{BREADCRUMBS_ITEM_TEXT}</Breadcrumbs.Item>
+            <Breadcrumbs.Item data-testid={BREADCRUMBS_ITEM_TESTID} />
           </Breadcrumbs.List>
         </Breadcrumbs.Root>
       );
@@ -196,6 +228,28 @@ describe('Breadcrumbs', () => {
         ''
       );
     });
+
+    it('should have attribute data-scope with value "breadcrumbs"', () => {
+      cy.mount(
+        <Breadcrumbs.Root>
+          <Breadcrumbs.List>
+            <Breadcrumbs.Item data-testid={BREADCRUMBS_ITEM_TESTID} />
+          </Breadcrumbs.List>
+        </Breadcrumbs.Root>
+      );
+      cy.get(`[data-testid="${BREADCRUMBS_ITEM_TESTID}"]`).should('have.attr', 'data-scope', 'breadcrumbs');
+    });
+
+    it('should have attribute data-part with value "item"', () => {
+      cy.mount(
+        <Breadcrumbs.Root>
+          <Breadcrumbs.List>
+            <Breadcrumbs.Item data-testid={BREADCRUMBS_ITEM_TESTID} />
+          </Breadcrumbs.List>
+        </Breadcrumbs.Root>
+      );
+      cy.get(`[data-testid="${BREADCRUMBS_ITEM_TESTID}"]`).should('have.attr', 'data-part', 'item');
+    });
   });
 
   describe('Link', () => {
@@ -204,7 +258,7 @@ describe('Breadcrumbs', () => {
         <Breadcrumbs.Root>
           <Breadcrumbs.List>
             <Breadcrumbs.Item>
-              <Breadcrumbs.Link data-testid={BREADCRUMBS_LINK_TESTID}>{BREADCRUMBS_LINK_TEXT}</Breadcrumbs.Link>
+              <Breadcrumbs.Link data-testid={BREADCRUMBS_LINK_TESTID} />
             </Breadcrumbs.Item>
           </Breadcrumbs.List>
         </Breadcrumbs.Root>
@@ -217,9 +271,7 @@ describe('Breadcrumbs', () => {
         <Breadcrumbs.Root>
           <Breadcrumbs.List>
             <Breadcrumbs.Item>
-              <Breadcrumbs.Link as={Primitive.div} data-testid={BREADCRUMBS_LINK_TESTID}>
-                {BREADCRUMBS_LINK_TEXT}
-              </Breadcrumbs.Link>
+              <Breadcrumbs.Link as={Primitive.div} data-testid={BREADCRUMBS_LINK_TESTID} />
             </Breadcrumbs.Item>
           </Breadcrumbs.List>
         </Breadcrumbs.Root>
@@ -228,14 +280,27 @@ describe('Breadcrumbs', () => {
       cy.get(`[data-testid="${BREADCRUMBS_LINK_TESTID}"]`).should('have.prop', 'tagName').should('eq', 'DIV');
     });
 
+    it('should contain passed children', () => {
+      const BREADCRUMBS_LINK_TEXT = 'BREADCRUMBS_LINK_TEXT';
+
+      cy.mount(
+        <Breadcrumbs.Root>
+          <Breadcrumbs.List>
+            <Breadcrumbs.Item>
+              <Breadcrumbs.Link data-testid={BREADCRUMBS_LINK_TESTID}>{BREADCRUMBS_LINK_TEXT}</Breadcrumbs.Link>
+            </Breadcrumbs.Item>
+          </Breadcrumbs.List>
+        </Breadcrumbs.Root>
+      );
+      cy.get(`[data-testid="${BREADCRUMBS_LINK_TESTID}"]`).should('have.text', BREADCRUMBS_LINK_TEXT);
+    });
+
     it('should have not attribute aria-disabled when not disabled', () => {
       cy.mount(
         <Breadcrumbs.Root>
           <Breadcrumbs.List>
             <Breadcrumbs.Item>
-              <Breadcrumbs.Link disabled={false} data-testid={BREADCRUMBS_LINK_TESTID}>
-                {BREADCRUMBS_LINK_TEXT}
-              </Breadcrumbs.Link>
+              <Breadcrumbs.Link disabled={false} data-testid={BREADCRUMBS_LINK_TESTID} />
             </Breadcrumbs.Item>
           </Breadcrumbs.List>
         </Breadcrumbs.Root>
@@ -248,9 +313,7 @@ describe('Breadcrumbs', () => {
         <Breadcrumbs.Root>
           <Breadcrumbs.List>
             <Breadcrumbs.Item>
-              <Breadcrumbs.Link disabled={false} data-testid={BREADCRUMBS_LINK_TESTID}>
-                {BREADCRUMBS_LINK_TEXT}
-              </Breadcrumbs.Link>
+              <Breadcrumbs.Link disabled={false} data-testid={BREADCRUMBS_LINK_TESTID} />
             </Breadcrumbs.Item>
           </Breadcrumbs.List>
         </Breadcrumbs.Root>
@@ -258,34 +321,30 @@ describe('Breadcrumbs', () => {
       cy.get(`[data-testid="${BREADCRUMBS_LINK_TESTID}"]`).should('have.not.attr', 'data-disabled');
     });
 
-    it('should have attribute aria-disabled when disabled', () => {
+    it('should have attribute aria-disabled with value "true" when disabled', () => {
       cy.mount(
         <Breadcrumbs.Root>
           <Breadcrumbs.List>
             <Breadcrumbs.Item>
-              <Breadcrumbs.Link disabled={true} data-testid={BREADCRUMBS_LINK_TESTID}>
-                {BREADCRUMBS_LINK_TEXT}
-              </Breadcrumbs.Link>
+              <Breadcrumbs.Link disabled={true} data-testid={BREADCRUMBS_LINK_TESTID} />
             </Breadcrumbs.Item>
           </Breadcrumbs.List>
         </Breadcrumbs.Root>
       );
-      cy.get(`[data-testid="${BREADCRUMBS_LINK_TESTID}"]`).should('have.attr', 'aria-disabled');
+      cy.get(`[data-testid="${BREADCRUMBS_LINK_TESTID}"]`).should('have.attr', 'aria-disabled', 'true');
     });
 
-    it('should have attribute data-disabled when disabled', () => {
+    it('should have attribute data-disabled with empty value when disabled', () => {
       cy.mount(
         <Breadcrumbs.Root>
           <Breadcrumbs.List>
             <Breadcrumbs.Item>
-              <Breadcrumbs.Link disabled={true} data-testid={BREADCRUMBS_LINK_TESTID}>
-                {BREADCRUMBS_LINK_TEXT}
-              </Breadcrumbs.Link>
+              <Breadcrumbs.Link disabled={true} data-testid={BREADCRUMBS_LINK_TESTID} />
             </Breadcrumbs.Item>
           </Breadcrumbs.List>
         </Breadcrumbs.Root>
       );
-      cy.get(`[data-testid="${BREADCRUMBS_LINK_TESTID}"]`).should('have.attr', 'data-disabled');
+      cy.get(`[data-testid="${BREADCRUMBS_LINK_TESTID}"]`).should('have.attr', 'data-disabled', '');
     });
 
     it('should have not attribute aria-disabled when <Breadcrumbs.Root> not disabled', () => {
@@ -293,7 +352,7 @@ describe('Breadcrumbs', () => {
         <Breadcrumbs.Root disabled={false}>
           <Breadcrumbs.List>
             <Breadcrumbs.Item>
-              <Breadcrumbs.Link data-testid={BREADCRUMBS_LINK_TESTID}>{BREADCRUMBS_LINK_TEXT}</Breadcrumbs.Link>
+              <Breadcrumbs.Link data-testid={BREADCRUMBS_LINK_TESTID} />
             </Breadcrumbs.Item>
           </Breadcrumbs.List>
         </Breadcrumbs.Root>
@@ -306,7 +365,7 @@ describe('Breadcrumbs', () => {
         <Breadcrumbs.Root disabled={false}>
           <Breadcrumbs.List>
             <Breadcrumbs.Item>
-              <Breadcrumbs.Link data-testid={BREADCRUMBS_LINK_TESTID}>{BREADCRUMBS_LINK_TEXT}</Breadcrumbs.Link>
+              <Breadcrumbs.Link data-testid={BREADCRUMBS_LINK_TESTID} />
             </Breadcrumbs.Item>
           </Breadcrumbs.List>
         </Breadcrumbs.Root>
@@ -314,30 +373,30 @@ describe('Breadcrumbs', () => {
       cy.get(`[data-testid="${BREADCRUMBS_LINK_TESTID}"]`).should('have.not.attr', 'data-disabled');
     });
 
-    it('should have attribute aria-disabled when <Breadcrumbs.Root> disabled', () => {
+    it('should have attribute aria-disabled with value "true" when <Breadcrumbs.Root> disabled', () => {
       cy.mount(
         <Breadcrumbs.Root disabled={true}>
           <Breadcrumbs.List>
             <Breadcrumbs.Item>
-              <Breadcrumbs.Link data-testid={BREADCRUMBS_LINK_TESTID}>{BREADCRUMBS_LINK_TEXT}</Breadcrumbs.Link>
+              <Breadcrumbs.Link data-testid={BREADCRUMBS_LINK_TESTID} />
             </Breadcrumbs.Item>
           </Breadcrumbs.List>
         </Breadcrumbs.Root>
       );
-      cy.get(`[data-testid="${BREADCRUMBS_LINK_TESTID}"]`).should('have.attr', 'aria-disabled');
+      cy.get(`[data-testid="${BREADCRUMBS_LINK_TESTID}"]`).should('have.attr', 'aria-disabled', 'true');
     });
 
-    it('should have attribute data-disabled when <Breadcrumbs.Root> disabled', () => {
+    it('should have attribute data-disabled with empty value when <Breadcrumbs.Root> disabled', () => {
       cy.mount(
         <Breadcrumbs.Root disabled={true}>
           <Breadcrumbs.List>
             <Breadcrumbs.Item>
-              <Breadcrumbs.Link data-testid={BREADCRUMBS_LINK_TESTID}>{BREADCRUMBS_LINK_TEXT}</Breadcrumbs.Link>
+              <Breadcrumbs.Link data-testid={BREADCRUMBS_LINK_TESTID} />
             </Breadcrumbs.Item>
           </Breadcrumbs.List>
         </Breadcrumbs.Root>
       );
-      cy.get(`[data-testid="${BREADCRUMBS_LINK_TESTID}"]`).should('have.attr', 'data-disabled');
+      cy.get(`[data-testid="${BREADCRUMBS_LINK_TESTID}"]`).should('have.attr', 'data-disabled', '');
     });
 
     it('should have not attribute aria-disabled when not disabled and <Breadcrumbs.Root> disabled', () => {
@@ -345,9 +404,7 @@ describe('Breadcrumbs', () => {
         <Breadcrumbs.Root disabled={true}>
           <Breadcrumbs.List>
             <Breadcrumbs.Item>
-              <Breadcrumbs.Link disabled={false} data-testid={BREADCRUMBS_LINK_TESTID}>
-                {BREADCRUMBS_LINK_TEXT}
-              </Breadcrumbs.Link>
+              <Breadcrumbs.Link disabled={false} data-testid={BREADCRUMBS_LINK_TESTID} />
             </Breadcrumbs.Item>
           </Breadcrumbs.List>
         </Breadcrumbs.Root>
@@ -360,9 +417,7 @@ describe('Breadcrumbs', () => {
         <Breadcrumbs.Root disabled={true}>
           <Breadcrumbs.List>
             <Breadcrumbs.Item>
-              <Breadcrumbs.Link disabled={false} data-testid={BREADCRUMBS_LINK_TESTID}>
-                {BREADCRUMBS_LINK_TEXT}
-              </Breadcrumbs.Link>
+              <Breadcrumbs.Link disabled={false} data-testid={BREADCRUMBS_LINK_TESTID} />
             </Breadcrumbs.Item>
           </Breadcrumbs.List>
         </Breadcrumbs.Root>
@@ -370,34 +425,30 @@ describe('Breadcrumbs', () => {
       cy.get(`[data-testid="${BREADCRUMBS_LINK_TESTID}"]`).should('have.not.attr', 'data-disabled');
     });
 
-    it('should have attribute aria-disabled when disabled and <Breadcrumbs.Root> not disabled', () => {
+    it('should have attribute aria-disabled with value "true" when disabled and <Breadcrumbs.Root> not disabled', () => {
       cy.mount(
         <Breadcrumbs.Root disabled={false}>
           <Breadcrumbs.List>
             <Breadcrumbs.Item>
-              <Breadcrumbs.Link disabled={true} data-testid={BREADCRUMBS_LINK_TESTID}>
-                {BREADCRUMBS_LINK_TEXT}
-              </Breadcrumbs.Link>
+              <Breadcrumbs.Link disabled={true} data-testid={BREADCRUMBS_LINK_TESTID} />
             </Breadcrumbs.Item>
           </Breadcrumbs.List>
         </Breadcrumbs.Root>
       );
-      cy.get(`[data-testid="${BREADCRUMBS_LINK_TESTID}"]`).should('have.attr', 'aria-disabled');
+      cy.get(`[data-testid="${BREADCRUMBS_LINK_TESTID}"]`).should('have.attr', 'aria-disabled', 'true');
     });
 
-    it('should have attribute data-disabled when disabled and <Breadcrumbs.Root> not disabled', () => {
+    it('should have attribute data-disabled with empty value when disabled and <Breadcrumbs.Root> not disabled', () => {
       cy.mount(
         <Breadcrumbs.Root disabled={false}>
           <Breadcrumbs.List>
             <Breadcrumbs.Item>
-              <Breadcrumbs.Link disabled={true} data-testid={BREADCRUMBS_LINK_TESTID}>
-                {BREADCRUMBS_LINK_TEXT}
-              </Breadcrumbs.Link>
+              <Breadcrumbs.Link disabled={true} data-testid={BREADCRUMBS_LINK_TESTID} />
             </Breadcrumbs.Item>
           </Breadcrumbs.List>
         </Breadcrumbs.Root>
       );
-      cy.get(`[data-testid="${BREADCRUMBS_LINK_TESTID}"]`).should('have.attr', 'data-disabled');
+      cy.get(`[data-testid="${BREADCRUMBS_LINK_TESTID}"]`).should('have.attr', 'data-disabled', '');
     });
 
     it('should have attribute data-qwik-primitives-breadcrumbs-link with empty value', () => {
@@ -405,7 +456,7 @@ describe('Breadcrumbs', () => {
         <Breadcrumbs.Root>
           <Breadcrumbs.List>
             <Breadcrumbs.Item>
-              <Breadcrumbs.Link data-testid={BREADCRUMBS_LINK_TESTID}>{BREADCRUMBS_LINK_TEXT}</Breadcrumbs.Link>
+              <Breadcrumbs.Link data-testid={BREADCRUMBS_LINK_TESTID} />
             </Breadcrumbs.Item>
           </Breadcrumbs.List>
         </Breadcrumbs.Root>
@@ -416,6 +467,32 @@ describe('Breadcrumbs', () => {
         ''
       );
     });
+
+    it('should have attribute data-scope with value "breadcrumbs"', () => {
+      cy.mount(
+        <Breadcrumbs.Root>
+          <Breadcrumbs.List>
+            <Breadcrumbs.Item>
+              <Breadcrumbs.Link data-testid={BREADCRUMBS_LINK_TESTID} />
+            </Breadcrumbs.Item>
+          </Breadcrumbs.List>
+        </Breadcrumbs.Root>
+      );
+      cy.get(`[data-testid="${BREADCRUMBS_LINK_TESTID}"]`).should('have.attr', 'data-scope', 'breadcrumbs');
+    });
+
+    it('should have attribute data-part with value "link"', () => {
+      cy.mount(
+        <Breadcrumbs.Root>
+          <Breadcrumbs.List>
+            <Breadcrumbs.Item>
+              <Breadcrumbs.Link data-testid={BREADCRUMBS_LINK_TESTID} />
+            </Breadcrumbs.Item>
+          </Breadcrumbs.List>
+        </Breadcrumbs.Root>
+      );
+      cy.get(`[data-testid="${BREADCRUMBS_LINK_TESTID}"]`).should('have.attr', 'data-part', 'link');
+    });
   });
 
   describe('Page', () => {
@@ -424,7 +501,7 @@ describe('Breadcrumbs', () => {
         <Breadcrumbs.Root>
           <Breadcrumbs.List>
             <Breadcrumbs.Item>
-              <Breadcrumbs.Page data-testid={BREADCRUMBS_PAGE_TESTID}>{BREADCRUMBS_PAGE_TEXT}</Breadcrumbs.Page>
+              <Breadcrumbs.Page data-testid={BREADCRUMBS_PAGE_TESTID} />
             </Breadcrumbs.Item>
           </Breadcrumbs.List>
         </Breadcrumbs.Root>
@@ -437,9 +514,7 @@ describe('Breadcrumbs', () => {
         <Breadcrumbs.Root>
           <Breadcrumbs.List>
             <Breadcrumbs.Item>
-              <Breadcrumbs.Page as={Primitive.div} data-testid={BREADCRUMBS_PAGE_TESTID}>
-                {BREADCRUMBS_PAGE_TEXT}
-              </Breadcrumbs.Page>
+              <Breadcrumbs.Page as={Primitive.div} data-testid={BREADCRUMBS_PAGE_TESTID} />
             </Breadcrumbs.Item>
           </Breadcrumbs.List>
         </Breadcrumbs.Root>
@@ -448,12 +523,27 @@ describe('Breadcrumbs', () => {
       cy.get(`[data-testid="${BREADCRUMBS_PAGE_TESTID}"]`).should('have.prop', 'tagName').should('eq', 'DIV');
     });
 
-    it('should have attribute role with value "link"', () => {
+    it('should contain passed children', () => {
+      const BREADCRUMBS_PAGE_TEXT = 'BREADCRUMBS_PAGE_TEXT';
+
       cy.mount(
         <Breadcrumbs.Root>
           <Breadcrumbs.List>
             <Breadcrumbs.Item>
               <Breadcrumbs.Page data-testid={BREADCRUMBS_PAGE_TESTID}>{BREADCRUMBS_PAGE_TEXT}</Breadcrumbs.Page>
+            </Breadcrumbs.Item>
+          </Breadcrumbs.List>
+        </Breadcrumbs.Root>
+      );
+      cy.get(`[data-testid="${BREADCRUMBS_PAGE_TESTID}"]`).should('have.text', BREADCRUMBS_PAGE_TEXT);
+    });
+
+    it('should have attribute role with value "link"', () => {
+      cy.mount(
+        <Breadcrumbs.Root>
+          <Breadcrumbs.List>
+            <Breadcrumbs.Item>
+              <Breadcrumbs.Page data-testid={BREADCRUMBS_PAGE_TESTID} />
             </Breadcrumbs.Item>
           </Breadcrumbs.List>
         </Breadcrumbs.Root>
@@ -466,7 +556,7 @@ describe('Breadcrumbs', () => {
         <Breadcrumbs.Root>
           <Breadcrumbs.List>
             <Breadcrumbs.Item>
-              <Breadcrumbs.Page data-testid={BREADCRUMBS_PAGE_TESTID}>{BREADCRUMBS_PAGE_TEXT}</Breadcrumbs.Page>
+              <Breadcrumbs.Page data-testid={BREADCRUMBS_PAGE_TESTID} />
             </Breadcrumbs.Item>
           </Breadcrumbs.List>
         </Breadcrumbs.Root>
@@ -479,7 +569,7 @@ describe('Breadcrumbs', () => {
         <Breadcrumbs.Root>
           <Breadcrumbs.List>
             <Breadcrumbs.Item>
-              <Breadcrumbs.Page data-testid={BREADCRUMBS_PAGE_TESTID}>{BREADCRUMBS_PAGE_TEXT}</Breadcrumbs.Page>
+              <Breadcrumbs.Page data-testid={BREADCRUMBS_PAGE_TESTID} />
             </Breadcrumbs.Item>
           </Breadcrumbs.List>
         </Breadcrumbs.Root>
@@ -487,12 +577,12 @@ describe('Breadcrumbs', () => {
       cy.get(`[data-testid="${BREADCRUMBS_PAGE_TESTID}"]`).should('have.attr', 'aria-disabled', 'true');
     });
 
-    it('should have not attribute aria-disabled when <Breadcrumbs.Root> not disabled', () => {
+    it('should have not attribute data-disabled when <Breadcrumbs.Root> not disabled', () => {
       cy.mount(
         <Breadcrumbs.Root disabled={false}>
           <Breadcrumbs.List>
             <Breadcrumbs.Item>
-              <Breadcrumbs.Page data-testid={BREADCRUMBS_PAGE_TESTID}>{BREADCRUMBS_PAGE_TEXT}</Breadcrumbs.Page>
+              <Breadcrumbs.Page data-testid={BREADCRUMBS_PAGE_TESTID} />
             </Breadcrumbs.Item>
           </Breadcrumbs.List>
         </Breadcrumbs.Root>
@@ -500,17 +590,17 @@ describe('Breadcrumbs', () => {
       cy.get(`[data-testid="${BREADCRUMBS_PAGE_TESTID}"]`).should('have.not.attr', 'data-disabled');
     });
 
-    it('should have attribute aria-disabled when <Breadcrumbs.Root> disabled', () => {
+    it('should have attribute data-disabled with empty value when <Breadcrumbs.Root> disabled', () => {
       cy.mount(
         <Breadcrumbs.Root disabled={true}>
           <Breadcrumbs.List>
             <Breadcrumbs.Item>
-              <Breadcrumbs.Page data-testid={BREADCRUMBS_PAGE_TESTID}>{BREADCRUMBS_PAGE_TEXT}</Breadcrumbs.Page>
+              <Breadcrumbs.Page data-testid={BREADCRUMBS_PAGE_TESTID} />
             </Breadcrumbs.Item>
           </Breadcrumbs.List>
         </Breadcrumbs.Root>
       );
-      cy.get(`[data-testid="${BREADCRUMBS_PAGE_TESTID}"]`).should('have.attr', 'data-disabled');
+      cy.get(`[data-testid="${BREADCRUMBS_PAGE_TESTID}"]`).should('have.attr', 'data-disabled', '');
     });
 
     it('should have attribute data-qwik-primitives-breadcrumbs-page with empty value', () => {
@@ -518,7 +608,7 @@ describe('Breadcrumbs', () => {
         <Breadcrumbs.Root>
           <Breadcrumbs.List>
             <Breadcrumbs.Item>
-              <Breadcrumbs.Page data-testid={BREADCRUMBS_PAGE_TESTID}>{BREADCRUMBS_PAGE_TEXT}</Breadcrumbs.Page>
+              <Breadcrumbs.Page data-testid={BREADCRUMBS_PAGE_TESTID} />
             </Breadcrumbs.Item>
           </Breadcrumbs.List>
         </Breadcrumbs.Root>
@@ -529,6 +619,32 @@ describe('Breadcrumbs', () => {
         ''
       );
     });
+
+    it('should have attribute data-scope with value "breadcrumbs"', () => {
+      cy.mount(
+        <Breadcrumbs.Root>
+          <Breadcrumbs.List>
+            <Breadcrumbs.Item>
+              <Breadcrumbs.Page data-testid={BREADCRUMBS_PAGE_TESTID} />
+            </Breadcrumbs.Item>
+          </Breadcrumbs.List>
+        </Breadcrumbs.Root>
+      );
+      cy.get(`[data-testid="${BREADCRUMBS_PAGE_TESTID}"]`).should('have.attr', 'data-scope', 'breadcrumbs');
+    });
+
+    it('should have attribute data-part with value "page"', () => {
+      cy.mount(
+        <Breadcrumbs.Root>
+          <Breadcrumbs.List>
+            <Breadcrumbs.Item>
+              <Breadcrumbs.Page data-testid={BREADCRUMBS_PAGE_TESTID} />
+            </Breadcrumbs.Item>
+          </Breadcrumbs.List>
+        </Breadcrumbs.Root>
+      );
+      cy.get(`[data-testid="${BREADCRUMBS_PAGE_TESTID}"]`).should('have.attr', 'data-part', 'page');
+    });
   });
 
   describe('Separator', () => {
@@ -537,9 +653,7 @@ describe('Breadcrumbs', () => {
         <Breadcrumbs.Root>
           <Breadcrumbs.List>
             <Breadcrumbs.Item>
-              <Breadcrumbs.Separator data-testid={BREADCRUMBS_SEPARATOR_TESTID}>
-                {BREADCRUMBS_SEPARATOR_TEXT}
-              </Breadcrumbs.Separator>
+              <Breadcrumbs.Separator data-testid={BREADCRUMBS_SEPARATOR_TESTID} />
             </Breadcrumbs.Item>
           </Breadcrumbs.List>
         </Breadcrumbs.Root>
@@ -552,9 +666,7 @@ describe('Breadcrumbs', () => {
         <Breadcrumbs.Root>
           <Breadcrumbs.List>
             <Breadcrumbs.Item>
-              <Breadcrumbs.Separator as={Primitive.div} data-testid={BREADCRUMBS_SEPARATOR_TESTID}>
-                {BREADCRUMBS_SEPARATOR_TEXT}
-              </Breadcrumbs.Separator>
+              <Breadcrumbs.Separator as={Primitive.div} data-testid={BREADCRUMBS_SEPARATOR_TESTID} />
             </Breadcrumbs.Item>
           </Breadcrumbs.List>
         </Breadcrumbs.Root>
@@ -563,7 +675,9 @@ describe('Breadcrumbs', () => {
       cy.get(`[data-testid="${BREADCRUMBS_SEPARATOR_TESTID}"]`).should('have.prop', 'tagName').should('eq', 'DIV');
     });
 
-    it('should have attribute aria-hidden with value "true"', () => {
+    it('should contain passed children', () => {
+      const BREADCRUMBS_SEPARATOR_TEXT = 'BREADCRUMBS_SEPARATOR_TEXT';
+
       cy.mount(
         <Breadcrumbs.Root>
           <Breadcrumbs.List>
@@ -575,21 +689,28 @@ describe('Breadcrumbs', () => {
           </Breadcrumbs.List>
         </Breadcrumbs.Root>
       );
-      cy.document().then((document) => {
-        const element = document.querySelector(`[data-testid="${BREADCRUMBS_SEPARATOR_TESTID}"]`);
-        const isHidden = element?.getAttribute('aria-hidden');
-        expect(isHidden).to.eq('true');
-      });
+      cy.get(`[data-testid="${BREADCRUMBS_SEPARATOR_TESTID}"]`).should('have.text', BREADCRUMBS_SEPARATOR_TEXT);
     });
 
-    it('should have not attribute aria-disabled when <Breadcrumbs.Root> not disabled', () => {
+    it('should have attribute aria-hidden with value "true"', () => {
+      cy.mount(
+        <Breadcrumbs.Root>
+          <Breadcrumbs.List>
+            <Breadcrumbs.Item>
+              <Breadcrumbs.Separator data-testid={BREADCRUMBS_SEPARATOR_TESTID} />
+            </Breadcrumbs.Item>
+          </Breadcrumbs.List>
+        </Breadcrumbs.Root>
+      );
+      cy.get(`[data-testid="${BREADCRUMBS_SEPARATOR_TESTID}"]`).should('have.attr', 'aria-hidden', 'true');
+    });
+
+    it('should have not attribute data-disabled when <Breadcrumbs.Root> not disabled', () => {
       cy.mount(
         <Breadcrumbs.Root disabled={false}>
           <Breadcrumbs.List>
             <Breadcrumbs.Item>
-              <Breadcrumbs.Separator data-testid={BREADCRUMBS_SEPARATOR_TESTID}>
-                {BREADCRUMBS_SEPARATOR_TEXT}
-              </Breadcrumbs.Separator>
+              <Breadcrumbs.Separator data-testid={BREADCRUMBS_SEPARATOR_TESTID} />
             </Breadcrumbs.Item>
           </Breadcrumbs.List>
         </Breadcrumbs.Root>
@@ -597,19 +718,17 @@ describe('Breadcrumbs', () => {
       cy.get(`[data-testid="${BREADCRUMBS_SEPARATOR_TESTID}"]`).should('have.not.attr', 'data-disabled');
     });
 
-    it('should have attribute aria-disabled when <Breadcrumbs.Root> disabled', () => {
+    it('should have attribute data-disabled with empty value when <Breadcrumbs.Root> disabled', () => {
       cy.mount(
         <Breadcrumbs.Root disabled={true}>
           <Breadcrumbs.List>
             <Breadcrumbs.Item>
-              <Breadcrumbs.Separator data-testid={BREADCRUMBS_SEPARATOR_TESTID}>
-                {BREADCRUMBS_SEPARATOR_TEXT}
-              </Breadcrumbs.Separator>
+              <Breadcrumbs.Separator data-testid={BREADCRUMBS_SEPARATOR_TESTID} />
             </Breadcrumbs.Item>
           </Breadcrumbs.List>
         </Breadcrumbs.Root>
       );
-      cy.get(`[data-testid="${BREADCRUMBS_SEPARATOR_TESTID}"]`).should('have.attr', 'data-disabled');
+      cy.get(`[data-testid="${BREADCRUMBS_SEPARATOR_TESTID}"]`).should('have.attr', 'data-disabled', '');
     });
 
     it('should have attribute data-qwik-primitives-breadcrumbs-separator with empty value', () => {
@@ -617,9 +736,7 @@ describe('Breadcrumbs', () => {
         <Breadcrumbs.Root>
           <Breadcrumbs.List>
             <Breadcrumbs.Item>
-              <Breadcrumbs.Separator data-testid={BREADCRUMBS_SEPARATOR_TESTID}>
-                {BREADCRUMBS_SEPARATOR_TEXT}
-              </Breadcrumbs.Separator>
+              <Breadcrumbs.Separator data-testid={BREADCRUMBS_SEPARATOR_TESTID} />
             </Breadcrumbs.Item>
           </Breadcrumbs.List>
         </Breadcrumbs.Root>
@@ -629,6 +746,32 @@ describe('Breadcrumbs', () => {
         'data-qwik-primitives-breadcrumbs-separator',
         ''
       );
+    });
+
+    it('should have attribute data-scope with value "breadcrumbs"', () => {
+      cy.mount(
+        <Breadcrumbs.Root>
+          <Breadcrumbs.List>
+            <Breadcrumbs.Item>
+              <Breadcrumbs.Separator data-testid={BREADCRUMBS_SEPARATOR_TESTID} />
+            </Breadcrumbs.Item>
+          </Breadcrumbs.List>
+        </Breadcrumbs.Root>
+      );
+      cy.get(`[data-testid="${BREADCRUMBS_SEPARATOR_TESTID}"]`).should('have.attr', 'data-scope', 'breadcrumbs');
+    });
+
+    it('should have attribute data-part with value "separator"', () => {
+      cy.mount(
+        <Breadcrumbs.Root>
+          <Breadcrumbs.List>
+            <Breadcrumbs.Item>
+              <Breadcrumbs.Separator data-testid={BREADCRUMBS_SEPARATOR_TESTID} />
+            </Breadcrumbs.Item>
+          </Breadcrumbs.List>
+        </Breadcrumbs.Root>
+      );
+      cy.get(`[data-testid="${BREADCRUMBS_SEPARATOR_TESTID}"]`).should('have.attr', 'data-part', 'separator');
     });
   });
 });
