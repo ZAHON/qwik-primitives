@@ -22,6 +22,7 @@ export const LinkRoot = component$<LinkRootProps>((props) => {
       aria-disabled={isDisabled.value ? true : undefined}
       data-qwik-primitives-link-root=""
       data-scope="link"
+      data-part="root"
       data-disabled={isDisabled.value ? '' : undefined}
       onClick$={[onClick$, handleClickSync$]}
       {...others}
