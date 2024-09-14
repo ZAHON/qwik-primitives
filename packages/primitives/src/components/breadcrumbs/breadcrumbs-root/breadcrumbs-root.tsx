@@ -19,6 +19,7 @@ export const BreadcrumbsRoot = component$<BreadcrumbsRootProps>((props) => {
     <Component
       aria-label={ariaLabel}
       data-qwik-primitives-breadcrumbs-root=""
+      data-scope="breadcrumbs"
       data-disabled={isDisabled.value ? '' : undefined}
       {...others}
     >
