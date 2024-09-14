@@ -15,11 +15,6 @@ export interface LinkRootProps extends PropsOf<'a'> {
   disabled?: boolean;
 
   /**
-   * Whether the link should open in a new tab.
-   */
-  external?: boolean;
-
-  /**
    * A URL to link to.
    */
   href?: string;

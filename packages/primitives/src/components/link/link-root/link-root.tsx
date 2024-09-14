@@ -6,7 +6,7 @@ import { component$, useComputed$, sync$, Slot } from '@builder.io/qwik';
  * This component is based on the `a` element.
  */
 export const LinkRoot = component$<LinkRootProps>((props) => {
-  const { as, disabled, external, onClick$, ...others } = props;
+  const { as, disabled, onClick$, ...others } = props;
 
   const isDisabled = useComputed$(() => disabled);
 
@@ -19,12 +19,9 @@ export const LinkRoot = component$<LinkRootProps>((props) => {
 
   return (
     <Componet
-      rel={external ? 'noopener noreferrer' : undefined}
-      target={external ? '_blank' : undefined}
       data-qwik-primitives-link-root=""
       aria-disabled={isDisabled.value ? true : undefined}
       data-disabled={isDisabled.value ? '' : undefined}
-      data-external={external ? '' : undefined}
       onClick$={[onClick$, handleClickSync$]}
       {...others}
     >
