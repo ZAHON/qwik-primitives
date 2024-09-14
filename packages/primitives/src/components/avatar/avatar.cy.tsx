@@ -29,6 +29,13 @@ describe('Avatar', () => {
       });
     });
 
+    it('should contain passed children', () => {
+      const AVATAR_ROOT_TEXT = 'AVATAR_ROOT_TEXT';
+
+      cy.mount(<Avatar.Root data-testid={AVATAR_ROOT_TESTID}>{AVATAR_ROOT_TEXT}</Avatar.Root>);
+      cy.get(`[data-testid="${AVATAR_ROOT_TESTID}"]`).should('have.text', AVATAR_ROOT_TEXT);
+    });
+
     it('should have attribute data-qwik-primitives-avatar-root with empty value', () => {
       cy.mount(<Avatar.Root data-testid={AVATAR_ROOT_TESTID} />);
       cy.get(`[data-testid="${AVATAR_ROOT_TESTID}"]`).should('have.attr', 'data-qwik-primitives-avatar-root', '');
@@ -186,6 +193,17 @@ describe('Avatar', () => {
       );
       cy.get(`[data-testid="${AVATAR_FALLBACK_TESTID}"]`).should('have.prop', 'tagName').should('not.eq', 'SPAN');
       cy.get(`[data-testid="${AVATAR_FALLBACK_TESTID}"]`).should('have.prop', 'tagName').should('eq', 'DIV');
+    });
+
+    it('should contain passed children', () => {
+      const AVATAR_FALLBACK_TEXT = 'AVATAR_FALLBACK_TEXT';
+
+      cy.mount(
+        <Avatar.Root>
+          <Avatar.Fallback data-testid={AVATAR_FALLBACK_TESTID}>{AVATAR_FALLBACK_TEXT}</Avatar.Fallback>
+        </Avatar.Root>
+      );
+      cy.get(`[data-testid="${AVATAR_FALLBACK_TESTID}"]`).should('have.text', AVATAR_FALLBACK_TEXT);
     });
 
     it('should not exist after image loaded', () => {
