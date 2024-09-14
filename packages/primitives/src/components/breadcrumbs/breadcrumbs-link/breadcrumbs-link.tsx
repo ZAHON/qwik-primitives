@@ -25,6 +25,7 @@ export const BreadcrumbsLink = component$<BreadcrumbsLinkProps>((props) => {
     <Component
       aria-disabled={isLinkDisabled.value ? true : undefined}
       data-qwik-primitives-breadcrumbs-link=""
+      data-scope="breadcrumbs"
       data-disabled={isLinkDisabled.value ? '' : undefined}
       onClick$={[onClick$, handleClickSync$]}
       {...others}
