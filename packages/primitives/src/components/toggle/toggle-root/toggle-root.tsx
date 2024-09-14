@@ -32,6 +32,7 @@ export const ToggleRoot = component$<ToggleRootProps>((props) => {
       aria-pressed={isPressed.value}
       data-qwik-primitives-toggle-root=""
       data-scope="toggle"
+      data-part="root"
       data-state={state.value}
       data-disabled={isDisabled.value ? '' : undefined}
       onClick$={[onClick$, handleClick$]}
