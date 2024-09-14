@@ -114,6 +114,8 @@ Contains the content for the toggle. This component is based on the `button` ele
 
 | Data attribute    | Values                |
 | ----------------- | --------------------- |
+| `[data-scope]`    | `"toggle"`            |
+| `[data-part]`     | `"root"`              |
 | `[data-state]`    | `"on" \| "off"`       |
 | `[data-disabled]` | Present when disabled |
 
