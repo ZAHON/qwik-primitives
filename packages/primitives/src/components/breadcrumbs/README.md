@@ -79,6 +79,8 @@ Contains all the parts of a breadcrumbs. This component is based on the `nav` el
 
 | Data attribute    | Values                |
 | ----------------- | --------------------- |
+| `[data-scope]`    | `"breadcrumbs"`       |
+| `[data-part]`     | `"root"`              |
 | `[data-disabled]` | Present when disabled |
 
 ### List
@@ -92,6 +94,8 @@ Contains the breadcrumbs items. his component is based on the `ol` element.
 
 | Data attribute    | Values                |
 | ----------------- | --------------------- |
+| `[data-scope]`    | `"breadcrumbs"`       |
+| `[data-part]`     | `"list"`              |
 | `[data-disabled]` | Present when disabled |
 
 ### Item
@@ -105,6 +109,8 @@ A breadcrumbs item. This component is based on the `li` element.
 
 | Data attribute    | Values                |
 | ----------------- | --------------------- |
+| `[data-scope]`    | `"breadcrumbs"`       |
+| `[data-part]`     | `"item"`              |
 | `[data-disabled]` | Present when disabled |
 
 ### Link
@@ -120,6 +126,8 @@ A breadcrumbs link. Must be rendered inside `Breadcrumbs.Item`. his component is
 
 | Data attribute    | Values                |
 | ----------------- | --------------------- |
+| `[data-scope]`    | `"breadcrumbs"`       |
+| `[data-part]`     | `"link"`              |
 | `[data-disabled]` | Present when disabled |
 
 ### Page
@@ -130,6 +138,11 @@ A component that represents the current page. Must be rendered inside `Breadcrum
 | ------- | ------------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `as`    | `FunctionComponent` | `-`     | Change the default rendered element for the one passed as, merging their props and behavior. Read our [Composition](https://github.com/ZAHON/qwik-primitives/blob/main/packages/primitives/docs/composition.md) guide for more details. |
 | `style` | `CSSProperties`     | `-`     | The inline style for the element.                                                                                                                                                                                                       |
+
+| Data attribute | Values          |
+| -------------- | --------------- |
+| `[data-scope]` | `"breadcrumbs"` |
+| `[data-part]`  | `"page"`        |
 
 ### Separator
 
@@ -142,6 +155,8 @@ Used to visually separate breadcrumbs items. Must be rendered inside `Breadcrumb
 
 | Data attribute    | Values                |
 | ----------------- | --------------------- |
+| `[data-scope]`    | `"breadcrumbs"`       |
+| `[data-part]`     | `"separator"`         |
 | `[data-disabled]` | Present when disabled |
 
 ## Examples
