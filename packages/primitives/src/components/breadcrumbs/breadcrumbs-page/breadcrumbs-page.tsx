@@ -21,6 +21,7 @@ export const BreadcrumbsPage = component$<BreadcrumbsPageProps>((props) => {
       aria-disabled="true"
       data-qwik-primitives-breadcrumbs-page=""
       data-scope="breadcrumbs"
+      data-part="page"
       data-disabled={isDisabled.value ? '' : undefined}
       {...others}
     >
