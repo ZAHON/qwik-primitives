@@ -16,6 +16,13 @@ describe('Alert', () => {
       cy.get(`[data-testid="${ALERT_ROOT_TESTID}"]`).should('have.prop', 'tagName').should('eq', 'SPAN');
     });
 
+    it('should contain passed children', () => {
+      const ALERT_ROOT_TEXT = 'ALERT_ROOT_TEXT';
+
+      cy.mount(<Alert.Root data-testid={ALERT_ROOT_TESTID}>{ALERT_ROOT_TEXT}</Alert.Root>);
+      cy.get(`[data-testid="${ALERT_ROOT_TESTID}"]`).should('have.text', ALERT_ROOT_TEXT);
+    });
+
     it('should have attribute role with value "alert"', () => {
       cy.mount(<Alert.Root data-testid={ALERT_ROOT_TESTID} />);
       cy.get(`[data-testid="${ALERT_ROOT_TESTID}"]`).should('have.attr', 'role', 'alert');
