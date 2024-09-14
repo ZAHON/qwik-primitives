@@ -17,6 +17,7 @@ export const BreadcrumbsList = component$<BreadcrumbsListProps>((props) => {
     <Component
       data-qwik-primitives-breadcrumbs-list=""
       data-scope="breadcrumbs"
+      data-part="list"
       data-disabled={isDisabled.value ? '' : undefined}
       {...others}
     >
