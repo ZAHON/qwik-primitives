@@ -27,6 +27,7 @@ export const CollapsibleTrigger = component$<CollapsibleTriggerProps>((props) =>
       aria-expanded={panelId.value ? isOpen.value : undefined}
       data-qwik-primitives-collapsible-trigger=""
       data-scope="collapsible"
+      data-part="trigger"
       data-state={isOpen.value ? 'open' : 'closed'}
       data-disabled={isDisabled.value ? '' : undefined}
       onClick$={[onClick$, handleClick$]}
