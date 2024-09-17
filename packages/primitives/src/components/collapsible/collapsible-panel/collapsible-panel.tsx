@@ -142,6 +142,7 @@ export const CollapsiblePanel = component$<CollapsiblePanelProps>((props) => {
       hidden={isPanelHide.value}
       data-qwik-primitives-collapsible-panel=""
       data-scope="collapsible"
+      data-part="panel"
       data-state={isOpen.value ? 'open' : 'closed'}
       data-disabled={isDisabled.value ? '' : undefined}
       style={{
