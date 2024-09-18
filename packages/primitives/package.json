@@ -57,7 +57,7 @@
     "@storybook/html": "^8.2.7",
     "@storybook/html-vite": "^8.2.7",
     "@storybook/theming": "^8.2.7",
-    "@types/eslint": "^9.6.0",
+    "@types/eslint": "^9.6.1",
     "@types/node": "^22.1.0",
     "@typescript-eslint/eslint-plugin": "^8.0.0",
     "@typescript-eslint/parser": "^8.0.0",
