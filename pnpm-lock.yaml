@@ -125,13 +125,13 @@ importers:
         version: 8.2.7(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(storybook@8.2.7(@babel/preset-env@7.24.6(@babel/core@7.24.9)))
       '@storybook/builder-vite':
         specifier: ^8.2.7
-        version: 8.2.7(storybook@8.2.7(@babel/preset-env@7.24.6(@babel/core@7.24.9)))(typescript@5.5.4)(vite@5.3.5(@types/node@22.1.0))
+        version: 8.2.7(storybook@8.2.7(@babel/preset-env@7.24.6(@babel/core@7.24.9)))(typescript@5.6.2)(vite@5.3.5(@types/node@22.1.0))
       '@storybook/html':
         specifier: ^8.2.7
         version: 8.2.7(storybook@8.2.7(@babel/preset-env@7.24.6(@babel/core@7.24.9)))
       '@storybook/html-vite':
         specifier: ^8.2.7
-        version: 8.2.7(storybook@8.2.7(@babel/preset-env@7.24.6(@babel/core@7.24.9)))(typescript@5.5.4)(vite@5.3.5(@types/node@22.1.0))
+        version: 8.2.7(storybook@8.2.7(@babel/preset-env@7.24.6(@babel/core@7.24.9)))(typescript@5.6.2)(vite@5.3.5(@types/node@22.1.0))
       '@storybook/theming':
         specifier: ^8.2.7
         version: 8.2.7(storybook@8.2.7(@babel/preset-env@7.24.6(@babel/core@7.24.9)))
@@ -143,10 +143,10 @@ importers:
         version: 22.1.0
       '@typescript-eslint/eslint-plugin':
         specifier: ^8.0.0
-        version: 8.0.0(@typescript-eslint/parser@8.0.0(eslint@8.57.0)(typescript@5.5.4))(eslint@8.57.0)(typescript@5.5.4)
+        version: 8.0.0(@typescript-eslint/parser@8.0.0(eslint@8.57.0)(typescript@5.6.2))(eslint@8.57.0)(typescript@5.6.2)
       '@typescript-eslint/parser':
         specifier: ^8.0.0
-        version: 8.0.0(eslint@8.57.0)(typescript@5.5.4)
+        version: 8.0.0(eslint@8.57.0)(typescript@5.6.2)
       '@vitest/ui':
         specifier: ^2.0.5
         version: 2.0.5(vitest@2.0.5)
@@ -173,7 +173,7 @@ importers:
         version: 1.9.0(eslint@8.57.0)
       eslint-plugin-storybook:
         specifier: ^0.8.0
-        version: 0.8.0(eslint@8.57.0)(typescript@5.5.4)
+        version: 0.8.0(eslint@8.57.0)(typescript@5.6.2)
       prettier:
         specifier: ^3.3.3
         version: 3.3.3
@@ -185,16 +185,16 @@ importers:
         version: 4.0.2(@types/react-dom@18.2.19)(@types/react@18.2.61)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(storybook@8.2.7(@babel/preset-env@7.24.6(@babel/core@7.24.9)))
       storybook-framework-qwik:
         specifier: ^0.4.0
-        version: 0.4.0(@builder.io/qwik@1.9.0(@types/node@22.1.0))(@types/node@22.1.0)(prettier@3.3.3)(storybook@8.2.7(@babel/preset-env@7.24.6(@babel/core@7.24.9)))(typescript@5.5.4)(vite@5.3.5(@types/node@22.1.0))
+        version: 0.4.0(@builder.io/qwik@1.9.0(@types/node@22.1.0))(@types/node@22.1.0)(prettier@3.3.3)(storybook@8.2.7(@babel/preset-env@7.24.6(@babel/core@7.24.9)))(typescript@5.6.2)(vite@5.3.5(@types/node@22.1.0))
       typescript:
-        specifier: 5.5.4
-        version: 5.5.4
+        specifier: 5.6.2
+        version: 5.6.2
       vite:
         specifier: ^5.3.5
         version: 5.3.5(@types/node@22.1.0)
       vite-tsconfig-paths:
         specifier: ^4.3.2
-        version: 4.3.2(typescript@5.5.4)(vite@5.3.5(@types/node@22.1.0))
+        version: 4.3.2(typescript@5.6.2)(vite@5.3.5(@types/node@22.1.0))
       vitest:
         specifier: ^2.0.5
         version: 2.0.5(@types/node@22.1.0)(@vitest/ui@2.0.5)
@@ -5666,8 +5666,8 @@ packages:
     engines: {node: '>=14.17'}
     hasBin: true
 
-  typescript@5.5.4:
-    resolution: {integrity: sha512-Mtq29sKDAEYP7aljRgtPOpTvOfbwRWlS6dPRzwjdE+C0R4brX/GUyhHSecbHMFLNBLcJIPt9nl9yG5TZ1weH+Q==}
+  typescript@5.6.2:
+    resolution: {integrity: sha512-NW8ByodCSNCwZeghjN3o+JX5OFH0Ojg6sadjEKY4huZ52TqbJTJnDo5+Tw98lSy63NZvi4n+ez5m2u5d4PkZyw==}
     engines: {node: '>=14.17'}
     hasBin: true
 
@@ -7997,7 +7997,7 @@ snapshots:
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
 
-  '@storybook/builder-vite@8.2.7(storybook@8.2.7(@babel/preset-env@7.24.6(@babel/core@7.24.9)))(typescript@5.5.4)(vite@5.3.5(@types/node@22.1.0))':
+  '@storybook/builder-vite@8.2.7(storybook@8.2.7(@babel/preset-env@7.24.6(@babel/core@7.24.9)))(typescript@5.6.2)(vite@5.3.5(@types/node@22.1.0))':
     dependencies:
       '@storybook/csf-plugin': 8.2.7(storybook@8.2.7(@babel/preset-env@7.24.6(@babel/core@7.24.9)))
       '@types/find-cache-dir': 3.2.1
@@ -8011,7 +8011,7 @@ snapshots:
       ts-dedent: 2.2.0
       vite: 5.3.5(@types/node@22.1.0)
     optionalDependencies:
-      typescript: 5.5.4
+      typescript: 5.6.2
     transitivePeerDependencies:
       - supports-color
 
@@ -8173,9 +8173,9 @@ snapshots:
 
   '@storybook/global@5.0.0': {}
 
-  '@storybook/html-vite@8.2.7(storybook@8.2.7(@babel/preset-env@7.24.6(@babel/core@7.24.9)))(typescript@5.5.4)(vite@5.3.5(@types/node@22.1.0))':
+  '@storybook/html-vite@8.2.7(storybook@8.2.7(@babel/preset-env@7.24.6(@babel/core@7.24.9)))(typescript@5.6.2)(vite@5.3.5(@types/node@22.1.0))':
     dependencies:
-      '@storybook/builder-vite': 8.2.7(storybook@8.2.7(@babel/preset-env@7.24.6(@babel/core@7.24.9)))(typescript@5.5.4)(vite@5.3.5(@types/node@22.1.0))
+      '@storybook/builder-vite': 8.2.7(storybook@8.2.7(@babel/preset-env@7.24.6(@babel/core@7.24.9)))(typescript@5.6.2)(vite@5.3.5(@types/node@22.1.0))
       '@storybook/html': 8.2.7(storybook@8.2.7(@babel/preset-env@7.24.6(@babel/core@7.24.9)))
       magic-string: 0.30.10
       storybook: 8.2.7(@babel/preset-env@7.24.6(@babel/core@7.24.9))
@@ -8474,21 +8474,21 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@typescript-eslint/eslint-plugin@8.0.0(@typescript-eslint/parser@8.0.0(eslint@8.57.0)(typescript@5.5.4))(eslint@8.57.0)(typescript@5.5.4)':
+  '@typescript-eslint/eslint-plugin@8.0.0(@typescript-eslint/parser@8.0.0(eslint@8.57.0)(typescript@5.6.2))(eslint@8.57.0)(typescript@5.6.2)':
     dependencies:
       '@eslint-community/regexpp': 4.10.0
-      '@typescript-eslint/parser': 8.0.0(eslint@8.57.0)(typescript@5.5.4)
+      '@typescript-eslint/parser': 8.0.0(eslint@8.57.0)(typescript@5.6.2)
       '@typescript-eslint/scope-manager': 8.0.0
-      '@typescript-eslint/type-utils': 8.0.0(eslint@8.57.0)(typescript@5.5.4)
-      '@typescript-eslint/utils': 8.0.0(eslint@8.57.0)(typescript@5.5.4)
+      '@typescript-eslint/type-utils': 8.0.0(eslint@8.57.0)(typescript@5.6.2)
+      '@typescript-eslint/utils': 8.0.0(eslint@8.57.0)(typescript@5.6.2)
       '@typescript-eslint/visitor-keys': 8.0.0
       eslint: 8.57.0
       graphemer: 1.4.0
       ignore: 5.3.1
       natural-compare: 1.4.0
-      ts-api-utils: 1.3.0(typescript@5.5.4)
+      ts-api-utils: 1.3.0(typescript@5.6.2)
     optionalDependencies:
-      typescript: 5.5.4
+      typescript: 5.6.2
     transitivePeerDependencies:
       - supports-color
 
@@ -8505,16 +8505,16 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@typescript-eslint/parser@8.0.0(eslint@8.57.0)(typescript@5.5.4)':
+  '@typescript-eslint/parser@8.0.0(eslint@8.57.0)(typescript@5.6.2)':
     dependencies:
       '@typescript-eslint/scope-manager': 8.0.0
       '@typescript-eslint/types': 8.0.0
-      '@typescript-eslint/typescript-estree': 8.0.0(typescript@5.5.4)
+      '@typescript-eslint/typescript-estree': 8.0.0(typescript@5.6.2)
       '@typescript-eslint/visitor-keys': 8.0.0
       debug: 4.3.5(supports-color@8.1.1)
       eslint: 8.57.0
     optionalDependencies:
-      typescript: 5.5.4
+      typescript: 5.6.2
     transitivePeerDependencies:
       - supports-color
 
@@ -8545,14 +8545,14 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@typescript-eslint/type-utils@8.0.0(eslint@8.57.0)(typescript@5.5.4)':
+  '@typescript-eslint/type-utils@8.0.0(eslint@8.57.0)(typescript@5.6.2)':
     dependencies:
-      '@typescript-eslint/typescript-estree': 8.0.0(typescript@5.5.4)
-      '@typescript-eslint/utils': 8.0.0(eslint@8.57.0)(typescript@5.5.4)
+      '@typescript-eslint/typescript-estree': 8.0.0(typescript@5.6.2)
+      '@typescript-eslint/utils': 8.0.0(eslint@8.57.0)(typescript@5.6.2)
       debug: 4.3.5(supports-color@8.1.1)
-      ts-api-utils: 1.3.0(typescript@5.5.4)
+      ts-api-utils: 1.3.0(typescript@5.6.2)
     optionalDependencies:
-      typescript: 5.5.4
+      typescript: 5.6.2
     transitivePeerDependencies:
       - eslint
       - supports-color
@@ -8563,7 +8563,7 @@ snapshots:
 
   '@typescript-eslint/types@8.0.0': {}
 
-  '@typescript-eslint/typescript-estree@5.62.0(typescript@5.5.4)':
+  '@typescript-eslint/typescript-estree@5.62.0(typescript@5.6.2)':
     dependencies:
       '@typescript-eslint/types': 5.62.0
       '@typescript-eslint/visitor-keys': 5.62.0
@@ -8571,9 +8571,9 @@ snapshots:
       globby: 11.1.0
       is-glob: 4.0.3
       semver: 7.6.2
-      tsutils: 3.21.0(typescript@5.5.4)
+      tsutils: 3.21.0(typescript@5.6.2)
     optionalDependencies:
-      typescript: 5.5.4
+      typescript: 5.6.2
     transitivePeerDependencies:
       - supports-color
 
@@ -8592,7 +8592,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@typescript-eslint/typescript-estree@8.0.0(typescript@5.5.4)':
+  '@typescript-eslint/typescript-estree@8.0.0(typescript@5.6.2)':
     dependencies:
       '@typescript-eslint/types': 8.0.0
       '@typescript-eslint/visitor-keys': 8.0.0
@@ -8601,20 +8601,20 @@ snapshots:
       is-glob: 4.0.3
       minimatch: 9.0.4
       semver: 7.6.2
-      ts-api-utils: 1.3.0(typescript@5.5.4)
+      ts-api-utils: 1.3.0(typescript@5.6.2)
     optionalDependencies:
-      typescript: 5.5.4
+      typescript: 5.6.2
     transitivePeerDependencies:
       - supports-color
 
-  '@typescript-eslint/utils@5.62.0(eslint@8.57.0)(typescript@5.5.4)':
+  '@typescript-eslint/utils@5.62.0(eslint@8.57.0)(typescript@5.6.2)':
     dependencies:
       '@eslint-community/eslint-utils': 4.4.0(eslint@8.57.0)
       '@types/json-schema': 7.0.12
       '@types/semver': 7.5.0
       '@typescript-eslint/scope-manager': 5.62.0
       '@typescript-eslint/types': 5.62.0
-      '@typescript-eslint/typescript-estree': 5.62.0(typescript@5.5.4)
+      '@typescript-eslint/typescript-estree': 5.62.0(typescript@5.6.2)
       eslint: 8.57.0
       eslint-scope: 5.1.1
       semver: 7.5.4
@@ -8633,12 +8633,12 @@ snapshots:
       - supports-color
       - typescript
 
-  '@typescript-eslint/utils@8.0.0(eslint@8.57.0)(typescript@5.5.4)':
+  '@typescript-eslint/utils@8.0.0(eslint@8.57.0)(typescript@5.6.2)':
     dependencies:
       '@eslint-community/eslint-utils': 4.4.0(eslint@8.57.0)
       '@typescript-eslint/scope-manager': 8.0.0
       '@typescript-eslint/types': 8.0.0
-      '@typescript-eslint/typescript-estree': 8.0.0(typescript@5.5.4)
+      '@typescript-eslint/typescript-estree': 8.0.0(typescript@5.6.2)
       eslint: 8.57.0
     transitivePeerDependencies:
       - supports-color
@@ -9911,10 +9911,10 @@ snapshots:
       eslint: 8.57.0
       jsx-ast-utils: 3.3.5
 
-  eslint-plugin-storybook@0.8.0(eslint@8.57.0)(typescript@5.5.4):
+  eslint-plugin-storybook@0.8.0(eslint@8.57.0)(typescript@5.6.2):
     dependencies:
       '@storybook/csf': 0.0.1
-      '@typescript-eslint/utils': 5.62.0(eslint@8.57.0)(typescript@5.5.4)
+      '@typescript-eslint/utils': 5.62.0(eslint@8.57.0)(typescript@5.6.2)
       eslint: 8.57.0
       requireindex: 1.2.0
       ts-dedent: 2.2.0
@@ -12364,9 +12364,9 @@ snapshots:
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
 
-  react-docgen-typescript@2.2.2(typescript@5.5.4):
+  react-docgen-typescript@2.2.2(typescript@5.6.2):
     dependencies:
-      typescript: 5.5.4
+      typescript: 5.6.2
 
   react-dom@18.2.0(react@18.2.0):
     dependencies:
@@ -12929,13 +12929,13 @@ snapshots:
       - react-dom
       - storybook
 
-  storybook-framework-qwik@0.4.0(@builder.io/qwik@1.9.0(@types/node@22.1.0))(@types/node@22.1.0)(prettier@3.3.3)(storybook@8.2.7(@babel/preset-env@7.24.6(@babel/core@7.24.9)))(typescript@5.5.4)(vite@5.3.5(@types/node@22.1.0)):
+  storybook-framework-qwik@0.4.0(@builder.io/qwik@1.9.0(@types/node@22.1.0))(@types/node@22.1.0)(prettier@3.3.3)(storybook@8.2.7(@babel/preset-env@7.24.6(@babel/core@7.24.9)))(typescript@5.6.2)(vite@5.3.5(@types/node@22.1.0)):
     dependencies:
       '@builder.io/qwik': 1.9.0(@types/node@22.1.0)
-      '@storybook/builder-vite': 8.2.7(storybook@8.2.7(@babel/preset-env@7.24.6(@babel/core@7.24.9)))(typescript@5.5.4)(vite@5.3.5(@types/node@22.1.0))
+      '@storybook/builder-vite': 8.2.7(storybook@8.2.7(@babel/preset-env@7.24.6(@babel/core@7.24.9)))(typescript@5.6.2)(vite@5.3.5(@types/node@22.1.0))
       '@storybook/docs-tools': 8.1.5(prettier@3.3.3)
       magic-string: 0.30.10
-      react-docgen-typescript: 2.2.2(typescript@5.5.4)
+      react-docgen-typescript: 2.2.2(typescript@5.6.2)
     optionalDependencies:
       '@builder.io/qwik-city': 1.4.1(@types/node@22.1.0)
     transitivePeerDependencies:
@@ -13173,9 +13173,9 @@ snapshots:
     dependencies:
       typescript: 5.5.3
 
-  ts-api-utils@1.3.0(typescript@5.5.4):
+  ts-api-utils@1.3.0(typescript@5.6.2):
     dependencies:
-      typescript: 5.5.4
+      typescript: 5.6.2
 
   ts-dedent@2.2.0: {}
 
@@ -13183,9 +13183,9 @@ snapshots:
     optionalDependencies:
       typescript: 5.5.3
 
-  tsconfck@3.1.0(typescript@5.5.4):
+  tsconfck@3.1.0(typescript@5.6.2):
     optionalDependencies:
-      typescript: 5.5.4
+      typescript: 5.6.2
 
   tsconfck@3.1.1(typescript@5.5.3):
     optionalDependencies:
@@ -13195,10 +13195,10 @@ snapshots:
 
   tslib@2.6.2: {}
 
-  tsutils@3.21.0(typescript@5.5.4):
+  tsutils@3.21.0(typescript@5.6.2):
     dependencies:
       tslib: 1.14.1
-      typescript: 5.5.4
+      typescript: 5.6.2
 
   tunnel-agent@0.6.0:
     dependencies:
@@ -13290,7 +13290,7 @@ snapshots:
 
   typescript@5.5.3: {}
 
-  typescript@5.5.4: {}
+  typescript@5.6.2: {}
 
   ufo@1.5.3: {}
 
@@ -13609,11 +13609,11 @@ snapshots:
       - supports-color
       - typescript
 
-  vite-tsconfig-paths@4.3.2(typescript@5.5.4)(vite@5.3.5(@types/node@22.1.0)):
+  vite-tsconfig-paths@4.3.2(typescript@5.6.2)(vite@5.3.5(@types/node@22.1.0)):
     dependencies:
       debug: 4.3.4
       globrex: 0.1.2
-      tsconfck: 3.1.0(typescript@5.5.4)
+      tsconfck: 3.1.0(typescript@5.6.2)
     optionalDependencies:
       vite: 5.3.5(@types/node@22.1.0)
     transitivePeerDependencies:
