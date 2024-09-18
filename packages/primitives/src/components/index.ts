@@ -7,5 +7,6 @@ export * as Dialog from './dialog';
 export * as Label from './label';
 export * as Link from './link';
 export * as Primitive from './primitive';
+export * as Spinner from './spinner';
 export * as Toggle from './toggle';
 export * as VisuallyHidden from './visually-hidden';
