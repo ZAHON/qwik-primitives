@@ -1,5 +1,199 @@
 # Changelog
 
+## 0.0.21
+
+### 🚀 Features
+
+- Add `AlertDialog` component.
+
+- Improve `composeRefs` utility function to works with components provided by `as` prop.
+
+- `useFocusTrap` hook
+
+  - Add `autoFocus` option. This option allow to enable or disable auto focus the first focusable element in the focus trap when is active.
+
+  - Add `restoreFocus` option. This option allow to manage restore focus back to the element that was focused when the focus trap activated, after the focus trap is deactivate.
+
+- `Dialog` component
+
+  - `Dialog.Trigger` component
+
+    - Add `data-scope` attribute with value `"dialog"`.
+
+    - Add `data-part` attribute with value `"trigger"`.
+
+    - Add `data-disabled` attribute that presents when component is disabled.
+
+  - `Dialog.Content` component
+
+    - Add `loop` prop that allow to control focus loop inside component.
+
+    - Add `autoFocus` prop that allow control whether to auto focus the first focusable element in the component when it's opened.
+
+    - Add `restoreFocus` prop that allow to control whether to restore focus back to the `Dialog.Trigger` when the dialog is closed.
+
+    - Add `closeOnBackPress` prop that allow to control whether to close the dialog when the back is press on mobile devices.
+
+    - Add `data-scope` attribute with value `"dialog"`.
+
+    - Add `data-part` attribute with value `"content"`.
+
+  - `Dialog.Close` component
+
+    - Add `data-scope` attribute with value `"dialog"`.
+
+    - Add `data-part` attribute with value `"close"`.
+
+    - Add `data-disabled` attribute that presents when component is disabled.
+
+  - `Dialog.Title` component
+
+    - Add `data-scope` attribute with value `"dialog"`.
+
+    - Add `data-part` attribute with value `"title"`.
+
+  - `Dialog.Description` component
+
+    - Add `data-scope` attribute with value `"dialog"`.
+
+    - Add `data-part` attribute with value `"description"`.
+
+- `Alert` component
+
+  - `Alert.Root` component
+
+    - Add `data-scope` attribute with value `"alert"`.
+
+    - Add `data-part` attribute with value `"root"`.
+
+- `Avatar` component
+
+  - `Avatar.Root` component
+
+    - Add `data-scope` attribute with value `"avatar"`.
+
+    - Add `data-part` attribute with value `"root"`.
+
+  - `Avatar.Image` component
+
+    - Add `data-scope` attribute with value `"avatar"`.
+
+    - Add `data-part` attribute with value `"image"`.
+
+  - `Avatar.Fallback` component
+
+    - Add `data-scope` attribute with value `"avatar"`.
+
+    - Add `data-part` attribute with value `"fallback"`.
+
+- `Breadcrumbs` component
+
+  - `Breadcrumbs.Root` component
+
+    - Add `data-scope` attribute with value `"breadcrumbs"`.
+
+    - Add `data-part` attribute with value `"root"`.
+
+  - `Breadcrumbs.List` component
+
+    - Add `data-scope` attribute with value `"breadcrumbs"`.
+
+    - Add `data-part` attribute with value `"list"`.
+
+  - `Breadcrumbs.Item` component
+
+    - Add `data-scope` attribute with value `"breadcrumbs"`.
+
+    - Add `data-part` attribute with value `"item"`.
+
+  - `Breadcrumbs.Link` component
+
+    - Add `data-scope` attribute with value `"breadcrumbs"`.
+
+    - Add `data-part` attribute with value `"link"`.
+
+  - `Breadcrumbs.Page` component
+
+    - Add `data-scope` attribute with value `"breadcrumbs"`.
+
+    - Add `data-part` attribute with value `"page"`.
+
+  - `Breadcrumbs.Separator` component
+
+    - Add `data-scope` attribute with value `"breadcrumbs"`.
+
+    - Add `data-part` attribute with value `"separator"`.
+
+- `Collapsible` component
+
+  - `Collapsible.Root` component
+
+    - Add `data-scope` attribute with value `"collapsible"`.
+
+    - Add `data-part` attribute with value `"root"`.
+
+  - `Collapsible.Trigger` component
+
+    - Add `data-scope` attribute with value `"collapsible"`.
+
+    - Add `data-part` attribute with value `"trigger"`.
+
+  - `Collapsible.Panel` component
+
+    - Add `data-scope` attribute with value `"collapsible"`.
+
+    - Add `data-part` attribute with value `"panel"`.
+
+  - `Collapsible.Content` component
+
+    - Add `data-scope` attribute with value `"collapsible"`.
+
+    - Add `data-part` attribute with value `"content"`.
+
+- `Label` component
+
+  - `Label.Root` component
+
+    - Add `data-scope` attribute with value `"label"`.
+
+    - Add `data-part` attribute with value `"root"`.
+
+- `Link` component
+
+  - `Link.Root` component
+
+    - Add `data-scope` attribute with value `"link"`.
+
+    - Add `data-part` attribute with value `"root"`.
+
+- `Toggle` component
+
+  - `Toggle.Root` component
+
+    - Add `data-scope` attribute with value `"toggle"`.
+
+    - Add `data-part` attribute with value `"root"`.
+
+- `VisuallyHidden` component
+
+  - `VisuallyHidden.Root` component
+
+    - Add `data-scope` attribute with value `"visually-hidden"`.
+
+    - Add `data-part` attribute with value `"root"`.
+
+### 🚨 Breaking Changes
+
+- Remove `trapFocus` prop from `Dialog.Content` component.
+
+- Remove `AccessibleIcon` component.
+
+- Remove `external` prop from `Link.Root` component.
+
+### 🐞 Bug Fixes
+
+- Fix a problem in Firefox where when the user clicked the `option` of a `select` element inside an open `Dialog.Content` component when `closeOnClickOutside` prop is set to `true`. In that case the `Dialog` component would be closed.
+
 ## 0.0.20
 
 ### 🚀 Features
