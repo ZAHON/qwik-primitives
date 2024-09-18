@@ -103,6 +103,8 @@ Contains all the parts of a collapsible. This component is based on the `div` el
 
 | Data attribute    | Values                |
 | ----------------- | --------------------- |
+| `[data-scope]`    | `"collapsible"`       |
+| `[data-part]`     | `"root"`              |
 | `[data-state]`    | `"open" \| "closed"`  |
 | `[data-disabled]` | Present when disabled |
 
@@ -117,6 +119,8 @@ The button that toggles the collapsible. This component is based on the `button`
 
 | Data attribute    | Values                |
 | ----------------- | --------------------- |
+| `[data-scope]`    | `"collapsible"`       |
+| `[data-part]`     | `"trigger"`           |
 | `[data-state]`    | `"open" \| "closed"`  |
 | `[data-disabled]` | Present when disabled |
 
@@ -133,6 +137,8 @@ The panel that expands/collapses. This component is based on the `div` element.
 
 | Data attribute    | Values                |
 | ----------------- | --------------------- |
+| `[data-scope]`    | `"collapsible"`       |
+| `[data-part]`     | `"panel"`             |
 | `[data-state]`    | `"open" \| "closed"`  |
 | `[data-disabled]` | Present when disabled |
 
@@ -147,6 +153,8 @@ The component that contains the collapsible content. Must be rendered inside `Co
 
 | Data attribute    | Values                |
 | ----------------- | --------------------- |
+| `[data-scope]`    | `"collapsible"`       |
+| `[data-part]`     | `"content"`           |
 | `[data-state]`    | `"open" \| "closed"`  |
 | `[data-disabled]` | Present when disabled |
 
