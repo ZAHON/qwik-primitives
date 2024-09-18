@@ -1,1 +1,0 @@
-export { Controlled } from './controlled';
