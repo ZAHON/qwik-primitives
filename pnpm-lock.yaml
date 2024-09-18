@@ -169,8 +169,8 @@ importers:
         specifier: ^6.9.0
         version: 6.9.0(eslint@8.57.0)
       eslint-plugin-qwik:
-        specifier: ^1.7.3
-        version: 1.7.3(eslint@8.57.0)
+        specifier: ^1.9.0
+        version: 1.9.0(eslint@8.57.0)
       eslint-plugin-storybook:
         specifier: ^0.8.0
         version: 0.8.0(eslint@8.57.0)(typescript@5.5.4)
@@ -3187,8 +3187,8 @@ packages:
     peerDependencies:
       eslint: ^8.57.0
 
-  eslint-plugin-qwik@1.7.3:
-    resolution: {integrity: sha512-1PGlVFmRfo/rlFQ/ZdzFdrtK3DdxEdmeVos0W8eJqIEDh7KkhjdIP6XIStf/SEYZ8KVcvEHgeDMv+vQm5QVcGA==}
+  eslint-plugin-qwik@1.9.0:
+    resolution: {integrity: sha512-9EsvIVwtpANSj/ICKMoR5aeabDPgPVcW58bxY8N7R/9oQs6piCm7XbFErxAeaGxmhuvpMZsc+7AN5DizDfDdrw==}
     engines: {node: '>=16.8.0 <18.0.0 || >=18.11'}
     peerDependencies:
       eslint: ^8.57.0
@@ -10015,7 +10015,7 @@ snapshots:
       eslint: 8.57.0
       jsx-ast-utils: 3.3.5
 
-  eslint-plugin-qwik@1.7.3(eslint@8.57.0):
+  eslint-plugin-qwik@1.9.0(eslint@8.57.0):
     dependencies:
       eslint: 8.57.0
       jsx-ast-utils: 3.3.5
