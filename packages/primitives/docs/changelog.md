@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.0.22
+
+### 🚀 Features
+
+- Add `Spinner` component.
+
 ## 0.0.21
 
 ### 🚀 Features
