@@ -18,6 +18,7 @@ export const CollapsibleContent = component$<CollapsibleContentProps>((props) =>
     <Component
       data-qwik-primitives-collapsible-content=""
       data-scope="collapsible"
+      data-part="content"
       data-state={isOpen.value ? 'open' : 'closed'}
       data-disabled={isDisabled.value ? '' : undefined}
       style={{ overflow: panelStatus.value === 'open' ? undefined : 'hidden', ...style }}
