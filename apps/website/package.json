@@ -15,6 +15,7 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.3",
+    "@astrojs/mdx": "^3.1.7",
     "@astrojs/tailwind": "^5.1.1",
     "@builder.io/qwik": "^1.9.0",
     "@qwikdev/astro": "^0.6.3",
