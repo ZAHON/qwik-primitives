@@ -21,7 +21,7 @@
     "@qwikdev/astro": "^0.6.3",
     "@typescript-eslint/eslint-plugin": "^8.7.0",
     "@typescript-eslint/parser": "^8.7.0",
-    "astro": "^4.13.1",
+    "astro": "^4.15.9",
     "astro-icon": "^1.1.1",
     "eslint": "8.57.0",
     "eslint-config-prettier": "^9.1.0",
