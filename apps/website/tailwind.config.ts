@@ -1,4 +1,5 @@
 import type { Config } from 'tailwindcss';
+import { fontFamily } from 'tailwindcss/defaultTheme';
 import { createThemes } from 'tw-colors';
 
 export default {
@@ -17,6 +18,9 @@ export default {
         4: 'var(--shadow-4)',
         5: 'var(--shadow-5)',
         6: 'var(--shadow-6)',
+      },
+      fontFamily: {
+        sans: ['Geist Sans', ...fontFamily.sans],
       },
     },
   },
