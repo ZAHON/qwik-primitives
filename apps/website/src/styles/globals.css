@@ -7,6 +7,91 @@
     -webkit-tap-highlight-color: transparent;
   }
 
+  .light {
+    /* prettier-ignore */
+    --shadow-1:
+		inset 0 0 0 1px #0009321F,
+		inset 0 1.5px 2px 0 #00005506,
+		inset 0 1.5px 2px 0 #0000001A;
+
+    /* prettier-ignore */
+    --shadow-2:
+    0 0 0 1px #00104010,
+    0 0 0 0.5px #0000000D,
+    0 1px 1px 0 #00005506,
+    0 2px 1px -1px #0000000D,
+    0 1px 3px 0 #0000000D;
+
+    /* prettier-ignore */
+    --shadow-3:
+    0 0 0 1px #00104010,
+    0 2px 3px -2px #00104010,
+    0 3px 12px -4px #0000001A,
+    0 4px 16px -8px #0000001A;
+
+    /* prettier-ignore */
+    --shadow-4:
+    0 0 0 1px #00104010,
+    0 8px 40px #0000000D,
+    0 12px 32px -16px #00104010;
+
+    /* prettier-ignore */
+    --shadow-5:
+    0 0 0 1px #00104010,
+    0 12px 60px #00000026,
+    0 12px 32px -16px #0009321F;
+
+    /* prettier-ignore */
+    --shadow-6:
+    0 0 0 1px #00104010,
+    0 12px 60px #00000026,
+    0 16px 64px #00005506,
+    0 16px 36px -20px #00063332;
+  }
+
+  .dark {
+    /* prettier-ignore */
+    --shadow-1:
+    inset 0 -1px 1px 0 #D6E2F916,
+    inset 0 0 0 1px #D6E2F916,
+    inset 0 3px 4px 0 #0000004D,
+    inset 0 0 0 1px #D1D9F920;
+
+    /* prettier-ignore */
+    --shadow-2:
+    0 0 0 1px #D9DEFC33,
+    0 0 0 0.5px #00000026,
+    0 1px 1px 0 #00000066,
+    0 2px 1px -1px #00000066,
+    0 1px 3px 0 #0000004D;
+
+    /* prettier-ignore */
+    --shadow-3:
+    0 0 0 1px #D9DEFC33,
+    0 2px 3px -2px #00000026,
+    0 3px 8px -2px #00000066,
+    0 4px 12px -4px #00000080;
+
+    /* prettier-ignore */
+    --shadow-4:
+    0 0 0 1px #D9DEFC33,
+    0 8px 40px #00000026,
+    0 12px 32px -16px #0000004D;
+
+    /* prettier-ignore */
+    --shadow-5:
+    0 0 0 1px #D9DEFC33,
+    0 12px 60px #0000004D,
+    0 12px 32px -16px #00000080;
+
+    /* prettier-ignore */
+    --shadow-6:
+    0 0 0 1px #D9DEFC33,
+    0 12px 60px #00000033,
+    0 16px 64px #00000066,
+    0 16px 36px -20px #000000E6;
+  }
+
   [data-radius] {
     --radius-1: calc(3px * var(--radius-factor));
     --radius-2: calc(4px * var(--radius-factor));
