@@ -1,6 +1,7 @@
 import type { AlertDialogContentProps } from './alert-dialog-content.types';
 import { component$, useContext, useId, useSignal, useTask$, sync$, $, Slot } from '@builder.io/qwik';
 import { isServer, isBrowser } from '@builder.io/qwik/build';
+import { useTopLayer } from '@/_internal/hooks';
 import { useScrollLock, useFocusTrap } from '@/hooks';
 import { composeRefs } from '@/utilities';
 import { AlertDialogContext } from '../alert-dialog-context';
@@ -42,6 +43,7 @@ export const AlertDialogContent = component$<AlertDialogContentProps>((props) =>
 
   const scrollLock = useScrollLock();
   const focusTrap = useFocusTrap(contentRef, { loop, autoFocus, restoreFocus: false });
+  const topLayer = useTopLayer();
 
   useTask$(async () => undefined);
 
@@ -85,6 +87,8 @@ export const AlertDialogContent = component$<AlertDialogContentProps>((props) =>
 
         contentHide.value = false;
         contentRef.value.showModal();
+
+        topLayer.add$();
       }
 
       setTimeout(() => {
@@ -132,6 +136,8 @@ export const AlertDialogContent = component$<AlertDialogContentProps>((props) =>
 
           contentRef.value.close();
           contentHide.value = true;
+
+          topLayer.remove$();
 
           setTimeout(() => {
             if (restoreFocus) {
@@ -220,8 +226,10 @@ export const AlertDialogContent = component$<AlertDialogContentProps>((props) =>
     }
   });
 
-  const handleKeyDown$ = $((event: KeyboardEvent) => {
-    if (event.key === 'Escape') {
+  const handleKeyDown$ = $(async (event: KeyboardEvent) => {
+    const isActiveTopLayer = await topLayer.isActiveTopLayer$();
+
+    if (isOpen.value && isActiveTopLayer && event.key === 'Escape') {
       if (closeOnEscapeKeyDown) {
         setIsOpen$(false);
       }
@@ -234,21 +242,25 @@ export const AlertDialogContent = component$<AlertDialogContentProps>((props) =>
     event.stopPropagation();
   });
 
-  const handleClick$ = $((event: PointerEvent, currentTarget: HTMLDialogElement) => {
-    const rect = currentTarget.getBoundingClientRect();
+  const handleClick$ = $(async (event: PointerEvent, currentTarget: HTMLDialogElement) => {
+    const isActiveTopLayer = await topLayer.isActiveTopLayer$();
 
-    const isPointerDownOutside =
-      rect.left > event.clientX ||
-      rect.right < event.clientX ||
-      rect.top > event.clientY ||
-      rect.bottom < event.clientY;
+    if (isOpen.value && isActiveTopLayer) {
+      const rect = currentTarget.getBoundingClientRect();
 
-    if (isOpen.value && isPointerDownOutside && event.target === currentTarget && event.pointerId !== -1) {
-      if (closeOnClickOutside) {
-        setIsOpen$(false);
+      const isPointerDownOutside =
+        rect.left > event.clientX ||
+        rect.right < event.clientX ||
+        rect.top > event.clientY ||
+        rect.bottom < event.clientY;
+
+      if (isPointerDownOutside && event.target === currentTarget && event.pointerId !== -1) {
+        if (closeOnClickOutside) {
+          setIsOpen$(false);
+        }
+
+        onClickOutside$?.();
       }
-
-      onClickOutside$?.();
     }
   });
 
