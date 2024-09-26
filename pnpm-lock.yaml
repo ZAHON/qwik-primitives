@@ -20,6 +20,9 @@ importers:
 
   apps/website:
     dependencies:
+      '@fontsource/geist-sans':
+        specifier: ^5.1.0
+        version: 5.1.0
       class-variance-authority:
         specifier: ^0.7.0
         version: 0.7.0
@@ -707,6 +710,9 @@ packages:
 
   '@floating-ui/utils@0.2.8':
     resolution: {integrity: sha512-kym7SodPp8/wloecOpcmSnWJsK7M0E5Wg8UcFA+uO4B9s5d0ywXOEro/8HM9x0rW+TljRzul/14UYz3TleT3ig==}
+
+  '@fontsource/geist-sans@5.1.0':
+    resolution: {integrity: sha512-4AI/UxIcZiYgK6/cTo4R9oM4VHHLcFdHVv7m2+M42VyY16hhKJADrGe4HPjTxvolmce2IZX/jc6sFJ+GkLB64w==}
 
   '@humanwhocodes/config-array@0.11.14':
     resolution: {integrity: sha512-3T8LkOmg45BV5FICb15QQMsyUSWrQ8AygVfC7ZG32zOalnqrilm018ZVCw0eapXux8FtA33q8PSRSstjee3jSg==}
@@ -6269,6 +6275,8 @@ snapshots:
       '@floating-ui/utils': 0.2.8
 
   '@floating-ui/utils@0.2.8': {}
+
+  '@fontsource/geist-sans@5.1.0': {}
 
   '@humanwhocodes/config-array@0.11.14':
     dependencies:
