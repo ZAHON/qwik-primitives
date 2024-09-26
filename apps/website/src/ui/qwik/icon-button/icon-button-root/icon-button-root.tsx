@@ -11,7 +11,7 @@ export const IconButtonRoot = component$<IconButtonRootProps>((props) => {
     variant = 'ghost',
     color = 'default',
     highContrast = false,
-    radius = 'medium',
+    radius,
     class: className,
     ...others
   } = props;

@@ -37,8 +37,7 @@ export interface IconButtonRootProps extends PropsOf<'button'> {
   highContrast?: boolean;
 
   /**
-   * The value of the icon button border radius.
-   * @default "medium"
+   * Overrides the value of the icon button border radius inherited from the theme.
    */
   radius?: 'none' | 'small' | 'medium' | 'large' | 'full';
 
