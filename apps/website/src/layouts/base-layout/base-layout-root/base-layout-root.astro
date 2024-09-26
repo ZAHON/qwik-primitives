@@ -1,0 +1,27 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+import { twm } from '@/utilities/twm';
+import { baseLayoutRootStyles } from './base-layout-root.styles';
+
+import '@fontsource/geist-mono';
+
+import '@fontsource/geist-sans/400.css';
+import '@fontsource/geist-sans/500.css';
+import '@fontsource/geist-sans/700.css';
+
+import '@/styles/globals.css';
+
+interface Props extends HTMLAttributes<'html'> {
+  /**
+   * The value of the border radius, which will be inherited by other components.
+   * @default "medium"
+   */
+  radius?: 'none' | 'small' | 'medium' | 'large' | 'full';
+}
+
+const { class: className, radius = 'medium', ...others } = Astro.props;
+---
+
+<html lang="en" data-radius={radius} class={twm(baseLayoutRootStyles(), className)} {...others}>
+  <slot />
+</html>

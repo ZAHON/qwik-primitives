@@ -1,0 +1,32 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+import { ThemesScript } from '@/scripts/themes-script';
+
+interface Props extends HTMLAttributes<'head'> {
+  /**
+   * The title of the page.
+   */
+  title: string;
+
+  /**
+   * The description of the page.
+   */
+  description: string;
+}
+
+const { title, description, ...others } = Astro.props;
+---
+
+<head {...others}>
+  <ThemesScript />
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <meta name="generator" content={Astro.generator} />
+
+  <title>{title}</title>
+  <meta name="description" content={description} />
+
+  <slot />
+</head>
