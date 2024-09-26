@@ -1,0 +1,86 @@
+<script is:inline>
+  const query = '(prefers-color-scheme: dark)';
+  const documentElement = document.documentElement;
+
+  const getSystemTheme = () => {
+    return window.matchMedia(query).matches ? 'dark' : 'light';
+  };
+
+  const updateDOM = (theme) => {
+    if (['light', 'dark'].includes(theme)) {
+      documentElement.classList.add(theme);
+      documentElement.setAttribute('data-theme', theme);
+      documentElement.style.colorScheme = theme;
+    }
+  };
+
+  try {
+    const themeName = (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) || 'system';
+    const isSystem = themeName === 'system';
+    const theme = isSystem ? getSystemTheme() : themeName;
+
+    updateDOM(theme);
+
+    const matchMedia = window.matchMedia(query);
+
+    const handleChange = () => {
+      const newTheme = getSystemTheme();
+      const oldTheme = newTheme === 'light' ? 'dark' : 'light';
+
+      const disableAnimation = () => {
+        const css = document.createElement('style');
+
+        css.appendChild(
+          document.createTextNode(
+            `*,*::before,*::after{-webkit-transition:none!important;-moz-transition:none!important;-o-transition:none!important;-ms-transition:none!important;transition:none!important}`
+          )
+        );
+
+        document.head.appendChild(css);
+
+        return () => {
+          (() => window.getComputedStyle(document.body))();
+
+          requestAnimationFrame(() => {
+            setTimeout(() => {
+              document.head.removeChild(css);
+            }, 1);
+          });
+        };
+      };
+
+      const enableAnimation = disableAnimation();
+
+      documentElement.classList.remove(oldTheme);
+
+      documentElement.classList.add(newTheme);
+      documentElement.setAttribute('data-theme', newTheme);
+      documentElement.style.colorScheme = newTheme;
+
+      enableAnimation();
+    };
+
+    // Use deprecated `addListener` and `removeListener` to support Safari < 14 (#135)
+    if (matchMedia.addListener) {
+      matchMedia.addListener(handleChange);
+    } else {
+      matchMedia.addEventListener('change', handleChange);
+    }
+
+    if (typeof localStorage !== 'undefined') {
+      const observer = new MutationObserver(() => {
+        if (documentElement.classList.contains('light') && documentElement.getAttribute('data-theme') === 'light') {
+          localStorage.setItem('theme', 'light');
+        }
+
+        if (documentElement.classList.contains('dark') && documentElement.getAttribute('data-theme') === 'dark') {
+          localStorage.setItem('theme', 'dark');
+        }
+      });
+
+      observer.observe(documentElement, { attributes: true, attributeFilter: ['class', 'data-theme'] });
+    }
+  } catch {
+    //
+  }
+</script>
