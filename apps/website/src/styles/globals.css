@@ -7,7 +7,7 @@
     -webkit-tap-highlight-color: transparent;
   }
 
-  .light {
+  [data-theme='light'] {
     /* prettier-ignore */
     --shadow-1:
 		inset 0 0 0 1px #0009321F,
@@ -49,7 +49,7 @@
     0 16px 36px -20px #00063332;
   }
 
-  .dark {
+  [data-theme='dark'] {
     /* prettier-ignore */
     --shadow-1:
     inset 0 -1px 1px 0 #D6E2F916,
