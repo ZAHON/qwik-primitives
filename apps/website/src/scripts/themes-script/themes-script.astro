@@ -8,10 +8,55 @@
 
   const updateDOM = (theme) => {
     if (['light', 'dark'].includes(theme)) {
-      documentElement.classList.add(theme);
-      documentElement.setAttribute('data-theme', theme);
       documentElement.style.colorScheme = theme;
+      documentElement.setAttribute('data-theme', theme);
     }
+  };
+
+  const disableAnimation = () => {
+    const css = document.createElement('style');
+
+    css.appendChild(
+      document.createTextNode(
+        `*,*::before,*::after{-webkit-transition:none!important;-moz-transition:none!important;-o-transition:none!important;-ms-transition:none!important;transition:none!important}`
+      )
+    );
+
+    document.head.appendChild(css);
+
+    return () => {
+      (() => window.getComputedStyle(document.body))();
+
+      requestAnimationFrame(() => {
+        setTimeout(() => {
+          document.head.removeChild(css);
+        }, 1);
+      });
+    };
+  };
+
+  const handleToggleTheme = () => {
+    const oldTheme = documentElement.getAttribute('data-theme');
+
+    if (oldTheme && ['light', 'dark'].includes(oldTheme)) {
+      const newTheme = oldTheme === 'light' ? 'dark' : 'light';
+
+      const enableAnimation = disableAnimation();
+
+      updateDOM(newTheme);
+
+      enableAnimation();
+    }
+  };
+
+  const handleMatchMediaChange = () => {
+    const newTheme = getSystemTheme();
+
+    const enableAnimation = disableAnimation();
+
+    updateDOM(newTheme);
+
+    enableAnimation();
   };
 
   try {
@@ -21,64 +66,29 @@
 
     updateDOM(theme);
 
+    documentElement.addEventListener('toggle-theme', handleToggleTheme);
+
     const matchMedia = window.matchMedia(query);
 
-    const handleChange = () => {
-      const newTheme = getSystemTheme();
-      const oldTheme = newTheme === 'light' ? 'dark' : 'light';
-
-      const disableAnimation = () => {
-        const css = document.createElement('style');
-
-        css.appendChild(
-          document.createTextNode(
-            `*,*::before,*::after{-webkit-transition:none!important;-moz-transition:none!important;-o-transition:none!important;-ms-transition:none!important;transition:none!important}`
-          )
-        );
-
-        document.head.appendChild(css);
-
-        return () => {
-          (() => window.getComputedStyle(document.body))();
-
-          requestAnimationFrame(() => {
-            setTimeout(() => {
-              document.head.removeChild(css);
-            }, 1);
-          });
-        };
-      };
-
-      const enableAnimation = disableAnimation();
-
-      documentElement.classList.remove(oldTheme);
-
-      documentElement.classList.add(newTheme);
-      documentElement.setAttribute('data-theme', newTheme);
-      documentElement.style.colorScheme = newTheme;
-
-      enableAnimation();
-    };
-
-    // Use deprecated `addListener` and `removeListener` to support Safari < 14 (#135)
+    // Use deprecated `addListener` and `removeListener` to support Safari < 14
     if (matchMedia.addListener) {
-      matchMedia.addListener(handleChange);
+      matchMedia.addListener(handleMatchMediaChange);
     } else {
-      matchMedia.addEventListener('change', handleChange);
+      matchMedia.addEventListener('change', handleMatchMediaChange);
     }
 
     if (typeof localStorage !== 'undefined') {
       const observer = new MutationObserver(() => {
-        if (documentElement.classList.contains('light') && documentElement.getAttribute('data-theme') === 'light') {
+        if (documentElement.getAttribute('data-theme') === 'light') {
           localStorage.setItem('theme', 'light');
         }
 
-        if (documentElement.classList.contains('dark') && documentElement.getAttribute('data-theme') === 'dark') {
+        if (documentElement.getAttribute('data-theme') === 'dark') {
           localStorage.setItem('theme', 'dark');
         }
       });
 
-      observer.observe(documentElement, { attributes: true, attributeFilter: ['class', 'data-theme'] });
+      observer.observe(documentElement, { attributes: true, attributeFilter: ['data-theme'] });
     }
   } catch {
     //
