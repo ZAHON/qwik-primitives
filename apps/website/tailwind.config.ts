@@ -4,7 +4,7 @@ import { createThemes } from 'tw-colors';
 
 export default {
   content: ['./src/**/*.{astro,ts,tsx}'],
-  darkMode: ['class'],
+  darkMode: ['selector', '[data-theme="dark"]'],
   theme: {
     extend: {
       screens: {
