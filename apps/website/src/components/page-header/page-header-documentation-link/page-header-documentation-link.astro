@@ -1,0 +1,13 @@
+---
+import { Link } from '@/ui/astro/link';
+import { pageHeaderDocumentationLinkStyles } from './page-header-documentation-link.styles';
+
+const { pathname } = Astro.url;
+---
+
+<Link.Root
+  aria-current={pathname.includes('docs') ? 'page' : undefined}
+  href="/docs/overview/introduction"
+  color="default"
+  class={pageHeaderDocumentationLinkStyles({ active: pathname.includes('docs') })}>Documentation</Link.Root
+>
