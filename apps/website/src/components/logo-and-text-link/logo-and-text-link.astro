@@ -1,0 +1,11 @@
+---
+import { ImageLink } from '@/ui/astro/image-link';
+import { QwikLogoAndText } from '@/svgs/qwik-logo-and-text';
+
+const { pathname } = Astro.url;
+---
+
+<ImageLink.Root aria-current={pathname === '/' ? 'page' : undefined} href="/">
+  <QwikLogoAndText height={28} width={94} class="text-default-12" />
+  <ImageLink.Label>Qwik Primitives home page</ImageLink.Label>
+</ImageLink.Root>
