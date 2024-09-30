@@ -1,0 +1,16 @@
+---
+import { docsNavListStyles } from './docs-nav-list.styles';
+
+interface Props {
+  /**
+   * The unique id of the heading that labels the element.
+   */
+  'aria-labelledby'?: string;
+}
+
+const { 'aria-labelledby': ariaLabelledby } = Astro.props;
+---
+
+<ul aria-labelledby={ariaLabelledby ? `docs-nav-${ariaLabelledby}` : undefined} class={docsNavListStyles()}>
+  <slot />
+</ul>

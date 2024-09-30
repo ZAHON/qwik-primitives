@@ -1,0 +1,35 @@
+---
+import { docsNavLinkStyles } from './docs-nav-link.styles';
+
+interface Props {
+  /**
+   * The URL that the hyperlink points to.
+   */
+  href: string;
+
+  /**
+   * Used to identify the link as the currently active page.
+   */
+  active?: boolean;
+
+  /**
+   * Whether the link lead to external source.
+   */
+  external?: boolean;
+
+  /**
+   * Whether the link should open in a new tab.
+   */
+  openInNewTab?: boolean;
+}
+
+const { href, active, external, openInNewTab } = Astro.props;
+---
+
+<a
+  href={href}
+  rel={external ? 'noopener noreferrer' : undefined}
+  target={openInNewTab ? '_blank' : undefined}
+  aria-current={active ? 'page' : undefined}
+  class={docsNavLinkStyles({ active })}><slot /></a
+>
