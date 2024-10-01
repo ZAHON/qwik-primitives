@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.0.23
+
+### 🚀 Features
+
+- Add `CopyButton` component.
+
 ## 0.0.22
 
 ### 🚀 Features
