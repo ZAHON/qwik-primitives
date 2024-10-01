@@ -9,7 +9,6 @@ export const docsNavLinkStyles = cva(
     'gap-x-2',
     'select-none',
     'text-base',
-    'bg-transparent',
     'text-default-12',
     'rounded-full',
 
@@ -23,15 +22,12 @@ export const docsNavLinkStyles = cva(
     'focus-visible:outline-2',
     'focus-visible:-outline-offset-1',
     'focus-visible:outline-primary-focus',
-
-    'hover:bg-primary-4',
-
-    'active:bg-primary-5',
   ],
   {
     variants: {
       active: {
-        true: ['bg-primary-5', 'hover:bg-primary-5'],
+        false: ['bg-transparent', 'hover:bg-primary-4', 'active:bg-primary-5'],
+        true: ['bg-primary-5'],
       },
     },
   }

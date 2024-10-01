@@ -31,5 +31,5 @@ const { href, active, external, openInNewTab } = Astro.props;
   rel={external ? 'noopener noreferrer' : undefined}
   target={openInNewTab ? '_blank' : undefined}
   aria-current={active ? 'page' : undefined}
-  class={docsNavLinkStyles({ active })}><slot /></a
+  class={docsNavLinkStyles({ active: !!active })}><slot /></a
 >
