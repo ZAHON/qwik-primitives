@@ -3,6 +3,7 @@ export * as AlertDialog from './alert-dialog';
 export * as Avatar from './avatar';
 export * as Breadcrumbs from './breadcrumbs';
 export * as Collapsible from './collapsible';
+export * as CopyButton from './copy-button';
 export * as Dialog from './dialog';
 export * as Label from './label';
 export * as Link from './link';
