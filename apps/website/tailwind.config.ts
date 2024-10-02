@@ -11,6 +11,9 @@ export default {
         '2xl': '1440px',
         '3xl': '1536px',
       },
+      spacing: {
+        '4.5': '1.125rem',
+      },
       boxShadow: {
         1: 'var(--shadow-1)',
         2: 'var(--shadow-2)',
