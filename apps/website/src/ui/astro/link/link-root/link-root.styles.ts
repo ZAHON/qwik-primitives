@@ -2,11 +2,20 @@ import { cva } from 'class-variance-authority';
 
 export const linkRootStyles = cva(
   [
+    'group/link',
+    'inline-flex',
+    'items-center',
+    'gap-x-[calc(1em*0.3)]',
     'cursor-pointer',
     'decoration-[min(2px,max(1px, 0.05em))]',
     'underline-offset-[calc(0.025em+2px)]',
 
+    'motion-safe:transition',
+    'motion-safe:duration-200',
+
     'hover:underline',
+
+    'has-[code]:hover:no-underline',
 
     'focus:outline-none',
     'focus-visible:outline',
