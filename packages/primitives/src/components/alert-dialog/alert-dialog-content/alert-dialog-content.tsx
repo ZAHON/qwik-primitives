@@ -213,9 +213,13 @@ export const AlertDialogContent = component$<AlertDialogContentProps>((props) =>
 
   // In mobile browsers based on Chromium this little handler allow to close dialog after user press the back button.
   // Works correctly on Android devices.
-  const handleCancel$ = $(() => {
-    if (closeOnBackPress) {
-      setIsOpen$(false);
+  const handleCancel$ = $(async () => {
+    const isActiveTopLayer = await topLayer.isActiveTopLayer$();
+
+    if (isOpen.value && isActiveTopLayer) {
+      if (closeOnBackPress) {
+        setIsOpen$(false);
+      }
     }
   });
 
