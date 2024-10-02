@@ -1,0 +1,19 @@
+---
+import type { HTMLTag, Polymorphic } from 'astro/types';
+import { twm } from '@/utilities/twm';
+import { calloutIconStyles } from './callout-icon.styles';
+
+type Props<Tag extends HTMLTag = 'div'> = Polymorphic<{
+  /**
+   * @default "div"
+   * Shorthand for changing the default rendered element into a semantically appropriate alternative.
+   */
+  as: Tag;
+}>;
+
+const { as: Tag = 'div', class: className, ...others } = Astro.props;
+---
+
+<Tag aria-hidden="true" class={twm(calloutIconStyles(), className)} {...others}>
+  <slot />
+</Tag>

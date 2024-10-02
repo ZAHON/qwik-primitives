@@ -1,0 +1,19 @@
+---
+import type { HTMLTag, Polymorphic } from 'astro/types';
+import { twm } from '@/utilities/twm';
+import { calloutTextStyles } from './callout-text.styles';
+
+type Props<Tag extends HTMLTag = 'p'> = Polymorphic<{
+  /**
+   * @default "p"
+   * Shorthand for changing the default rendered element into a semantically appropriate alternative.
+   */
+  as: Tag;
+}>;
+
+const { as: Tag = 'p', class: className, ...others } = Astro.props;
+---
+
+<Tag class={twm(calloutTextStyles(), className)} {...others}>
+  <slot />
+</Tag>
