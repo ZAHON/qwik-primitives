@@ -1,7 +1,7 @@
 import type { ButtonRootProps } from './button-root.types';
 import { component$, Slot } from '@builder.io/qwik';
 import { twm } from '@/utilities/twm';
-import { buttonRootStyles } from './button-root.styles';
+import { buttonStyles } from '@/styles/button';
 
 export const ButtonRoot = component$<ButtonRootProps>((props) => {
   const {
@@ -24,7 +24,7 @@ export const ButtonRoot = component$<ButtonRootProps>((props) => {
       disabled={disabled}
       data-disabled={disabled ? '' : undefined}
       data-radius={radius}
-      class={twm(buttonRootStyles({ size, variant, color, highContrast }), className)}
+      class={twm(buttonStyles({ size, variant, color, highContrast, shape: 'button' }), className)}
       {...others}
     >
       <Slot />
