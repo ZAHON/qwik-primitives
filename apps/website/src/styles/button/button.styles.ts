@@ -9,7 +9,6 @@ export const buttonStyles = cva(
     'select-none',
     'cursor-default',
     'align-top',
-    'font-medium',
 
     'motion-safe:transition',
     'motion-safe:duration-200',
@@ -30,8 +29,8 @@ export const buttonStyles = cva(
         '4': ['rounded-[max(var(--radius-4),var(--radius-full))]'],
       },
       shape: {
-        button: [''],
-        icon: [''],
+        button: ['font-medium'],
+        icon: ['font-normal'],
       },
       variant: {
         solid: ['focus-visible:outline-offset-2', 'disabled:bg-default-3', 'disabled:text-default-8'],
