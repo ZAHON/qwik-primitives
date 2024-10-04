@@ -52,7 +52,7 @@ export interface PopoverContentProps extends PropsOf<'div'> {
    * Accepts a number (same for all sides), or a partial padding object, for example: `{ top: 20, left: 20 }`.
    * @default 0
    */
-  collisionPadding?: number | Partial<Record<'start' | 'center' | 'end', number>>;
+  collisionPadding?: number | Partial<Record<'top' | 'right' | 'bottom' | 'left', number>>;
 
   /**
    * The padding in pixels between the arrow and the edges of the content.
