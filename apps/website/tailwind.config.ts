@@ -37,7 +37,7 @@ export default {
         },
       },
       animation: {
-        'mobile-menu-content-show': 'mobile-menu-content-show 200ms cubic-bezier(0.16, 1, 0.3, 1)',
+        'mobile-menu-content-show': 'mobile-menu-content-show 160ms cubic-bezier(0.16, 1, 0.3, 1)',
         'mobile-menu-content-hide': 'mobile-menu-content-hide 100ms cubic-bezier(0.16, 1, 0.3, 1)',
       },
     },
