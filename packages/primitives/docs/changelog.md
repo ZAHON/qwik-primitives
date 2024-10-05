@@ -6,9 +6,9 @@
 
 - Add `Popover` component.
 
-- Integrate `Dialog` component with others component that use top layer.
+- Integrate `Dialog` component with others components that use top layer.
 
-- Integrate `AlertDialog` component with others component that use top layer.
+- Integrate `AlertDialog` component with others components that use top layer.
 
 ## 0.0.23
 
