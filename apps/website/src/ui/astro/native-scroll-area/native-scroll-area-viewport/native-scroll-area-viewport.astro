@@ -1,0 +1,19 @@
+---
+import type { HTMLTag, Polymorphic } from 'astro/types';
+import { twm } from '@/utilities/twm';
+import { nativeScrollAreaViewportStyles } from './native-scroll-area-viewport.styles';
+
+type Props<Tag extends HTMLTag = 'div'> = Polymorphic<{
+  /**
+   * @default "div"
+   * Shorthand for changing the default rendered element into a semantically appropriate alternative.
+   */
+  as: Tag;
+}>;
+
+const { as: Tag = 'div', class: className, ...others } = Astro.props;
+---
+
+<Tag class={twm(nativeScrollAreaViewportStyles(), className)} {...others}>
+  <slot />
+</Tag>

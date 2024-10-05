@@ -1,0 +1,56 @@
+---
+import type { HTMLTag, Polymorphic } from 'astro/types';
+import { twm } from '@/utilities/twm';
+import { nativeScrollAreaRootStyles } from './native-scroll-area-root.styles';
+
+type Props<Tag extends HTMLTag = 'div'> = Polymorphic<{
+  /**
+   * @default "div"
+   * Shorthand for changing the default rendered element into a semantically appropriate alternative.
+   */
+  as: Tag;
+
+  /**
+   * The size of the scrollbars and thumb.
+   * @default "1"
+   */
+  size?: '1' | '2' | '3';
+
+  /**
+   * Describes the nature of scrollbar visibility, similar to how the
+   * scrollbar preferences in MacOS control visibility of native scrollbars.
+   *
+   * `"auto"` means that scrollbars are visible when content is overflowing on the corresponding orientation.
+   *
+   * `"hover"` when the user is scrolling along its corresponding orientation and when the user is hovering over the scroll area.
+   *
+   * @default "hover"
+   */
+  type?: 'auto' | 'hover';
+
+  /**
+   * Controls the scrollable axes.
+   * @default "both"
+   */
+  scrollbars?: 'vertical' | 'horizontal' | 'both';
+
+  /**
+   * Overrides the value of the scrollbars and thumb border radius inherited from the theme.
+   */
+  radius?: 'none' | 'small' | 'medium' | 'large' | 'full';
+}>;
+
+const {
+  as: Tag = 'div',
+  size = '1',
+  type = 'hover',
+  scrollbars = 'both',
+  radius,
+  class: className,
+  ...others
+} = Astro.props;
+---
+
+<Tag data-radius={radius} class={twm(nativeScrollAreaRootStyles({ size, type, scrollbars }), className)} {...others}>
+  <slot />
+</Tag>
