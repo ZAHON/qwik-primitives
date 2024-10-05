@@ -1,0 +1,13 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+import { twm } from '@/utilities/twm';
+import { tableRowHeaderCellStyles } from './table-row-header-cell.styles';
+
+type Props = HTMLAttributes<'th'>;
+
+const { class: className, ...others } = Astro.props;
+---
+
+<th scope="row" class={twm(tableRowHeaderCellStyles(), className)} {...others}>
+  <slot />
+</th>

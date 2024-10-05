@@ -1,0 +1,13 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+import { twm } from '@/utilities/twm';
+import { tableCellStyles } from './table-cell.styles';
+
+type Props = HTMLAttributes<'td'>;
+
+const { class: className, ...others } = Astro.props;
+---
+
+<td class={twm(tableCellStyles(), className)} {...others}>
+  <slot />
+</td>
