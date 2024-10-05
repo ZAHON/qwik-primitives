@@ -10,5 +10,6 @@ export * as Link from './link';
 export * as Popover from './popover';
 export * as Primitive from './primitive';
 export * as Spinner from './spinner';
+export * as Tabs from './tabs';
 export * as Toggle from './toggle';
 export * as VisuallyHidden from './visually-hidden';
