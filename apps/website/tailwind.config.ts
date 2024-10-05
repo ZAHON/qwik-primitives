@@ -24,7 +24,6 @@ export default {
       },
       fontFamily: {
         sans: ['Geist Sans', ...fontFamily.sans],
-        mono: ['Geist Mono', ...fontFamily.mono],
       },
       keyframes: {
         'mobile-menu-content-show': {
