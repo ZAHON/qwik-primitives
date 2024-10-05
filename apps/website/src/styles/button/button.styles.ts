@@ -110,8 +110,13 @@ export const buttonStyles = cva(
           'enabled:hover:contrast-[0.88]',
           'enabled:hover:saturate-[1.3]',
           'enabled:hover:brightness-[1.18]',
+
           'enabled:active:brightness-[0.95]',
           'enabled:active:saturate-[1.2]',
+
+          'enabled:data-[state=open]:contrast-[0.88]',
+          'enabled:data-[state=open]:saturate-[1.3]',
+          'enabled:data-[state=open]:brightness-[1.18]',
         ],
       },
 
@@ -120,7 +125,12 @@ export const buttonStyles = cva(
         color: 'default',
         variant: 'solid',
         highContrast: false,
-        class: ['bg-default-9', 'text-default-contrast', 'enabled:hover:bg-default-10'],
+        class: [
+          'bg-default-9',
+          'text-default-contrast',
+          'enabled:hover:bg-default-10',
+          'enabled:data-[state=open]:bg-default-10',
+        ],
       },
       {
         color: 'default',
@@ -139,6 +149,7 @@ export const buttonStyles = cva(
           'enabled:hover:bg-default-4',
           'enabled:active:bg-default-5',
           'focus-visible:outline-default-focus',
+          'enabled:data-[state=open]:bg-default-4',
         ],
       },
       {
@@ -151,6 +162,7 @@ export const buttonStyles = cva(
           'enabled:hover:bg-default-4',
           'enabled:active:bg-default-5',
           'focus-visible:outline-default-focus',
+          'enabled:data-[state=open]:bg-default-4',
         ],
       },
 
@@ -158,13 +170,23 @@ export const buttonStyles = cva(
         color: 'default',
         variant: 'ghost',
         highContrast: false,
-        class: ['text-default-11', 'enabled:hover:bg-default-3', 'enabled:active:bg-default-4'],
+        class: [
+          'text-default-11',
+          'enabled:hover:bg-default-3',
+          'enabled:active:bg-default-4',
+          'enabled:data-[state=open]:bg-default-3',
+        ],
       },
       {
         color: 'default',
         variant: 'ghost',
         highContrast: true,
-        class: ['text-default-12', 'enabled:hover:bg-default-3', 'enabled:active:bg-default-4'],
+        class: [
+          'text-default-12',
+          'enabled:hover:bg-default-3',
+          'enabled:active:bg-default-4',
+          'enabled:data-[state=open]:bg-default-3',
+        ],
       },
 
       // color primary
@@ -172,7 +194,12 @@ export const buttonStyles = cva(
         color: 'primary',
         variant: 'solid',
         highContrast: false,
-        class: ['bg-primary-9', 'text-primary-contrast', 'enabled:hover:bg-primary-10'],
+        class: [
+          'bg-primary-9',
+          'text-primary-contrast',
+          'enabled:hover:bg-primary-10',
+          'enabled:data-[state=open]:bg-primary-10',
+        ],
       },
       {
         color: 'primary',
@@ -185,26 +212,48 @@ export const buttonStyles = cva(
         color: 'primary',
         variant: 'soft',
         highContrast: false,
-        class: ['bg-primary-3', 'text-primary-11', 'enabled:hover:bg-primary-4', 'enabled:active:bg-primary-5'],
+        class: [
+          'bg-primary-3',
+          'text-primary-11',
+          'enabled:hover:bg-primary-4',
+          'enabled:active:bg-primary-5',
+          'enabled:data-[state=open]:bg-primary-4',
+        ],
       },
       {
         color: 'primary',
         variant: 'soft',
         highContrast: true,
-        class: ['bg-primary-3', 'text-primary-12', 'enabled:hover:bg-primary-4', 'enabled:active:bg-primary-5'],
+        class: [
+          'bg-primary-3',
+          'text-primary-12',
+          'enabled:hover:bg-primary-4',
+          'enabled:active:bg-primary-5',
+          'enabled:data-[state=open]:bg-primary-4',
+        ],
       },
 
       {
         color: 'primary',
         variant: 'ghost',
         highContrast: false,
-        class: ['text-primary-11', 'enabled:hover:bg-primary-3', 'enabled:active:bg-primary-4'],
+        class: [
+          'text-primary-11',
+          'enabled:hover:bg-primary-3',
+          'enabled:active:bg-primary-4',
+          'enabled:data-[state=open]:bg-primary-3',
+        ],
       },
       {
         color: 'primary',
         variant: 'ghost',
         highContrast: true,
-        class: ['text-primary-12', 'enabled:hover:bg-primary-3', 'enabled:active:bg-primary-4'],
+        class: [
+          'text-primary-12',
+          'enabled:hover:bg-primary-3',
+          'enabled:active:bg-primary-4',
+          'enabled:data-[state=open]:bg-primary-3',
+        ],
       },
     ],
   }
