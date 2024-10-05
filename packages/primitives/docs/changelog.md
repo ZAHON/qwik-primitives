@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.0.24
+
+### 🚀 Features
+
+- Add `Popover` component.
+
+- Integrate `Dialog` component with others component that use top layer.
+
+- Integrate `AlertDialog` component with others component that use top layer.
+
 ## 0.0.23
 
 ### 🚀 Features
