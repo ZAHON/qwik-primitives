@@ -9,7 +9,6 @@ import {
   useTask$,
   $,
   sync$,
-  useOnDocument,
   noSerialize,
   useContextProvider,
   Slot,
@@ -91,6 +90,41 @@ export const PopoverContent = component$<PopoverContentProps>((props) => {
 
         if (cleanupAutoUpdate.value) cleanupAutoUpdate.value();
       }
+    });
+  });
+
+  useTask$(({ track, cleanup }) => {
+    track(() => isOpen.value);
+
+    if (isServer) return;
+
+    const handleClick = async (event: MouseEvent) => {
+      const target = event.target as HTMLElement;
+      const isActiveTopLayer = await topLayer.isActiveTopLayer$();
+
+      if (isOpen.value && isActiveTopLayer && contentPositionerRef.value && contentRef.value) {
+        const rect = contentPositionerRef.value.getBoundingClientRect();
+
+        const isPointerDownOutside =
+          rect.left > event.clientX ||
+          rect.right < event.clientX ||
+          rect.top > event.clientY ||
+          rect.bottom < event.clientY;
+
+        if (isPointerDownOutside && (event as PointerEvent).pointerId !== -1 && !contentRef.value.contains(target)) {
+          if (closeOnClickOutside) {
+            setIsOpen$(false);
+          }
+
+          onClickOutside$?.();
+        }
+      }
+    };
+
+    document.addEventListener('click', handleClick, { capture: true });
+
+    cleanup(() => {
+      document.removeEventListener('click', handleClick);
     });
   });
 
@@ -327,30 +361,6 @@ export const PopoverContent = component$<PopoverContentProps>((props) => {
       onEscapeKeyDown$?.();
     }
   });
-
-  const handleClick$ = $(async (event: PointerEvent) => {
-    const isActiveTopLayer = await topLayer.isActiveTopLayer$();
-
-    if (isOpen.value && isActiveTopLayer && contentPositionerRef.value) {
-      const rect = contentPositionerRef.value.getBoundingClientRect();
-
-      const isPointerDownOutside =
-        rect.left > event.clientX ||
-        rect.right < event.clientX ||
-        rect.top > event.clientY ||
-        rect.bottom < event.clientY;
-
-      if (isPointerDownOutside && event.pointerId !== -1) {
-        if (closeOnClickOutside) {
-          setIsOpen$(false);
-        }
-
-        onClickOutside$?.();
-      }
-    }
-  });
-
-  useOnDocument('click', handleClick$);
 
   useContextProvider(PopoverContentContext, {
     arrowPositionerRef,
