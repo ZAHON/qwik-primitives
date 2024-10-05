@@ -24,6 +24,7 @@ export default {
       },
       fontFamily: {
         sans: ['Geist Sans', ...fontFamily.sans],
+        mono: ['Iosevka', ...fontFamily.mono],
       },
       keyframes: {
         'mobile-menu-content-show': {
