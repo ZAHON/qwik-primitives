@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.0.25
+
+### 🚀 Features
+
+- Add `Tabs` component.
+
 ## 0.0.24
 
 ### 🚀 Features
