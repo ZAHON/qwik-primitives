@@ -35,10 +35,58 @@ export default {
           '0%': { opacity: '1' },
           '100%': { opacity: '0' },
         },
+
+        'popper-content-side-top-show': {
+          '0%': { translateY: '4px', scale: '0.97', opacity: '0' },
+          '100%': { translateY: '0', scale: '1', opacity: '1' },
+        },
+        'popper-content-side-top-hide': {
+          '0%': { translateY: '0', scale: '1', opacity: '1' },
+          '100%': { translateY: '4px', scale: '0.97', opacity: '0' },
+        },
+
+        'popper-content-side-right-show': {
+          '0%': { translateX: '-4px', scale: '0.97', opacity: '0' },
+          '100%': { translateX: '0', scale: '1', opacity: '1' },
+        },
+        'popper-content-side-right-hide': {
+          '0%': { translateX: '0', scale: '1', opacity: '1' },
+          '100%': { translateX: '-4px', scale: '0.97', opacity: '0' },
+        },
+
+        'popper-content-side-bottom-show': {
+          '0%': { translateY: '-4px', scale: '0.97', opacity: '0' },
+          '100%': { translateY: '0', scale: '1', opacity: '1' },
+        },
+        'popper-content-side-bottom-hide': {
+          '0%': { translateY: '0', scale: '1', opacity: '1' },
+          '100%': { translateY: '-4px', scale: '0.97', opacity: '0' },
+        },
+
+        'popper-content-side-left-hide': {
+          '0%': { translateX: '0', scale: '1', opacity: '1' },
+          '100%': { translateX: '4px', scale: '0.97', opacity: '0' },
+        },
+        'popper-content-side-left-show': {
+          '0%': { translateX: '4px', scale: '0.97', opacity: '0' },
+          '100%': { translateX: '0', scale: '1', opacity: '1' },
+        },
       },
       animation: {
         'mobile-menu-content-show': 'mobile-menu-content-show 160ms cubic-bezier(0.16, 1, 0.3, 1)',
         'mobile-menu-content-hide': 'mobile-menu-content-hide 100ms cubic-bezier(0.16, 1, 0.3, 1)',
+
+        'popper-content-side-top-show': 'popper-content-side-top-show 160ms cubic-bezier(0.16, 1, 0.3, 1)',
+        'popper-content-side-top-hide': 'popper-content-side-top-hide 100ms cubic-bezier(0.16, 1, 0.3, 1)',
+
+        'popper-content-side-right-show': 'popper-content-side-right-show 160ms cubic-bezier(0.16, 1, 0.3, 1)',
+        'popper-content-side-right-hide': 'popper-content-side-right-hide 100ms cubic-bezier(0.16, 1, 0.3, 1)',
+
+        'popper-content-side-bottom-show': 'popper-content-side-bottom-show 160ms cubic-bezier(0.16, 1, 0.3, 1)',
+        'popper-content-side-bottom-hide': 'popper-content-side-bottom-hide 100ms cubic-bezier(0.16, 1, 0.3, 1)',
+
+        'popper-content-side-left-show': 'popper-content-side-left-show 160ms cubic-bezier(0.16, 1, 0.3, 1)',
+        'popper-content-side-left-hide': 'popper-content-side-left-hide 100ms cubic-bezier(0.16, 1, 0.3, 1)',
       },
     },
   },
