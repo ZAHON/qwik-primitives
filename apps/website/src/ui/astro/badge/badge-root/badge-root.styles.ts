@@ -1,43 +1,13 @@
 import { cva } from 'class-variance-authority';
 
 export const badgeRootStyles = cva(
-  [
-    'h-fit',
-    'shrink-0',
-    'whitespace-nowrap',
-    'inline-flex',
-    'justify-center',
-    'items-center',
-    'font-medium',
-    'leading-none',
-  ],
+  ['h-fit', 'shrink-0', 'whitespace-nowrap', 'inline-flex', 'justify-center', 'items-center', 'font-medium'],
   {
     variants: {
       size: {
-        '1': [
-          'py-0.5',
-          'px-1.5',
-          'gap-x-1.5',
-          'text-xs',
-          'tracking-[0.0025em]',
-          'rounded-[max(var(--radius-1),var(--radius-full))]',
-        ],
-        '2': [
-          'py-1',
-          'px-2',
-          'gap-x-1.5',
-          'text-xs',
-          'tracking-[0.0025em]',
-          'rounded-[max(var(--radius-2),var(--radius-full))]',
-        ],
-        '3': [
-          'py-1',
-          'px-2.5',
-          'gap-x-2',
-          'text-sm',
-          'tracking-normal',
-          'rounded-[max(var(--radius-2),var(--radius-full))]',
-        ],
+        '1': ['py-0.5', 'px-1.5', 'gap-x-1.5', 'text-1', 'rounded-[max(var(--radius-1),var(--radius-full))]'],
+        '2': ['py-1', 'px-2', 'gap-x-1.5', 'text-1', 'rounded-[max(var(--radius-2),var(--radius-full))]'],
+        '3': ['py-1', 'px-2.5', 'gap-x-2', 'text-2', 'rounded-[max(var(--radius-2),var(--radius-full))]'],
       },
       variant: {
         solid: [''],
