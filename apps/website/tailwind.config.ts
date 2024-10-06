@@ -6,6 +6,102 @@ export default {
   content: ['./src/**/*.{astro,ts,tsx}'],
   darkMode: ['selector', '[data-theme="dark"]'],
   theme: {
+    boxShadow: {
+      1: 'var(--shadow-1)',
+      2: 'var(--shadow-2)',
+      3: 'var(--shadow-3)',
+      4: 'var(--shadow-4)',
+      5: 'var(--shadow-5)',
+      6: 'var(--shadow-6)',
+    },
+    fontSize: {
+      1: [
+        '0.75rem',
+        {
+          lineHeight: '1rem',
+          letterSpacing: '0.0025em',
+        },
+      ],
+      2: [
+        '0.875rem',
+        {
+          lineHeight: '1.25rem',
+          letterSpacing: '0em',
+        },
+      ],
+      3: [
+        '1rem',
+        {
+          lineHeight: '1.5rem',
+          letterSpacing: '0em',
+        },
+      ],
+      4: [
+        '1.125rem',
+        {
+          lineHeight: '1.625rem',
+          letterSpacing: '-0.0025em',
+        },
+      ],
+      5: [
+        '1.25rem',
+        {
+          lineHeight: '1.75rem',
+          letterSpacing: '-0.005em',
+        },
+      ],
+      6: [
+        '1.5rem',
+        {
+          lineHeight: '1.875rem',
+          letterSpacing: '-0.00625em',
+        },
+      ],
+      7: [
+        '1.75rem',
+        {
+          lineHeight: '2.25rem',
+          letterSpacing: '-0.0075em',
+        },
+      ],
+      8: [
+        '2.1875rem',
+        {
+          lineHeight: '2.5rem',
+          letterSpacing: '-0.01em',
+        },
+      ],
+      9: [
+        '3.75rem',
+        {
+          lineHeight: '3.75rem',
+          letterSpacing: '-0.025em',
+        },
+      ],
+    },
+    lineHeight: {
+      1: '1rem',
+      2: '1.25rem',
+      3: '1.5rem',
+      4: '1.625rem',
+      5: '1.75rem',
+      6: '1.875rem',
+      7: '2.25rem',
+      8: '2.5rem',
+      9: '3.75rem',
+    },
+    letterSpacing: {
+      1: '0.0025em',
+      2: '0em',
+      3: '0em',
+      4: '-0.0025em',
+      5: '-0.005em',
+      6: '-0.00625em',
+      7: '-0.0075em',
+      8: '-0.01em',
+      9: '-0.025em',
+      inherit: 'inherit',
+    },
     extend: {
       screens: {
         '2xl': '1440px',
@@ -13,90 +109,6 @@ export default {
       },
       spacing: {
         '4.5': '1.125rem',
-      },
-      boxShadow: {
-        1: 'var(--shadow-1)',
-        2: 'var(--shadow-2)',
-        3: 'var(--shadow-3)',
-        4: 'var(--shadow-4)',
-        5: 'var(--shadow-5)',
-        6: 'var(--shadow-6)',
-      },
-      fontSize: {
-        1: [
-          '0.75rem',
-          {
-            lineHeight: '1rem',
-            letterSpacing: '0.0025em',
-          },
-        ],
-        2: [
-          '0.875rem',
-          {
-            lineHeight: '1.25rem',
-            letterSpacing: '0em',
-          },
-        ],
-        3: [
-          '1rem',
-          {
-            lineHeight: '1.5rem',
-            letterSpacing: '0em',
-          },
-        ],
-        4: [
-          '1.125rem',
-          {
-            lineHeight: '1.625rem',
-            letterSpacing: '-0.0025em',
-          },
-        ],
-        5: [
-          '1.25rem',
-          {
-            lineHeight: '1.75rem',
-            letterSpacing: '-0.005em',
-          },
-        ],
-        6: [
-          '1.5rem',
-          {
-            lineHeight: '1.875rem',
-            letterSpacing: '-0.00625em',
-          },
-        ],
-        7: [
-          '1.75rem',
-          {
-            lineHeight: '2.25rem',
-            letterSpacing: '-0.0075em',
-          },
-        ],
-        8: [
-          '2.1875rem',
-          {
-            lineHeight: '2.5rem',
-            letterSpacing: '-0.01em',
-          },
-        ],
-        9: [
-          '3.75rem',
-          {
-            lineHeight: '3.75rem',
-            letterSpacing: '-0.025em',
-          },
-        ],
-      },
-      lineHeight: {
-        1: '1rem',
-        2: '1.25rem',
-        3: '1.5rem',
-        4: '1.625rem',
-        5: '1.75rem',
-        6: '1.875rem',
-        7: '2.25rem',
-        8: '2.5rem',
-        9: '3.75rem',
       },
       fontFamily: {
         sans: ['Geist Sans', ...fontFamily.sans],
