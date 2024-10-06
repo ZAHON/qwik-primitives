@@ -8,11 +8,11 @@ export const docsNavLinkStyles = cva(
     'items-center',
     'gap-x-2',
     'select-none',
-    'text-base',
+    'text-3',
     'text-default-12',
     'rounded-full',
 
-    'lg:text-sm',
+    'lg:text-2',
 
     'motion-safe:transition-colors',
     'motion-safe:duration-200',
