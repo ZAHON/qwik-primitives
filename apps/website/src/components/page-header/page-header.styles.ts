@@ -16,7 +16,7 @@ export const pageHeaderStyles = cva(['group', 'fixed', 'z-50', 'top-0', 'h-12', 
         'shadow-[var(--page-header-shadow-color)_0px_1px_0px_0px]',
 
         'motion-safe:transition',
-        'motion-safe:duration-200',
+        'motion-safe:duration-75',
 
         'data-[scrolling-down]:bg-background',
         'data-[scrolling-down]:[--page-header-shadow-color:#00002D17]',
