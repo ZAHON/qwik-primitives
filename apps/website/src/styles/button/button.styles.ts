@@ -56,7 +56,7 @@ export const buttonStyles = cva(
       {
         shape: 'button',
         size: '1',
-        class: ['h-6', 'px-2', 'gap-x-1', 'text-xs', 'tracking-[0.0025em]'],
+        class: ['h-6', 'px-2', 'gap-x-1', 'text-1'],
       },
       {
         shape: 'icon',
@@ -67,7 +67,7 @@ export const buttonStyles = cva(
       {
         shape: 'button',
         size: '2',
-        class: ['h-8', 'px-3', 'gap-x-2', 'text-sm', 'tracking-normal'],
+        class: ['h-8', 'px-3', 'gap-x-2', 'text-2'],
       },
       {
         shape: 'icon',
@@ -78,7 +78,7 @@ export const buttonStyles = cva(
       {
         shape: 'button',
         size: '3',
-        class: ['h-10', 'px-4', 'gap-x-3', 'text-base', 'tracking-normal'],
+        class: ['h-10', 'px-4', 'gap-x-3', 'text-3'],
       },
       {
         shape: 'icon',
@@ -89,7 +89,7 @@ export const buttonStyles = cva(
       {
         shape: 'button',
         size: '4',
-        class: ['h-12', 'px-6', 'gap-x-3', 'text-lg', '-tracking-[0.0025em]'],
+        class: ['h-12', 'px-6', 'gap-x-3', 'text-4'],
       },
       {
         shape: 'icon',
