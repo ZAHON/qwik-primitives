@@ -1,17 +1,17 @@
 import { cva } from 'class-variance-authority';
 
-export const textRootStyles = cva(['leading-[1.5]', 'tracking-[inherit]'], {
+export const textRootStyles = cva([''], {
   variants: {
     size: {
-      '1': ['text-xs', 'leading-[1rem]', 'tracking-[0.0025em]'],
-      '2': ['text-sm', 'leading-[1.125rem]', 'tracking-[0em]'],
-      '3': ['text-base', 'leading-[1.375rem]', 'tracking-[0em]'],
-      '4': ['text-lg', 'leading-[1.5rem]', '-tracking-[0.0025em]'],
-      '5': ['text-xl', 'leading-[1.625rem]', '-tracking-[0.005em]'],
-      '6': ['text-2xl', 'leading-[1.875rem]', '-tracking-[0.00625em]'],
-      '7': ['text-[1.75rem]', 'leading-[2.25rem]', '-tracking-[0.0075em]'],
-      '8': ['text-[2.1875rem]', 'leading-[2.5rem]', '-tracking-[0.01em]'],
-      '9': ['text-6xl', 'leading-[3.75rem]', '-tracking-[0.025em]'],
+      '1': ['text-1'],
+      '2': ['text-2'],
+      '3': ['text-3'],
+      '4': ['text-4'],
+      '5': ['text-5'],
+      '6': ['text-6'],
+      '7': ['text-7'],
+      '8': ['text-8'],
+      '9': ['text-9'],
     },
     highContrast: {
       false: ['text-default-11'],
