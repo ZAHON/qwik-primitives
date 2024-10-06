@@ -3,9 +3,9 @@ import { cva } from 'class-variance-authority';
 export const calloutRootStyles = cva(['flex', 'items-start'], {
   variants: {
     size: {
-      '1': ['p-3', 'gap-x-2', 'text-sm', '[--callout-icon-height:1.25rem]', 'rounded-[var(--radius-3)]'],
-      '2': ['p-4', 'gap-x-3', 'text-sm', '[--callout-icon-height:1.25rem]', 'rounded-[var(--radius-4)]'],
-      '3': ['p-6', 'gap-x-4', 'text-base', '[--callout-icon-height:1.5rem]', 'rounded-[var(--radius-5)]'],
+      '1': ['p-3', 'gap-x-2', 'text-2', '[--callout-icon-height:1.25rem]', 'rounded-[var(--radius-3)]'],
+      '2': ['p-4', 'gap-x-3', 'text-2', '[--callout-icon-height:1.25rem]', 'rounded-[var(--radius-4)]'],
+      '3': ['p-6', 'gap-x-4', 'text-3', '[--callout-icon-height:1.5rem]', 'rounded-[var(--radius-5)]'],
     },
     color: {
       default: ['bg-default-3', 'selection:bg-primary-selection'],
