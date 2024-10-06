@@ -12,6 +12,7 @@ export const textRootStyles = cva([''], {
       '7': ['text-7'],
       '8': ['text-8'],
       '9': ['text-9'],
+      undefined: ['leading-[1.5]', 'tracking-inherit'],
     },
     highContrast: {
       false: ['text-default-11'],
