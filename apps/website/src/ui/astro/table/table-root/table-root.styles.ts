@@ -6,19 +6,19 @@ export const tableRootStyles = cva(
     variants: {
       size: {
         '1': [
-          'text-sm',
+          'text-2',
           'rounded-[var(--radius-3)]',
           '[--table-cell-padding:0.5rem]',
           '[--table-cell-min-height:2.25rem]',
         ],
         '2': [
-          'text-sm',
+          'text-2',
           'rounded-[var(--radius-4)]',
           '[--table-cell-padding:0.75rem]',
           '[--table-cell-min-height:2.75rem]',
         ],
         '3': [
-          'text-base',
+          'text-3',
           'rounded-[var(--radius-4)]',
           '[--table-cell-padding:0.75rem_1rem]',
           '[--table-cell-min-height:3rem]',
