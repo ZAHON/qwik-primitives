@@ -10,12 +10,12 @@ export const tabsTriggerContentStyles = cva(
     'motion-safe:transition-colors',
     'motion-safe:duration-100',
 
-    'group-focus-visible:outline',
-    'group-focus-visible:outline-2',
-    'group-focus-visible:-outline-offset-1',
-    'group-focus-visible:outline-primary-focus',
+    'group-focus-visible/tabs-trigger:outline',
+    'group-focus-visible/tabs-trigger:outline-2',
+    'group-focus-visible/tabs-trigger:-outline-offset-1',
+    'group-focus-visible/tabs-trigger:outline-primary-focus',
 
-    'group-enabled:group-hover:bg-default-3',
+    'group-enabled/tabs-trigger:group-hover/tabs-trigger:bg-default-3',
   ],
   {
     variants: {
@@ -25,7 +25,7 @@ export const tabsTriggerContentStyles = cva(
       },
       color: {
         default: [''],
-        primary: ['group-enabled:group-hover:group-focus-visible:bg-primary-3'],
+        primary: ['group-enabled/tabs-trigger:group-hover/tabs-trigger:group-focus-visible/tabs-trigger:bg-primary-3'],
       },
     },
   }

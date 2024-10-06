@@ -2,7 +2,7 @@ import { cva } from 'class-variance-authority';
 
 export const tabsTriggerStyles = cva(
   [
-    'group',
+    'group/tabs-trigger',
     'relative',
     'shrink-0',
     'flex',
@@ -20,7 +20,7 @@ export const tabsTriggerStyles = cva(
 
     'enabled:hover:text-default-12',
 
-    'data-[state=inactive]:text-default-11/85',
+    'data-[state=inactive]:text-default-11',
     'data-[state=inactive]:before:bg-transparent',
 
     'data-[state=active]:text-default-12',
@@ -36,8 +36,8 @@ export const tabsTriggerStyles = cva(
   {
     variants: {
       size: {
-        '1': ['h-8', 'px-1', 'text-xs', 'tracking-[0.0025em]'],
-        '2': ['h-10', 'px-2', 'text-sm', 'tracking-normal'],
+        '1': ['h-8', 'px-1', 'text-1'],
+        '2': ['h-10', 'px-2', 'text-2'],
       },
       color: {
         default: [''],
