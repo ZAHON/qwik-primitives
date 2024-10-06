@@ -22,6 +22,71 @@ export default {
         5: 'var(--shadow-5)',
         6: 'var(--shadow-6)',
       },
+      fontSize: {
+        1: [
+          '0.75rem',
+          {
+            lineHeight: '1rem',
+            letterSpacing: '0.0025em',
+          },
+        ],
+        2: [
+          '0.875rem',
+          {
+            lineHeight: '1.25rem',
+            letterSpacing: '0em',
+          },
+        ],
+        3: [
+          '1rem',
+          {
+            lineHeight: '1.5rem',
+            letterSpacing: '0em',
+          },
+        ],
+        4: [
+          '1.125rem',
+          {
+            lineHeight: '1.625rem',
+            letterSpacing: '-0.0025em',
+          },
+        ],
+        5: [
+          '1.25rem',
+          {
+            lineHeight: '1.75rem',
+            letterSpacing: '-0.005em',
+          },
+        ],
+        6: [
+          '1.5rem',
+          {
+            lineHeight: '1.875rem',
+            letterSpacing: '-0.00625em',
+          },
+        ],
+        7: [
+          '1.75rem',
+          {
+            lineHeight: '2.25rem',
+            letterSpacing: '-0.0075em',
+          },
+        ],
+        8: [
+          '2.1875rem',
+          {
+            lineHeight: '2.5rem',
+            letterSpacing: '-0.01em',
+          },
+        ],
+        9: [
+          '3.75rem',
+          {
+            lineHeight: '3.75rem',
+            letterSpacing: '-0.025em',
+          },
+        ],
+      },
       fontFamily: {
         sans: ['Geist Sans', ...fontFamily.sans],
         mono: ['Iosevka', ...fontFamily.mono],
