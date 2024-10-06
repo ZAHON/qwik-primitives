@@ -1,4 +1,5 @@
 export { TableRoot as Root } from './table-root';
+export { TableScrollArea as ScrollArea } from './table-scroll-area';
 export { TableContent as Content } from './table-content';
 export { TableCaption as Caption } from './table-caption';
 export { TableHeader as Header } from './table-header';
