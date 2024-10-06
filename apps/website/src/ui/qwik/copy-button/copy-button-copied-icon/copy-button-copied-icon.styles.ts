@@ -8,6 +8,6 @@ export const copyButtonCopiedIconStyles = cva([
   'motion-safe:transition',
   'motion-safe:duration-100',
 
-  'group-data-[copied]:scale-100',
-  'group-data-[copied]:opacity-100',
+  'group-data-[copied]/copy-button:scale-100',
+  'group-data-[copied]/copy-button:opacity-100',
 ]);

@@ -8,6 +8,6 @@ export const copyButtonIdleIconStyles = cva([
   'motion-safe:transition',
   'motion-safe:duration-100',
 
-  'group-data-[copied]:scale-0',
-  'group-data-[copied]:scale-0',
+  'group-data-[copied]/copy-button:scale-0',
+  'group-data-[copied]/copy-button:scale-0',
 ]);
