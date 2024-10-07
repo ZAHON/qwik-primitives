@@ -60,6 +60,9 @@ importers:
       astro-icon:
         specifier: ^1.1.1
         version: 1.1.1
+      cheerio:
+        specifier: ^1.0.0
+        version: 1.0.0
       eslint:
         specifier: 8.57.0
         version: 8.57.0
@@ -5211,10 +5214,6 @@ packages:
   undici-types@6.19.8:
     resolution: {integrity: sha512-ve2KP6f/JnbPBFyobGHuerC9g1FYGn/F8n1LWTwNxCEzd6IfqTwUQcNXgEtmmQ6DlRrC1hrSrBnCZPokRrDHjw==}
 
-  undici@6.18.2:
-    resolution: {integrity: sha512-o/MQLTwRm9IVhOqhZ0NQ9oXax1ygPjw6Vs+Vq/4QRjbOAC3B1GCHy7TYxxbExKlb7bzDRzt9vBWU6BDz0RFfYg==}
-    engines: {node: '>=18.17'}
-
   undici@6.19.8:
     resolution: {integrity: sha512-U8uCCl2x9TK3WANvmBavymRzxbfFYG+tAu+fgx3zxQy3qdagQqBLwJVrdyO1TBfUXvfKveMKJZhpvUYoOjM+4g==}
     engines: {node: '>=18.17'}
@@ -6013,7 +6012,7 @@ snapshots:
       '@types/mdx': 2.0.13
       source-map: 0.7.4
       svgo: 3.3.2
-      undici: 6.18.2
+      undici: 6.19.8
       vfile: 6.0.3
       vite: 5.4.6(@types/node@22.5.5)
       vite-imagetools: 6.2.9(rollup@4.21.3)
@@ -12129,9 +12128,6 @@ snapshots:
       which-boxed-primitive: 1.0.2
 
   undici-types@6.19.8: {}
-
-  undici@6.18.2:
-    optional: true
 
   undici@6.19.8: {}
 
