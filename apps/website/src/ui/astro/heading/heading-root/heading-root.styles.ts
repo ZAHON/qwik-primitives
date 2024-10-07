@@ -1,6 +1,6 @@
 import { cva } from 'class-variance-authority';
 
-export const headingRootStyles = cva(['font-bold'], {
+export const headingRootStyles = cva(['font-bold', 'text-balance'], {
   variants: {
     size: {
       '1': ['text-1'],
