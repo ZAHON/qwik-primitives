@@ -10,6 +10,7 @@ import {
   $,
   sync$,
   noSerialize,
+  useOnDocument,
   useContextProvider,
   Slot,
 } from '@builder.io/qwik';
@@ -93,47 +94,14 @@ export const PopoverContent = component$<PopoverContentProps>((props) => {
     });
   });
 
-  useTask$(({ track, cleanup }) => {
-    track(() => isOpen.value);
-
-    if (isServer) return;
-
-    const handleClick = async (event: MouseEvent) => {
-      const target = event.target as HTMLElement;
-      const isActiveTopLayer = await topLayer.isActiveTopLayer$();
-
-      if (isOpen.value && isActiveTopLayer && contentPositionerRef.value && contentRef.value) {
-        const rect = contentPositionerRef.value.getBoundingClientRect();
-
-        const isPointerDownOutside =
-          rect.left > event.clientX ||
-          rect.right < event.clientX ||
-          rect.top > event.clientY ||
-          rect.bottom < event.clientY;
-
-        if (isPointerDownOutside && (event as PointerEvent).pointerId !== -1 && !contentRef.value.contains(target)) {
-          if (closeOnClickOutside) {
-            setIsOpen$(false);
-          }
-
-          onClickOutside$?.();
-        }
-      }
-    };
-
-    document.addEventListener('click', handleClick, { capture: true });
-
-    cleanup(() => {
-      document.removeEventListener('click', handleClick);
-    });
-  });
-
-  useTask$(({ track }) => {
+  useTask$(async ({ track }) => {
     track(() => isOpen.value);
 
     if (isServer) return;
 
     if (isOpen.value) {
+      topLayer.add$();
+
       if (contentPositionerRef.value && contentRef.value) {
         if (titleId.value) contentRef.value.setAttribute('aria-labelledby', titleId.value);
         if (descriptionId.value) contentRef.value.setAttribute('aria-describedby', descriptionId.value);
@@ -142,8 +110,6 @@ export const PopoverContent = component$<PopoverContentProps>((props) => {
 
         shouldMeasureArrow.value = true;
         contentPositionerRef.value.showPopover();
-
-        topLayer.add$();
       }
 
       setTimeout(() => {
@@ -180,7 +146,9 @@ export const PopoverContent = component$<PopoverContentProps>((props) => {
     if (isServer) return;
 
     if (!isOpen.value) {
-      const closeContent = () => {
+      topLayer.remove$();
+
+      const closeContent = async () => {
         if (!isOpen.value && contentPositionerRef.value && contentRef.value) {
           contentRef.value.removeAttribute('aria-labelledby');
           contentRef.value.removeAttribute('aria-describedby');
@@ -189,8 +157,6 @@ export const PopoverContent = component$<PopoverContentProps>((props) => {
 
           shouldMeasureArrow.value = false;
           contentPositionerRef.value.hidePopover();
-
-          topLayer.remove$();
 
           setTimeout(() => {
             if (restoreFocus) {
@@ -361,6 +327,34 @@ export const PopoverContent = component$<PopoverContentProps>((props) => {
       onEscapeKeyDown$?.();
     }
   });
+
+  const handleClick$ = $(async (event: MouseEvent) => {
+    const target = event.target as HTMLElement;
+    const isActiveTopLayer = await topLayer.isActiveTopLayer$();
+
+    if (isOpen.value && isActiveTopLayer && contentPositionerRef.value && contentRef.value) {
+      const rect = contentPositionerRef.value.getBoundingClientRect();
+
+      const isPointerDownOutside =
+        rect.left > event.clientX ||
+        rect.right < event.clientX ||
+        rect.top > event.clientY ||
+        rect.bottom < event.clientY;
+
+      if (isPointerDownOutside && (event as PointerEvent).pointerId !== -1 && !contentRef.value.contains(target)) {
+        if (closeOnClickOutside) {
+          setIsOpen$(false);
+
+          // Immediately remove active layer.
+          topLayer.remove$();
+        }
+
+        onClickOutside$?.();
+      }
+    }
+  });
+
+  useOnDocument('click', handleClick$);
 
   useContextProvider(PopoverContentContext, {
     arrowPositionerRef,
