@@ -27,7 +27,6 @@
     "qwik": "qwik"
   },
   "dependencies": {
-    "@fontsource/iosevka": "^5.1.0",
     "class-variance-authority": "^0.7.0",
     "tailwind-merge": "^2.5.3"
   },
