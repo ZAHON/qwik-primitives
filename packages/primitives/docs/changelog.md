@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.0.26
+
+### 🚀 Features
+
+- Add `Separator` component.
+
 ## 0.0.25
 
 ### 🚀 Features
