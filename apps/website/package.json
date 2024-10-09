@@ -1,0 +1,57 @@
+{
+  "name": "qwik-primitives-website",
+  "engines": {
+    "node": "^18.17.0 || ^20.3.0 || >=21.0.0"
+  },
+  "engines-annotation": "Mostly required by sharp which needs a Node-API v9 compatible runtime",
+  "private": true,
+  "trustedDependencies": [
+    "sharp"
+  ],
+  "trustedDependencies-annotation": "Needed for bun to allow running install scripts",
+  "type": "module",
+  "scripts": {
+    "build": "qwik build",
+    "build.client": "vite build",
+    "build.preview": "vite build --ssr src/entry.preview.tsx",
+    "build.server": "vite build -c adapters/static/vite.config.ts",
+    "build.types": "tsc --incremental --noEmit",
+    "deploy": "echo 'Run \"npm run qwik add\" to install a server adapter'",
+    "dev": "vite --mode ssr",
+    "dev.debug": "node --inspect-brk ./node_modules/vite/bin/vite.js --mode ssr --force",
+    "fmt": "prettier --write .",
+    "fmt.check": "prettier --check .",
+    "lint": "eslint \"src/**/*.ts*\"",
+    "preview": "qwik build preview && vite preview --open",
+    "start": "vite --open --mode ssr",
+    "qwik": "qwik"
+  },
+  "dependencies": {
+    "@fontsource/geist-sans": "^5.1.0",
+    "@fontsource/iosevka": "^5.1.0",
+    "class-variance-authority": "^0.7.0",
+    "tailwind-merge": "^2.5.3"
+  },
+  "devDependencies": {
+    "@builder.io/qwik": "^1.9.1",
+    "@builder.io/qwik-city": "^1.9.1",
+    "@types/eslint": "9.6.1",
+    "@types/node": "22.7.5",
+    "@typescript-eslint/eslint-plugin": "8.8.1",
+    "@typescript-eslint/parser": "8.8.1",
+    "autoprefixer": "^10.4.20",
+    "eslint": "8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-jsx-a11y": "^6.10.0",
+    "eslint-plugin-qwik": "^1.9.1",
+    "postcss": "^8.4.47",
+    "prettier": "3.3.3",
+    "prettier-plugin-tailwindcss": "^0.6.8",
+    "qwik-primitives": "workspace:*",
+    "tailwindcss": "^3.4.13",
+    "typescript": "5.6.3",
+    "undici": "*",
+    "vite": "5.4.8",
+    "vite-tsconfig-paths": "^5.0.1"
+  }
+}
