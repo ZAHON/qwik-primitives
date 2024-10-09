@@ -25,7 +25,7 @@ export interface ButtonRootProps extends PropsOf<'button'> {
   size?: '1' | '2' | '3' | '4';
 
   /**
-   * The shape of the copy button.
+   * The shape of the button.
    * @default "button'"
    */
   shape?: 'button' | 'icon';
