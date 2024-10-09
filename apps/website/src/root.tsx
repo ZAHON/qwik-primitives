@@ -15,7 +15,7 @@ export default component$(() => {
         <RouterHead />
         <script dangerouslySetInnerHTML={`(${themesScript.toString()})()`} />
       </head>
-      <body class="min-h-dvh overflow-x-hidden bg-background text-foreground">
+      <body class="min-h-dvh overflow-x-hidden bg-background text-foreground selection:text-primary-selection">
         <RouterOutlet />
         {!isDev && <ServiceWorkerRegister />}
       </body>
