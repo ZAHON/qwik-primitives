@@ -188,7 +188,7 @@ export default {
       },
       fontFamily: {
         sans: ['Geist Sans', ...fontFamily.sans],
-        mono: ['Iosevka', ...fontFamily.mono],
+        mono: ['Geist Mono', ...fontFamily.mono],
       },
       keyframes: {
         'mobile-menu-content-show': {

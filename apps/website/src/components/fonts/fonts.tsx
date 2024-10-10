@@ -26,12 +26,13 @@ export const Fonts = component$(() => {
 			src: url(https://cdn.jsdelivr.net/fontsource/fonts/geist-sans@latest/latin-700-normal.woff2) format('woff2'), url(https://cdn.jsdelivr.net/fontsource/fonts/geist-sans@latest/latin-700-normal.woff) format('woff');
 		}
 
+		/* geist-mono-latin-400-normal */
 		@font-face {
-			font-family: 'Iosevka';
+			font-family: 'Geist Mono';
 			font-style: normal;
 			font-display: swap;
 			font-weight: 400;
-			src: url(https://cdn.jsdelivr.net/fontsource/fonts/iosevka@latest/latin-400-normal.woff2) format('woff2'), url(https://cdn.jsdelivr.net/fontsource/fonts/iosevka@latest/latin-400-normal.woff) format('woff');
+			src: url(https://cdn.jsdelivr.net/fontsource/fonts/geist-mono@latest/latin-400-normal.woff2) format('woff2'), url(https://cdn.jsdelivr.net/fontsource/fonts/geist-mono@latest/latin-400-normal.woff) format('woff');
 		}
 	`);
 
