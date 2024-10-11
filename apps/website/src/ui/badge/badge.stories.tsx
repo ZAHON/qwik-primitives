@@ -21,11 +21,13 @@ const meta: Meta<typeof Badge.Root> = {
 };
 
 export default meta;
+
 type Story = StoryObj<typeof Badge.Root>;
+type BadgeRootPropsWithChildren = typeof Badge.Root & { children: string };
 
 export const Default: Story = {
   render: (props) => {
-    const { children, ...others } = props as typeof Badge.Root & { children: string };
+    const { children, ...others } = props as BadgeRootPropsWithChildren;
 
     return <Badge.Root {...others}>{children}</Badge.Root>;
   },
@@ -36,7 +38,7 @@ export const Size: Story = {
     size: { control: false },
   },
   render: (props) => {
-    const { children, ...others } = props as typeof Badge.Root & { children: string };
+    const { children, ...others } = props as BadgeRootPropsWithChildren;
 
     return (
       <div style={{ display: 'flex', alignItems: 'end', columnGap: '0.75rem' }}>
@@ -59,7 +61,7 @@ export const Variant: Story = {
     variant: { control: false },
   },
   render: (props) => {
-    const { children, ...others } = props as typeof Badge.Root & { children: string };
+    const { children, ...others } = props as BadgeRootPropsWithChildren;
 
     return (
       <div style={{ display: 'flex', columnGap: '0.75rem' }}>
@@ -79,7 +81,7 @@ export const Color: Story = {
     color: { control: false },
   },
   render: (props) => {
-    const { children, ...others } = props as typeof Badge.Root & { children: string };
+    const { children, ...others } = props as BadgeRootPropsWithChildren;
 
     return (
       <div style={{ display: 'flex', columnGap: '0.75rem' }}>
@@ -99,7 +101,7 @@ export const HighContrast: Story = {
     highContrast: { control: false },
   },
   render: (props) => {
-    const { children, ...others } = props as typeof Badge.Root & { children: string };
+    const { children, ...others } = props as BadgeRootPropsWithChildren;
 
     return (
       <div style={{ display: 'flex', columnGap: '0.75rem' }}>
@@ -119,7 +121,7 @@ export const Radius: Story = {
     radius: { control: false },
   },
   render: (props) => {
-    const { children, ...others } = props as typeof Badge.Root & { children: string };
+    const { children, ...others } = props as BadgeRootPropsWithChildren;
 
     return (
       <div style={{ display: 'flex', columnGap: '0.75rem' }}>
