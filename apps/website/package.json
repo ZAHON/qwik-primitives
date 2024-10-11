@@ -12,6 +12,7 @@
   "type": "module",
   "scripts": {
     "build": "qwik build",
+    "build-storybook": "storybook build",
     "build.client": "vite build",
     "build.preview": "vite build --ssr src/entry.preview.tsx",
     "build.server": "vite build -c adapters/static/vite.config.ts",
@@ -24,6 +25,7 @@
     "lint": "eslint \"src/**/*.ts*\"",
     "preview": "qwik build preview && vite preview --open",
     "start": "vite --open --mode ssr",
+    "storybook": "storybook dev -p 6006 --no-open",
     "qwik": "qwik"
   },
   "dependencies": {
@@ -33,6 +35,14 @@
   "devDependencies": {
     "@builder.io/qwik": "^1.9.1",
     "@builder.io/qwik-city": "^1.9.1",
+    "@storybook/addon-a11y": "^8.3.5",
+    "@storybook/addon-essentials": "^8.3.5",
+    "@storybook/addon-links": "^8.3.5",
+    "@storybook/blocks": "^8.3.5",
+    "@storybook/builder-vite": "^8.3.5",
+    "@storybook/html": "^8.3.5",
+    "@storybook/html-vite": "^8.3.5",
+    "@storybook/theming": "^8.3.5",
     "@types/eslint": "9.6.1",
     "@types/node": "22.7.5",
     "@typescript-eslint/eslint-plugin": "8.8.1",
@@ -47,6 +57,9 @@
     "prettier-plugin-tailwindcss": "^0.6.8",
     "qwik-primitives": "workspace:*",
     "shiki": "^1.22.0",
+    "storybook": "^8.3.5",
+    "storybook-dark-mode": "^4.0.2",
+    "storybook-framework-qwik": "^0.4.0",
     "tailwindcss": "^3.4.13",
     "typescript": "5.6.3",
     "undici": "*",
