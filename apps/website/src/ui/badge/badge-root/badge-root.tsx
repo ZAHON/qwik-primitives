@@ -3,6 +3,9 @@ import { component$, Slot } from '@builder.io/qwik';
 import { twm } from '@/utilities/twm';
 import { badgeRootStyles } from './badge-root.styles';
 
+/**
+ * This component is based on the `span` element.
+ */
 export const BadgeRoot = component$<BadgeRootProps>((props) => {
   const {
     as,
