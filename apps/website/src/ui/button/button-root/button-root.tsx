@@ -3,6 +3,10 @@ import { component$, Slot } from '@builder.io/qwik';
 import { twm } from '@/utilities/twm';
 import { buttonStyles } from '@/styles/shared/button';
 
+/**
+ * Trigger an action or event, such as submitting a form or displaying a dialog.
+ * This component is based on the `button` element.
+ */
 export const ButtonRoot = component$<ButtonRootProps>((props) => {
   const {
     as,
