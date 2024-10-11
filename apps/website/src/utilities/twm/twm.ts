@@ -1,5 +1,7 @@
 import { extendTailwindMerge } from 'tailwind-merge';
 
+const isArbitraryValue = (classPart: string) => /^\[.+\]$/.test(classPart);
+
 export const twm = extendTailwindMerge({
   override: {
     classGroups: {
@@ -14,6 +16,7 @@ export const twm = extendTailwindMerge({
         'text-8',
         'text-9',
         'text-inherit',
+        { text: [isArbitraryValue] },
       ],
       leading: [
         'leading-1',
@@ -26,6 +29,7 @@ export const twm = extendTailwindMerge({
         'leading-8',
         'leading-9',
         'leading-inherit',
+        { leading: [isArbitraryValue] },
       ],
       tracking: [
         'tracking-1',
@@ -38,6 +42,7 @@ export const twm = extendTailwindMerge({
         'tracking-8',
         'tracking-9',
         'tracking-inherit',
+        { tracking: [isArbitraryValue] },
       ],
     },
   },
