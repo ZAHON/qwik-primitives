@@ -10,6 +10,7 @@ export const codeRootStyles = cva(
     'text-inherit',
     'leading-[1.25]',
     'tracking-[-0.007em]',
+    'whitespace-nowrap',
     'rounded-[calc((0.03125rem+0.2em)*var(--radius-factor))]',
 
     'motion-safe:transition',
