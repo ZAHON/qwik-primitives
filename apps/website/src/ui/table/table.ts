@@ -1,0 +1,21 @@
+export type { TableRootProps as RootProps } from './table-root';
+export type { TableScrollAreaProps as ScrollAreaProps } from './table-scroll-area';
+export type { TableContentProps as ContentProps } from './table-content';
+export type { TableCaptionProps as CaptionProps } from './table-caption';
+export type { TableHeaderProps as HeaderProps } from './table-header';
+export type { TableBodyProps as BodyProps } from './table-body';
+export type { TableRowProps as RowProps } from './table-row';
+export type { TableCellProps as CellProps } from './table-cell';
+export type { TableColumnHeaderCellProps as ColumnHeaderCellProps } from './table-column-header-cell';
+export type { TableRowHeaderCellProps as RowHeaderCellProps } from './table-row-header-cell';
+
+export { TableRoot as Root } from './table-root';
+export { TableScrollArea as ScrollArea } from './table-scroll-area';
+export { TableContent as Content } from './table-content';
+export { TableCaption as Caption } from './table-caption';
+export { TableHeader as Header } from './table-header';
+export { TableBody as Body } from './table-body';
+export { TableRow as Row } from './table-row';
+export { TableCell as Cell } from './table-cell';
+export { TableColumnHeaderCell as ColumnHeaderCell } from './table-column-header-cell';
+export { TableRowHeaderCell as RowHeaderCell } from './table-row-header-cell';
