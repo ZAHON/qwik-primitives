@@ -72,7 +72,8 @@ export const themesScript = () => {
 
     const matchMedia = window.matchMedia(query);
 
-    // Use deprecated `addListener` and `removeListener` to support Safari < 14
+    // Use deprecated `addListener` and `removeListener` to support Safari < 14\
+    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
     if (matchMedia.addListener) {
       matchMedia.addListener(handleMatchMediaChange);
     } else {
