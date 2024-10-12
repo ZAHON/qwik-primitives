@@ -33,6 +33,9 @@ importers:
       '@builder.io/qwik-city':
         specifier: ^1.9.1
         version: 1.9.1(@types/node@22.7.5)(rollup@4.21.3)(typescript@5.6.3)
+      '@builder.io/qwik-labs':
+        specifier: github:QwikDev/qwik-labs-build#main
+        version: https://codeload.github.com/QwikDev/qwik-labs-build/tar.gz/4b5a6e032bfa5d01bcf2bf734655058e228c1b24
       '@storybook/addon-a11y':
         specifier: ^8.3.5
         version: 8.3.5(storybook@8.3.5)
@@ -278,6 +281,11 @@ packages:
 
   '@builder.io/qwik-city@1.9.1':
     resolution: {integrity: sha512-GEM4Ybjg9edSWzAtp38mAyb2lIeuQYlcpyrDJ9W/KhXPoIQ7CAjhE2w1XaYXrtfg4iJOgCkiCXjL3JxobxNLxw==}
+    engines: {node: '>=16.8.0 <18.0.0 || >=18.11'}
+
+  '@builder.io/qwik-labs@https://codeload.github.com/QwikDev/qwik-labs-build/tar.gz/4b5a6e032bfa5d01bcf2bf734655058e228c1b24':
+    resolution: {tarball: https://codeload.github.com/QwikDev/qwik-labs-build/tar.gz/4b5a6e032bfa5d01bcf2bf734655058e228c1b24}
+    version: 0.0.1
     engines: {node: '>=16.8.0 <18.0.0 || >=18.11'}
 
   '@builder.io/qwik@1.9.0':
@@ -5070,6 +5078,8 @@ snapshots:
       - supports-color
       - terser
       - typescript
+
+  '@builder.io/qwik-labs@https://codeload.github.com/QwikDev/qwik-labs-build/tar.gz/4b5a6e032bfa5d01bcf2bf734655058e228c1b24': {}
 
   '@builder.io/qwik@1.9.0(@types/node@22.5.5)':
     dependencies:
