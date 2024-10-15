@@ -1,12 +1,15 @@
 import type { ButtonLinkRootProps } from './button-link-root.types';
 import { component$, Slot } from '@builder.io/qwik';
-import { Link } from '@builder.io/qwik-city';
 import { twm } from '@/utilities/twm';
 import { buttonLinkRootStyles } from './button-link-root.styles';
 
+/**
+ * Semantic element for navigation between pages.
+ * This component is based on the `a` element.
+ */
 export const ButtonLinkRoot = component$<ButtonLinkRootProps>((props) => {
   const {
-    prefetch = true,
+    as,
     external,
     openInNewTab,
     size = '2',
@@ -19,9 +22,10 @@ export const ButtonLinkRoot = component$<ButtonLinkRootProps>((props) => {
     ...others
   } = props;
 
+  const Component = as || 'a';
+
   return (
-    <Link
-      prefetch={prefetch}
+    <Component
       rel={external ? 'noopener noreferrer' : undefined}
       target={openInNewTab ? '_blank' : undefined}
       data-radius={radius}
@@ -29,6 +33,6 @@ export const ButtonLinkRoot = component$<ButtonLinkRootProps>((props) => {
       {...others}
     >
       <Slot />
-    </Link>
+    </Component>
   );
 });

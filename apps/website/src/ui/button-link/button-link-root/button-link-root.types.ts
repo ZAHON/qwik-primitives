@@ -1,18 +1,17 @@
-import type { CSSProperties } from '@builder.io/qwik';
-import type { LinkProps } from '@builder.io/qwik-city';
+import type { PropsOf, FunctionComponent, CSSProperties } from '@builder.io/qwik';
 
-export interface ButtonLinkRootProps extends LinkProps {
+export interface ButtonLinkRootProps extends PropsOf<'a'> {
+  /**
+   * Change the default rendered element for the one passed as, merging their props and behavior.
+   *
+   * Read our [Composition](https://github.com/ZAHON/qwik-primitives/blob/main/packages/primitives/docs/composition.md) guide for more details.
+   */
+  as?: FunctionComponent;
+
   /**
    * The URL that the button link points to.
    */
   href: string;
-
-  /**
-   * Whether Qwik should prefetch and cache the target page of this link, this includes invoking any `routeLoader$`, `onGet`, etc.
-   * Setting this value to `"js"` will prefetch only javascript bundles required to render this page on the client, `false` will disable prefetching altogether.
-   * @default true
-   */
-  prefetch?: boolean | 'js';
 
   /**
    * Whether the button link lead to external source.
