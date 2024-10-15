@@ -3,6 +3,10 @@ import { component$, Slot } from '@builder.io/qwik';
 import { twm } from '@/utilities/twm';
 import { codeRootStyles } from './code-root.styles';
 
+/**
+ * Marks text to signify a short fragment of computer code.
+ * This component is based on the `code` element.
+ */
 export const CodeRoot = component$<CodeRootProps>((props) => {
   const { as, size, variant = 'soft', color = 'primary', highContrast = false, class: className, ...others } = props;
 
