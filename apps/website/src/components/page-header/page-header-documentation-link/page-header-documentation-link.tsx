@@ -12,9 +12,10 @@ export const PageHeaderDocumentationLink = component$(() => {
     <Link.Root
       href="/docs/overview/introduction"
       aria-current={active ? 'page' : undefined}
+      highContrast={active}
       size="2"
       color="default"
-      class={pageHeaderDocumentationLinkStyles({ active })}
+      class={pageHeaderDocumentationLinkStyles()}
     >
       Documentation
     </Link.Root>
