@@ -49,10 +49,15 @@ export const Example: Story = {
       );
     });
 
-    return (
-      <QwikCityMockProvider url={url}>
-        <Example />
-      </QwikCityMockProvider>
-    );
+    const ExampleWithQwikCityMockProvider = component$(() => {
+      return (
+        <QwikCityMockProvider url={url}>
+          {/* eslint-disable-next-line qwik/valid-lexical-scope */}
+          <Example /> //
+        </QwikCityMockProvider>
+      );
+    });
+
+    return <ExampleWithQwikCityMockProvider />;
   },
 };
