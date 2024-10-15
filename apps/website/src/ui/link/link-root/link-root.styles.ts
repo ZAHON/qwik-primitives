@@ -10,11 +10,6 @@ export const linkRootStyles = cva(
     'decoration-[min(0.125rem,max(0.0625rem,0.05em))]',
     'underline-offset-[calc(0.025em+0.125rem)]',
 
-    'motion-safe:transition',
-    'motion-safe:duration-100',
-
-    'hover:underline',
-
     'has-[code]:hover:no-underline',
 
     'focus:outline-none',
@@ -41,8 +36,8 @@ export const linkRootStyles = cva(
         primary: ['focus-visible:outline-primary-focus'],
       },
       highContrast: {
-        false: [''],
-        true: [''],
+        false: ['hover:underline'],
+        true: ['underline'],
       },
     },
     compoundVariants: [
