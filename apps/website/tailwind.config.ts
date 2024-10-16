@@ -102,6 +102,7 @@ export default {
       4: 'var(--shadow-4)',
       5: 'var(--shadow-5)',
       6: 'var(--shadow-6)',
+      kbd: 'var(--shadow-kbd)',
     },
     colors: {
       transparent: 'transparent',
