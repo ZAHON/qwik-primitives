@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from 'storybook-framework-qwik';
 import type { PropsOf } from '@builder.io/qwik';
-import { component$, $, useComputed$ } from '@builder.io/qwik';
+import { component$ } from '@builder.io/qwik';
 import { Text } from '@/ui/text';
 import { Tabs } from '.';
 
@@ -342,31 +342,29 @@ export const TriggersWithIcon: Story = {
 
     const listProps = { loop, justify };
 
-    const getIconSize$ = $((size: TabsRootSize) => {
-      switch (size) {
-        case '1': {
-          return 14;
-        }
-        case '2': {
-          return 16;
-        }
-        default: {
-          throw Error(`Unknown variant: ${size}`);
-        }
-      }
-    });
-
     const AvatarIcon = component$<{ size: TabsRootSize }>((props) => {
       const { size } = props;
 
-      const iconSize = useComputed$(async () => await getIconSize$(size));
+      const getIconSize = (size: TabsRootSize) => {
+        switch (size) {
+          case '1': {
+            return 14;
+          }
+          case '2': {
+            return 16;
+          }
+          default: {
+            throw Error(`Unknown variant: ${size}`);
+          }
+        }
+      };
 
       return (
         <svg
           aria-hidden="true"
           focusable="false"
-          width={iconSize.value}
-          height={iconSize.value}
+          width={getIconSize(size)}
+          height={getIconSize(size)}
           viewBox="0 0 15 15"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -384,14 +382,26 @@ export const TriggersWithIcon: Story = {
     const FileIcon = component$<{ size: TabsRootSize }>((props) => {
       const { size } = props;
 
-      const iconSize = useComputed$(async () => await getIconSize$(size));
+      const getIconSize = (size: TabsRootSize) => {
+        switch (size) {
+          case '1': {
+            return 14;
+          }
+          case '2': {
+            return 16;
+          }
+          default: {
+            throw Error(`Unknown variant: ${size}`);
+          }
+        }
+      };
 
       return (
         <svg
           aria-hidden="true"
           focusable="false"
-          width={iconSize.value}
-          height={iconSize.value}
+          width={getIconSize(size)}
+          height={getIconSize(size)}
           viewBox="0 0 15 15"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -409,14 +419,26 @@ export const TriggersWithIcon: Story = {
     const GearIcon = component$<{ size: TabsRootSize }>((props) => {
       const { size } = props;
 
-      const iconSize = useComputed$(async () => await getIconSize$(size));
+      const getIconSize = (size: TabsRootSize) => {
+        switch (size) {
+          case '1': {
+            return 14;
+          }
+          case '2': {
+            return 16;
+          }
+          default: {
+            throw Error(`Unknown variant: ${size}`);
+          }
+        }
+      };
 
       return (
         <svg
           aria-hidden="true"
           focusable="false"
-          width={iconSize.value}
-          height={iconSize.value}
+          width={getIconSize(size)}
+          height={getIconSize(size)}
           viewBox="0 0 15 15"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
