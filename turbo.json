@@ -6,6 +6,7 @@
       "dependsOn": ["^build"],
       "outputs": ["lib/**", "lib-types/**", "storybook-static/**", "dist/**"]
     },
+    "build-storybook": {},
     "lint": {
       "dependsOn": ["^lint"]
     },

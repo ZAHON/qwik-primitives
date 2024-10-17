@@ -1,0 +1,9 @@
+{
+  "extends": ["//"],
+  "tasks": {
+    "build-storybook": {
+      "dependsOn": ["^build", "^build-storybook"],
+      "outputs": ["storybook-static/**"]
+    }
+  }
+}
