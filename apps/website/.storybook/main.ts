@@ -1,3 +1,4 @@
+import path from 'path';
 import { StorybookConfig } from 'storybook-framework-qwik';
 
 const config: StorybookConfig = {
@@ -6,7 +7,19 @@ const config: StorybookConfig = {
   core: { renderer: 'storybook-framework-qwik' },
   stories: ['../src/**/*.stories.tsx'],
   docs: { autodocs: false },
-  viteFinal: async (config: any) => config,
+  viteFinal: async (config: any) => {
+    return {
+      ...config,
+      resolve: {
+        alias: [
+          {
+            find: 'qwik-primitives',
+            replacement: path.resolve(__dirname, '../../../packages/primitives/'),
+          },
+        ],
+      },
+    };
+  },
 };
 
 export default config;
