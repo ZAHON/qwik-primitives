@@ -7,19 +7,7 @@ const config: StorybookConfig = {
   core: { renderer: 'storybook-framework-qwik' },
   stories: ['../src/**/*.stories.tsx'],
   docs: { autodocs: false },
-  viteFinal: async (config: any) => {
-    return {
-      ...config,
-      resolve: {
-        alias: [
-          {
-            find: 'qwik-primitives',
-            replacement: path.resolve(__dirname, '../../../packages/primitives/'),
-          },
-        ],
-      },
-    };
-  },
+  viteFinal: async (config: any) => config,
 };
 
 export default config;
