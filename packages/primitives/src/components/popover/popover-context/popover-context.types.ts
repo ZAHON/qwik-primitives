@@ -12,6 +12,11 @@ export interface PopoverContextValue {
   setIsOpen$: QRL<(open: boolean) => void>;
 
   /**
+   * The unique id of the popover top layer.
+   */
+  topLayerId: string;
+
+  /**
    * The reference to popover trigger DOM element.
    */
   triggerRef: Signal<HTMLElement | undefined>;

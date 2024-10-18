@@ -10,13 +10,12 @@ import {
   $,
   sync$,
   noSerialize,
-  useOnDocument,
   useContextProvider,
   Slot,
 } from '@builder.io/qwik';
 import { isServer, isBrowser } from '@builder.io/qwik/build';
 import { computePosition, autoUpdate, offset, shift, limitShift, flip, size, arrow, hide } from '@floating-ui/dom';
-import { useTopLayer } from '@/_internal/hooks';
+import { topLayersStack } from '@/_internal/utilities';
 import { useFocusTrap } from '@/hooks';
 import { composeRefs } from '@/utilities';
 import { transformOrigin, getSideAndAlignFromPlacement } from '../utilities';
@@ -55,10 +54,12 @@ export const PopoverContent = component$<PopoverContentProps>((props) => {
     ...others
   } = props;
 
-  const { isOpen, setIsOpen$, triggerRef, anchorRef, contentId, titleId, descriptionId } = useContext(PopoverContext);
+  const { isOpen, setIsOpen$, topLayerId, triggerRef, anchorRef, contentId, titleId, descriptionId } =
+    useContext(PopoverContext);
 
   const autoId = useId();
 
+  const clickEventTargets = useSignal<HTMLElement[]>([]);
   const contentPositionerRef = useSignal<HTMLElement | undefined>(undefined);
   const contentRef = useSignal<HTMLElement | undefined>(undefined);
   const arrowPositionerRef = useSignal<HTMLElement | undefined>(undefined);
@@ -76,7 +77,6 @@ export const PopoverContent = component$<PopoverContentProps>((props) => {
   const cleanupAutoUpdate = useSignal<NoSerialize<(() => void) | undefined>>(undefined);
 
   const focusTrap = useFocusTrap(contentRef, { loop, autoFocus, restoreFocus: false });
-  const topLayer = useTopLayer();
 
   useTask$(async () => undefined);
 
@@ -94,19 +94,18 @@ export const PopoverContent = component$<PopoverContentProps>((props) => {
     });
   });
 
-  useTask$(async ({ track }) => {
+  useTask$(({ track }) => {
     track(() => isOpen.value);
 
     if (isServer) return;
 
     if (isOpen.value) {
-      topLayer.add$();
-
       if (contentPositionerRef.value && contentRef.value) {
         if (titleId.value) contentRef.value.setAttribute('aria-labelledby', titleId.value);
         if (descriptionId.value) contentRef.value.setAttribute('aria-describedby', descriptionId.value);
 
         focusTrap.active$();
+        topLayersStack.add(topLayerId);
 
         shouldMeasureArrow.value = true;
         contentPositionerRef.value.showPopover();
@@ -146,14 +145,13 @@ export const PopoverContent = component$<PopoverContentProps>((props) => {
     if (isServer) return;
 
     if (!isOpen.value) {
-      topLayer.remove$();
-
-      const closeContent = async () => {
+      const closeContent = () => {
         if (!isOpen.value && contentPositionerRef.value && contentRef.value) {
           contentRef.value.removeAttribute('aria-labelledby');
           contentRef.value.removeAttribute('aria-describedby');
 
           focusTrap.deactivate$();
+          topLayersStack.remove(topLayerId);
 
           shouldMeasureArrow.value = false;
           contentPositionerRef.value.hidePopover();
@@ -166,6 +164,13 @@ export const PopoverContent = component$<PopoverContentProps>((props) => {
                 document.body.focus();
               }
             }
+
+            clickEventTargets.value.forEach((target) => {
+              const event = new Event('click');
+              target.dispatchEvent(event);
+            });
+
+            clickEventTargets.value = [];
           });
 
           onClose$?.();
@@ -203,6 +208,36 @@ export const PopoverContent = component$<PopoverContentProps>((props) => {
   });
 
   const handleToggle$ = $((event: CorrectedToggleEvent) => {
+    const handleClick = (event: MouseEvent) => {
+      const isActiveTopLayer = topLayersStack.isActiveTopLayer(topLayerId);
+
+      if (isOpen.value && isActiveTopLayer && contentPositionerRef.value && contentRef.value) {
+        const target = event.target as HTMLElement;
+        const rect = contentPositionerRef.value.getBoundingClientRect();
+
+        const isPointerDownOutside =
+          rect.left > event.clientX ||
+          rect.right < event.clientX ||
+          rect.top > event.clientY ||
+          rect.bottom < event.clientY;
+
+        if (isPointerDownOutside && (event as PointerEvent).pointerId !== -1 && !contentRef.value.contains(target)) {
+          if (closeOnClickOutside) {
+            event.preventDefault();
+            event.stopImmediatePropagation();
+
+            if (target !== triggerRef.value && !target.hasAttribute('data-qwik-primitives-popover-close')) {
+              clickEventTargets.value = [...clickEventTargets.value, target];
+            }
+
+            setIsOpen$(false);
+          }
+
+          onClickOutside$?.();
+        }
+      }
+    };
+
     if (event.newState === 'open') {
       const desiredPlacement = (side + (align !== 'center' ? '-' + align : '')) as Placement;
 
@@ -299,6 +334,8 @@ export const PopoverContent = component$<PopoverContentProps>((props) => {
       };
 
       cleanupAutoUpdate.value = noSerialize(startAutoUpdate());
+
+      window.addEventListener('click', handleClick, { capture: true });
     }
 
     if (event.newState === 'closed') {
@@ -306,6 +343,8 @@ export const PopoverContent = component$<PopoverContentProps>((props) => {
         cleanupAutoUpdate.value();
         isPositioned.value = false;
       }
+
+      window.removeEventListener('click', handleClick);
     }
   });
 
@@ -316,8 +355,8 @@ export const PopoverContent = component$<PopoverContentProps>((props) => {
     }
   });
 
-  const handleKeyDown$ = $(async (event: KeyboardEvent) => {
-    const isActiveTopLayer = await topLayer.isActiveTopLayer$();
+  const handleKeyDown$ = $((event: KeyboardEvent) => {
+    const isActiveTopLayer = topLayersStack.isActiveTopLayer(topLayerId);
 
     if (isOpen.value && isActiveTopLayer && event.key === 'Escape') {
       if (closeOnEscapeKeyDown) {
@@ -327,34 +366,6 @@ export const PopoverContent = component$<PopoverContentProps>((props) => {
       onEscapeKeyDown$?.();
     }
   });
-
-  const handleClick$ = $(async (event: MouseEvent) => {
-    const target = event.target as HTMLElement;
-    const isActiveTopLayer = await topLayer.isActiveTopLayer$();
-
-    if (isOpen.value && isActiveTopLayer && contentPositionerRef.value && contentRef.value) {
-      const rect = contentPositionerRef.value.getBoundingClientRect();
-
-      const isPointerDownOutside =
-        rect.left > event.clientX ||
-        rect.right < event.clientX ||
-        rect.top > event.clientY ||
-        rect.bottom < event.clientY;
-
-      if (isPointerDownOutside && (event as PointerEvent).pointerId !== -1 && !contentRef.value.contains(target)) {
-        if (closeOnClickOutside) {
-          setIsOpen$(false);
-
-          // Immediately remove active layer.
-          topLayer.remove$();
-        }
-
-        onClickOutside$?.();
-      }
-    }
-  });
-
-  useOnDocument('click', handleClick$);
 
   useContextProvider(PopoverContentContext, {
     arrowPositionerRef,

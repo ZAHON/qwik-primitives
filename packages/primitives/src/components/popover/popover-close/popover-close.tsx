@@ -1,5 +1,6 @@
 import type { PopoverCloseProps } from './popover-close.types';
 import { component$, useContext, useComputed$, $, Slot } from '@builder.io/qwik';
+import { topLayersStack } from '@/_internal/utilities/top-layers-stack';
 import { PopoverContext } from '../popover-context';
 
 /**
@@ -9,12 +10,14 @@ import { PopoverContext } from '../popover-context';
 export const PopoverClose = component$<PopoverCloseProps>((props) => {
   const { as, disabled, onClick$, ...others } = props;
 
-  const { setIsOpen$ } = useContext(PopoverContext);
+  const { setIsOpen$, topLayerId } = useContext(PopoverContext);
 
   const isDisabled = useComputed$(() => disabled);
 
   const handleClick$ = $(() => {
-    if (!isDisabled.value) setIsOpen$(false);
+    const isActiveTopLayer = topLayersStack.isActiveTopLayer(topLayerId);
+
+    if (!isDisabled.value && isActiveTopLayer) setIsOpen$(false);
   });
 
   const Component = as || 'button';
