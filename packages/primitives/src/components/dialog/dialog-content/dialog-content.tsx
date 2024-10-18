@@ -1,7 +1,7 @@
 import type { DialogContentProps } from './dialog-content.types';
 import { component$, useContext, useId, useSignal, useTask$, sync$, $, Slot } from '@builder.io/qwik';
 import { isServer, isBrowser } from '@builder.io/qwik/build';
-import { useTopLayer } from '@/_internal/hooks';
+import { topLayersStack } from '@/_internal/utilities';
 import { useScrollLock, useFocusTrap } from '@/hooks';
 import { composeRefs } from '@/utilities';
 import { DialogContext } from '../dialog-context';
@@ -43,7 +43,6 @@ export const DialogContent = component$<DialogContentProps>((props) => {
 
   const scrollLock = useScrollLock();
   const focusTrap = useFocusTrap(contentRef, { loop, autoFocus, restoreFocus: false });
-  const topLayer = useTopLayer();
 
   useTask$(async () => undefined);
 
@@ -88,7 +87,7 @@ export const DialogContent = component$<DialogContentProps>((props) => {
         contentHide.value = false;
         contentRef.value.showModal();
 
-        topLayer.add$();
+        topLayersStack.add(autoId);
       }
 
       setTimeout(() => {
@@ -137,8 +136,6 @@ export const DialogContent = component$<DialogContentProps>((props) => {
           contentRef.value.close();
           contentHide.value = true;
 
-          topLayer.remove$();
-
           setTimeout(() => {
             if (restoreFocus) {
               if (triggerRef.value) {
@@ -156,6 +153,8 @@ export const DialogContent = component$<DialogContentProps>((props) => {
                 triggerRef.value.blur();
               }
             }
+
+            topLayersStack.remove(autoId);
           });
 
           onClose$?.();
@@ -213,8 +212,8 @@ export const DialogContent = component$<DialogContentProps>((props) => {
 
   // In mobile browsers based on Chromium this little handler allow to close dialog after user press the back button.
   // Works correctly on Android devices.
-  const handleCancel$ = $(async () => {
-    const isActiveTopLayer = await topLayer.isActiveTopLayer$();
+  const handleCancel$ = $(() => {
+    const isActiveTopLayer = topLayersStack.isActiveTopLayer(autoId);
 
     if (isOpen.value && isActiveTopLayer) {
       if (closeOnBackPress) {
@@ -230,8 +229,8 @@ export const DialogContent = component$<DialogContentProps>((props) => {
     }
   });
 
-  const handleKeyDown$ = $(async (event: KeyboardEvent) => {
-    const isActiveTopLayer = await topLayer.isActiveTopLayer$();
+  const handleKeyDown$ = $((event: KeyboardEvent) => {
+    const isActiveTopLayer = topLayersStack.isActiveTopLayer(autoId);
 
     if (isOpen.value && isActiveTopLayer && event.key === 'Escape') {
       if (closeOnEscapeKeyDown) {
@@ -246,8 +245,8 @@ export const DialogContent = component$<DialogContentProps>((props) => {
     event.stopPropagation();
   });
 
-  const handleClick$ = $(async (event: PointerEvent, currentTarget: HTMLDialogElement) => {
-    const isActiveTopLayer = await topLayer.isActiveTopLayer$();
+  const handleClick$ = $((event: PointerEvent, currentTarget: HTMLDialogElement) => {
+    const isActiveTopLayer = topLayersStack.isActiveTopLayer(autoId);
 
     if (isOpen.value && isActiveTopLayer) {
       const rect = currentTarget.getBoundingClientRect();
