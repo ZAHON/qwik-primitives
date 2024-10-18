@@ -148,9 +148,12 @@ export const useFocusTrap = (containerRef: Signal<HTMLElement | undefined>, opti
     if (containerRef.value.contains(target)) {
       lastFocusedElementRef.value = target;
     } else {
-      if (lastFocusedElementRef.value) {
-        focusElement(lastFocusedElementRef.value, { select: true });
-      }
+      // The use of `setTimeout` is required here, because without it, in some cases the browser crashes.
+      setTimeout(() => {
+        if (lastFocusedElementRef.value) {
+          focusElement(lastFocusedElementRef.value, { select: true });
+        }
+      });
     }
   });
 
