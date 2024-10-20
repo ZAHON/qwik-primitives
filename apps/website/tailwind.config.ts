@@ -204,6 +204,15 @@ export default {
           '100%': { opacity: '0' },
         },
 
+        'collapsible-panel-down': {
+          '0%': { opacity: '0', gridTemplateRows: '0fr' },
+          '100%': { opacity: '1', gridTemplateRows: '1fr' },
+        },
+        'collapsible-panel-up': {
+          '0%': { opacity: '1', gridTemplateRows: '1fr' },
+          '100%': { opacity: '0', gridTemplateRows: '0fr' },
+        },
+
         'popper-content-side-top-show': {
           '0%': { translateY: '4px', scale: '0.97', opacity: '0' },
           '100%': { translateY: '0', scale: '1', opacity: '1' },
@@ -243,6 +252,9 @@ export default {
       animation: {
         'mobile-menu-content-show': 'mobile-menu-content-show 160ms cubic-bezier(0.16, 1, 0.3, 1)',
         'mobile-menu-content-hide': 'mobile-menu-content-hide 100ms cubic-bezier(0.16, 1, 0.3, 1)',
+
+        'collapsible-panel-down': 'collapsible-panel-down 350ms cubic-bezier(0, 0, 0.2, 1)',
+        'collapsible-panel-up': 'collapsible-panel-up 350ms cubic-bezier(0, 0, 0.2, 1)',
 
         'popper-content-side-top-show': 'popper-content-side-top-show 160ms cubic-bezier(0.16, 1, 0.3, 1)',
         'popper-content-side-top-hide': 'popper-content-side-top-hide 100ms cubic-bezier(0.16, 1, 0.3, 1)',
