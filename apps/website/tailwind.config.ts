@@ -213,6 +213,15 @@ export default {
           '100%': { opacity: '0', gridTemplateRows: '0fr' },
         },
 
+        'spoiler-panel-down': {
+          '0%': { height: 'var(--qwik-primitives-spoiler-panel-min-height)' },
+          '100%': { height: 'var(--qwik-primitives-spoiler-panel-max-height)' },
+        },
+        'spoiler-panel-up': {
+          '0%': { height: 'var(--qwik-primitives-spoiler-panel-max-height)' },
+          '100%': { height: 'var(--qwik-primitives-spoiler-panel-min-height)' },
+        },
+
         'popper-content-side-top-show': {
           '0%': { translateY: '4px', scale: '0.97', opacity: '0' },
           '100%': { translateY: '0', scale: '1', opacity: '1' },
@@ -255,6 +264,9 @@ export default {
 
         'collapsible-panel-down': 'collapsible-panel-down 350ms cubic-bezier(0, 0, 0.2, 1)',
         'collapsible-panel-up': 'collapsible-panel-up 350ms cubic-bezier(0, 0, 0.2, 1)',
+
+        'spoiler-panel-down': 'spoiler-panel-down 350ms cubic-bezier(0, 0, 0.2, 1)',
+        'spoiler-panel-up': 'spoiler-panel-up 350ms cubic-bezier(0, 0, 0.2, 1)',
 
         'popper-content-side-top-show': 'popper-content-side-top-show 160ms cubic-bezier(0.16, 1, 0.3, 1)',
         'popper-content-side-top-hide': 'popper-content-side-top-hide 100ms cubic-bezier(0.16, 1, 0.3, 1)',
