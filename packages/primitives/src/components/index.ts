@@ -11,6 +11,7 @@ export * as Popover from './popover';
 export * as Primitive from './primitive';
 export * as Separator from './separator';
 export * as Spinner from './spinner';
+export * as Spoiler from './spoiler';
 export * as Tabs from './tabs';
 export * as Toggle from './toggle';
 export * as VisuallyHidden from './visually-hidden';
