@@ -1,7 +1,8 @@
 import type { CardRootProps } from './card-root.types';
-import { component$, Slot } from '@builder.io/qwik';
+import { component$, useContextProvider, Slot } from '@builder.io/qwik';
 import { twm } from '@/utilities/twm';
 import { cardRootStyles } from './card-root.styles';
+import { CardContext } from '../card-context';
 
 /**
  * Container that groups related content and actions.
@@ -9,6 +10,8 @@ import { cardRootStyles } from './card-root.styles';
  */
 export const CardRoot = component$<CardRootProps>((props) => {
   const { as, size = '1', class: className, ...others } = props;
+
+  useContextProvider(CardContext, { size });
 
   const Component = as || 'div';
 
