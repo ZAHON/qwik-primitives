@@ -16,6 +16,7 @@ export const SeparatorRoot = component$<SeparatorRootProps>((props) => {
       aria-orientation={decorative ? undefined : orientation === 'vertical' ? 'vertical' : undefined}
       data-qwik-primitives-separator-root=""
       data-scope="separator"
+      data-part="root"
       data-orientation={orientation}
       {...others}
     />
