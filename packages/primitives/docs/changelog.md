@@ -1,5 +1,21 @@
 # Changelog
 
+## 0.0.27
+
+### 🚀 Features
+
+- Add `Spoiler` component.
+
+- Improve `Popover` component combatibility with others component that uses top layer.
+
+- Improve `Dialog` component combatibility with others component that uses top layer.
+
+- Improve `AlertDialog` component combatibility with others component that uses top layer.
+
+### 🐞 Bug Fixes
+
+- Fix browser freez in some cases when use `useFocusTrap` hook.
+
 ## 0.0.26
 
 ### 🚀 Features
