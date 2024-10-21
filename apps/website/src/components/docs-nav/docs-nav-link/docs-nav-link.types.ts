@@ -5,11 +5,6 @@ export interface DocsNavLinkProps {
   href: string;
 
   /**
-   * The variant of the link.
-   */
-  variant: 'mobile' | 'desktop';
-
-  /**
    * Used to identify the link as the currently active page.
    */
   active: boolean;

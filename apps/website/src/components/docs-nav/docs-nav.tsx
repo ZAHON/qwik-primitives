@@ -1,6 +1,7 @@
 import type { DocsNavProps } from './docs-nav.types';
 import { component$ } from '@builder.io/qwik';
 import { usePathname } from '@/hooks/use-pathname';
+import { components } from '@/data/components';
 import { GithubLogoIcon } from '@/icons/github-logo-icon';
 import { DocsNavGroup } from './docs-nav-group';
 import { DocsNavHeading } from './docs-nav-heading';
@@ -19,12 +20,25 @@ export const DocsNav = component$<DocsNavProps>((props) => {
       {variant === 'mobile' && (
         <DocsNavList aria-labelledby={undefined}>
           <DocsNavItem>
-            <DocsNavLink href="/" variant={variant} active={pathname === '/'}>
+            <DocsNavLink href="/" active={pathname === '/'}>
               Home page
             </DocsNavLink>
           </DocsNavItem>
         </DocsNavList>
       )}
+
+      <DocsNavGroup>
+        <DocsNavHeading id="components">Components</DocsNavHeading>
+        <DocsNavList aria-labelledby="components">
+          {components.map(({ title, href }) => (
+            <DocsNavItem key={title}>
+              <DocsNavLink href={href} active={pathname === href}>
+                {title}
+              </DocsNavLink>
+            </DocsNavItem>
+          ))}
+        </DocsNavList>
+      </DocsNavGroup>
 
       {variant === 'mobile' && (
         <DocsNavGroup>
@@ -33,7 +47,6 @@ export const DocsNav = component$<DocsNavProps>((props) => {
             <DocsNavItem>
               <DocsNavLink
                 href="https://github.com/ZAHON/qwik-primitives"
-                variant={variant}
                 active={false}
                 external={true}
                 openInNewTab={true}
