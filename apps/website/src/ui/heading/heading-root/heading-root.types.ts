@@ -9,7 +9,7 @@ export interface HeadingRootProps extends PropsOf<'h1' | 'h2' | 'h3' | 'h4' | 'h
   as?: FunctionComponent;
 
   /**
-   * The level of the heading.
+   * The level of the heading, determines which tag will be used (h1-h6).
    * @default "1"
    */
   level?: '1' | '2' | '3' | '4' | '5' | '6';
