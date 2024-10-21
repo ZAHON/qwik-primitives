@@ -41,6 +41,21 @@ describe('Separator', () => {
       cy.get(`[data-testid="${SEPARATOR_ROOT_TESTID}"]`).should('have.attr', 'role', 'separator');
     });
 
+    it('should have attribute data-qwik-primitives-separator-root with empty value', () => {
+      cy.mount(<Separator.Root data-testid={SEPARATOR_ROOT_TESTID} />);
+      cy.get(`[data-testid="${SEPARATOR_ROOT_TESTID}"]`).should('have.attr', 'data-qwik-primitives-separator-root', '');
+    });
+
+    it('should have attribute data-scope with value "separator"', () => {
+      cy.mount(<Separator.Root data-testid={SEPARATOR_ROOT_TESTID} />);
+      cy.get(`[data-testid="${SEPARATOR_ROOT_TESTID}"]`).should('have.attr', 'data-scope', 'separator');
+    });
+
+    it('should have attribute data-part with value "root"', () => {
+      cy.mount(<Separator.Root data-testid={SEPARATOR_ROOT_TESTID} />);
+      cy.get(`[data-testid="${SEPARATOR_ROOT_TESTID}"]`).should('have.attr', 'data-part', 'root');
+    });
+
     it('should have attribute data-orientation with value "horizontal" when orientation="horizontal"', () => {
       cy.mount(<Separator.Root orientation="horizontal" data-testid={SEPARATOR_ROOT_TESTID} />);
       cy.get(`[data-testid="${SEPARATOR_ROOT_TESTID}"]`).should('have.attr', 'data-orientation', 'horizontal');
