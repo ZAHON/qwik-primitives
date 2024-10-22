@@ -5,6 +5,7 @@ export * as Breadcrumbs from './breadcrumbs';
 export * as Collapsible from './collapsible';
 export * as CopyButton from './copy-button';
 export * as Dialog from './dialog';
+export * as Heading from './heading';
 export * as Label from './label';
 export * as Link from './link';
 export * as Popover from './popover';
