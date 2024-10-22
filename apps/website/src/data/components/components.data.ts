@@ -39,6 +39,11 @@ export const components: Components = [
     href: `${baseHref}/dialog`,
   },
   {
+    title: 'Heading',
+    description: `Semantic heading element.`,
+    href: `${baseHref}/heading`,
+  },
+  {
     title: 'Label',
     description: `Renders an accessible label associated with controls.`,
     href: `${baseHref}/label`,
