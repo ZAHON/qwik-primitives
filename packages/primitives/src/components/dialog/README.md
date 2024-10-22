@@ -163,16 +163,18 @@ The button that closes the dialog. This component is based on the `button` eleme
 
 An accessible title to be announced when the dialog is opened. This component is based on the `h2` element.
 
-| Prop             | Type                | Default | Description                                                                                                                                                                                                                             |
-| ---------------- | ------------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `as`             | `FunctionComponent` | `-`     | Change the default rendered element for the one passed as, merging their props and behavior. Read our [Composition](https://github.com/ZAHON/qwik-primitives/blob/main/packages/primitives/docs/composition.md) guide for more details. |
-| `visuallyHidden` | `boolean`           | `-`     | When `true`, title will be hide from the screen in an accessible way.                                                                                                                                                                   |
-| `style`          | `CSSProperties`     | `-`     | The inline style for the element.                                                                                                                                                                                                       |
+| Prop             | Type                                     | Default | Description                                                                                                                                                                                                                             |
+| ---------------- | ---------------------------------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `as`             | `FunctionComponent`                      | `-`     | Change the default rendered element for the one passed as, merging their props and behavior. Read our [Composition](https://github.com/ZAHON/qwik-primitives/blob/main/packages/primitives/docs/composition.md) guide for more details. |
+| `level`          | `"1" \| "2" \| "3" \| "4" \| "5" \| "6"` | `"2"`   | The level of the title, determines which tag will be used (h1-h6).                                                                                                                                                                      |
+| `visuallyHidden` | `boolean`                                | `-`     | When `true`, title will be hide from the screen in an accessible way.                                                                                                                                                                   |
+| `style`          | `CSSProperties`                          | `-`     | The inline style for the element.                                                                                                                                                                                                       |
 
-| Data attribute | Values     |
-| -------------- | ---------- |
-| `[data-scope]` | `"dialog"` |
-| `[data-part]`  | `"title"`  |
+| Data attribute | Values                                   |
+| -------------- | ---------------------------------------- |
+| `[data-scope]` | `"dialog"`                               |
+| `[data-part]`  | `"title"`                                |
+| `[data-level]` | `"1" \| "2" \| "3" \| "4" \| "5" \| "6"` |
 
 ### Description
 
