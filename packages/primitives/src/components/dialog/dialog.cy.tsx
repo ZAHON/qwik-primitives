@@ -1131,6 +1131,72 @@ describe('Dialog', () => {
       cy.get(`[data-testid="${DIALOG_TITLE_TESTID}"]`).should('have.prop', 'tagName').should('eq', 'DIV');
     });
 
+    it('should be <h1> element when level="1"', () => {
+      cy.mount(
+        <Dialog.Root>
+          <Dialog.Content>
+            <Dialog.Title level="1" data-testid={DIALOG_TITLE_TESTID} />
+          </Dialog.Content>
+        </Dialog.Root>
+      );
+      cy.get(`[data-testid="${DIALOG_TITLE_TESTID}"]`).should('have.prop', 'tagName').should('eq', 'H1');
+    });
+
+    it('should be <h2> element when level="2"', () => {
+      cy.mount(
+        <Dialog.Root>
+          <Dialog.Content>
+            <Dialog.Title level="2" data-testid={DIALOG_TITLE_TESTID} />
+          </Dialog.Content>
+        </Dialog.Root>
+      );
+      cy.get(`[data-testid="${DIALOG_TITLE_TESTID}"]`).should('have.prop', 'tagName').should('eq', 'H2');
+    });
+
+    it('should be <h3> element when level="3"', () => {
+      cy.mount(
+        <Dialog.Root>
+          <Dialog.Content>
+            <Dialog.Title level="3" data-testid={DIALOG_TITLE_TESTID} />
+          </Dialog.Content>
+        </Dialog.Root>
+      );
+      cy.get(`[data-testid="${DIALOG_TITLE_TESTID}"]`).should('have.prop', 'tagName').should('eq', 'H3');
+    });
+
+    it('should be <h4> element when level="4"', () => {
+      cy.mount(
+        <Dialog.Root>
+          <Dialog.Content>
+            <Dialog.Title level="4" data-testid={DIALOG_TITLE_TESTID} />
+          </Dialog.Content>
+        </Dialog.Root>
+      );
+      cy.get(`[data-testid="${DIALOG_TITLE_TESTID}"]`).should('have.prop', 'tagName').should('eq', 'H4');
+    });
+
+    it('should be <h5> element when level="5"', () => {
+      cy.mount(
+        <Dialog.Root>
+          <Dialog.Content>
+            <Dialog.Title level="5" data-testid={DIALOG_TITLE_TESTID} />
+          </Dialog.Content>
+        </Dialog.Root>
+      );
+      cy.get(`[data-testid="${DIALOG_TITLE_TESTID}"]`).should('have.prop', 'tagName').should('eq', 'H5');
+    });
+
+    it('should be <h6> element when level="6"', () => {
+      cy.mount(
+        <Dialog.Root>
+          <Dialog.Content>
+            <Dialog.Title level="6" data-testid={DIALOG_TITLE_TESTID} />
+          </Dialog.Content>
+        </Dialog.Root>
+      );
+      cy.get(`[data-testid="${DIALOG_TITLE_TESTID}"]`).should('have.prop', 'tagName').should('eq', 'H6');
+    });
+
     it('should contain passed children', () => {
       const DIALOG_TITLE_TEXT = 'DIALOG_TITLE_TEXT';
 
@@ -1175,6 +1241,72 @@ describe('Dialog', () => {
         </Dialog.Root>
       );
       cy.get(`[data-testid="${DIALOG_TITLE_TESTID}"]`).should('have.attr', 'data-part', 'title');
+    });
+
+    it('should have attribute data-lavel with value "1" when level="1"', () => {
+      cy.mount(
+        <Dialog.Root>
+          <Dialog.Content>
+            <Dialog.Title level="1" data-testid={DIALOG_TITLE_TESTID} />
+          </Dialog.Content>
+        </Dialog.Root>
+      );
+      cy.get(`[data-testid="${DIALOG_TITLE_TESTID}"]`).should('have.attr', 'data-level', '1');
+    });
+
+    it('should have attribute data-lavel with value "2" when level="2"', () => {
+      cy.mount(
+        <Dialog.Root>
+          <Dialog.Content>
+            <Dialog.Title level="2" data-testid={DIALOG_TITLE_TESTID} />
+          </Dialog.Content>
+        </Dialog.Root>
+      );
+      cy.get(`[data-testid="${DIALOG_TITLE_TESTID}"]`).should('have.attr', 'data-level', '2');
+    });
+
+    it('should have attribute data-lavel with value "3" when level="3"', () => {
+      cy.mount(
+        <Dialog.Root>
+          <Dialog.Content>
+            <Dialog.Title level="3" data-testid={DIALOG_TITLE_TESTID} />
+          </Dialog.Content>
+        </Dialog.Root>
+      );
+      cy.get(`[data-testid="${DIALOG_TITLE_TESTID}"]`).should('have.attr', 'data-level', '3');
+    });
+
+    it('should have attribute data-lavel with value "4" when level="4"', () => {
+      cy.mount(
+        <Dialog.Root>
+          <Dialog.Content>
+            <Dialog.Title level="4" data-testid={DIALOG_TITLE_TESTID} />
+          </Dialog.Content>
+        </Dialog.Root>
+      );
+      cy.get(`[data-testid="${DIALOG_TITLE_TESTID}"]`).should('have.attr', 'data-level', '4');
+    });
+
+    it('should have attribute data-lavel with value "5" when level="5"', () => {
+      cy.mount(
+        <Dialog.Root>
+          <Dialog.Content>
+            <Dialog.Title level="5" data-testid={DIALOG_TITLE_TESTID} />
+          </Dialog.Content>
+        </Dialog.Root>
+      );
+      cy.get(`[data-testid="${DIALOG_TITLE_TESTID}"]`).should('have.attr', 'data-level', '5');
+    });
+
+    it('should have attribute data-lavel with value "6" when level="6"', () => {
+      cy.mount(
+        <Dialog.Root>
+          <Dialog.Content>
+            <Dialog.Title level="6" data-testid={DIALOG_TITLE_TESTID} />
+          </Dialog.Content>
+        </Dialog.Root>
+      );
+      cy.get(`[data-testid="${DIALOG_TITLE_TESTID}"]`).should('have.attr', 'data-level', '6');
     });
 
     it('should have attribute id with unique value when not provided via id prop', () => {
