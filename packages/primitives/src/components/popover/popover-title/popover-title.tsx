@@ -9,7 +9,7 @@ import { PopoverContext } from '../popover-context';
  * This component is based on the `h2` element.
  */
 export const PopoverTitle = component$<PopoverTitleProps>((props) => {
-  const { as, id, visuallyHidden, style, ...others } = props;
+  const { as, id, level = '2', visuallyHidden, style, ...others } = props;
 
   const { titleId } = useContext(PopoverContext);
 
@@ -25,7 +25,7 @@ export const PopoverTitle = component$<PopoverTitleProps>((props) => {
     });
   });
 
-  const Component = as || 'h2';
+  const Component = as || (`h${level}` as const);
 
   return (
     <Component
@@ -33,6 +33,7 @@ export const PopoverTitle = component$<PopoverTitleProps>((props) => {
       data-qwik-primitives-popover-title=""
       data-scope="popover"
       data-part="title"
+      data-level={level}
       style={{
         ...(visuallyHidden && visuallyHiddenStyle),
         ...style,
