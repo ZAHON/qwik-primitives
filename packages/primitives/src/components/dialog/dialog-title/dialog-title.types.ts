@@ -9,6 +9,12 @@ export interface DialogTitleProps extends PropsOf<'h2'> {
   as?: FunctionComponent;
 
   /**
+   * The level of the title, determines which tag will be used (h1-h6).
+   * @default "2"
+   */
+  level?: '1' | '2' | '3' | '4' | '5' | '6';
+
+  /**
    * When `true`, title will be hide from the screen in an accessible way.
    */
   visuallyHidden?: boolean;
