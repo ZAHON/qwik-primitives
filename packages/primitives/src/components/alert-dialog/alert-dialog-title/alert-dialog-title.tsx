@@ -9,7 +9,7 @@ import { AlertDialogContext } from '../alert-dialog-context';
  * This component is based on the `h2` element.
  */
 export const AlertDialogTitle = component$<AlertDialogTitleProps>((props) => {
-  const { as, id, visuallyHidden, style, ...others } = props;
+  const { as, id, level = '2', visuallyHidden, style, ...others } = props;
 
   const { titleId } = useContext(AlertDialogContext);
 
@@ -28,7 +28,7 @@ export const AlertDialogTitle = component$<AlertDialogTitleProps>((props) => {
     });
   });
 
-  const Component = as || 'h2';
+  const Component = as || (`h${level}` as const);
 
   return (
     <Component
@@ -36,6 +36,7 @@ export const AlertDialogTitle = component$<AlertDialogTitleProps>((props) => {
       data-qwik-primitives-alert-dialog-title=""
       data-scope="alert-dialog"
       data-part="title"
+      data-level={level}
       style={{
         ...(visuallyHidden && visuallyHiddenStyle),
         ...style,
