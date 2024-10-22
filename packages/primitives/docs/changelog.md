@@ -1,5 +1,45 @@
 # Changelog
 
+## 0.0.28
+
+### 🚀 Features
+
+- Add `Heading` component.
+
+- `Separator` component
+
+  - `Separator.Root` component
+
+    - Add `data-qwik-primitives-separator-root` attribute with empty value.
+
+    - Add `data-scope` attribute with value `"separator"`.
+
+    - Add `data-part` attribute with value `"root"`.
+
+- `Dialog` component
+
+  - `Dialog.Title` component
+
+    - Add `level` prop that allow to change the level of the title, determines which tag will be used (h1-h6).
+
+    - Add `data-level` attribute witch have value affiliated with value pass `level` prop.
+
+- `AlertDialog` component
+
+  - `AlertDialog.Title` component
+
+    - Add `level` prop that allow to change the level of the title, determines which tag will be used (h1-h6).
+
+    - Add `data-level` attribute witch have value affiliated with value pass `level` prop.
+
+- `Popover` component
+
+  - `Popover.Title` component
+
+    - Add `level` prop that allow to change the level of the title, determines which tag will be used (h1-h6).
+
+    - Add `data-level` attribute witch have value affiliated with value pass `level` prop.
+
 ## 0.0.27
 
 ### 🚀 Features
