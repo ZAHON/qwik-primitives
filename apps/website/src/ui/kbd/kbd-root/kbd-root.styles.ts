@@ -30,15 +30,15 @@ export const kbdRootStyles = cva(
   {
     variants: {
       size: {
-        '1': ['text-[0.6rem]', 'tracking-1'],
-        '2': ['text-[0.7rem]', 'tracking-2'],
-        '3': ['text-[0.8rem]', 'tracking-3'],
-        '4': ['text-[0.9rem]', 'tracking-4'],
-        '5': ['text-[1rem]', 'tracking-5'],
-        '6': ['text-[1.2rem]', 'tracking-6'],
-        '7': ['text-[1.4rem]', 'tracking-7'],
-        '8': ['text-[1.75rem]', 'tracking-8'],
-        '9': ['text-[3rem]', 'tracking-9'],
+        '1': ['text-[calc(var(--font-size-1)*0.8)]', 'tracking-1'],
+        '2': ['text-[calc(var(--font-size-2)*0.8)]', 'tracking-2'],
+        '3': ['text-[calc(var(--font-size-3)*0.8)]', 'tracking-3'],
+        '4': ['text-[calc(var(--font-size-4)*0.8)]', 'tracking-4'],
+        '5': ['text-[calc(var(--font-size-5)*0.8)]', 'tracking-5'],
+        '6': ['text-[calc(var(--font-size-6)*0.8)]', 'tracking-6'],
+        '7': ['text-[calc(var(--font-size-7)*0.8)]', 'tracking-7'],
+        '8': ['text-[calc(var(--font-size-8)*0.8)]', 'tracking-8'],
+        '9': ['text-[calc(var(--font-size-9)*0.8)]', 'tracking-9'],
       },
     },
   }
