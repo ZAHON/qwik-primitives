@@ -10,7 +10,6 @@ export interface CodeRootProps extends PropsOf<'code'> {
 
   /**
    * The size of the code.
-   * By default size will be inherit from parent.
    */
   size?: '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9';
 
