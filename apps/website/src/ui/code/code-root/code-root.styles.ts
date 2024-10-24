@@ -19,15 +19,51 @@ export const codeRootStyles = cva(
   {
     variants: {
       size: {
-        '1': ['text-[0.676875rem]', 'leading-1', 'tracking-[-0.0045em]'],
-        '2': ['text-[0.7896875rem]', 'leading-2', 'tracking-[-0.007em]'],
-        '3': ['text-[0.9025rem]', 'leading-3', 'tracking-[-0.007em]'],
-        '4': ['text-[1.0153125rem]', 'leading-4', 'tracking-[-0.0095em]'],
-        '5': ['text-[1.128125rem]', 'leading-5', 'tracking-[-0.012em]'],
-        '6': ['text-[1.35375rem]', 'leading-6', 'tracking-[-0.01325em]'],
-        '7': ['text-[1.579375rem]', 'leading-7', 'tracking-[-0.0145em]'],
-        '8': ['text-[1.97421875rem]', 'leading-8', 'tracking-[-0.017em]'],
-        '9': ['text-[3.384375rem]', 'leading-9', 'tracking-[-0.032em]'],
+        '1': [
+          'text-[calc(0.95*0.95*var(--font-size-1))]',
+          'leading-1',
+          'tracking-[calc(-0.007em+var(--letter-spacing-1))]',
+        ],
+        '2': [
+          'text-[calc(0.95*0.95*var(--font-size-2))]',
+          'leading-2',
+          'tracking-[calc(-0.007em+var(--letter-spacing-2))]',
+        ],
+        '3': [
+          'text-[calc(0.95*0.95*var(--font-size-3))]',
+          'leading-3',
+          'tracking-[calc(-0.007em+var(--letter-spacing-3))]',
+        ],
+        '4': [
+          'text-[calc(0.95*0.95*var(--font-size-4))]',
+          'leading-4',
+          'tracking-[calc(-0.007em+var(--letter-spacing-4))]',
+        ],
+        '5': [
+          'text-[calc(0.95*0.95*var(--font-size-5))]',
+          'leading-5',
+          'tracking-[calc(-0.007em+var(--letter-spacing-5))]',
+        ],
+        '6': [
+          'text-[calc(0.95*0.95*var(--font-size-6))]',
+          'leading-6',
+          'tracking-[calc(-0.007em+var(--letter-spacing-6))]',
+        ],
+        '7': [
+          'text-[calc(0.95*0.95*var(--font-size-7))]',
+          'leading-7',
+          'tracking-[calc(-0.007em+var(--letter-spacing-7))]',
+        ],
+        '8': [
+          'text-[calc(0.95*0.95*var(--font-size-8))]',
+          'leading-8',
+          'tracking-[calc(-0.007em+var(--letter-spacing-8))]',
+        ],
+        '9': [
+          'text-[calc(0.95*0.95*var(--font-size-9))]',
+          'leading-9',
+          'tracking-[calc(-0.007em+var(--letter-spacing-9))]',
+        ],
       },
       variant: {
         solid: [''],
