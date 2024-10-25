@@ -28,9 +28,24 @@ describe('Link', () => {
       cy.get(`[data-testid="${LINK_ROOT_TESTID}"]`).should('have.text', LINK_ROOT_TEXT);
     });
 
-    it('should have attribute href with value provided via href prop', () => {
-      cy.mount(<Link.Root href={LINK_ROOT_URL} data-testid={LINK_ROOT_TESTID} />);
+    it('should have not attribute role when not disabled', () => {
+      cy.mount(<Link.Root disabled={false} href={LINK_ROOT_URL} data-testid={LINK_ROOT_TESTID} />);
+      cy.get(`[data-testid="${LINK_ROOT_TESTID}"]`).should('have.not.attr', 'role');
+    });
+
+    it('should have attribute role with value "link" when disabled', () => {
+      cy.mount(<Link.Root disabled={true} href={LINK_ROOT_URL} data-testid={LINK_ROOT_TESTID} />);
+      cy.get(`[data-testid="${LINK_ROOT_TESTID}"]`).should('have.attr', 'role', 'link');
+    });
+
+    it('should have attribute href with value provided via href prop when not disabled', () => {
+      cy.mount(<Link.Root disabled={false} href={LINK_ROOT_URL} data-testid={LINK_ROOT_TESTID} />);
       cy.get(`[data-testid="${LINK_ROOT_TESTID}"]`).should('have.attr', 'href', LINK_ROOT_URL);
+    });
+
+    it('should have not attribute href when disabled', () => {
+      cy.mount(<Link.Root disabled={true} href={LINK_ROOT_URL} data-testid={LINK_ROOT_TESTID} />);
+      cy.get(`[data-testid="${LINK_ROOT_TESTID}"]`).should('have.not.attr', 'href');
     });
 
     it('should have not attribute aria-disabled when not disabled', () => {
