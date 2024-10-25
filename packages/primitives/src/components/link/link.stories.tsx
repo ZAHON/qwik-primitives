@@ -1,35 +1,45 @@
 import type { Meta, StoryObj } from 'storybook-framework-qwik';
+import type { PropsOf } from '@builder.io/qwik';
 import * as Link from '.';
 
-const LINK_URL = 'https://github.com/ZAHON/qwik-primitives';
+type LinkProps = PropsOf<typeof Link.Root> & { children: string };
+type Story = StoryObj<LinkProps>;
 
-const meta: Meta<typeof Link.Root> = {
+const meta: Meta<LinkProps> = {
   title: 'Components/Link',
+  args: {
+    children: 'Qwik Primitives',
+    href: 'https://github.com/ZAHON/qwik-primitives',
+    disabled: undefined,
+  },
+  argTypes: {
+    children: { control: 'text' },
+    href: { control: 'text' },
+    disabled: { control: 'boolean' },
+  },
 };
 
 export default meta;
-type Story = StoryObj<typeof Link.Root>;
 
-export const Example: Story = {
-  render: () => {
-    return (
-      <>
-        <h2>Example</h2>
-        <Link.Root href={LINK_URL}>Qwik Primitives</Link.Root>
-      </>
-    );
+export const Default: Story = {
+  render: (props) => {
+    const { children, ...others } = props;
+
+    return <Link.Root {...others}>{children}</Link.Root>;
   },
 };
 
 export const Disabled: Story = {
-  render: () => {
+  argTypes: {
+    disabled: { control: false },
+  },
+  render: (props) => {
+    const { children, ...others } = props;
+
     return (
-      <>
-        <h2>Disabled</h2>
-        <Link.Root disabled={true} href={LINK_URL}>
-          Qwik Primitives
-        </Link.Root>
-      </>
+      <Link.Root {...others} disabled={true}>
+        {children}
+      </Link.Root>
     );
   },
 };
