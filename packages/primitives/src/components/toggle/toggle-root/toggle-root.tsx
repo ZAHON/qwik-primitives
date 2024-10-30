@@ -17,10 +17,9 @@ export const ToggleRoot = component$<ToggleRootProps>((props) => {
   });
 
   const state = useComputed$(() => (isPressed.value ? 'on' : 'off'));
-  const isDisabled = useComputed$(() => disabled);
 
   const handleClick$ = $(() => {
-    if (!isDisabled.value) setIsPressed$(!isPressed.value);
+    if (!disabled) setIsPressed$(!isPressed.value);
   });
 
   const Component = as || 'button';
@@ -28,13 +27,13 @@ export const ToggleRoot = component$<ToggleRootProps>((props) => {
   return (
     <Component
       type="button"
-      disabled={isDisabled.value}
+      disabled={disabled}
       aria-pressed={isPressed.value}
       data-qwik-primitives-toggle-root=""
       data-scope="toggle"
       data-part="root"
       data-state={state.value}
-      data-disabled={isDisabled.value ? '' : undefined}
+      data-disabled={disabled ? '' : undefined}
       onClick$={[onClick$, handleClick$]}
       {...others}
     >
