@@ -105,17 +105,17 @@
     --color-primary-alpha-11: #43009db8;
     --color-primary-alpha-12: #320064ed;
 
-    --code-block-background: #ffffff;
-    --code-block-foreground: #1e1f24;
-    --code-block-token-constant: #3a5bc7;
-    --code-block-token-string: #2a7e3b;
-    --code-block-token-comment: #62636c;
-    --code-block-token-keyword: #c2298a;
-    --code-block-token-parameter: #9e6c00;
-    --code-block-token-function: #7747b8;
-    --code-block-token-string-expression: #3a5bc7;
-    --code-block-token-punctuation: #1e1f24;
-    --code-block-token-link: #2a7e3b;
+    --syntax-highlighter-background: #ffffff;
+    --syntax-highlighter-foreground: #1e1f24;
+    --syntax-highlighter-token-constant: #3a5bc7;
+    --syntax-highlighter-token-string: #2a7e3b;
+    --syntax-highlighter-token-comment: #62636c;
+    --syntax-highlighter-token-keyword: #c2298a;
+    --syntax-highlighter-token-parameter: #9e6c00;
+    --syntax-highlighter-token-function: #7747b8;
+    --syntax-highlighter-token-string-expression: #3a5bc7;
+    --syntax-highlighter-token-punctuation: #1e1f24;
+    --syntax-highlighter-token-link: #2a7e3b;
 
     /* prettier-ignore */
     --shadow-1:
@@ -235,17 +235,17 @@
     --color-primary-alpha-11: #c6a1ff;
     --color-primary-alpha-12: #e8ddfffd;
 
-    --code-block-background: #19191b;
-    --code-block-foreground: #eeeef0;
-    --code-block-token-constant: #9eb1ff;
-    --code-block-token-string: #71d083;
-    --code-block-token-comment: #b2b3bd;
-    --code-block-token-keyword: #ff8dcc;
-    --code-block-token-parameter: #f5e147;
-    --code-block-token-function: #c6a1ff;
-    --code-block-token-string-expression: #9eb1ff;
-    --code-block-token-punctuation: #eeeef0;
-    --code-block-token-link: #71d083;
+    --syntax-highlighter-background: #19191b;
+    --syntax-highlighter-foreground: #eeeef0;
+    --syntax-highlighter-token-constant: #9eb1ff;
+    --syntax-highlighter-token-string: #71d083;
+    --syntax-highlighter-token-comment: #b2b3bd;
+    --syntax-highlighter-token-keyword: #ff8dcc;
+    --syntax-highlighter-token-parameter: #f5e147;
+    --syntax-highlighter-token-function: #c6a1ff;
+    --syntax-highlighter-token-string-expression: #9eb1ff;
+    --syntax-highlighter-token-punctuation: #eeeef0;
+    --syntax-highlighter-token-link: #71d083;
 
     /* prettier-ignore */
     --shadow-1:
