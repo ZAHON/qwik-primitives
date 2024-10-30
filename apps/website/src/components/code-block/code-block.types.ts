@@ -1,33 +1,17 @@
-export interface CodeBlockProps {
-  /**
-   * The code to be highlighted.
-   */
-  code: string;
+import type { CodeBlockSingleProps } from './code-block-single';
+import type { CodeBlockTabsProps } from './code-block-tabs';
 
+export interface CodeBlockCommonProps {
   /**
-   * The language of the code.
+   * Determines the type of the code block.
    */
-  language: 'css' | 'tsx';
-
-  /**
-   * The lines to highlight.
-   * @example ['1', '2-4']
-   */
-  lines?: string[];
-
-  /**
-   * The words to highlight.
-   */
-  words?: string[];
-
-  /**
-   * If `true`, code block will have copy button.
-   * @default true
-   */
-  withCopyButton?: boolean;
+  type: 'single' | 'tabs';
 
   /**
    * The CSS class for the element.
    */
   class?: string;
 }
+
+export type CodeBlockProps = CodeBlockCommonProps &
+  (({ type: 'single' } & CodeBlockSingleProps) | ({ type: 'tabs' } & CodeBlockTabsProps));

@@ -11,5 +11,5 @@ export const codeBlockCopyButtonStyles = cva([
 
   'focus-visible:opacity-100',
 
-  'group-hover/code-block:opacity-100',
+  'group-hover/code-block-syntax-highlighter:opacity-100',
 ]);

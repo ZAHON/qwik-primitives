@@ -7,7 +7,7 @@ export const CodeBlockCopyButton = component$<CodeBlockCopyButtonProps>((props) 
   const { value } = props;
 
   return (
-    <CopyButton.Root value={value} class={codeBlockCopyButtonStyles()}>
+    <CopyButton.Root value={value.trim()} class={codeBlockCopyButtonStyles()}>
       <CopyButton.Indicator>
         <CopyButton.IdleIcon />
         <CopyButton.CopiedIcon />
