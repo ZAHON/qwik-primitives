@@ -195,15 +195,6 @@ export default {
         mono: ['Geist Mono', ...fontFamily.mono],
       },
       keyframes: {
-        'mobile-menu-content-show': {
-          '0%': { opacity: '0' },
-          '100%': { opacity: '1' },
-        },
-        'mobile-menu-content-hide': {
-          '0%': { opacity: '1' },
-          '100%': { opacity: '0' },
-        },
-
         'collapsible-panel-down': {
           '0%': { opacity: '0', gridTemplateRows: '0fr' },
           '100%': { opacity: '1', gridTemplateRows: '1fr' },
@@ -259,9 +250,6 @@ export default {
         },
       },
       animation: {
-        'mobile-menu-content-show': 'mobile-menu-content-show 160ms cubic-bezier(0.16, 1, 0.3, 1)',
-        'mobile-menu-content-hide': 'mobile-menu-content-hide 100ms cubic-bezier(0.16, 1, 0.3, 1)',
-
         'collapsible-panel-down': 'collapsible-panel-down 350ms cubic-bezier(0, 0, 0.2, 1)',
         'collapsible-panel-up': 'collapsible-panel-up 350ms cubic-bezier(0, 0, 0.2, 1)',
 

@@ -15,7 +15,4 @@ export const mobileMenuContentStyles = cva([
   'backdrop:bg-transparent',
 
   'focus:outline-none',
-
-  'motion-safe:data-[state=open]:animate-mobile-menu-content-show',
-  'motion-safe:data-[state=closed]:animate-mobile-menu-content-hide',
 ]);
