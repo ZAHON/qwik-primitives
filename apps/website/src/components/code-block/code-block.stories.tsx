@@ -109,7 +109,7 @@ const code = {
   tsx: tsxCode,
 };
 
-export const Example: Story = {
+export const Preview: Story = {
   render: (props) => {
     const { type } = props;
 
