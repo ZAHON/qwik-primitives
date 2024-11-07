@@ -1,16 +1,9 @@
 import type { CodeBlockSingleProps } from './code-block-single.types';
 import { component$ } from '@builder.io/qwik';
-import { CodeBlockSyntaxHighlighter } from '../code-block-syntax-highlighter';
-import { CodeBlockCopyButton } from '../code-block-copy-button';
+import { SyntaxHighlighter } from '@/components/syntax-highlighter';
 
 export const CodeBlockSingle = component$<CodeBlockSingleProps>((props) => {
   const { code, withCopyButton = true, ...others } = props;
 
-  return (
-    <>
-      <CodeBlockSyntaxHighlighter code={code} {...others}>
-        {withCopyButton && <CodeBlockCopyButton value={code} />}
-      </CodeBlockSyntaxHighlighter>
-    </>
-  );
+  return <SyntaxHighlighter code={code} withCopyButton={withCopyButton} {...others}></SyntaxHighlighter>;
 });

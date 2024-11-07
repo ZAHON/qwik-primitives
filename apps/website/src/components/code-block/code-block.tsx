@@ -11,7 +11,7 @@ export const CodeBlock = component$<CodeBlockProps>((props) => {
   const { type, class: className, ...others } = props;
 
   return (
-    <div class={twm(codeBlockStyles({ type }), className)}>
+    <div class={twm(codeBlockStyles(), className)}>
       {type === 'single' && <CodeBlockSingle {...(others as CodeBlockSingleProps)} />}
       {type === 'tabs' && <CodeBlockTabs {...(others as CodeBlockTabsProps)} />}
     </div>
