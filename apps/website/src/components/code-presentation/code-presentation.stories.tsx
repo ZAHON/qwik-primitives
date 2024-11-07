@@ -74,6 +74,7 @@ export const Preview: Story = {
               { tab: 'index.tsx', code: tsxCode, language: 'tsx' },
               { tab: 'index.styles.ts', code: stylesCode, language: 'typescript' },
             ]}
+            {...others}
           />
         )}
       </>
