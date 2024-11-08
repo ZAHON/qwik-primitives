@@ -145,52 +145,52 @@
 
     /* prettier-ignore */
     --shadow-1:
-				inset 0 0 0 1px #0009321F,
-				inset 0 1.5px 2px 0 #00005506,
-				inset 0 1.5px 2px 0 #0000001A;
+    	inset 0 0 0 1px var(--color-default-alpha-5),
+    	inset 0 1.5px 2px 0 var(--color-default-alpha-2),
+    	inset 0 1.5px 2px 0 var(--color-black-alpha-2);
 
     /* prettier-ignore */
     --shadow-2:
-				0 0 0 1px #00104010,
-				0 0 0 0.5px #0000000D,
-				0 1px 1px 0 #00005506,
-				0 2px 1px -1px #0000000D,
-				0 1px 3px 0 #0000000D;
+			0 0 0 1px var(--color-default-alpha-3),
+			0 0 0 0.5px var(--color-black-alpha-1),
+			0 1px 1px 0 var(--color-default-alpha-2),
+			0 2px 1px -1px var(--color-black-alpha-1),
+			0 1px 3px 0 var(--color-black-alpha-1);
 
     /* prettier-ignore */
     --shadow-3:
-				0 0 0 1px #00104010,
-				0 2px 3px -2px #00104010,
-				0 3px 12px -4px #0000001A,
-				0 4px 16px -8px #0000001A;
+			0 0 0 1px var(--color-default-alpha-3),
+			0 2px 3px -2px var(--color-default-alpha-3),
+			0 3px 12px -4px var(--color-black-alpha-2),
+			0 4px 16px -8px var(--color-black-alpha-2);
 
     /* prettier-ignore */
     --shadow-4:
-				0 0 0 1px #00104010,
-				0 8px 40px #0000000D,
-				0 12px 32px -16px #00104010;
+			0 0 0 1px var(--color-default-alpha-3),
+			0 8px 40px var(--color-black-alpha-1),
+			0 12px 32px -16px var(--color-default-alpha-3);
 
     /* prettier-ignore */
     --shadow-5:
-				0 0 0 1px #00104010,
-				0 12px 60px #00000026,
-				0 12px 32px -16px #0009321F;
+			0 0 0 1px var(--color-default-alpha-3),
+			0 12px 60px var(--color-black-alpha-3),
+			0 12px 32px -16px var(--color-default-alpha-5);
 
     /* prettier-ignore */
     --shadow-6:
-				0 0 0 1px #00104010,
-				0 12px 60px #00000026,
-				0 16px 64px #00005506,
-				0 16px 36px -20px #00063332;
+			0 0 0 1px var(--color-default-alpha-3),
+			0 12px 60px var(--color-black-alpha-3),
+			0 16px 64px var(--color-default-alpha-2),
+			0 16px 36px -20px var(--color-default-alpha-7);
 
     /* prettier-ignore */
     --shadow-kbd:
-				inset 0 -0.05em 0.5em #00005506,
-				inset 0 0.05em #fffffff2,
-				inset 0 0.25em 0.5em #00005506,
-				inset 0 -0.05em #00073527,
-				0 0 0 0.05em #0009321f,
-				0 0.08em 0.17em #00063332;
+			inset 0 -0.05em 0.5em var(--color-default-alpha-2),
+			inset 0 0.05em var(--color-white-alpha-12),
+			inset 0 0.25em 0.5em var(--color-default-alpha-2),
+			inset 0 -0.05em var(--color-default-alpha-6),
+			0 0 0 0.05em var(--color-default-alpha-5),
+			0 0.08em 0.17em var(--color-default-alpha-7);
   }
 
   [data-theme='dark'] {
@@ -275,53 +275,53 @@
 
     /* prettier-ignore */
     --shadow-1:
-				inset 0 -1px 1px 0 #D6E2F916,
-				inset 0 0 0 1px #D6E2F916,
-				inset 0 3px 4px 0 #0000004D,
-				inset 0 0 0 1px #D1D9F920;
+			inset 0 -1px 1px 0 var(--color-default-alpha-3),
+			inset 0 0 0 1px var(--color-default-alpha-3),
+			inset 0 3px 4px 0 var(--color-black-alpha-5),
+			inset 0 0 0 1px var(--color-default-alpha-4);
 
     /* prettier-ignore */
     --shadow-2:
-				0 0 0 1px #D9DEFC33,
-				0 0 0 0.5px #00000026,
-				0 1px 1px 0 #00000066,
-				0 2px 1px -1px #00000066,
-				0 1px 3px 0 #0000004D;
+			0 0 0 1px var(--color-default-alpha-6),
+			0 0 0 0.5px var(--color-black-alpha-3),
+			0 1px 1px 0 var(--color-black-alpha-6),
+			0 2px 1px -1px var(--color-black-alpha-6),
+			0 1px 3px 0 var(--color-black-alpha-5);
 
     /* prettier-ignore */
     --shadow-3:
-				0 0 0 1px #D9DEFC33,
-				0 2px 3px -2px #00000026,
-				0 3px 8px -2px #00000066,
-				0 4px 12px -4px #00000080;
+			0 0 0 1px var(--color-default-alpha-6),
+			0 2px 3px -2px var(--color-black-alpha-3),
+			0 3px 8px -2px var(--color-black-alpha-6),
+			0 4px 12px -4px var(--color-black-alpha-7);
 
     /* prettier-ignore */
     --shadow-4:
-				0 0 0 1px #D9DEFC33,
-				0 8px 40px #00000026,
-				0 12px 32px -16px #0000004D;
+			0 0 0 1px var(--color-default-alpha-6),
+			0 8px 40px var(--color-black-alpha-3),
+			0 12px 32px -16px var(--color-black-alpha-5);
 
     /* prettier-ignore */
     --shadow-5:
-				0 0 0 1px #D9DEFC33,
-				0 12px 60px #0000004D,
-				0 12px 32px -16px #00000080;
+			0 0 0 1px var(--color-default-alpha-6),
+			0 12px 60px var(--color-black-alpha-5),
+			0 12px 32px -16px var(--color-black-alpha-7);
 
     /* prettier-ignore */
     --shadow-6:
-				0 0 0 1px #D9DEFC33,
-				0 12px 60px #00000033,
-				0 16px 64px #00000066,
-				0 16px 36px -20px #000000E6;
+			0 0 0 1px var(--color-default-alpha-6),
+			0 12px 60px var(--color-black-alpha-4),
+			0 16px 64px var(--color-black-alpha-6),
+			0 16px 36px -20px var(--color-black-alpha-11);
 
     /* prettier-ignore */
     --shadow-kbd:
-			inset 0 -0.05em 0.5em #d6d6f916,
-			inset 0 0.05em #edf0feb9,
-			inset 0 0.25em 0.5em #cbcbf90b,
-			inset 0 -0.1em #000000e6,
-			0 0 0 0.075em #dee2fd42,
-			0 0.08em 0.17em #000000f2;
+			inset 0 -0.05em 0.5em var(--color-default-alpha-3),
+			inset 0 0.05em var(--color-default-alpha-11),
+			inset 0 0.25em 0.5em var(--color-default-alpha-2),
+			inset 0 -0.1em var(--color-black-alpha-11),
+			0 0 0 0.075em var(--color-default-alpha-7),
+			0 0.08em 0.17em var(--color-black-alpha-12);
   }
 
   [data-radius] {
