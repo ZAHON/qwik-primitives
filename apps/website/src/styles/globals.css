@@ -193,6 +193,37 @@
     --color-warning-alpha-11: #9e6c00;
     --color-warning-alpha-12: #2e2000e0;
 
+    /* color danger */
+    --color-danger-focus: #eb8e90;
+    --color-danger-selection: #ff000632;
+    --color-danger-contrast: #ffffff;
+
+    --color-danger-solid-1: #fffcfc;
+    --color-danger-solid-2: #fff7f7;
+    --color-danger-solid-3: #feebec;
+    --color-danger-solid-4: #ffdbdc;
+    --color-danger-solid-5: #ffcdce;
+    --color-danger-solid-6: #fdbdbe;
+    --color-danger-solid-7: #f4a9aa;
+    --color-danger-solid-8: #eb8e90;
+    --color-danger-solid-9: #e5484d;
+    --color-danger-solid-10: #dc3e42;
+    --color-danger-solid-11: #ce2c31;
+    --color-danger-solid-12: #641723;
+
+    --color-danger-alpha-1: #ff000003;
+    --color-danger-alpha-2: #ff000008;
+    --color-danger-alpha-3: #f3000d14;
+    --color-danger-alpha-4: #ff000824;
+    --color-danger-alpha-5: #ff000632;
+    --color-danger-alpha-6: #f8000442;
+    --color-danger-alpha-7: #df000356;
+    --color-danger-alpha-8: #d2000571;
+    --color-danger-alpha-9: #db0007b7;
+    --color-danger-alpha-10: #d10005c1;
+    --color-danger-alpha-11: #c40006d3;
+    --color-danger-alpha-12: #55000de8;
+
     --syntax-highlighter-background: #ffffff;
     --syntax-highlighter-foreground: #1e1f24;
     --syntax-highlighter-token-constant: #3a5bc7;
@@ -384,6 +415,37 @@
     --color-warning-alpha-10: #ffff57;
     --color-warning-alpha-11: #fee949f5;
     --color-warning-alpha-12: #fef6baf6;
+
+    /* color danger */
+    --color-danger-focus: #b54548;
+    --color-danger-selection: #ff204756;
+    --color-danger-contrast: #ffffff;
+
+    --color-danger-solid-1: #191111;
+    --color-danger-solid-2: #201314;
+    --color-danger-solid-3: #3b1219;
+    --color-danger-solid-4: #500f1c;
+    --color-danger-solid-5: #611623;
+    --color-danger-solid-6: #72232d;
+    --color-danger-solid-7: #8c333a;
+    --color-danger-solid-8: #b54548;
+    --color-danger-solid-9: #e5484d;
+    --color-danger-solid-10: #ec5d5e;
+    --color-danger-solid-11: #ff9592;
+    --color-danger-solid-12: #ffd1d9;
+
+    --color-danger-alpha-1: #f4121209;
+    --color-danger-alpha-2: #f22f3e11;
+    --color-danger-alpha-3: #ff173f2d;
+    --color-danger-alpha-4: #fe0a3b44;
+    --color-danger-alpha-5: #ff204756;
+    --color-danger-alpha-6: #ff3e5668;
+    --color-danger-alpha-7: #ff536184;
+    --color-danger-alpha-8: #ff5d61b0;
+    --color-danger-alpha-9: #fe4e54e4;
+    --color-danger-alpha-10: #ff6465eb;
+    --color-danger-alpha-11: #ff9592;
+    --color-danger-alpha-12: #ffd1d9;
 
     --syntax-highlighter-background: #19191b;
     --syntax-highlighter-foreground: #eeeef0;

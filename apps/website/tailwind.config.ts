@@ -286,6 +286,41 @@ export default {
           12: 'var(--color-warning-alpha-12)',
         },
       },
+
+      danger: {
+        focus: 'var(--color-danger-focus)',
+        selection: 'var(--color-danger-selection)',
+        contrast: 'var(--color-danger-contrast)',
+
+        solid: {
+          1: 'var(--color-danger-solid-1)',
+          2: 'var(--color-danger-solid-2)',
+          3: 'var(--color-danger-solid-3)',
+          4: 'var(--color-danger-solid-4)',
+          5: 'var(--color-danger-solid-5)',
+          6: 'var(--color-danger-solid-6)',
+          7: 'var(--color-danger-solid-7)',
+          8: 'var(--color-danger-solid-8)',
+          9: 'var(--color-danger-solid-9)',
+          10: 'var(--color-danger-solid-10)',
+          11: 'var(--color-danger-solid-11)',
+          12: 'var(--color-danger-solid-12)',
+        },
+        alpha: {
+          1: 'var(--color-danger-alpha-1)',
+          2: 'var(--color-danger-alpha-2)',
+          3: 'var(--color-danger-alpha-3)',
+          4: 'var(--color-danger-alpha-4)',
+          5: 'var(--color-danger-alpha-5)',
+          6: 'var(--color-danger-alpha-6)',
+          7: 'var(--color-danger-alpha-7)',
+          8: 'var(--color-danger-alpha-8)',
+          9: 'var(--color-danger-alpha-9)',
+          10: 'var(--color-danger-alpha-10)',
+          11: 'var(--color-danger-alpha-11)',
+          12: 'var(--color-danger-alpha-12)',
+        },
+      },
     },
     extend: {
       spacing: {
