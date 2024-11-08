@@ -4,6 +4,11 @@ const baseHref = '/docs/components';
 
 export const components: Components = [
   {
+    title: 'Accordion',
+    description: `A vertically stacked set of interactive headings that each reveal an associated section of content.`,
+    href: `${baseHref}/accordion`,
+  },
+  {
     title: 'Alert',
     description: `Display a brief, important message in a way that attracts the user's attention without interrupting the user's task.`,
     href: `${baseHref}/alert`,
