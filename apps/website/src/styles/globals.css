@@ -39,7 +39,7 @@
 
   [data-theme='light'] {
     --color-background: #ffffff;
-    --color-foreground: #0002119d;
+    --color-foreground: #1e1f24;
     --color-panel: #ffffff;
     --color-overlay: #00000066;
 
@@ -169,7 +169,7 @@
 
   [data-theme='dark'] {
     --color-background: #111111;
-    --color-foreground: #edf0feb9;
+    --color-foreground: #eeeef0;
     --color-panel: #19191b;
     --color-overlay: #00000099;
 
