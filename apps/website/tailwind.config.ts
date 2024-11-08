@@ -216,6 +216,41 @@ export default {
           12: 'var(--color-primary-alpha-12)',
         },
       },
+
+      success: {
+        focus: 'var(--color-success-focus)',
+        selection: 'var(--color-success-selection)',
+        contrast: 'var(--color-success-contrast)',
+
+        solid: {
+          1: 'var(--color-success-solid-1)',
+          2: 'var(--color-success-solid-2)',
+          3: 'var(--color-success-solid-3)',
+          4: 'var(--color-success-solid-4)',
+          5: 'var(--color-success-solid-5)',
+          6: 'var(--color-success-solid-6)',
+          7: 'var(--color-success-solid-7)',
+          8: 'var(--color-success-solid-8)',
+          9: 'var(--color-success-solid-9)',
+          10: 'var(--color-success-solid-10)',
+          11: 'var(--color-success-solid-11)',
+          12: 'var(--color-success-solid-12)',
+        },
+        alpha: {
+          1: 'var(--color-success-alpha-1)',
+          2: 'var(--color-success-alpha-2)',
+          3: 'var(--color-success-alpha-3)',
+          4: 'var(--color-success-alpha-4)',
+          5: 'var(--color-success-alpha-5)',
+          6: 'var(--color-success-alpha-6)',
+          7: 'var(--color-success-alpha-7)',
+          8: 'var(--color-success-alpha-8)',
+          9: 'var(--color-success-alpha-9)',
+          10: 'var(--color-success-alpha-10)',
+          11: 'var(--color-success-alpha-11)',
+          12: 'var(--color-success-alpha-12)',
+        },
+      },
     },
     extend: {
       spacing: {
