@@ -113,6 +113,23 @@ export default {
       panel: 'var(--color-panel)',
       overlay: 'var(--color-overlay)',
 
+      black: {
+        alpha: {
+          1: 'var( --color-black-alpha-1)',
+          2: 'var( --color-black-alpha-2)',
+          3: 'var( --color-black-alpha-3)',
+          4: 'var( --color-black-alpha-4)',
+          5: 'var( --color-black-alpha-5)',
+          6: 'var( --color-black-alpha-6)',
+          7: 'var( --color-black-alpha-7)',
+          8: 'var( --color-black-alpha-8)',
+          9: 'var( --color-black-alpha-9)',
+          10: 'var( --color-black-alpha-10)',
+          11: 'var( --color-black-alpha-11)',
+          12: 'var( --color-black-alpha-12)',
+        },
+      },
+
       default: {
         focus: 'var(--color-default-focus)',
         selection: 'var(--color-default-selection)',

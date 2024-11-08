@@ -35,6 +35,19 @@
     --letter-spacing-7: -0.0075em;
     --letter-spacing-8: -0.01em;
     --letter-spacing-9: -0.025em;
+
+    --color-black-alpha-1: #0000000d;
+    --color-black-alpha-2: #0000001a;
+    --color-black-alpha-3: #00000026;
+    --color-black-alpha-4: #00000033;
+    --color-black-alpha-5: #0000004d;
+    --color-black-alpha-6: #00000066;
+    --color-black-alpha-7: #00000080;
+    --color-black-alpha-8: #00000099;
+    --color-black-alpha-9: #000000b3;
+    --color-black-alpha-10: #000000cc;
+    --color-black-alpha-11: #000000e6;
+    --color-black-alpha-12: #000000f2;
   }
 
   [data-theme='light'] {
