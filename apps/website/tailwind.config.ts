@@ -251,6 +251,41 @@ export default {
           12: 'var(--color-success-alpha-12)',
         },
       },
+
+      warning: {
+        focus: 'var(--color-warning-focus)',
+        selection: 'var(--color-warning-selection)',
+        contrast: 'var(--color-warning-contrast)',
+
+        solid: {
+          1: 'var(--color-warning-solid-1)',
+          2: 'var(--color-warning-solid-2)',
+          3: 'var(--color-warning-solid-3)',
+          4: 'var(--color-warning-solid-4)',
+          5: 'var(--color-warning-solid-5)',
+          6: 'var(--color-warning-solid-6)',
+          7: 'var(--color-warning-solid-7)',
+          8: 'var(--color-warning-solid-8)',
+          9: 'var(--color-warning-solid-9)',
+          10: 'var(--color-warning-solid-10)',
+          11: 'var(--color-warning-solid-11)',
+          12: 'var(--color-warning-solid-12)',
+        },
+        alpha: {
+          1: 'var(--color-warning-alpha-1)',
+          2: 'var(--color-warning-alpha-2)',
+          3: 'var(--color-warning-alpha-3)',
+          4: 'var(--color-warning-alpha-4)',
+          5: 'var(--color-warning-alpha-5)',
+          6: 'var(--color-warning-alpha-6)',
+          7: 'var(--color-warning-alpha-7)',
+          8: 'var(--color-warning-alpha-8)',
+          9: 'var(--color-warning-alpha-9)',
+          10: 'var(--color-warning-alpha-10)',
+          11: 'var(--color-warning-alpha-11)',
+          12: 'var(--color-warning-alpha-12)',
+        },
+      },
     },
     extend: {
       spacing: {
