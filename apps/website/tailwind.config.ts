@@ -130,6 +130,23 @@ export default {
         },
       },
 
+      white: {
+        alpha: {
+          1: 'var(--color-white-alpha-1)',
+          2: 'var(--color-white-alpha-2)',
+          3: 'var(--color-white-alpha-3)',
+          4: 'var(--color-white-alpha-4)',
+          5: 'var(--color-white-alpha-5)',
+          6: 'var(--color-white-alpha-6)',
+          7: 'var(--color-white-alpha-7)',
+          8: 'var(--color-white-alpha-8)',
+          9: 'var(--color-white-alpha-9)',
+          10: 'var(--color-white-alpha-10)',
+          11: 'var(--color-white-alpha-11)',
+          12: 'var(--color-white-alpha-12)',
+        },
+      },
+
       default: {
         focus: 'var(--color-default-focus)',
         selection: 'var(--color-default-selection)',

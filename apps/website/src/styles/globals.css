@@ -48,6 +48,19 @@
     --color-black-alpha-10: #000000cc;
     --color-black-alpha-11: #000000e6;
     --color-black-alpha-12: #000000f2;
+
+    --color-white-alpha-1: rgba(255, 255, 255, 0.05);
+    --color-white-alpha-2: rgba(255, 255, 255, 0.1);
+    --color-white-alpha-3: rgba(255, 255, 255, 0.15);
+    --color-white-alpha-4: rgba(255, 255, 255, 0.2);
+    --color-white-alpha-5: rgba(255, 255, 255, 0.3);
+    --color-white-alpha-6: rgba(255, 255, 255, 0.4);
+    --color-white-alpha-7: rgba(255, 255, 255, 0.5);
+    --color-white-alpha-8: rgba(255, 255, 255, 0.6);
+    --color-white-alpha-9: rgba(255, 255, 255, 0.7);
+    --color-white-alpha-10: rgba(255, 255, 255, 0.8);
+    --color-white-alpha-11: rgba(255, 255, 255, 0.9);
+    --color-white-alpha-12: rgba(255, 255, 255, 0.95);
   }
 
   [data-theme='light'] {
