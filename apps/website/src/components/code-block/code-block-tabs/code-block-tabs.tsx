@@ -6,17 +6,24 @@ import { SyntaxHighlighter } from '@/components/syntax-highlighter';
 export const CodeBlockTabs = component$<CodeBlockTabsProps>((props) => {
   const { defaultValue, codes } = props;
 
-  const tabs = codes.map(({ tab }) => tab);
+  const tabs = codes.map(({ tab, icon }) => ({ tab, icon }));
 
   return (
     <>
       <Tabs.Root defaultValue={defaultValue}>
         <Tabs.List class="bg-default-alpha-2">
-          {tabs.map((tab) => (
-            <Tabs.Trigger key={tab} value={tab}>
-              <Tabs.TriggerContent>{tab}</Tabs.TriggerContent>
-            </Tabs.Trigger>
-          ))}
+          {tabs.map(({ tab, icon }) => {
+            const IconComponent = icon;
+
+            return (
+              <Tabs.Trigger key={tab} value={tab}>
+                <Tabs.TriggerContent>
+                  {IconComponent && <IconComponent />}
+                  {tab}
+                </Tabs.TriggerContent>
+              </Tabs.Trigger>
+            );
+          })}
         </Tabs.List>
         {codes.map(({ tab, code, withCopyButton = true, ...others }) => (
           <Tabs.Content key={tab} value={tab} tabIndex={undefined}>

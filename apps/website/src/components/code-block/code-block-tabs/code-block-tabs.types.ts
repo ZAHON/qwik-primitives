@@ -1,3 +1,4 @@
+import type { FunctionComponent } from '@builder.io/qwik';
 import type { UseSyntaxHighlighterLanguage } from '@/hooks/use-syntax-highlighter';
 
 export interface CodeBlockTabsProps {
@@ -11,6 +12,11 @@ export interface CodeBlockTabsProps {
      * The name of the tab.
      */
     tab: string;
+
+    /**
+     * The icon for the tab.
+     */
+    icon?: FunctionComponent;
 
     /**
      * The code to be highlighted.
