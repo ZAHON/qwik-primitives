@@ -4,22 +4,22 @@ import { Text } from '@/ui/text';
 import { Link } from '@/ui/link';
 import { Code } from '.';
 
-type CodeRootPropsWithChildren = PropsOf<typeof Code.Root> & { children: string };
-type Story = StoryObj<CodeRootPropsWithChildren>;
+type CodePropsWithChildren = PropsOf<typeof Code.Root> & { children: string };
+type Story = StoryObj<CodePropsWithChildren>;
 
-const meta: Meta<CodeRootPropsWithChildren> = {
+const meta: Meta<CodePropsWithChildren> = {
   title: 'UI/Code',
-  component: Code.Root,
   args: {
     children: 'console.log()',
     variant: 'soft',
     color: 'primary',
+    highContrast: undefined,
   },
   argTypes: {
     children: { control: 'text' },
-    size: { options: ['1', '2', '3', '4', '5', '6', '7', '8', '9'], control: 'select' },
-    variant: { options: ['solid', 'soft'], control: 'select' },
-    color: { options: ['default', 'primary'], control: 'select' },
+    size: { control: 'select', options: ['1', '2', '3', '4', '5', '6', '7', '8', '9'] },
+    variant: { control: 'select', options: ['solid', 'soft'] },
+    color: { control: 'select', options: ['default', 'primary', 'success', 'warning', 'danger'] },
     highContrast: { control: 'boolean' },
   },
 };
@@ -46,27 +46,35 @@ export const Size: Story = {
         <Code.Root {...others} size="1">
           {children}
         </Code.Root>
+
         <Code.Root {...others} size="2">
           {children}
         </Code.Root>
+
         <Code.Root {...others} size="3">
           {children}
         </Code.Root>
+
         <Code.Root {...others} size="4">
           {children}
         </Code.Root>
+
         <Code.Root {...others} size="5">
           {children}
         </Code.Root>
+
         <Code.Root {...others} size="6">
           {children}
         </Code.Root>
+
         <Code.Root {...others} size="7">
           {children}
         </Code.Root>
+
         <Code.Root {...others} size="8">
           {children}
         </Code.Root>
+
         <Code.Root {...others} size="9">
           {children}
         </Code.Root>
@@ -87,6 +95,7 @@ export const Variant: Story = {
         <Code.Root {...others} variant="solid">
           {children}
         </Code.Root>
+
         <Code.Root {...others} variant="soft">
           {children}
         </Code.Root>
@@ -107,7 +116,20 @@ export const Color: Story = {
         <Code.Root {...others} color="default">
           {children}
         </Code.Root>
+
         <Code.Root {...others} color="primary">
+          {children}
+        </Code.Root>
+
+        <Code.Root {...others} color="success">
+          {children}
+        </Code.Root>
+
+        <Code.Root {...others} color="warning">
+          {children}
+        </Code.Root>
+
+        <Code.Root {...others} color="danger">
           {children}
         </Code.Root>
       </div>
@@ -127,6 +149,7 @@ export const HighContrast: Story = {
         <Code.Root {...others} highContrast={false}>
           {children}
         </Code.Root>
+
         <Code.Root {...others} highContrast={true}>
           {children}
         </Code.Root>
