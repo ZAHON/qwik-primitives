@@ -72,6 +72,9 @@ export const codeRootStyles = cva(
       color: {
         default: [''],
         primary: [''],
+        success: [''],
+        warning: [''],
+        danger: [''],
       },
       highContrast: {
         false: [''],
@@ -210,6 +213,156 @@ export const codeRootStyles = cva(
           'text-primary-solid-12',
           'group-hover/link:bg-primary-alpha-4',
           'group-active/link:bg-primary-alpha-5',
+        ],
+      },
+
+      // color success
+      {
+        color: 'success',
+        variant: 'solid',
+        highContrast: false,
+        class: [
+          'bg-success-alpha-9',
+          'text-success-contrast',
+          'selection:bg-success-selection',
+          'selection:text-success-solid-12',
+          'group-hover/link:bg-success-solid-10',
+        ],
+      },
+      {
+        color: 'success',
+        variant: 'solid',
+        highContrast: true,
+        class: [
+          'bg-success-solid-12',
+          'text-success-solid-1',
+          'selection:bg-success-alpha-11',
+          'selection:text-success-solid-1',
+          'group-hover/link:bg-success-solid-12',
+        ],
+      },
+
+      {
+        color: 'success',
+        variant: 'soft',
+        highContrast: false,
+        class: [
+          'bg-success-alpha-3',
+          'text-success-alpha-11',
+          'group-hover/link:bg-success-alpha-4',
+          'group-active/link:bg-success-alpha-5',
+        ],
+      },
+
+      {
+        color: 'success',
+        variant: 'soft',
+        highContrast: true,
+        class: [
+          'bg-success-alpha-3',
+          'text-success-solid-12',
+          'group-hover/link:bg-success-alpha-4',
+          'group-active/link:bg-success-alpha-5',
+        ],
+      },
+
+      // color warning
+      {
+        color: 'warning',
+        variant: 'solid',
+        highContrast: false,
+        class: [
+          'bg-warning-alpha-9',
+          'text-warning-contrast',
+          'selection:bg-warning-selection',
+          'selection:text-warning-solid-12',
+          'group-hover/link:bg-warning-solid-10',
+        ],
+      },
+      {
+        color: 'warning',
+        variant: 'solid',
+        highContrast: true,
+        class: [
+          'bg-warning-solid-12',
+          'text-warning-solid-1',
+          'selection:bg-warning-alpha-11',
+          'selection:text-warning-solid-1',
+          'group-hover/link:bg-warning-solid-12',
+        ],
+      },
+
+      {
+        color: 'warning',
+        variant: 'soft',
+        highContrast: false,
+        class: [
+          'bg-warning-alpha-3',
+          'text-warning-alpha-11',
+          'group-hover/link:bg-warning-alpha-4',
+          'group-active/link:bg-warning-alpha-5',
+        ],
+      },
+
+      {
+        color: 'warning',
+        variant: 'soft',
+        highContrast: true,
+        class: [
+          'bg-warning-alpha-3',
+          'text-warning-solid-12',
+          'group-hover/link:bg-warning-alpha-4',
+          'group-active/link:bg-warning-alpha-5',
+        ],
+      },
+
+      // color danger
+      {
+        color: 'danger',
+        variant: 'solid',
+        highContrast: false,
+        class: [
+          'bg-danger-alpha-9',
+          'text-danger-contrast',
+          'selection:bg-danger-selection',
+          'selection:text-danger-solid-12',
+          'group-hover/link:bg-danger-solid-10',
+        ],
+      },
+      {
+        color: 'danger',
+        variant: 'solid',
+        highContrast: true,
+        class: [
+          'bg-danger-solid-12',
+          'text-danger-solid-1',
+          'selection:bg-danger-alpha-11',
+          'selection:text-danger-solid-1',
+          'group-hover/link:bg-danger-solid-12',
+        ],
+      },
+
+      {
+        color: 'danger',
+        variant: 'soft',
+        highContrast: false,
+        class: [
+          'bg-danger-alpha-3',
+          'text-danger-alpha-11',
+          'group-hover/link:bg-danger-alpha-4',
+          'group-active/link:bg-danger-alpha-5',
+        ],
+      },
+
+      {
+        color: 'danger',
+        variant: 'soft',
+        highContrast: true,
+        class: [
+          'bg-danger-alpha-3',
+          'text-danger-solid-12',
+          'group-hover/link:bg-danger-alpha-4',
+          'group-active/link:bg-danger-alpha-5',
         ],
       },
     ],

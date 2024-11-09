@@ -23,7 +23,7 @@ export interface CodeRootProps extends PropsOf<'code'> {
    * The color of the badge.
    * @default "primary"
    */
-  color?: 'default' | 'primary';
+  color?: 'default' | 'primary' | 'success' | 'warning' | 'danger';
 
   /**
    * Uses a higher contrast color for the badge.
