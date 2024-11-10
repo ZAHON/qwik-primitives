@@ -1,6 +1,11 @@
 export interface ComponentPropsPopoverProps {
   /**
-   * The lable for the popoer trigger.
+   * The lable for the popover trigger.
    */
-  triggerLabel: string;
+  label: string;
+
+  /**
+   * An optional accessible title to be announced when the popover is opened.
+   */
+  title: string;
 }

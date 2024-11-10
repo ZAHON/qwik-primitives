@@ -1,6 +1,6 @@
 import type { JSXOutput } from '@builder.io/qwik';
 
-export interface ComponentPropsProps {
+export interface ComponentPropsTableProps {
   /**
    * An array of all component props.
    */
