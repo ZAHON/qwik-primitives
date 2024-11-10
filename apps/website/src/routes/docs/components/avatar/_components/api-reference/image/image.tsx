@@ -18,9 +18,16 @@ export const Image = component$(() => {
 
       <Text.Root class="mt-3">
         The image to render. By default it will only render when it has loaded. You can use the{' '}
-        <Code.Root>onLoadingStatusChange$</Code.Root>
-        handler if you need more control. This component is based on the <Code.Root>img</Code.Root> element.
+        <Code.Root size="3">onLoadingStatusChange$</Code.Root> handler if you need more control. This component is based
+        on the <Code.Root size="3">img</Code.Root> element.
       </Text.Root>
+
+      <HeadingLink.Root id="image-props" level="4" size="3" class="mt-8 scroll-m-16">
+        <HeadingLink.Content>
+          Props
+          <HeadingLink.Icon />
+        </HeadingLink.Content>
+      </HeadingLink.Root>
 
       <ComponentProps
         data={[
@@ -68,6 +75,13 @@ export const Image = component$(() => {
         ]}
         class="mt-6"
       />
+
+      <HeadingLink.Root id="image-data-attributes" level="4" size="3" class="mt-8 scroll-m-16">
+        <HeadingLink.Content>
+          Data attributes
+          <HeadingLink.Icon />
+        </HeadingLink.Content>
+      </HeadingLink.Root>
 
       <ComponentsDataAttrs
         data={[

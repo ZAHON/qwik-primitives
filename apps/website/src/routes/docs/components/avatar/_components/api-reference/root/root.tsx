@@ -18,8 +18,16 @@ export const Root = component$(() => {
       </HeadingLink.Root>
 
       <Text.Root class="mt-3">
-        Contains all the parts of an avatar. This component is based on the <Code.Root>span</Code.Root> element.
+        Contains all the parts of an avatar. This component is based on the <Code.Root size="3">span</Code.Root>{' '}
+        element.
       </Text.Root>
+
+      <HeadingLink.Root id="root-props" level="4" size="3" class="mt-8 scroll-m-16">
+        <HeadingLink.Content>
+          Props
+          <HeadingLink.Icon />
+        </HeadingLink.Content>
+      </HeadingLink.Root>
 
       <ComponentProps
         data={[
@@ -78,6 +86,13 @@ export const Root = component$(() => {
         ]}
         class="mt-6"
       />
+
+      <HeadingLink.Root id="root-data-attributes" level="4" size="3" class="mt-8 scroll-m-16">
+        <HeadingLink.Content>
+          Data attributes
+          <HeadingLink.Icon />
+        </HeadingLink.Content>
+      </HeadingLink.Root>
 
       <ComponentsDataAttrs
         data={[

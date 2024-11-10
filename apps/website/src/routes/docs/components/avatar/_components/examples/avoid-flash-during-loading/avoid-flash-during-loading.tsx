@@ -16,12 +16,12 @@ export const AvoidFlashDuringLoading = component$(() => {
       </HeadingLink.Root>
 
       <Text.Root class="mt-3">
-        By default <Code.Root>Avatar.Fallback</Code.Root> will render when the image hasn't loaded. This means whilst
-        it's loading, or if there was an error.
+        By default <Code.Root size="3">Avatar.Fallback</Code.Root> will render when the image hasn't loaded. This means
+        whilst it's loading, or if there was an error.
       </Text.Root>
       <Text.Root class="mt-4">
-        If you notice a flash during loading, use the <Code.Root>delayMs</Code.Root> prop to delay its rendering, so it
-        only renders for those with slower internet connections.
+        If you notice a flash during loading, use the <Code.Root size="3">delayMs</Code.Root> prop to delay its
+        rendering, so it only renders for those with slower internet connections.
       </Text.Root>
 
       <CodeBlock type="single" code={tsxCode} language="tsx" lines={['11']} words={['delayMs']} class="mt-6" />

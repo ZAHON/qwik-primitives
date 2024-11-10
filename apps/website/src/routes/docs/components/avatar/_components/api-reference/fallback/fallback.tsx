@@ -18,11 +18,18 @@ export const Fallback = component$(() => {
 
       <Text.Root class="mt-3">
         An element that renders when the image hasn't loaded. This means whilst it's loading, or if there was an error.
-        If you notice a flash during loading, you can provide a <Code.Root>delayMs</Code.Root> prop to delay its
-        rendering so it only renders for those with slower connections. For more control, use the{' '}
-        <Code.Root>onLoadingStatusChange$</Code.Root> handler on <Code.Root>Avatar.Image</Code.Root>. This component is
-        based on the <Code.Root>span</Code.Root> element.
+        If you notice a flash during loading, you can provide a <Code.Root size="3">delayMs</Code.Root> prop to delay
+        its rendering so it only renders for those with slower connections. For more control, use the{' '}
+        <Code.Root size="3">onLoadingStatusChange$</Code.Root> handler on <Code.Root size="3">Avatar.Image</Code.Root>.
+        This component is based on the <Code.Root size="3">span</Code.Root> element.
       </Text.Root>
+
+      <HeadingLink.Root id="fallback-props" level="4" size="3" class="mt-8 scroll-m-16">
+        <HeadingLink.Content>
+          Props
+          <HeadingLink.Icon />
+        </HeadingLink.Content>
+      </HeadingLink.Root>
 
       <ComponentProps
         data={[
@@ -64,6 +71,13 @@ export const Fallback = component$(() => {
         ]}
         class="mt-6"
       />
+
+      <HeadingLink.Root id="fallback-data-attributes" level="4" size="3" class="mt-8 scroll-m-16">
+        <HeadingLink.Content>
+          Data attributes
+          <HeadingLink.Icon />
+        </HeadingLink.Content>
+      </HeadingLink.Root>
 
       <ComponentsDataAttrs
         data={[
