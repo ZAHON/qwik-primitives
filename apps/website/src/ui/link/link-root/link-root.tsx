@@ -12,7 +12,7 @@ export const LinkRoot = component$<LinkRootProps>((props) => {
     as,
     external,
     openInNewTab,
-    size = '3',
+    size,
     color = 'primary',
     highContrast = false,
     class: className,

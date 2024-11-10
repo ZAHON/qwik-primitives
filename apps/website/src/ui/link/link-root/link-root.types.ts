@@ -25,7 +25,6 @@ export interface LinkRootProps extends PropsOf<'a'> {
 
   /**
    * The size of the link.
-   * @default "3"
    */
   size?: '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9';
 
@@ -33,7 +32,7 @@ export interface LinkRootProps extends PropsOf<'a'> {
    * The color of the link.
    * @default "primary"
    */
-  color?: 'default' | 'primary';
+  color?: 'default' | 'primary' | 'success' | 'warning' | 'danger';
 
   /**
    * Uses a higher contrast color for the link.

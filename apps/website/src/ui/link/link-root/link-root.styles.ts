@@ -7,6 +7,9 @@ export const linkRootStyles = cva(
     'items-center',
     'gap-x-[calc(1em*0.3)]',
     'cursor-pointer',
+    'text-inherit',
+    'leading-[1.5]',
+    'tracking-inherit',
     'decoration-[min(0.125rem,max(0.0625rem,0.05em))]',
     'underline-offset-[calc(0.025em+0.125rem)]',
 
@@ -32,8 +35,11 @@ export const linkRootStyles = cva(
         '9': ['text-9'],
       },
       color: {
-        default: ['focus-visible:outline-primary-focus'],
-        primary: ['focus-visible:outline-primary-focus'],
+        default: ['focus-visible:outline-primary-focus', 'selection:bg-primary-selection'],
+        primary: ['focus-visible:outline-primary-focus', 'selection:bg-primary-selection'],
+        success: ['focus-visible:outline-success-focus', 'selection:bg-success-selection'],
+        warning: ['focus-visible:outline-warning-focus', 'selection:bg-warning-selection'],
+        danger: ['focus-visible:outline-danger-focus', 'selection:bg-danger-selection'],
       },
       highContrast: {
         false: ['hover:underline'],
@@ -63,6 +69,42 @@ export const linkRootStyles = cva(
         color: 'primary',
         highContrast: true,
         class: ['text-primary-solid-12', 'decoration-primary-alpha-6'],
+      },
+
+      // color success
+      {
+        color: 'success',
+        highContrast: false,
+        class: ['text-success-alpha-11', 'decoration-success-alpha-5'],
+      },
+      {
+        color: 'success',
+        highContrast: true,
+        class: ['text-success-solid-12', 'decoration-success-alpha-6'],
+      },
+
+      // color warning
+      {
+        color: 'warning',
+        highContrast: false,
+        class: ['text-warning-alpha-11', 'decoration-warning-alpha-5'],
+      },
+      {
+        color: 'warning',
+        highContrast: true,
+        class: ['text-warning-solid-12', 'decoration-warning-alpha-6'],
+      },
+
+      // color danger
+      {
+        color: 'danger',
+        highContrast: false,
+        class: ['text-danger-alpha-11', 'decoration-danger-alpha-5'],
+      },
+      {
+        color: 'danger',
+        highContrast: true,
+        class: ['text-danger-solid-12', 'decoration-danger-alpha-6'],
       },
     ],
   }
