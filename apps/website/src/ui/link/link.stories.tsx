@@ -4,23 +4,25 @@ import { component$ } from '@builder.io/qwik';
 import { Link } from '.';
 
 type LinkRootSize = PropsOf<typeof Link.Root>['size'];
-type LinkRootPropsWithChildren = PropsOf<typeof Link.Root> & { children: string };
-type Story = StoryObj<LinkRootPropsWithChildren>;
+type LinkPropsWithChildren = PropsOf<typeof Link.Root> & { children: string };
+type Story = StoryObj<LinkPropsWithChildren>;
 
-const meta: Meta<LinkRootPropsWithChildren> = {
+const meta: Meta<LinkPropsWithChildren> = {
   title: 'UI/Link',
   component: Link.Root,
   args: {
     children: 'Sign up',
     href: '#',
-    size: '3',
+    size: undefined,
     color: 'primary',
+    highContrast: undefined,
+    openInNewTab: undefined,
   },
   argTypes: {
     children: { control: 'text' },
     href: { control: 'text' },
-    size: { options: ['1', '2', '3', '4', '5', '6', '7', '8', '9'], control: 'select' },
-    color: { options: ['default', 'primary'], control: 'select' },
+    size: { control: 'select', options: ['1', '2', '3', '4', '5', '6', '7', '8', '9'] },
+    color: { control: 'select', options: ['default', 'primary', 'success', 'warning', 'danger'] },
     highContrast: { control: 'boolean' },
     external: { control: 'boolean' },
     openInNewTab: { control: 'boolean' },
@@ -49,27 +51,35 @@ export const Size: Story = {
         <Link.Root {...others} size="1">
           {children}
         </Link.Root>
+
         <Link.Root {...others} size="2">
           {children}
         </Link.Root>
+
         <Link.Root {...others} size="3">
           {children}
         </Link.Root>
+
         <Link.Root {...others} size="4">
           {children}
         </Link.Root>
+
         <Link.Root {...others} size="5">
           {children}
         </Link.Root>
+
         <Link.Root {...others} size="6">
           {children}
         </Link.Root>
+
         <Link.Root {...others} size="7">
           {children}
         </Link.Root>
+
         <Link.Root {...others} size="8">
           {children}
         </Link.Root>
+
         <Link.Root {...others} size="9">
           {children}
         </Link.Root>
@@ -90,7 +100,20 @@ export const Color: Story = {
         <Link.Root {...others} color="default">
           {children}
         </Link.Root>
+
         <Link.Root {...others} color="primary">
+          {children}
+        </Link.Root>
+
+        <Link.Root {...others} color="success">
+          {children}
+        </Link.Root>
+
+        <Link.Root {...others} color="warning">
+          {children}
+        </Link.Root>
+
+        <Link.Root {...others} color="danger">
           {children}
         </Link.Root>
       </div>
@@ -110,6 +133,7 @@ export const HighContrast: Story = {
         <Link.Root {...others} highContrast={false}>
           {children}
         </Link.Root>
+
         <Link.Root {...others} highContrast={true}>
           {children}
         </Link.Root>
@@ -164,8 +188,8 @@ export const WithIcon: Story = {
         <svg
           aria-hidden="true"
           focusable="false"
-          width={getIconSize(size)}
-          height={getIconSize(size)}
+          width={size ? getIconSize(size) : 16}
+          height={size ? getIconSize(size) : 16}
           viewBox="0 0 15 15"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
