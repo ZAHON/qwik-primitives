@@ -25,9 +25,13 @@ export const ComponentsDataAttrs = component$<ComponentsDataAttrsProps>((props) 
                 </Table.RowHeaderCell>
 
                 <Table.Cell>
-                  <Code.Root size="2" color="default">
-                    {values}
-                  </Code.Root>
+                  {typeof values === 'string' ? (
+                    <Code.Root size="2" color="default">
+                      {values}
+                    </Code.Root>
+                  ) : (
+                    values
+                  )}
                 </Table.Cell>
               </Table.Row>
             ))}

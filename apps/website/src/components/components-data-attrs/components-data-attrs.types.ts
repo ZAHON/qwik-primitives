@@ -1,3 +1,5 @@
+import type { JSXOutput } from '@builder.io/qwik';
+
 export interface ComponentsDataAttrsProps {
   data: {
     /**
@@ -8,7 +10,7 @@ export interface ComponentsDataAttrsProps {
     /**
      * The values of the data attribute.
      */
-    values: string;
+    values: string | JSXOutput;
   }[];
 
   /**
