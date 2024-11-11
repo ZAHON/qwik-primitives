@@ -330,8 +330,8 @@ export default {
         '7.5': '1.875rem',
       },
       fontFamily: {
-        sans: ['Geist Sans', ...fontFamily.sans],
-        mono: ['Geist Mono', ...fontFamily.mono],
+        sans: ['Geist Sans', 'Geist Sans Fallback', ...fontFamily.sans],
+        mono: ['Geist Mono', 'Geist Mono Fallback', ...fontFamily.mono],
       },
       keyframes: {
         'collapsible-panel-down': {
