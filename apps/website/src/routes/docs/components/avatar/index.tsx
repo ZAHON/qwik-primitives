@@ -3,6 +3,7 @@ import { TableOfContents } from '@/components/table-of-contents';
 import { Hero } from './_components/hero';
 import { Features } from './_components/features';
 import { Import } from './_components/import';
+import { Anatomy } from './_components/anatomy';
 import { APIReference } from './_components/api-reference';
 import { Examples } from './_components/examples';
 
@@ -14,6 +15,7 @@ export default component$(() => {
           <Hero />
           <Features />
           <Import />
+          <Anatomy />
           <APIReference />
           <Examples />
         </article>
@@ -25,6 +27,7 @@ export default component$(() => {
             data={[
               { label: 'Features', href: '#features' },
               { label: 'Import', href: '#import' },
+              { label: 'Anatomy', href: '#anatomy' },
               {
                 label: 'API Reference',
                 href: '#api-reference',
