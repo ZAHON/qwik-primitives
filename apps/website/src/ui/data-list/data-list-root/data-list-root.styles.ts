@@ -1,6 +1,6 @@
 import { cva } from 'class-variance-authority';
 
-export const dataListRootStyles = cva(['[overflow-wrap::anywhere]', 'font-normal', 'text-start'], {
+export const dataListRootStyles = cva(['[overflow-wrap:anywhere]', 'font-normal', 'text-start'], {
   variants: {
     size: {
       '1': ['gap-3', 'text-1'],
