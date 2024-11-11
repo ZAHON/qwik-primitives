@@ -3,8 +3,8 @@ import { tableOfContentsHeadingStyles } from './table-of-contents-heading.styles
 
 export const TableOfContentsHeading = component$(() => {
   return (
-    <h4 id="table-of-contents-heading" aria-label="Table of contents" class={tableOfContentsHeadingStyles()}>
+    <h5 id="table-of-contents-heading" aria-label="Table of contents" class={tableOfContentsHeadingStyles()}>
       Quick nav
-    </h4>
+    </h5>
   );
 });
