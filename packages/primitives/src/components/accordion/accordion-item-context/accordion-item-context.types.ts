@@ -17,11 +17,6 @@ export interface AccordionItemContextValue {
   isPanelHide: Signal<boolean>;
 
   /**
-   * The controlled status state of the accordion panel.
-   */
-  panelStatus: Signal<'open' | 'closed' | 'indeterminate'>;
-
-  /**
    * The unique id of the accordion trigger.
    */
   triggerId: Signal<string | undefined>;

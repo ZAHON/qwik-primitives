@@ -11,7 +11,7 @@ import { AccordionItemContext } from '../accordion-item-context';
 export const AccordionItemPanel = component$<AccordionItemPanelProps>((props) => {
   const { as, ref, id, onOpen$, onClose$, style, ...others } = props;
 
-  const { isOpen, isPanelHide, panelStatus, triggerId, panelId, isDisabled } = useContext(AccordionItemContext);
+  const { isOpen, isPanelHide, triggerId, panelId, isDisabled } = useContext(AccordionItemContext);
 
   const autoId = useId();
 
@@ -62,7 +62,6 @@ export const AccordionItemPanel = component$<AccordionItemPanelProps>((props) =>
               'animationstart',
               (event) => {
                 currentAnimationName = event.animationName;
-                panelStatus.value = 'indeterminate';
               },
               { once: true }
             );
@@ -71,14 +70,12 @@ export const AccordionItemPanel = component$<AccordionItemPanelProps>((props) =>
               'animationend',
               (event) => {
                 if (currentAnimationName === event.animationName) {
-                  panelStatus.value = 'open';
                   onOpen$?.();
                 }
               },
               { once: true }
             );
           } else {
-            panelStatus.value = 'open';
             onOpen$?.();
           }
         }
@@ -95,7 +92,6 @@ export const AccordionItemPanel = component$<AccordionItemPanelProps>((props) =>
       const closePanel = () => {
         if (!isOpen.value) {
           isPanelHide.value = true;
-          panelStatus.value = 'closed';
           onClose$?.();
         }
       };
@@ -111,7 +107,6 @@ export const AccordionItemPanel = component$<AccordionItemPanelProps>((props) =>
               'animationstart',
               (event) => {
                 currentAnimationName = event.animationName;
-                panelStatus.value = 'indeterminate';
               },
               { once: true }
             );

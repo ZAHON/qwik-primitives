@@ -10,7 +10,7 @@ import { AccordionItemContext } from '../accordion-item-context';
 export const AccordionItemContent = component$<AccordionItemContentProps>((props) => {
   const { as, style, ...others } = props;
 
-  const { isOpen, isPanelHide, panelStatus, isDisabled } = useContext(AccordionItemContext);
+  const { isOpen, isPanelHide, isDisabled } = useContext(AccordionItemContext);
 
   const Component = as || 'div';
 
@@ -21,7 +21,7 @@ export const AccordionItemContent = component$<AccordionItemContentProps>((props
       data-part="item-content"
       data-state={isOpen.value ? 'open' : 'closed'}
       data-disabled={isDisabled.value ? '' : undefined}
-      style={{ overflow: panelStatus.value === 'open' ? undefined : 'hidden', ...style }}
+      style={{ overflow: 'hidden', ...style }}
       {...others}
     >
       {!isPanelHide.value && <Slot />}

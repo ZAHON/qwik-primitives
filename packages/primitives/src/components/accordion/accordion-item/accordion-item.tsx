@@ -12,11 +12,19 @@ export const AccordionItem = component$<AccordionItemProps>((props) => {
 
   const { accordionValue, accordionDisabled, onItemOpen$, onItemClose$ } = useContext(AccordionContext);
 
-  const isOpen = useComputed$(() => (value && accordionValue.value.includes(value)) || false);
+  const isOpen = useComputed$(() => {
+    if (typeof accordionValue.value === 'string') {
+      return accordionValue.value === value;
+    } else if (Array.isArray(accordionValue.value)) {
+      return accordionValue.value.includes(value);
+    } else {
+      return false;
+    }
+  });
+
   const isDisabled = useComputed$(() => disabled ?? accordionDisabled);
 
   const isPanelHide = useSignal(!isOpen.value);
-  const panelStatus = useSignal<'open' | 'closed' | 'indeterminate'>(isOpen.value ? 'open' : 'closed');
 
   const triggerId = useSignal<string | undefined>(undefined);
   const panelId = useSignal<string | undefined>(undefined);
@@ -25,7 +33,6 @@ export const AccordionItem = component$<AccordionItemProps>((props) => {
     value,
     isOpen,
     isPanelHide,
-    panelStatus,
     triggerId,
     panelId,
     isDisabled,

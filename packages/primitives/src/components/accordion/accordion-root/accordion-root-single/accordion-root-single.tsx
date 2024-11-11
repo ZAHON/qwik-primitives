@@ -1,5 +1,5 @@
 import type { AccordionRootSingleProps } from './accordion-root-single.types';
-import { component$, useComputed$, $, useContextProvider, Slot } from '@builder.io/qwik';
+import { component$, $, useContextProvider, Slot } from '@builder.io/qwik';
 import { useControllableState } from '@/hooks/use-controllable-state';
 import { useOnKeyDown } from '../hooks';
 import { AccordionContext } from '../../accordion-context';
@@ -11,7 +11,7 @@ import { AccordionContext } from '../../accordion-context';
 export const AccordionRootSingle = component$<AccordionRootSingleProps>((props) => {
   const { as, defaultValue, value, onValueChange$, collapsible, disabled, ...others } = props;
 
-  const [_accordionValue, setAccordionValue$] = useControllableState({
+  const [accordionValue, setAccordionValue$] = useControllableState({
     uncontrolledValue: defaultValue,
     controlledSignal: value,
     finalValue: '',
@@ -19,8 +19,6 @@ export const AccordionRootSingle = component$<AccordionRootSingleProps>((props) 
   });
 
   useOnKeyDown();
-
-  const accordionValue = useComputed$(() => (_accordionValue ? [_accordionValue.value] : []));
 
   const handleItemOpen$ = $((itemValue: string) => {
     setAccordionValue$(itemValue);

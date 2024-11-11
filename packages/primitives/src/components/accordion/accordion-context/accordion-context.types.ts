@@ -4,7 +4,7 @@ export interface AccordionContextValue {
   /**
    * The controlled value of the accordion.
    */
-  accordionValue: ReadonlySignal<string[]>;
+  accordionValue: ReadonlySignal<string | string[]>;
 
   /**
    * When `true`, prevents the user from interacting with the accordion and all its items.
