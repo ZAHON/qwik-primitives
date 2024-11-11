@@ -10,7 +10,7 @@ import { Accessibility } from './_components/accessibility';
 export default component$(() => {
   return (
     <>
-      <main class="w-full px-4 lg:w-[calc(100%-16rem)] lg:pl-16 xl:w-[calc(100%-32rem)]">
+      <main class="w-full px-4 lg:w-[calc(100%-16rem)] lg:pl-16 xl:w-[calc(100%-32rem)] xl:pr-16">
         <article>
           <Hero />
           <Features />
@@ -22,7 +22,7 @@ export default component$(() => {
       </main>
 
       <div class="hidden w-64 shrink-0 lg:block">
-        <aside class="fixed -mt-10 flex h-[calc(100%-3rem)] w-64 items-start justify-end overflow-y-auto px-4 py-10">
+        <aside class="fixed -mt-10 flex h-[calc(100%-3rem)] w-64 justify-start overflow-y-auto px-4 py-10">
           <TableOfContents
             data={[
               { label: 'Features', href: '#features' },

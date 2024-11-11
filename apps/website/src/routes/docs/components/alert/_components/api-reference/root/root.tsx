@@ -20,7 +20,7 @@ export const Root = component$(() => {
         Contains the content for the alert. This component is based on the <Code.Root size="3">div</Code.Root> element.
       </Text.Root>
 
-      <HeadingLink.Root id="fallback-props" level="4" size="3" class="mt-8 scroll-m-16">
+      <HeadingLink.Root id="root-props" level="4" size="3" class="mt-8 scroll-m-16">
         <HeadingLink.Content>
           Props
           <HeadingLink.Icon />
@@ -58,7 +58,7 @@ export const Root = component$(() => {
         class="mt-6"
       />
 
-      <HeadingLink.Root id="fallback-data-attributes" level="4" size="3" class="mt-8 scroll-m-16">
+      <HeadingLink.Root id="root-data-attributes" level="4" size="3" class="mt-8 scroll-m-16">
         <HeadingLink.Content>
           Data attributes
           <HeadingLink.Icon />
