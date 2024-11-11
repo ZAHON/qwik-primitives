@@ -352,6 +352,15 @@ export default {
           '100%': { height: 'var(--qwik-primitives-spoiler-panel-min-height)' },
         },
 
+        'accordion-item-panel-down': {
+          '0%': { opacity: '0', gridTemplateRows: '0fr' },
+          '100%': { opacity: '1', gridTemplateRows: '1fr' },
+        },
+        'accordion-item-panel-up': {
+          '0%': { opacity: '1', gridTemplateRows: '1fr' },
+          '100%': { opacity: '0', gridTemplateRows: '0fr' },
+        },
+
         'popper-content-side-top-show': {
           '0%': { translateY: '4px', scale: '0.97', opacity: '0' },
           '100%': { translateY: '0', scale: '1', opacity: '1' },
@@ -394,6 +403,9 @@ export default {
 
         'spoiler-panel-down': 'spoiler-panel-down 350ms cubic-bezier(0, 0, 0.2, 1)',
         'spoiler-panel-up': 'spoiler-panel-up 350ms cubic-bezier(0, 0, 0.2, 1)',
+
+        'accordion-item-panel-down': 'accordion-item-panel-down 350ms cubic-bezier(0, 0, 0.2, 1)',
+        'accordion-item-panel-up': 'accordion-item-panel-up 350ms cubic-bezier(0, 0, 0.2, 1)',
 
         'popper-content-side-top-show': 'popper-content-side-top-show 160ms cubic-bezier(0.16, 1, 0.3, 1)',
         'popper-content-side-top-hide': 'popper-content-side-top-hide 100ms cubic-bezier(0.16, 1, 0.3, 1)',
