@@ -24,7 +24,7 @@ export default component$(() => {
       </main>
 
       <div class="hidden w-64 shrink-0 lg:block">
-        <aside class="fixed -mt-10 flex h-[calc(100%-3rem)] w-64 items-start justify-end overflow-y-auto px-4 py-10">
+        <aside class="fixed -mt-10 flex h-[calc(100%-3rem)] w-64 items-start overflow-y-auto px-4 py-10">
           <TableOfContents
             data={[
               { label: 'Features', href: '#features' },
