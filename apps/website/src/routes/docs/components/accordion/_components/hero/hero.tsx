@@ -6,6 +6,16 @@ import { AccordionDemo } from '@/demos/components/accordion-demo';
 import tsxCode from '@/demos/components/accordion-demo/accordion-demo.tsx?raw';
 import cssCode from '@/demos/components/accordion-demo/styles.css?raw';
 
+const CodePresentationComponent = component$(() => {
+  return (
+    <div class="-py-24 relative h-[216px] w-[18.75rem]">
+      <div class="absolute left-1/2 -translate-x-1/2">
+        <AccordionDemo />
+      </div>
+    </div>
+  );
+});
+
 export const Hero = component$(() => {
   return (
     <>
@@ -15,7 +25,7 @@ export const Hero = component$(() => {
       </Text.Root>
 
       <CodePresentation
-        component={AccordionDemo}
+        component={CodePresentationComponent}
         type="tabs"
         defaultValue="index.tsx"
         codes={[
