@@ -6,7 +6,7 @@ export const DocsNavList = component$<DocsNavListProps>((props) => {
   const { 'aria-labelledby': ariaLabelledby } = props;
 
   return (
-    <ul aria-labelledby={ariaLabelledby ? `docs-nav-${ariaLabelledby}` : undefined} class={docsNavListStyles()}>
+    <ul aria-labelledby={`docs-nav-${ariaLabelledby}`} class={docsNavListStyles()}>
       <Slot />
     </ul>
   );

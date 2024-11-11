@@ -6,8 +6,8 @@ export const DocsNavHeading = component$<DocsNavHeadingProps>((props) => {
   const { id } = props;
 
   return (
-    <h4 id={`docs-nav-${id}`} class={docsNavHeadingStyles()}>
+    <h5 id={`docs-nav-${id}`} class={docsNavHeadingStyles()}>
       <Slot />
-    </h4>
+    </h5>
   );
 });

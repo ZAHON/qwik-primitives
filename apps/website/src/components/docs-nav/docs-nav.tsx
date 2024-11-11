@@ -18,13 +18,16 @@ export const DocsNav = component$<DocsNavProps>((props) => {
   return (
     <nav aria-label="Docs navigation" class={docsNavStyles()}>
       {variant === 'mobile' && (
-        <DocsNavList aria-labelledby={undefined}>
-          <DocsNavItem>
-            <DocsNavLink href="/" active={pathname === '/'}>
-              Home page
-            </DocsNavLink>
-          </DocsNavItem>
-        </DocsNavList>
+        <DocsNavGroup>
+          <DocsNavHeading id="quick-nav">Quick nav</DocsNavHeading>
+          <DocsNavList aria-labelledby="quick-nav">
+            <DocsNavItem>
+              <DocsNavLink href="/" active={pathname === '/'}>
+                Home page
+              </DocsNavLink>
+            </DocsNavItem>
+          </DocsNavList>
+        </DocsNavGroup>
       )}
 
       <DocsNavGroup>
