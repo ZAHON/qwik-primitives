@@ -16,6 +16,11 @@ export interface ComponentPropsTableProps {
     propDescription: JSXOutput;
 
     /**
+     * Whether prop is required.
+     */
+    propRequired?: boolean;
+
+    /**
      * The type value of the prop.
      */
     typeValue: string;

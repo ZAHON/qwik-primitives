@@ -16,6 +16,11 @@ export interface ComponentPropsProps {
     propDescription: JSXOutput;
 
     /**
+     * Whether prop is required.
+     */
+    propRequired?: boolean;
+
+    /**
      * The type value of the prop.
      */
     typeValue: string;

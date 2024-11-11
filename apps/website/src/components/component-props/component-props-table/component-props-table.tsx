@@ -24,11 +24,13 @@ export const ComponentPropsTable = component$<ComponentPropsTableProps>((props) 
           </Table.Header>
 
           <Table.Body>
-            {data.map(({ propName, propDescription, typeValue, typeDescription, defaultValue }) => (
+            {data.map(({ propName, propDescription, propRequired, typeValue, typeDescription, defaultValue }) => (
               <Table.Row key={propName}>
                 <Table.RowHeaderCell>
                   <div class="flex items-center gap-x-1">
-                    <Code.Root size="2">{propName}</Code.Root>
+                    <Code.Root size="2">
+                      {propName} {propRequired && <span aria-hidden="true">*</span>}
+                    </Code.Root>
                     <ComponentPropsPopover
                       label={`See ${propName} prop description`}
                       title={`Prop ${propName} description`}
