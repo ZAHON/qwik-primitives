@@ -12,7 +12,7 @@ export const Import = component$(() => {
         </HeadingLink.Content>
       </HeadingLink.Root>
 
-      <CodeBlock type="single" code="import { Alert } from 'qwik-primitives';" language="shell" class="mt-6" />
+      <CodeBlock type="single" code="import { Alert } from 'qwik-primitives';" language="tsx" class="mt-6" />
     </>
   );
 });
