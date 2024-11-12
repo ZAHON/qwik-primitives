@@ -9,7 +9,7 @@ export interface AlertDialogContentProps extends PropsOf<'dialog'> {
   as?: FunctionComponent;
 
   /**
-   * When `true`, tabbing from last focusable element will focus first focusable element
+   * When `true`, press `Tab` from last focusable element will focus first focusable element
    * and `Shift + Tab` from first focusable element will focus last focusable element.
    * @default true
    */
