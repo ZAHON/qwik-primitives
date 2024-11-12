@@ -12,6 +12,8 @@ A modal dialog that interrupts the user with important content and expects a res
 
 - `Esc` closes the component automatically.
 
+- Adheres to the [Alert and Message Dialogs WAI-ARIA design pattern](https://www.w3.org/WAI/ARIA/apg/patterns/alertdialog/).
+
 ## Import
 
 ```tsx
@@ -96,7 +98,7 @@ Contains all the parts of an alert dialog.
 | Prop            | Type                           | Default | Description                                                                                                           |
 | --------------- | ------------------------------ | ------- | --------------------------------------------------------------------------------------------------------------------- |
 | `defaultOpen`   | `boolean`                      | `-`     | The open state of the alert dialog when it is initially rendered. Use when you do not need to control its open state. |
-| `open`          | `Signal`                       | `-`     | The controlled open state of the alert dialog. Must be used in conjunction with `onOpenChange$`.                      |
+| `open`          | `Signal<boolean>`              | `-`     | The controlled open state of the alert dialog. Must be used in conjunction with `onOpenChange$`.                      |
 | `onOpenChange$` | `QRL<(open: boolean) => void>` | `-`     | Event handler called when the open state of the alert dialog changes.                                                 |
 
 ### Trigger
@@ -123,7 +125,7 @@ Contains content to be rendered when the alert dialog is open. This component is
 | Prop                   | Type                | Default | Description                                                                                                                                                                                                                                                                                                                                                                          |
 | ---------------------- | ------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `as`                   | `FunctionComponent` | `-`     | Change the default rendered element for the one passed as, merging their props and behavior. Read our [Composition](https://github.com/ZAHON/qwik-primitives/blob/main/packages/primitives/docs/composition.md) guide for more details.                                                                                                                                              |
-| `loop`                 | `boolean`           | `true`  | When `true`, tabbing from last focusable element will focus first focusable element and `Shift + Tab` from first focusable element will focus last focusable element.                                                                                                                                                                                                                |
+| `loop`                 | `boolean`           | `true`  | When `true`, press `Tab` from last focusable element will focus first focusable element and `Shift + Tab` from first focusable element will focus last focusable element.                                                                                                                                                                                                            |
 | `autoFocus`            | `boolean`           | `true`  | By default, when the component is opened, focus is programmatically moved to `AlertDialog.Cancel` to anticipate a response to the prompt. When `AlertDialog.Cancel` not exist or is disabled the focus will be move focus on the first focusable element. To specify the element that should receive initial focus, add `data-qwik-primitives-auto-focus` attribute on this element. |
 | `restoreFocus`         | `boolean`           | `true`  | Whether to restore focus back to the `AlertDialog.Trigger` when the alert dialog is closed.                                                                                                                                                                                                                                                                                          |
 | `preventScroll`        | `boolean`           | `true`  | Whether to prevent scrolling behind the alert dialog when it's opened.                                                                                                                                                                                                                                                                                                               |
@@ -198,7 +200,7 @@ An accessible description to be announced when the alert dialog is opened. This 
 | Prop             | Type                | Default | Description                                                                                                                                                                                                                             |
 | ---------------- | ------------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `as`             | `FunctionComponent` | `-`     | Change the default rendered element for the one passed as, merging their props and behavior. Read our [Composition](https://github.com/ZAHON/qwik-primitives/blob/main/packages/primitives/docs/composition.md) guide for more details. |
-| `visuallyHidden` | `boolean`           | `-`     | When `true`, title will be hide from the screen in an accessible way.                                                                                                                                                                   |
+| `visuallyHidden` | `boolean`           | `-`     | When `true`, description will be hide from the screen in an accessible way.                                                                                                                                                             |
 | `style`          | `CSSProperties`     | `-`     | The inline style for the element.                                                                                                                                                                                                       |
 
 | Data attribute | Values           |
