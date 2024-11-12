@@ -1,5 +1,5 @@
 import type { AlertDialogActionProps } from './alert-dialog-action.types';
-import { component$, useContext, useComputed$, $, Slot } from '@builder.io/qwik';
+import { component$, useContext, $, Slot } from '@builder.io/qwik';
 import { AlertDialogContext } from '../alert-dialog-context';
 
 /**
@@ -12,10 +12,8 @@ export const AlertDialogAction = component$<AlertDialogActionProps>((props) => {
 
   const { setIsOpen$ } = useContext(AlertDialogContext);
 
-  const isDisabled = useComputed$(() => disabled);
-
   const handleClick$ = $(() => {
-    if (!isDisabled.value) setIsOpen$(false);
+    if (!disabled) setIsOpen$(false);
   });
 
   const Component = as || 'button';
@@ -23,11 +21,11 @@ export const AlertDialogAction = component$<AlertDialogActionProps>((props) => {
   return (
     <Component
       type="button"
-      disabled={isDisabled.value}
+      disabled={disabled}
       data-qwik-primitives-alert-dialog-action=""
       data-scope="alert-dialog"
       data-part="action"
-      data-disabled={isDisabled.value ? '' : undefined}
+      data-disabled={disabled ? '' : undefined}
       onClick$={[onClick$, handleClick$]}
       {...others}
     >
