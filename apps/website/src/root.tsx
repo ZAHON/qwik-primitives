@@ -5,6 +5,7 @@ import { Insights } from '@builder.io/qwik-labs';
 import { RouterHead } from '@/components/router-head';
 import { Fonts } from '@/components/fonts';
 import { themesScript } from '@/scripts/themes-script';
+import { prefersReducedMotionScript } from '@/scripts/prefers-reduced-motion-script';
 
 import '@/styles/globals.css';
 
@@ -18,6 +19,7 @@ export default component$(() => {
         <Fonts />
         <Insights publicApiKey={import.meta.env.PUBLIC_QWIK_INSIGHTS_KEY} />
         <script dangerouslySetInnerHTML={`(${themesScript.toString()})()`} />
+        <script dangerouslySetInnerHTML={`(${prefersReducedMotionScript.toString()})()`} />
       </head>
       <body class="min-h-dvh overflow-x-hidden bg-background text-foreground selection:bg-primary-selection">
         <RouterOutlet />
