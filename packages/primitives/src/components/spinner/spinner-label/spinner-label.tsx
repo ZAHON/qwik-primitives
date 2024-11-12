@@ -1,6 +1,6 @@
 import type { SpinnerLabelProps } from './spinner-label.types';
 import { component$, Slot } from '@builder.io/qwik';
-import { visuallyHiddenStyle } from '@/utilities';
+import { visuallyHiddenStyle } from '@/_internal/utilities';
 
 /**
  * The fallback loading text.

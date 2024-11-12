@@ -1,6 +1,6 @@
 import type { AvatarRootProps } from './avatar-root.types';
 import { component$, useSignal, useContextProvider, useVisibleTask$, Slot } from '@builder.io/qwik';
-import { visuallyHiddenStyle } from '@/utilities';
+import { visuallyHiddenStyle } from '@/_internal/utilities';
 import { AvatarContext } from '../avatar-context';
 
 /**

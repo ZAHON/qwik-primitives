@@ -1,7 +1,7 @@
 import type { PopoverTitleProps } from './popover-title.types';
 import { component$, useContext, useId, useTask$, Slot } from '@builder.io/qwik';
 import { isBrowser } from '@builder.io/qwik/build';
-import { visuallyHiddenStyle } from '@/utilities';
+import { visuallyHiddenStyle } from '@/_internal/utilities';
 import { PopoverContext } from '../popover-context';
 
 /**
