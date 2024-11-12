@@ -4,7 +4,7 @@ export const pageHeaderNavStyles = cva([
   'px-4',
   'mx-auto',
   'h-full',
-  'max-w-screen-xl',
+  'max-w-screen-2xl',
   'flex',
   'items-center',
   'justify-between',
