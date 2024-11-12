@@ -323,6 +323,10 @@ export default {
       },
     },
     extend: {
+      screens: {
+        '2xl': '1400px',
+        '3xl': '1536px',
+      },
       spacing: {
         '4.5': '1.125rem',
         '5.5': '1.375rem',
