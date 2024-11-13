@@ -18,7 +18,9 @@ export const prefersReducedMotionScript = () => {
     const enableAnimation = () => {
       requestAnimationFrame(() => {
         setTimeout(() => {
-          document.head.removeChild(css);
+          if ([...document.head.childNodes].find((child) => child === css)) {
+            document.head.removeChild(css);
+          }
         }, 1);
       });
     };
@@ -33,7 +35,7 @@ export const prefersReducedMotionScript = () => {
       }
     };
 
-    // Triggered at the first client-side load and if query changes
+    // Triggered at the first client-side load.
     handleMatchMediaChange();
 
     // Use deprecated `addListener` and `removeListener` to support Safari < 14
