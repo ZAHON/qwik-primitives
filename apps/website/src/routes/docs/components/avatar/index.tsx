@@ -1,3 +1,4 @@
+import type { DocumentHead } from '@builder.io/qwik-city';
 import { component$ } from '@builder.io/qwik';
 import { TableOfContents } from '@/components/table-of-contents';
 import { Hero } from './_components/hero';
@@ -49,3 +50,13 @@ export default component$(() => {
     </>
   );
 });
+
+export const head: DocumentHead = {
+  title: 'Avatar',
+  meta: [
+    {
+      name: 'description',
+      content: `An image element with a fallback for representing the user.`,
+    },
+  ],
+};
