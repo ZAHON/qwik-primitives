@@ -1,3 +1,4 @@
+import type { DocumentHead } from '@builder.io/qwik-city';
 import { component$ } from '@builder.io/qwik';
 import { TableOfContents } from '@/components/table-of-contents';
 import { Hero } from './_components/hero';
@@ -41,3 +42,13 @@ export default component$(() => {
     </>
   );
 });
+
+export const head: DocumentHead = {
+  title: 'Alert',
+  meta: [
+    {
+      name: 'description',
+      content: `Display a brief, important message in a way that attracts the user's attention without interrupting the user's task.`,
+    },
+  ],
+};
