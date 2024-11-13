@@ -4,7 +4,7 @@ import { BreadcrumbsContext } from '../breadcrumbs-context';
 
 /**
  * A component that represents the current page.
- * Must be rendered inside `Breadcrumbs.Item`.
+ * Should be nested inside `Breadcrumbs.Item`.
  * This component is based on the `span` element.
  */
 export const BreadcrumbsPage = component$<BreadcrumbsPageProps>((props) => {

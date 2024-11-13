@@ -4,7 +4,7 @@ import { BreadcrumbsContext } from '../breadcrumbs-context';
 
 /**
  * Used to visually separate breadcrumbs items.
- * Must be rendered inside `Breadcrumbs.Item`.
+ * Should be nested inside `Breadcrumbs.Item`.
  * This component is based on the `span` element.
  */
 export const BreadcrumbsSeparator = component$<BreadcrumbsSeparatorProps>((props) => {

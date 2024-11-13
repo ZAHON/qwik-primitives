@@ -4,7 +4,7 @@ import { BreadcrumbsContext } from '../breadcrumbs-context';
 
 /**
  * A breadcrumbs link.
- * Must be rendered inside `Breadcrumbs.Item`.
+ * Should be nested inside `Breadcrumbs.Item`.
  * This component is based on the `a` element.
  */
 export const BreadcrumbsLink = component$<BreadcrumbsLinkProps>((props) => {
