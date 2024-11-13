@@ -1,10 +1,12 @@
 # Breadcrumbs
 
-Show hierarchy and navigational context for a user`s location within an application.
+Show hierarchy and navigational context for a user's location within an application.
 
 ## Features
 
 - Support for disabled breadcrumb links.
+
+- Adheres to the [Breadcrumb WAI-ARIA design pattern](https://www.w3.org/WAI/ARIA/apg/patterns/breadcrumb/).
 
 ## Import
 
@@ -85,7 +87,7 @@ Contains all the parts of a breadcrumbs. This component is based on the `nav` el
 
 ### List
 
-Contains the breadcrumbs items. his component is based on the `ol` element.
+Contains the breadcrumbs items. This component is based on the `ol` element.
 
 | Prop    | Type                | Default | Description                                                                                                                                                                                                                             |
 | ------- | ------------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -115,7 +117,7 @@ A breadcrumbs item. This component is based on the `li` element.
 
 ### Link
 
-A breadcrumbs link. Must be rendered inside `Breadcrumbs.Item`. his component is based on the `a` element.
+A breadcrumbs link. Should be nested inside `Breadcrumbs.Item`. This component is based on the `a` element.
 
 | Prop       | Type                | Default | Description                                                                                                                                                                                                                             |
 | ---------- | ------------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -132,7 +134,7 @@ A breadcrumbs link. Must be rendered inside `Breadcrumbs.Item`. his component is
 
 ### Page
 
-A component that represents the current page. Must be rendered inside `Breadcrumbs.Item`. This component is based on the `span` element.
+A component that represents the current page. Should be nested inside `Breadcrumbs.Item`. This component is based on the `span` element.
 
 | Prop    | Type                | Default | Description                                                                                                                                                                                                                             |
 | ------- | ------------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -146,7 +148,7 @@ A component that represents the current page. Must be rendered inside `Breadcrum
 
 ### Separator
 
-Used to visually separate breadcrumbs items. Must be rendered inside `Breadcrumbs.Item`. This component is based on the `span` element.
+Used to visually separate breadcrumbs items. Should be nested inside `Breadcrumbs.Item`. This component is based on the `span` element.
 
 | Prop    | Type                | Default | Description                                                                                                                                                                                                                             |
 | ------- | ------------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -163,7 +165,7 @@ Used to visually separate breadcrumbs items. Must be rendered inside `Breadcrumb
 
 ### Disabled
 
-Use the `disabled` prop on `Breadcrumbs.Root` component to disable all links while keeping it accessible for screen readers.
+Use the `disabled` prop on `Breadcrumbs.Root` to disable all links while keeping it accessible for screen readers.
 
 ```tsx
 import { component$ } from '@builder.io/qwik';
@@ -192,7 +194,7 @@ const BreadcrumbsDemo = component$(() => {
 
 ### Disabled link
 
-Use the `disabled` prop on `Breadcrumbs.Link` component to disable a link while keeping it accessible for screen readers.
+Use the `disabled` prop on `Breadcrumbs.Link` to disable a link while keeping it accessible for screen readers.
 
 ```tsx
 import { component$ } from '@builder.io/qwik';
@@ -222,6 +224,8 @@ const BreadcrumbsDemo = component$(() => {
 ```
 
 ## Accessibility
+
+- Adheres to the [Breadcrumb WAI-ARIA design pattern](https://www.w3.org/WAI/ARIA/apg/patterns/breadcrumb/).
 
 ### Keyboard Interactions
 
