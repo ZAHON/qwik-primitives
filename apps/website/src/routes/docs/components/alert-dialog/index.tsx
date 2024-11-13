@@ -1,3 +1,4 @@
+import type { DocumentHead } from '@builder.io/qwik-city';
 import { component$ } from '@builder.io/qwik';
 import { TableOfContents } from '@/components/table-of-contents';
 import { Hero } from './_components/hero';
@@ -66,3 +67,13 @@ export default component$(() => {
     </>
   );
 });
+
+export const head: DocumentHead = {
+  title: 'Alert Dialog',
+  meta: [
+    {
+      name: 'description',
+      content: `A modal dialog that interrupts the user with important content and expects a response.`,
+    },
+  ],
+};
