@@ -14,7 +14,7 @@ export const LinkRoot = component$<LinkRootProps>((props) => {
     <Componet
       role={disabled ? 'link' : undefined}
       href={disabled ? undefined : href}
-      aria-disabled={disabled ? true : undefined}
+      aria-disabled={disabled ? 'true' : undefined}
       data-qwik-primitives-link-root=""
       data-scope="link"
       data-part="root"
