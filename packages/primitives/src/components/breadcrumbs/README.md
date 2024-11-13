@@ -232,7 +232,7 @@ const BreadcrumbsDemo = component$(() => {
 
 ## Accessibility
 
-- Adheres to the [Breadcrumb WAI-ARIA design pattern](https://www.w3.org/WAI/ARIA/apg/patterns/breadcrumb/).
+Adheres to the [Breadcrumb WAI-ARIA design pattern](https://www.w3.org/WAI/ARIA/apg/patterns/breadcrumb/).
 
 ### Keyboard Interactions
 
