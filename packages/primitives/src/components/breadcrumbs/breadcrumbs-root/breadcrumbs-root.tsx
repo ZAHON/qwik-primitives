@@ -1,5 +1,5 @@
 import type { BreadcrumbsRootProps } from './breadcrumbs-root.types';
-import { component$, useContextProvider, useComputed$, Slot } from '@builder.io/qwik';
+import { component$, useContextProvider, Slot } from '@builder.io/qwik';
 import { BreadcrumbsContext } from '../breadcrumbs-context';
 
 /**
@@ -9,9 +9,7 @@ import { BreadcrumbsContext } from '../breadcrumbs-context';
 export const BreadcrumbsRoot = component$<BreadcrumbsRootProps>((props) => {
   const { as, 'aria-label': ariaLabel = 'Breadcrumbs', disabled, ...others } = props;
 
-  const isDisabled = useComputed$(() => disabled);
-
-  useContextProvider(BreadcrumbsContext, { isDisabled });
+  useContextProvider(BreadcrumbsContext, { disabled });
 
   const Component = as || 'nav';
 
@@ -21,7 +19,7 @@ export const BreadcrumbsRoot = component$<BreadcrumbsRootProps>((props) => {
       data-qwik-primitives-breadcrumbs-root=""
       data-scope="breadcrumbs"
       data-part="root"
-      data-disabled={isDisabled.value ? '' : undefined}
+      data-disabled={disabled ? '' : undefined}
       {...others}
     >
       <Slot />

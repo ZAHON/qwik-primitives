@@ -10,7 +10,7 @@ import { BreadcrumbsContext } from '../breadcrumbs-context';
 export const BreadcrumbsSeparator = component$<BreadcrumbsSeparatorProps>((props) => {
   const { as, ...others } = props;
 
-  const { isDisabled } = useContext(BreadcrumbsContext);
+  const { disabled } = useContext(BreadcrumbsContext);
 
   const Component = as || 'span';
 
@@ -20,7 +20,7 @@ export const BreadcrumbsSeparator = component$<BreadcrumbsSeparatorProps>((props
       data-qwik-primitives-breadcrumbs-separator=""
       data-scope="breadcrumbs"
       data-part="separator"
-      data-disabled={isDisabled.value ? '' : undefined}
+      data-disabled={disabled ? '' : undefined}
       {...others}
     >
       <Slot />

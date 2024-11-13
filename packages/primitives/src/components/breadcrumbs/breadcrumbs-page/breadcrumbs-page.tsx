@@ -10,7 +10,7 @@ import { BreadcrumbsContext } from '../breadcrumbs-context';
 export const BreadcrumbsPage = component$<BreadcrumbsPageProps>((props) => {
   const { as, ...others } = props;
 
-  const { isDisabled } = useContext(BreadcrumbsContext);
+  const { disabled } = useContext(BreadcrumbsContext);
 
   const Component = as || 'span';
 
@@ -22,7 +22,7 @@ export const BreadcrumbsPage = component$<BreadcrumbsPageProps>((props) => {
       data-qwik-primitives-breadcrumbs-page=""
       data-scope="breadcrumbs"
       data-part="page"
-      data-disabled={isDisabled.value ? '' : undefined}
+      data-disabled={disabled ? '' : undefined}
       {...others}
     >
       <Slot />
