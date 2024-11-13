@@ -9,10 +9,12 @@ export const BreadcrumbsDemo = component$(() => {
           <Breadcrumbs.Link href="#">Docs</Breadcrumbs.Link>
           <Breadcrumbs.Separator>{'>'}</Breadcrumbs.Separator>
         </Breadcrumbs.Item>
+
         <Breadcrumbs.Item>
           <Breadcrumbs.Link href="#">Components</Breadcrumbs.Link>
           <Breadcrumbs.Separator>{'>'}</Breadcrumbs.Separator>
         </Breadcrumbs.Item>
+
         <Breadcrumbs.Item>
           <Breadcrumbs.Page>Breadcrumbs</Breadcrumbs.Page>
         </Breadcrumbs.Item>
