@@ -51,12 +51,12 @@ const BreadcrumbsDemo = component$(() => {
     <Breadcrumbs.Root>
       <Breadcrumbs.List>
         <Breadcrumbs.Item>
-          <Breadcrumbs.Link href="/">Home</Breadcrumbs.Link>
+          <Breadcrumbs.Link href="#">Docs</Breadcrumbs.Link>
           <Breadcrumbs.Separator>{'>'}</Breadcrumbs.Separator>
         </Breadcrumbs.Item>
 
         <Breadcrumbs.Item>
-          <Breadcrumbs.Link href="/components">Components</Breadcrumbs.Link>
+          <Breadcrumbs.Link href="#">Components</Breadcrumbs.Link>
           <Breadcrumbs.Separator>{'>'}</Breadcrumbs.Separator>
         </Breadcrumbs.Item>
 
@@ -179,12 +179,12 @@ const BreadcrumbsDemo = component$(() => {
     <Breadcrumbs.Root disabled={true}>
       <Breadcrumbs.List>
         <Breadcrumbs.Item>
-          <Breadcrumbs.Link href="/">Home</Breadcrumbs.Link>
+          <Breadcrumbs.Link href="#">Docs</Breadcrumbs.Link>
           <Breadcrumbs.Separator>{'>'}</Breadcrumbs.Separator>
         </Breadcrumbs.Item>
 
         <Breadcrumbs.Item>
-          <Breadcrumbs.Link href="/components">Components</Breadcrumbs.Link>
+          <Breadcrumbs.Link href="#">Components</Breadcrumbs.Link>
           <Breadcrumbs.Separator>{'>'}</Breadcrumbs.Separator>
         </Breadcrumbs.Item>
 
@@ -210,14 +210,14 @@ const BreadcrumbsDemo = component$(() => {
     <Breadcrumbs.Root>
       <Breadcrumbs.List>
         <Breadcrumbs.Item>
-          <Breadcrumbs.Link disabled={true} href="/">
-            Home
+          <Breadcrumbs.Link disabled={true} href="#">
+            Docs
           </Breadcrumbs.Link>
           <Breadcrumbs.Separator>{'>'}</Breadcrumbs.Separator>
         </Breadcrumbs.Item>
 
         <Breadcrumbs.Item>
-          <Breadcrumbs.Link href="/components">Components</Breadcrumbs.Link>
+          <Breadcrumbs.Link href="#">Components</Breadcrumbs.Link>
           <Breadcrumbs.Separator>{'>'}</Breadcrumbs.Separator>
         </Breadcrumbs.Item>
 
