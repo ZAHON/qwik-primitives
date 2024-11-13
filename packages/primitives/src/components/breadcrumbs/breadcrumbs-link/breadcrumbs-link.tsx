@@ -23,7 +23,7 @@ export const BreadcrumbsLink = component$<BreadcrumbsLinkProps>((props) => {
     <Component
       role={(disabled ?? breadcrumbsDisabled) ? 'link' : undefined}
       href={(disabled ?? breadcrumbsDisabled) ? undefined : href}
-      aria-disabled={(disabled ?? breadcrumbsDisabled) ? true : undefined}
+      aria-disabled={(disabled ?? breadcrumbsDisabled) ? 'true' : undefined}
       data-qwik-primitives-breadcrumbs-link=""
       data-scope="breadcrumbs"
       data-part="link"
