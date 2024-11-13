@@ -30,6 +30,7 @@ const BreadcrumbsDemo = component$(() => {
           <Breadcrumbs.Link />
           <Breadcrumbs.Separator />
         </Breadcrumbs.Item>
+
         <Breadcrumbs.Item>
           <Breadcrumbs.Page />
         </Breadcrumbs.Item>
@@ -53,10 +54,12 @@ const BreadcrumbsDemo = component$(() => {
           <Breadcrumbs.Link href="/">Home</Breadcrumbs.Link>
           <Breadcrumbs.Separator>{'>'}</Breadcrumbs.Separator>
         </Breadcrumbs.Item>
+
         <Breadcrumbs.Item>
           <Breadcrumbs.Link href="/components">Components</Breadcrumbs.Link>
           <Breadcrumbs.Separator>{'>'}</Breadcrumbs.Separator>
         </Breadcrumbs.Item>
+
         <Breadcrumbs.Item>
           <Breadcrumbs.Page>Breadcrumbs</Breadcrumbs.Page>
         </Breadcrumbs.Item>
@@ -179,10 +182,12 @@ const BreadcrumbsDemo = component$(() => {
           <Breadcrumbs.Link href="/">Home</Breadcrumbs.Link>
           <Breadcrumbs.Separator>{'>'}</Breadcrumbs.Separator>
         </Breadcrumbs.Item>
+
         <Breadcrumbs.Item>
           <Breadcrumbs.Link href="/components">Components</Breadcrumbs.Link>
           <Breadcrumbs.Separator>{'>'}</Breadcrumbs.Separator>
         </Breadcrumbs.Item>
+
         <Breadcrumbs.Item>
           <Breadcrumbs.Page>Breadcrumbs</Breadcrumbs.Page>
         </Breadcrumbs.Item>
@@ -210,10 +215,12 @@ const BreadcrumbsDemo = component$(() => {
           </Breadcrumbs.Link>
           <Breadcrumbs.Separator>{'>'}</Breadcrumbs.Separator>
         </Breadcrumbs.Item>
+
         <Breadcrumbs.Item>
           <Breadcrumbs.Link href="/components">Components</Breadcrumbs.Link>
           <Breadcrumbs.Separator>{'>'}</Breadcrumbs.Separator>
         </Breadcrumbs.Item>
+
         <Breadcrumbs.Item>
           <Breadcrumbs.Page>Breadcrumbs</Breadcrumbs.Page>
         </Breadcrumbs.Item>
