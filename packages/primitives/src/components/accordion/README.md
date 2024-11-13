@@ -462,7 +462,7 @@ const AccordionDemo = component$(() => {
           </Accordion.ItemTrigger>
         </Accordion.ItemHeader>
         <Accordion.ItemPanel>
-          <Accordion.ItemContent>Yes! You can animate the Accordion with CSS or JavaScript.</Accordion.ItemContent>
+          <Accordion.ItemContent>Yes! You can animate the Accordion with CSS.</Accordion.ItemContent>
         </Accordion.ItemPanel>
       </Accordion.Item>
     </Accordion.Root>
