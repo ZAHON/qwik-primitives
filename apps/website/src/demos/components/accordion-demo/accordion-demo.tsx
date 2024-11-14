@@ -29,7 +29,7 @@ export const AccordionDemo = component$(() => {
   useStyles$(styles);
 
   return (
-    <Accordion.Root type="single" defaultValue="item-1" class="accordion-root">
+    <Accordion.Root type="single" defaultValue="item-1" collapsible={true} class="accordion-root">
       <Accordion.Item value="item-1" class="accordion-root-item">
         <Accordion.ItemHeader class="accordion-item-header">
           <Accordion.ItemTrigger class="accordion-item-trigger">
