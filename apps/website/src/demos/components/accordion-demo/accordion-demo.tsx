@@ -35,7 +35,7 @@ export const AccordionDemo = component$(() => {
           <Accordion.ItemTrigger class="accordion-item-trigger">
             <span class="accordion-item-trigger-title">Is it accessible?</span>
             <Accordion.ItemIndicator class="accordion-item-trigger-indicator">
-              <ChevronLeftIcon height={16} width={16} class="accordion-item-trigger-indicator" />
+              <ChevronLeftIcon height={16} width={16} class="accordion-item-trigger-indicator-icon" />
             </Accordion.ItemIndicator>
           </Accordion.ItemTrigger>
         </Accordion.ItemHeader>
@@ -53,7 +53,7 @@ export const AccordionDemo = component$(() => {
           <Accordion.ItemTrigger class="accordion-item-trigger">
             <span class="accordion-item-trigger-title">Is it unstyled?</span>
             <Accordion.ItemIndicator class="accordion-item-trigger-indicator">
-              <ChevronLeftIcon height={16} width={16} class="accordion-item-trigger-indicator" />
+              <ChevronLeftIcon height={16} width={16} class="accordion-item-trigger-indicator-icon" />
             </Accordion.ItemIndicator>
           </Accordion.ItemTrigger>
         </Accordion.ItemHeader>
@@ -73,7 +73,7 @@ export const AccordionDemo = component$(() => {
           <Accordion.ItemTrigger class="accordion-item-trigger">
             <span class="accordion-item-trigger-title">Can it be animated?</span>
             <Accordion.ItemIndicator class="accordion-item-trigger-indicator">
-              <ChevronLeftIcon height={16} width={16} class="accordion-item-trigger-indicator" />
+              <ChevronLeftIcon height={16} width={16} class="accordion-item-trigger-indicator-icon" />
             </Accordion.ItemIndicator>
           </Accordion.ItemTrigger>
         </Accordion.ItemHeader>
