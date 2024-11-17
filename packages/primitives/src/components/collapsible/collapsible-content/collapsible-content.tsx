@@ -10,7 +10,7 @@ import { CollapsibleContext } from '../collapsible-context';
 export const CollapsibleContent = component$<CollapsibleContentProps>((props) => {
   const { as, style, ...others } = props;
 
-  const { isOpen, isPanelHide, panelStatus, isDisabled } = useContext(CollapsibleContext);
+  const { isOpen, isPanelHide, panelStatus, disabled } = useContext(CollapsibleContext);
 
   const Component = as || 'div';
 
@@ -20,7 +20,7 @@ export const CollapsibleContent = component$<CollapsibleContentProps>((props) =>
       data-scope="collapsible"
       data-part="content"
       data-state={isOpen.value ? 'open' : 'closed'}
-      data-disabled={isDisabled.value ? '' : undefined}
+      data-disabled={disabled ? '' : undefined}
       style={{ overflow: panelStatus.value === 'open' ? undefined : 'hidden', ...style }}
       {...others}
     >

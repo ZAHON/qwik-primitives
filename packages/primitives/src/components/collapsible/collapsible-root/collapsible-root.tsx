@@ -1,5 +1,5 @@
 import type { CollapsibleRootProps } from './collapsible-root.types';
-import { component$, useSignal, useComputed$, useContextProvider, Slot } from '@builder.io/qwik';
+import { component$, useSignal, useContextProvider, Slot } from '@builder.io/qwik';
 import { useControllableState } from '@/hooks/use-controllable-state';
 import { CollapsibleContext } from '../collapsible-context';
 
@@ -21,9 +21,7 @@ export const CollapsibleRoot = component$<CollapsibleRootProps>((props) => {
   const panelStatus = useSignal<'open' | 'closed' | 'indeterminate'>(isOpen.value ? 'open' : 'closed');
   const panelId = useSignal<string | undefined>(undefined);
 
-  const isDisabled = useComputed$(() => disabled);
-
-  useContextProvider(CollapsibleContext, { isOpen, setIsOpen$, isPanelHide, panelStatus, panelId, isDisabled });
+  useContextProvider(CollapsibleContext, { isOpen, setIsOpen$, isPanelHide, panelStatus, panelId, disabled });
 
   const Component = as || 'div';
 
@@ -33,7 +31,7 @@ export const CollapsibleRoot = component$<CollapsibleRootProps>((props) => {
       data-scope="collapsible"
       data-part="root"
       data-state={isOpen.value ? 'open' : 'closed'}
-      data-disabled={isDisabled.value ? '' : undefined}
+      data-disabled={disabled ? '' : undefined}
       {...others}
     >
       <Slot />

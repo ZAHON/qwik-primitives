@@ -11,7 +11,7 @@ import { CollapsibleContext } from '../collapsible-context';
 export const CollapsiblePanel = component$<CollapsiblePanelProps>((props) => {
   const { as, ref, id, onOpen$, onClose$, style, ...others } = props;
 
-  const { isOpen, isPanelHide, panelStatus, panelId, isDisabled } = useContext(CollapsibleContext);
+  const { isOpen, isPanelHide, panelStatus, panelId, disabled } = useContext(CollapsibleContext);
 
   const autoId = useId();
 
@@ -144,7 +144,7 @@ export const CollapsiblePanel = component$<CollapsiblePanelProps>((props) => {
       data-scope="collapsible"
       data-part="panel"
       data-state={isOpen.value ? 'open' : 'closed'}
-      data-disabled={isDisabled.value ? '' : undefined}
+      data-disabled={disabled ? '' : undefined}
       style={{
         display: 'grid',
         gridTemplateRows: isOpen.value ? '1fr' : '0fr',

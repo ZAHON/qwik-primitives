@@ -29,5 +29,5 @@ export interface CollapsibleContextValue {
   /**
    * When `true`, prevents the user from interacting with the collapsible.
    */
-  isDisabled: ReadonlySignal<boolean | undefined>;
+  disabled: boolean;
 }
