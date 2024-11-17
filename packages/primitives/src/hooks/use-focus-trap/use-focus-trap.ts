@@ -2,8 +2,8 @@ import type { Signal } from '@builder.io/qwik';
 import type { UseFocusTrapOptions, FocusTrap } from './use-focus-trap.types';
 import { useSignal, useStore, $, useOnDocument, useTask$ } from '@builder.io/qwik';
 import { isBrowser, isServer, isDev } from '@builder.io/qwik/build';
-import { focusElement, focusFirstElement, getTabbableCandidates, findFirstVisibleElement } from '@/utilities';
-import { createFocusTrapsStack } from './utilities';
+import { focusFirstElement, getTabbableCandidates, findFirstVisibleElement } from '@/utilities';
+import { createFocusTrapsStack, focusElement } from './utilities';
 
 const focusTrapsStack = createFocusTrapsStack();
 
