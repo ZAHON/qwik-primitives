@@ -6,7 +6,7 @@ An interactive component that allow hide long sections of content under a spoile
 
 - Full keyboard navigation.
 
-- Can be uncontrolled or controlled.
+- Can be or controlled uncontrolled.
 
 - Support for responsive design.
 
