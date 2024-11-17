@@ -24,14 +24,6 @@ const prevBodyStyle: PrevBodyStyle = {
  * Lock scroll at current position.
  */
 export const useScrollLock = () => {
-  const getState$ = $(() => {
-    if (isServer && isDev) {
-      throw Error('[qwik-primitives]: useScrollLock hook the scroll lock can not be check during SSR');
-    }
-
-    return document.body.hasAttribute('data-qwik-primitives-scroll-lock') ? 'lock' : 'unlock';
-  });
-
   const lock$ = $(() => {
     if (isServer && isDev) {
       throw Error('[qwik-primitives]: useScrollLock hook the scroll can not be lock during SSR');
@@ -123,5 +115,5 @@ export const useScrollLock = () => {
     body.removeAttribute('data-qwik-primitives-scroll-lock');
   });
 
-  return { getState$, lock$, unlock$ };
+  return { lock$, unlock$ };
 };
