@@ -26,12 +26,12 @@ describe('Collapsible', () => {
       cy.get(`[data-testid="${COLLAPSIBLE_ROOT_TESTID}"]`).should('have.text', COLLAPSIBLE_ROOT_TEXT);
     });
 
-    it('should have not attribute data-disabled when not disabled', () => {
+    it('should have not attribute data-disabled when is not disabled', () => {
       cy.mount(<Collapsible.Root disabled={false} data-testid={COLLAPSIBLE_ROOT_TESTID} />);
       cy.get(`[data-testid="${COLLAPSIBLE_ROOT_TESTID}"]`).should('have.not.attr', 'data-disabled');
     });
 
-    it('should have attribute data-disabled with empty value when disabled', () => {
+    it('should have attribute data-disabled with empty value when is disabled', () => {
       cy.mount(<Collapsible.Root disabled={true} data-testid={COLLAPSIBLE_ROOT_TESTID} />);
       cy.get(`[data-testid="${COLLAPSIBLE_ROOT_TESTID}"]`).should('have.attr', 'data-disabled', '');
     });
@@ -160,7 +160,7 @@ describe('Collapsible', () => {
       cy.get(`[data-testid="${COLLAPSIBLE_TRIGGER_TESTID}"]`).should('have.attr', 'data-state', 'open');
     });
 
-    it('should not change open state of the whole component when <Collapsible.Root> is disabled and user click <<Collapsible.Trigger>', () => {
+    it('should not change open state of the whole component when <Collapsible.Root> is disabled and user click <Collapsible.Trigger>', () => {
       cy.mount(
         <Collapsible.Root defaultOpen={false} disabled={true}>
           <Collapsible.Trigger data-testid={COLLAPSIBLE_TRIGGER_TESTID} />
@@ -193,7 +193,7 @@ describe('Collapsible', () => {
       cy.get(`[data-testid="${COLLAPSIBLE_TRIGGER_TESTID}"]`).should('have.not.attr', 'aria-controls');
     });
 
-    it('should have attribute aria-controls associated with <Collapsible.Panel> id attribute when <Collapsible.Root> contains <Dialog.Panel>', () => {
+    it('should have attribute aria-controls associated with <Collapsible.Panel> id attribute when <Collapsible.Root> contains <Collapsible.Panel>', () => {
       cy.mount(
         <Collapsible.Root>
           <Collapsible.Trigger data-testid={COLLAPSIBLE_TRIGGER_TESTID} />
@@ -207,7 +207,7 @@ describe('Collapsible', () => {
         );
     });
 
-    it('should have attribute aria-controls associated with <Collapsible.Panel> id attribute provided via id prop when <Collapsible.Root> contains <Dialog.Panel>', () => {
+    it('should have attribute aria-controls associated with <Collapsible.Panel> id attribute provided via id prop when <Collapsible.Root> contains <Collapsible.Panel>', () => {
       const COLLAPSIBLE_PANEL_ID = 'COLLAPSIBLE_PANEL_ID';
 
       cy.mount(
