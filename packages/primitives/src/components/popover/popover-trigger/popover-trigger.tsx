@@ -1,5 +1,5 @@
 import type { PopoverTriggerProps } from './popover-trigger.types';
-import { component$, useContext, useComputed$, useTask$, $, Slot } from '@builder.io/qwik';
+import { component$, useContext, useTask$, $, Slot } from '@builder.io/qwik';
 import { composeRefs } from '@/utilities';
 import { PopoverContext } from '../popover-context';
 
@@ -13,12 +13,10 @@ export const PopoverTrigger = component$<PopoverTriggerProps>((props) => {
 
   const { isOpen, setIsOpen$, triggerRef, contentId } = useContext(PopoverContext);
 
-  const isDisabled = useComputed$(() => disabled);
-
   useTask$(async () => undefined);
 
   const handleClick$ = $(() => {
-    if (!isDisabled.value) setIsOpen$(true);
+    if (!disabled) setIsOpen$(true);
   });
 
   const Component = as || 'button';
@@ -27,7 +25,7 @@ export const PopoverTrigger = component$<PopoverTriggerProps>((props) => {
     <Component
       ref={composeRefs([ref, triggerRef])}
       type="button"
-      disabled={isDisabled.value}
+      disabled={disabled}
       aria-haspopup={contentId.value ? 'dialog' : undefined}
       aria-expanded={contentId.value ? isOpen.value : undefined}
       aria-controls={contentId.value}
@@ -35,7 +33,7 @@ export const PopoverTrigger = component$<PopoverTriggerProps>((props) => {
       data-scope="popover"
       data-part="trigger"
       data-state={isOpen.value ? 'open' : 'closed'}
-      data-disabled={isDisabled.value ? '' : undefined}
+      data-disabled={disabled ? '' : undefined}
       onClick$={[onClick$, handleClick$]}
       {...others}
     >
