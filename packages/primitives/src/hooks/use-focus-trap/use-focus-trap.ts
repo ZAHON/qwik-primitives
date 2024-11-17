@@ -189,10 +189,6 @@ export const useFocusTrap = (ref: Signal<HTMLElement | undefined>, options?: Use
   useOnDocument('focusin', handleFocusIn$);
   useOnDocument('focusout', handleFocusOut$);
 
-  const getState$ = $(() => {
-    return isActive.value ? 'active' : 'inactive';
-  });
-
   const active$ = $(() => {
     if (isServer && isDev) {
       throw Error('[qwik-primitives]: useFocusTrap hook focus trap can not be active during SSR');
@@ -219,5 +215,5 @@ export const useFocusTrap = (ref: Signal<HTMLElement | undefined>, options?: Use
     }
   });
 
-  return { getState$, active$, deactivate$ };
+  return { active$, deactivate$ };
 };
