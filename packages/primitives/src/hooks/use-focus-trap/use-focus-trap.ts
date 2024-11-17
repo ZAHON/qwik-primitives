@@ -15,7 +15,7 @@ const focusTrapsStack = createFocusTrapsStack();
 /**
  * Traps focus inside given element.
  */
-export const useFocusTrap = (containerRef: Signal<HTMLElement | undefined>, options?: UseFocusTrapOptions) => {
+export const useFocusTrap = (ref: Signal<HTMLElement | undefined>, options?: UseFocusTrapOptions) => {
   const { loop, autoFocus, restoreFocus } = { loop: true, autoFocus: true, restoreFocus: true, ...options };
 
   const isActive = useSignal(false);
@@ -34,16 +34,16 @@ export const useFocusTrap = (containerRef: Signal<HTMLElement | undefined>, opti
   useTask$(({ track, cleanup }) => {
     track(() => isActive.value);
 
-    if (isBrowser && isActive.value && containerRef.value) {
+    if (isBrowser && isActive.value && ref.value) {
       focusTrapsStack.add(focusTrap);
 
       const previouslyFocusedElement = document.activeElement as HTMLElement | null;
-      const hasFocusedCandidate = containerRef.value.contains(previouslyFocusedElement);
+      const hasFocusedCandidate = ref.value.contains(previouslyFocusedElement);
 
-      if (!hasFocusedCandidate || containerRef.value instanceof HTMLDialogElement) {
-        if (containerRef.value instanceof HTMLDialogElement) containerRef.value.inert = false;
+      if (!hasFocusedCandidate || ref.value instanceof HTMLDialogElement) {
+        if (ref.value instanceof HTMLDialogElement) ref.value.inert = false;
 
-        const tabbableCandidates = getTabbableCandidates(containerRef.value, { removeLinks: true });
+        const tabbableCandidates = getTabbableCandidates(ref.value, { removeLinks: true });
 
         if (autoFocus) {
           const autofocusElement = tabbableCandidates.find((tabbableCandidate) => {
@@ -53,7 +53,7 @@ export const useFocusTrap = (containerRef: Signal<HTMLElement | undefined>, opti
           if (autofocusElement) {
             focusElement(autofocusElement, { select: true });
           } else {
-            if (containerRef.value.hasAttribute('data-qwik-primitives-alert-dialog-content')) {
+            if (ref.value.hasAttribute('data-qwik-primitives-alert-dialog-content')) {
               const alertDialogCancelElement = tabbableCandidates.find((tabbableCandidate) => {
                 return tabbableCandidate.hasAttribute('data-qwik-primitives-alert-dialog-cancel');
               });
@@ -64,7 +64,7 @@ export const useFocusTrap = (containerRef: Signal<HTMLElement | undefined>, opti
                 setTimeout(() => focusFirstElement(tabbableCandidates, { select: true }));
               }
             } else {
-              if (containerRef.value instanceof HTMLDialogElement) {
+              if (ref.value instanceof HTMLDialogElement) {
                 setTimeout(() => focusFirstElement(tabbableCandidates, { select: true }));
               } else {
                 focusFirstElement(tabbableCandidates, { select: true });
@@ -74,7 +74,7 @@ export const useFocusTrap = (containerRef: Signal<HTMLElement | undefined>, opti
         }
 
         if (document.activeElement === previouslyFocusedElement) {
-          focusElement(containerRef.value);
+          focusElement(ref.value);
         }
       }
 
@@ -96,7 +96,7 @@ export const useFocusTrap = (containerRef: Signal<HTMLElement | undefined>, opti
   useTask$(({ track, cleanup }) => {
     track(() => isActive.value);
 
-    if (isBrowser && isActive.value && containerRef.value) {
+    if (isBrowser && isActive.value && ref.value) {
       // Takes care of looping focus (when tabbing whilst at the edges)
       const handleKeyDown = (event: KeyboardEvent) => {
         if (focusTrap.paused) return;
@@ -135,22 +135,22 @@ export const useFocusTrap = (containerRef: Signal<HTMLElement | undefined>, opti
         }
       };
 
-      containerRef.value.addEventListener('keydown', handleKeyDown);
+      ref.value.addEventListener('keydown', handleKeyDown);
 
       cleanup(() => {
-        if (containerRef.value) {
-          containerRef.value.removeEventListener('keydown', handleKeyDown);
+        if (ref.value) {
+          ref.value.removeEventListener('keydown', handleKeyDown);
         }
       });
     }
   });
 
   const handleFocusIn$ = $((event: FocusEvent) => {
-    if (!isActive.value || focusTrap.paused || !containerRef.value) return;
+    if (!isActive.value || focusTrap.paused || !ref.value) return;
 
     const target = event.target as HTMLElement | null;
 
-    if (containerRef.value.contains(target)) {
+    if (ref.value.contains(target)) {
       lastFocusedElementRef.value = target;
     } else {
       // The use of `setTimeout` is required here, because without it, in some cases the browser crashes.
@@ -163,7 +163,7 @@ export const useFocusTrap = (containerRef: Signal<HTMLElement | undefined>, opti
   });
 
   const handleFocusOut$ = $((event: FocusEvent) => {
-    if (!isActive.value || focusTrap.paused || !containerRef.value) return;
+    if (!isActive.value || focusTrap.paused || !ref.value) return;
 
     const relatedTarget = event.relatedTarget as HTMLElement | null;
 
@@ -181,7 +181,7 @@ export const useFocusTrap = (containerRef: Signal<HTMLElement | undefined>, opti
 
     // If the focus has moved to an actual legitimate element (`relatedTarget !== null`)
     // that is outside the container, we move focus to the last valid focused element inside.
-    if (!containerRef.value.contains(relatedTarget) && lastFocusedElementRef.value) {
+    if (!ref.value.contains(relatedTarget) && lastFocusedElementRef.value) {
       focusElement(lastFocusedElementRef.value, { select: true });
     }
   });
@@ -198,12 +198,12 @@ export const useFocusTrap = (containerRef: Signal<HTMLElement | undefined>, opti
       throw Error('[qwik-primitives]: useFocusTrap hook focus trap can not be active during SSR');
     }
 
-    if (containerRef.value) {
-      containerRef.value.tabIndex = -1;
+    if (ref.value) {
+      ref.value.tabIndex = -1;
 
       // By default, after calling the `showModal` method `HTMLDialogElement`, the focus will be moved to the first focusable element.
       // We prevent this behavior because we want to manage the focus ourselves.
-      if (containerRef.value instanceof HTMLDialogElement) containerRef.value.inert = true;
+      if (ref.value instanceof HTMLDialogElement) ref.value.inert = true;
 
       isActive.value = true;
     }
@@ -214,7 +214,7 @@ export const useFocusTrap = (containerRef: Signal<HTMLElement | undefined>, opti
       throw Error('[qwik-primitives]: useFocusTrap hook focus trap can not be deactivate during SSR');
     }
 
-    if (containerRef.value) {
+    if (ref.value) {
       isActive.value = false;
     }
   });
