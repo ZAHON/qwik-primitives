@@ -6,7 +6,7 @@ An interactive component which expands/collapses a panel.
 
 - Full keyboard navigation.
 
-- Can be uncontrolled or controlled.
+- Can be controlled or uncontrolled.
 
 - Adheres to the [Disclosure WAI-ARIA design pattern](https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/).
 
@@ -96,7 +96,7 @@ Contains all the parts of a collapsible. This component is based on the `div` el
 | --------------- | ------------------------------ | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `as`            | `FunctionComponent`            | `-`     | Change the default rendered element for the one passed as, merging their props and behavior. Read our [Composition](https://github.com/ZAHON/qwik-primitives/blob/main/packages/primitives/docs/composition.md) guide for more details. |
 | `defaultOpen`   | `boolean`                      | `-`     | The open state of the collapsible when it is initially rendered. Use when you do not need to control its open state.                                                                                                                    |
-| `open`          | `Signal`                       | `-`     | The controlled open state of the collapsible.                                                                                                                                                                                           |
+| `open`          | `Signal<boolean>`              | `-`     | The controlled open state of the collapsible Must be used in conjunction with `onOpenChange$`.                                                                                                                                          |
 | `onOpenChange$` | `QRL<(open: boolean) => void>` | `-`     | Event handler called when the open state of the collapsible changes.                                                                                                                                                                    |
 | `disabled`      | `boolean`                      | `-`     | When `true`, prevents the user from interacting with the collapsible.                                                                                                                                                                   |
 | `style`         | `CSSProperties`                | `-`     | The inline style for the element.                                                                                                                                                                                                       |
@@ -144,7 +144,7 @@ The panel that expands/collapses. This component is based on the `div` element.
 
 ### Content
 
-The component that contains the collapsible content. Must be rendered inside `Collapsible.Panel`. This component is based on the `div` element.
+The component that contains the collapsible content. Must be nested inside `Collapsible.Panel`. This component is based on the `div` element.
 
 | Prop    | Type                | Default | Description                                                                                                                                                                                                                             |
 | ------- | ------------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -162,7 +162,7 @@ The component that contains the collapsible content. Must be rendered inside `Co
 
 ### Animating panel size
 
-Use the `grid-template-rows` CSS property with `0fr` or `1fr` value to animate the size of the panel when it opens/closes. Here's a demo:
+Use the `grid-template-rows` CSS property with `0fr` or `1fr` value to animate the size of the panel when it opens/closes.
 
 ```tsx
 // index.tsx
