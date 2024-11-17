@@ -4,7 +4,7 @@ import { CollapsibleContext } from '../collapsible-context';
 
 /**
  * The component that contains the collapsible content.
- * Must be rendered inside `Collapsible.Panel`.
+ * Must be nested inside `Collapsible.Panel`.
  * This component is based on the `div` element.
  */
 export const CollapsibleContent = component$<CollapsibleContentProps>((props) => {
