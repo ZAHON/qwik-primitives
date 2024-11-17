@@ -1,5 +1,5 @@
 import type { DialogCloseProps } from './dialog-close.types';
-import { component$, useContext, useComputed$, $, Slot } from '@builder.io/qwik';
+import { component$, useContext, $, Slot } from '@builder.io/qwik';
 import { DialogContext } from '../dialog-context';
 
 /**
@@ -11,10 +11,8 @@ export const DialogClose = component$<DialogCloseProps>((props) => {
 
   const { setIsOpen$ } = useContext(DialogContext);
 
-  const isDisabled = useComputed$(() => disabled);
-
   const handleClick$ = $(() => {
-    if (!isDisabled.value) setIsOpen$(false);
+    if (!disabled) setIsOpen$(false);
   });
 
   const Component = as || 'button';
@@ -22,11 +20,11 @@ export const DialogClose = component$<DialogCloseProps>((props) => {
   return (
     <Component
       type="button"
-      disabled={isDisabled.value}
+      disabled={disabled}
       data-qwik-primitives-dialog-close=""
       data-scope="dialog"
       data-part="close"
-      data-disabled={isDisabled.value ? '' : undefined}
+      data-disabled={disabled ? '' : undefined}
       onClick$={[onClick$, handleClick$]}
       {...others}
     >

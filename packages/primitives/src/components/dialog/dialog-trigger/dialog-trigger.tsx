@@ -1,5 +1,5 @@
 import type { DialogTriggerProps } from './dialog-trigger.types';
-import { component$, useContext, useComputed$, useTask$, $, Slot } from '@builder.io/qwik';
+import { component$, useContext, useTask$, $, Slot } from '@builder.io/qwik';
 import { composeRefs } from '@/utilities';
 import { DialogContext } from '../dialog-context';
 
@@ -12,8 +12,6 @@ export const DialogTrigger = component$<DialogTriggerProps>((props) => {
 
   const { isOpen, setIsOpen$, triggerRef, contentId } = useContext(DialogContext);
 
-  const isDisabled = useComputed$(() => disabled);
-
   // This asynchronous function is required.
   // This trick allows you to use the value coming from the context
   // when this value is initialized or assigned in another component during SSR.
@@ -22,7 +20,7 @@ export const DialogTrigger = component$<DialogTriggerProps>((props) => {
   useTask$(async () => undefined);
 
   const handleClick$ = $(() => {
-    if (!isDisabled.value) setIsOpen$(true);
+    if (!disabled) setIsOpen$(true);
   });
 
   const Component = as || 'button';
@@ -31,7 +29,7 @@ export const DialogTrigger = component$<DialogTriggerProps>((props) => {
     <Component
       ref={composeRefs([ref, triggerRef])}
       type="button"
-      disabled={isDisabled.value}
+      disabled={disabled}
       aria-haspopup={contentId.value ? 'dialog' : undefined}
       aria-expanded={contentId.value ? isOpen.value : undefined}
       aria-controls={contentId.value}
@@ -39,7 +37,7 @@ export const DialogTrigger = component$<DialogTriggerProps>((props) => {
       data-scope="dialog"
       data-part="trigger"
       data-state={isOpen.value ? 'open' : 'closed'}
-      data-disabled={isDisabled.value ? '' : undefined}
+      data-disabled={disabled ? '' : undefined}
       onClick$={[onClick$, handleClick$]}
       {...others}
     >
