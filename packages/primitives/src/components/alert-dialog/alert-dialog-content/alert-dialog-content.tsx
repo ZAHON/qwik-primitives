@@ -70,7 +70,7 @@ export const AlertDialogContent = component$<AlertDialogContentProps>((props) =>
     }
   });
 
-  useTask$(({ track }) => {
+  useTask$(async ({ track }) => {
     track(() => isOpen.value);
 
     if (isServer) return;
@@ -80,9 +80,9 @@ export const AlertDialogContent = component$<AlertDialogContentProps>((props) =>
         if (titleId.value) contentRef.value.setAttribute('aria-labelledby', titleId.value);
         if (descriptionId.value) contentRef.value.setAttribute('aria-describedby', descriptionId.value);
 
-        if (preventScroll) scrollLock.lock$();
+        if (preventScroll) await scrollLock.lock$();
 
-        focusTrap.active$();
+        await focusTrap.active$();
 
         contentHide.value = false;
         contentRef.value.showModal();
