@@ -29,5 +29,5 @@ export interface CollapsibleContextValue {
   /**
    * When `true`, prevents the user from interacting with the collapsible.
    */
-  disabled: boolean;
+  disabled: boolean | undefined;
 }
