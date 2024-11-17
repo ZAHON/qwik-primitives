@@ -1,6 +1,6 @@
-import type { UseFocusTrapOptions } from './use-focus-trap.types';
+import type { UseFocusTrapOptions } from '../use-focus-trap.types';
 import { component$, useSignal, Slot } from '@builder.io/qwik';
-import { useFocusTrap } from '.';
+import { useFocusTrap } from '../use-focus-trap';
 
 const CONTAINER_TESTID = 'CONTAINER_TESTID';
 const ACTIVE_BUTTON_TESTID = 'ACTIVE_BUTTON_TESTID';
