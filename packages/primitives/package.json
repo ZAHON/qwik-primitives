@@ -50,7 +50,7 @@
     "@floating-ui/dom": "^1.6.12",
     "@types/eslint": "^9.6.1",
     "@types/node": "^22.9.0",
-    "@typescript-eslint/eslint-plugin": "^8.6.0",
+    "@typescript-eslint/eslint-plugin": "^8.14.0",
     "@typescript-eslint/parser": "^8.6.0",
     "@vitest/ui": "^2.1.5",
     "cypress": "~13.14.2",
