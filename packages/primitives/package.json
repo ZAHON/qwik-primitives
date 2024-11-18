@@ -47,6 +47,7 @@
   },
   "devDependencies": {
     "@builder.io/qwik": "1.9.0",
+    "@floating-ui/dom": "^1.6.12",
     "@types/eslint": "^9.6.1",
     "@types/node": "^22.5.5",
     "@typescript-eslint/eslint-plugin": "^8.6.0",
@@ -64,8 +65,5 @@
     "vite": "^5.4.6",
     "vite-tsconfig-paths": "^5.0.1",
     "vitest": "^2.1.1"
-  },
-  "dependencies": {
-    "@floating-ui/dom": "^1.6.11"
   }
 }
