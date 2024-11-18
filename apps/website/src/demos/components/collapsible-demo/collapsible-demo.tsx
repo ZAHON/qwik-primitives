@@ -38,9 +38,7 @@ export const CollapsibleDemo = component$(() => {
         <Collapsible.Content>
           <div class="collapsible-content-inner">
             <p class="collapsible-content-text">
-              Qwik Primitives is a UI toolkit for building accessible web apps and design systems with Qwik. It provides
-              a set of low-level UI components and primitives which can be the foundation for your design system
-              implementation.
+              Unstyled, accessible components for building high-quality design systems and web apps in Qwik.
             </p>
           </div>
         </Collapsible.Content>
