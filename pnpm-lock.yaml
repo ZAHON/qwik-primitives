@@ -169,8 +169,8 @@ importers:
         specifier: ^6.10.2
         version: 6.10.2(eslint@8.57.0)
       eslint-plugin-qwik:
-        specifier: ^1.9.0
-        version: 1.9.0(eslint@8.57.0)
+        specifier: ^1.10.0
+        version: 1.10.0(eslint@8.57.0)(typescript@5.6.3)
       prettier:
         specifier: ^3.3.3
         version: 3.3.3
@@ -2265,8 +2265,8 @@ packages:
     peerDependencies:
       eslint: ^3 || ^4 || ^5 || ^6 || ^7 || ^8 || ^9
 
-  eslint-plugin-qwik@1.9.0:
-    resolution: {integrity: sha512-9EsvIVwtpANSj/ICKMoR5aeabDPgPVcW58bxY8N7R/9oQs6piCm7XbFErxAeaGxmhuvpMZsc+7AN5DizDfDdrw==}
+  eslint-plugin-qwik@1.10.0:
+    resolution: {integrity: sha512-wTBF0tffIb7LH8CvI7RILtyB68JSMo+jr3uonNanGK26Nq9olhITwdzP+u00tIzxrDW6nWcyfutgScpYKiZtSw==}
     engines: {node: '>=16.8.0 <18.0.0 || >=18.11'}
     peerDependencies:
       eslint: ^8.57.0
@@ -7123,10 +7123,14 @@ snapshots:
       safe-regex-test: 1.0.3
       string.prototype.includes: 2.0.1
 
-  eslint-plugin-qwik@1.9.0(eslint@8.57.0):
+  eslint-plugin-qwik@1.10.0(eslint@8.57.0)(typescript@5.6.3):
     dependencies:
+      '@typescript-eslint/utils': 8.14.0(eslint@8.57.0)(typescript@5.6.3)
       eslint: 8.57.0
       jsx-ast-utils: 3.3.5
+    transitivePeerDependencies:
+      - supports-color
+      - typescript
 
   eslint-plugin-qwik@1.9.1(eslint@8.57.0):
     dependencies:
