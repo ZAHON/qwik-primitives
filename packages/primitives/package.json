@@ -46,7 +46,7 @@
     "clean": "rm -rf .turbo node_modules lib lib-types"
   },
   "devDependencies": {
-    "@builder.io/qwik": "1.9.0",
+    "@builder.io/qwik": "1.10.0",
     "@floating-ui/dom": "^1.6.12",
     "@types/eslint": "^9.6.1",
     "@types/node": "^22.5.5",
