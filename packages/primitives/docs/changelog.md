@@ -20,8 +20,6 @@
 
 - Remove `getTabbableCandidates` utility function.
 
-### 🚀 Features
-
 ## 0.0.28
 
 ### 🚀 Features
