@@ -64,11 +64,6 @@ export const components: Components = [
     href: `${baseHref}/popover`,
   },
   {
-    title: 'Primitive',
-    description: ``, // TODO add description.
-    href: `${baseHref}/primitive`,
-  },
-  {
     title: 'Separator',
     description: `Visually or semantically separates content.`,
     href: `${baseHref}/separator`,
