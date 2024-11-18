@@ -8,7 +8,7 @@ import cssCode from '@/demos/components/accordion-demo/styles.css?raw';
 
 const CodePresentationComponent = component$(() => {
   return (
-    <div class="-py-24 relative min-h-[216px] w-[18.75rem]">
+    <div class="-py-24 relative min-h-[13.5rem] w-[18.75rem]">
       <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
         <AccordionDemo />
       </div>
