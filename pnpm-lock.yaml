@@ -15,8 +15,8 @@ importers:
         specifier: ^2.3.0
         version: 2.3.0
       typescript:
-        specifier: ^5.5.3
-        version: 5.5.3
+        specifier: ^5.6.3
+        version: 5.6.3
 
   apps/website:
     dependencies:
@@ -4325,11 +4325,6 @@ packages:
   typed-array-length@1.0.6:
     resolution: {integrity: sha512-/OxDN6OtAk5KBpGb28T+HZc2M+ADtvRxXrKKbUwtsLgdoxgX13hyy7ek6bFRl5+aBs2yZzB0c4CnQfAtVypW/g==}
     engines: {node: '>= 0.4'}
-
-  typescript@5.5.3:
-    resolution: {integrity: sha512-/hreyEujaB0w76zKo6717l3L0o/qEUtRgdvUBvlkhoWeOVMjMuHNHk0BRBzikzuGDqNmPQbg5ifMEqsHLiIUcQ==}
-    engines: {node: '>=14.17'}
-    hasBin: true
 
   typescript@5.6.2:
     resolution: {integrity: sha512-NW8ByodCSNCwZeghjN3o+JX5OFH0Ojg6sadjEKY4huZ52TqbJTJnDo5+Tw98lSy63NZvi4n+ez5m2u5d4PkZyw==}
@@ -9833,8 +9828,6 @@ snapshots:
       has-proto: 1.0.3
       is-typed-array: 1.1.13
       possible-typed-array-names: 1.0.0
-
-  typescript@5.5.3: {}
 
   typescript@5.6.2: {}
 
