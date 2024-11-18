@@ -181,8 +181,8 @@ importers:
         specifier: ^5.4.11
         version: 5.4.11(@types/node@22.9.0)
       vite-tsconfig-paths:
-        specifier: ^5.0.1
-        version: 5.0.1(typescript@5.6.3)(vite@5.4.11(@types/node@22.9.0))
+        specifier: ^5.1.2
+        version: 5.1.2(typescript@5.6.3)(vite@5.4.11(@types/node@22.9.0))
       vitest:
         specifier: ^2.1.5
         version: 2.1.5(@types/node@22.9.0)(@vitest/ui@2.1.5)
@@ -4528,6 +4528,14 @@ packages:
 
   vite-tsconfig-paths@5.0.1:
     resolution: {integrity: sha512-yqwv+LstU7NwPeNqajZzLEBVpUFU6Dugtb2P84FXuvaoYA+/70l9MHE+GYfYAycVyPSDYZ7mjOFuYBRqlEpTig==}
+    peerDependencies:
+      vite: '*'
+    peerDependenciesMeta:
+      vite:
+        optional: true
+
+  vite-tsconfig-paths@5.1.2:
+    resolution: {integrity: sha512-gEIbKfJzSEv0yR3XS2QEocKetONoWkbROj6hGx0FHM18qKUojhvcokQsxQx5nMkelZq2n37zbSGCJn+FSODSjA==}
     peerDependencies:
       vite: '*'
     peerDependenciesMeta:
@@ -10091,17 +10099,6 @@ snapshots:
       - supports-color
       - terser
 
-  vite-tsconfig-paths@5.0.1(typescript@5.6.3)(vite@5.4.11(@types/node@22.9.0)):
-    dependencies:
-      debug: 4.3.6
-      globrex: 0.1.2
-      tsconfck: 3.1.1(typescript@5.6.3)
-    optionalDependencies:
-      vite: 5.4.11(@types/node@22.9.0)
-    transitivePeerDependencies:
-      - supports-color
-      - typescript
-
   vite-tsconfig-paths@5.0.1(typescript@5.6.3)(vite@5.4.8(@types/node@22.7.5)):
     dependencies:
       debug: 4.3.6
@@ -10109,6 +10106,17 @@ snapshots:
       tsconfck: 3.1.1(typescript@5.6.3)
     optionalDependencies:
       vite: 5.4.8(@types/node@22.7.5)
+    transitivePeerDependencies:
+      - supports-color
+      - typescript
+
+  vite-tsconfig-paths@5.1.2(typescript@5.6.3)(vite@5.4.11(@types/node@22.9.0)):
+    dependencies:
+      debug: 4.3.7(supports-color@8.1.1)
+      globrex: 0.1.2
+      tsconfck: 3.1.1(typescript@5.6.3)
+    optionalDependencies:
+      vite: 5.4.11(@types/node@22.9.0)
     transitivePeerDependencies:
       - supports-color
       - typescript
