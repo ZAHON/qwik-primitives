@@ -12,8 +12,8 @@ importers:
         specifier: ^3.3.3
         version: 3.3.3
       turbo:
-        specifier: ^2.0.7
-        version: 2.0.7
+        specifier: ^2.3.0
+        version: 2.3.0
       typescript:
         specifier: ^5.5.3
         version: 5.5.3
@@ -35,7 +35,7 @@ importers:
         version: 1.9.1(@types/node@22.7.5)(rollup@4.21.3)(typescript@5.6.3)
       '@builder.io/qwik-labs':
         specifier: github:QwikDev/qwik-labs-build#main
-        version: https://codeload.github.com/QwikDev/qwik-labs-build/tar.gz/4b5a6e032bfa5d01bcf2bf734655058e228c1b24
+        version: https://codeload.github.com/QwikDev/qwik-labs-build/tar.gz/2ddd12fa29866e39d76dfbb9adf45cd7ec88c29b(vite@5.4.8(@types/node@22.7.5))(zod@3.23.8)
       '@storybook/addon-a11y':
         specifier: ^8.3.5
         version: 8.3.5(storybook@8.3.5)
@@ -247,10 +247,13 @@ packages:
     resolution: {integrity: sha512-GEM4Ybjg9edSWzAtp38mAyb2lIeuQYlcpyrDJ9W/KhXPoIQ7CAjhE2w1XaYXrtfg4iJOgCkiCXjL3JxobxNLxw==}
     engines: {node: '>=16.8.0 <18.0.0 || >=18.11'}
 
-  '@builder.io/qwik-labs@https://codeload.github.com/QwikDev/qwik-labs-build/tar.gz/4b5a6e032bfa5d01bcf2bf734655058e228c1b24':
-    resolution: {tarball: https://codeload.github.com/QwikDev/qwik-labs-build/tar.gz/4b5a6e032bfa5d01bcf2bf734655058e228c1b24}
+  '@builder.io/qwik-labs@https://codeload.github.com/QwikDev/qwik-labs-build/tar.gz/2ddd12fa29866e39d76dfbb9adf45cd7ec88c29b':
+    resolution: {tarball: https://codeload.github.com/QwikDev/qwik-labs-build/tar.gz/2ddd12fa29866e39d76dfbb9adf45cd7ec88c29b}
     version: 0.0.1
     engines: {node: '>=16.8.0 <18.0.0 || >=18.11'}
+    peerDependencies:
+      vite: ^5
+      zod: 3.22.4
 
   '@builder.io/qwik@1.9.0':
     resolution: {integrity: sha512-E4EFXOaUz4A6D48lw1CwKR4CLZCPquetuMPrRoAPZjBueL/R1oBzXdRt5zVemS6lAoTSjXBsnxXo2kGYKCI7pA==}
@@ -4246,38 +4249,38 @@ packages:
   tunnel-agent@0.6.0:
     resolution: {integrity: sha512-McnNiV1l8RYeY8tBgEpuodCC1mLUdbSN+CYBL7kJsJNInOP8UjDDEwdk6Mw60vdLLrr5NHKZhMAOSrR2NZuQ+w==}
 
-  turbo-darwin-64@2.0.7:
-    resolution: {integrity: sha512-J1RBvQGqKeUwLJrZbfrm4tHshagdMeGAwd7rpLpfUrw0PNmGfcBazJf6dIGXG59/GHzJmS0/eAZ8qDchfVbIFA==}
+  turbo-darwin-64@2.3.0:
+    resolution: {integrity: sha512-pji+D49PhFItyQjf2QVoLZw2d3oRGo8gJgKyOiRzvip78Rzie74quA8XNwSg/DuzM7xx6gJ3p2/LylTTlgZXxQ==}
     cpu: [x64]
     os: [darwin]
 
-  turbo-darwin-arm64@2.0.7:
-    resolution: {integrity: sha512-h1JK8uuEjoHx1SvvTZiottj+4kDmiv+hivnLUzNwO75qKblMsd38IsFB0J2sMRz7JacFlf+3ry8SItznBW67Xw==}
+  turbo-darwin-arm64@2.3.0:
+    resolution: {integrity: sha512-AJrGIL9BO41mwDF/IBHsNGwvtdyB911vp8f5mbNo1wG66gWTvOBg7WCtYQBvCo11XTenTfXPRSsAb7w3WAZb6w==}
     cpu: [arm64]
     os: [darwin]
 
-  turbo-linux-64@2.0.7:
-    resolution: {integrity: sha512-dsr7GFeHAYVMnXWDDjhpsAQetejU4OlkNBRA5hfmnIcl2sSyOYa3EvoeJ6j5z5vTNIJ9VO4I1h0jK3lTjEoonA==}
+  turbo-linux-64@2.3.0:
+    resolution: {integrity: sha512-jZqW6vc2sPJT3M/3ZmV1Cg4ecQVPqsbHncG/RnogHpBu783KCSXIndgxvUQNm9qfgBYbZDBnP1md63O4UTElhw==}
     cpu: [x64]
     os: [linux]
 
-  turbo-linux-arm64@2.0.7:
-    resolution: {integrity: sha512-bJbwXvyX1XPzY1jHgkqggls/L4yFyHVK8GGACF3kcg6x7lYV2SXkUYRyOC3WqzW7euqa9Zw/32jrIPP4Qy31Vw==}
+  turbo-linux-arm64@2.3.0:
+    resolution: {integrity: sha512-HUbDLJlvd/hxuyCNO0BmEWYQj0TugRMvSQeG8vHJH+Lq8qOgDAe7J0K73bFNbZejZQxW3C3XEiZFB3pnpO78+A==}
     cpu: [arm64]
     os: [linux]
 
-  turbo-windows-64@2.0.7:
-    resolution: {integrity: sha512-aBH+5A7IN957MqXMrw8xN0CWtH/fPFL+xTlloO6074Eaa8WfnctSAnaSujm6f4xF2T8lFx+ZprBvnO9oKvLQQQ==}
+  turbo-windows-64@2.3.0:
+    resolution: {integrity: sha512-c5rxrGNTYDWX9QeMzWLFE9frOXnKjHGEvQMp1SfldDlbZYsloX9UKs31TzUThzfTgTiz8NYuShaXJ2UvTMnV/g==}
     cpu: [x64]
     os: [win32]
 
-  turbo-windows-arm64@2.0.7:
-    resolution: {integrity: sha512-ButUCpO5nTi+jyTSIY2mQ9dVz+mCGxJ6sHyn0xGlNoJWdisKXb0BtWCLAjM26gg/yp9Kt1MBowMQyYVruPV0Qw==}
+  turbo-windows-arm64@2.3.0:
+    resolution: {integrity: sha512-7qfUuYhfIVb1AZgs89DxhXK+zZez6O2ocmixEQ4hXZK7ytnBt5vaz2zGNJJKFNYIL5HX1C3tuHolnpNgDNCUIg==}
     cpu: [arm64]
     os: [win32]
 
-  turbo@2.0.7:
-    resolution: {integrity: sha512-76iNWZpmKAKjj+yL0Wtcu2LpDIM5Nz7JS3fHOZPYS0AKuC2boJ24276VAiK4PKwbpBB//TYKDpSLuQ6cfR49pg==}
+  turbo@2.3.0:
+    resolution: {integrity: sha512-/uOq5o2jwRPyaUDnwBpOR5k9mQq4c3wziBgWNWttiYQPmbhDtrKYPRBxTvA2WpgQwRIbt8UM612RMN8n/TvmHA==}
     hasBin: true
 
   tweetnacl@0.14.5:
@@ -4821,7 +4824,10 @@ snapshots:
       - terser
       - typescript
 
-  '@builder.io/qwik-labs@https://codeload.github.com/QwikDev/qwik-labs-build/tar.gz/4b5a6e032bfa5d01bcf2bf734655058e228c1b24': {}
+  '@builder.io/qwik-labs@https://codeload.github.com/QwikDev/qwik-labs-build/tar.gz/2ddd12fa29866e39d76dfbb9adf45cd7ec88c29b(vite@5.4.8(@types/node@22.7.5))(zod@3.23.8)':
+    dependencies:
+      vite: 5.4.8(@types/node@22.7.5)
+      zod: 3.23.8
 
   '@builder.io/qwik@1.9.0(@types/node@22.5.5)':
     dependencies:
@@ -9750,32 +9756,32 @@ snapshots:
     dependencies:
       safe-buffer: 5.2.1
 
-  turbo-darwin-64@2.0.7:
+  turbo-darwin-64@2.3.0:
     optional: true
 
-  turbo-darwin-arm64@2.0.7:
+  turbo-darwin-arm64@2.3.0:
     optional: true
 
-  turbo-linux-64@2.0.7:
+  turbo-linux-64@2.3.0:
     optional: true
 
-  turbo-linux-arm64@2.0.7:
+  turbo-linux-arm64@2.3.0:
     optional: true
 
-  turbo-windows-64@2.0.7:
+  turbo-windows-64@2.3.0:
     optional: true
 
-  turbo-windows-arm64@2.0.7:
+  turbo-windows-arm64@2.3.0:
     optional: true
 
-  turbo@2.0.7:
+  turbo@2.3.0:
     optionalDependencies:
-      turbo-darwin-64: 2.0.7
-      turbo-darwin-arm64: 2.0.7
-      turbo-linux-64: 2.0.7
-      turbo-linux-arm64: 2.0.7
-      turbo-windows-64: 2.0.7
-      turbo-windows-arm64: 2.0.7
+      turbo-darwin-64: 2.3.0
+      turbo-darwin-arm64: 2.3.0
+      turbo-linux-64: 2.3.0
+      turbo-linux-arm64: 2.3.0
+      turbo-windows-64: 2.3.0
+      turbo-windows-arm64: 2.3.0
 
   tweetnacl@0.14.5: {}
 
@@ -10272,7 +10278,6 @@ snapshots:
 
   zod@3.22.4: {}
 
-  zod@3.23.8:
-    optional: true
+  zod@3.23.8: {}
 
   zwitch@2.0.4: {}
