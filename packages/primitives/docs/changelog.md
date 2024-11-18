@@ -1,5 +1,27 @@
 # Changelog
 
+## 0.0.29
+
+### 🚀 Features
+
+- Add `Accordion` component.
+
+- Refactor internal implementation for all components, remove unnecessary use `useComputed$` hook.
+
+### 🚨 Breaking Changes
+
+- Remove `visuallyHiddenStyle` utility.
+
+- Remove `findFirstVisibleElement` utility function.
+
+- Remove `focusElement` utility function.
+
+- Remove `focusFirstElement` utility function.
+
+- Remove `getTabbableCandidates` utility function.
+
+### 🚀 Features
+
 ## 0.0.28
 
 ### 🚀 Features
