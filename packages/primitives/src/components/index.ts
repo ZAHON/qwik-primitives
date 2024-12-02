@@ -15,5 +15,6 @@ export * as Separator from './separator';
 export * as Spinner from './spinner';
 export * as Spoiler from './spoiler';
 export * as Tabs from './tabs';
+export * as TextField from './text-field';
 export * as Toggle from './toggle';
 export * as VisuallyHidden from './visually-hidden';
