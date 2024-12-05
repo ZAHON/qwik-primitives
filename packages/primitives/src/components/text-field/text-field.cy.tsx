@@ -129,7 +129,6 @@ describe('TextField', () => {
       cy.mount(
         <TextField.Root>
           <TextField.Label for={TEXT_FIELD_LABEL_FOR} data-testid={TEXT_FIELD_LABEL_TESTID} />
-          <TextField.Input />
         </TextField.Root>
       );
       cy.get(`[data-testid="${TEXT_FIELD_LABEL_TESTID}"]`).should('have.attr', 'for', TEXT_FIELD_LABEL_FOR);
@@ -176,7 +175,6 @@ describe('TextField', () => {
       cy.mount(
         <TextField.Root>
           <TextField.Label id={TEXT_FIELD_LABEL_ID} data-testid={TEXT_FIELD_LABEL_TESTID} />
-          <TextField.Input />
         </TextField.Root>
       );
       cy.get(`[data-testid="${TEXT_FIELD_LABEL_TESTID}"]`).should('have.attr', 'id', TEXT_FIELD_LABEL_ID);
@@ -472,7 +470,7 @@ describe('TextField', () => {
       cy.get(`[data-testid="${TEXT_FIELD_INPUT_TESTID}"]`).should('have.attr', 'aria-required', 'true');
     });
 
-    it('should have not attribute aria-labelledby when <TextField.Root> contains <TextField.Label>', () => {
+    it('should have not attribute aria-labelledby when <TextField.Root> not contains <TextField.Label>', () => {
       cy.mount(
         <TextField.Root>
           <TextField.Input data-testid={TEXT_FIELD_INPUT_TESTID} />
@@ -511,7 +509,7 @@ describe('TextField', () => {
         );
     });
 
-    it('should have not attribute aria-describedby when <TextField.Root> contains <TextField.Description>', () => {
+    it('should have not attribute aria-describedby when <TextField.Root> not contains <TextField.Description>', () => {
       cy.mount(
         <TextField.Root>
           <TextField.Input data-testid={TEXT_FIELD_INPUT_TESTID} />
@@ -550,7 +548,7 @@ describe('TextField', () => {
         );
     });
 
-    it('should have not attribute aria-describedby when <TextField.Root> is not invalid and <TextField.Root> contains <TextField.ErrorMessage>', () => {
+    it('should have not attribute aria-describedby when <TextField.Root> is not invalid and <TextField.Root> not contains <TextField.ErrorMessage>', () => {
       cy.mount(
         <TextField.Root invalid={false}>
           <TextField.Input data-testid={TEXT_FIELD_INPUT_TESTID} />
@@ -559,7 +557,7 @@ describe('TextField', () => {
       cy.get(`[data-testid="${TEXT_FIELD_INPUT_TESTID}"]`).should('have.not.attr', 'aria-describedby');
     });
 
-    it('should have attribute aria-describedby associated with <TextField.ErrorMessage> id attribute when <TextField.Root> is invalid an <TextField.Root> contains <TextField.ErrorMessage>', () => {
+    it('should have attribute aria-describedby associated with <TextField.ErrorMessage> id attribute when <TextField.Root> is invalid and <TextField.Root> contains <TextField.ErrorMessage>', () => {
       cy.mount(
         <TextField.Root invalid={true}>
           <TextField.Input data-testid={TEXT_FIELD_INPUT_TESTID} />
@@ -573,7 +571,7 @@ describe('TextField', () => {
         );
     });
 
-    it('should have attribute aria-describedby associated with <TextField.ErrorMessage> id attribute provided via id prop when <TextField.Root> is invalid an <TextField.Root> contains <TextField.ErrorMessage>', () => {
+    it('should have attribute aria-describedby associated with <TextField.ErrorMessage> id attribute provided via id prop when <TextField.Root> is invalid and <TextField.Root> contains <TextField.ErrorMessage>', () => {
       const TEXT_FIELD_ERROR_MESSAGE_ID = 'TEXT_FIELD_ERROR_MESSAGE_ID';
 
       cy.mount(
