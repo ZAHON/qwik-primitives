@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.0.30
+
+### 🚀 Features
+
+- Add `TextField` component.
+
+- Add `TextArea` component.
+
+- Add `Checkbox` component.
+
 ## 0.0.29
 
 ### 🚀 Features
