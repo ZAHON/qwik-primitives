@@ -94,6 +94,11 @@ export const components: Components = [
     href: `${baseHref}/text-area`,
   },
   {
+    title: 'Text Field',
+    description: 'A text input that allow users to input custom text entries with a keyboard.',
+    href: `${baseHref}/text-field`,
+  },
+  {
     title: 'Toggle',
     description: `A two-state button that can be either on or off.`,
     href: `${baseHref}/toggle`,
