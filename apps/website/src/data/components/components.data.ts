@@ -89,6 +89,11 @@ export const components: Components = [
     href: `${baseHref}/tabs`,
   },
   {
+    title: 'Text Area',
+    description: `Captures multi-line user input.`,
+    href: `${baseHref}/text-area`,
+  },
+  {
     title: 'Toggle',
     description: `A two-state button that can be either on or off.`,
     href: `${baseHref}/toggle`,
