@@ -29,6 +29,11 @@ export const components: Components = [
     href: `${baseHref}/breadcrumbs`,
   },
   {
+    title: 'Checkbox',
+    description: `A control that allows the user to toggle between checked and not checked.`,
+    href: `${baseHref}/checkbox`,
+  },
+  {
     title: 'Collapsible',
     description: `An interactive component which expands/collapses a panel.`,
     href: `${baseHref}/collapsible`,
