@@ -29,6 +29,11 @@ export const components: Components = [
     href: `${baseHref}/breadcrumbs`,
   },
   {
+    title: 'Button',
+    description: `Trigger an action or event, such as submitting a form, opening a dialog, or performing operations like canceling or deleting.`,
+    href: `${baseHref}/button`,
+  },
+  {
     title: 'Checkbox',
     description: `A control that allows the user to toggle between checked and not checked.`,
     href: `${baseHref}/checkbox`,
