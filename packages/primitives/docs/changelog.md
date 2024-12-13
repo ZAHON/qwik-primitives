@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.0.31
+
+### 🚀 Features
+
+- Add `Button` component.
+
 ## 0.0.30
 
 ### 🚀 Features
