@@ -1,1 +1,0 @@
-export { Anatomy } from './anatomy';

@@ -1,3 +1,0 @@
-.accordion-item-indicator[data-state='open'] > .accordion-item-indicator-icon {
-  transform: rotate(-90deg);
-}
