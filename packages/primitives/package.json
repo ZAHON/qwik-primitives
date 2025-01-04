@@ -54,7 +54,7 @@
     "@types/node": "^22.9.0",
     "@typescript-eslint/eslint-plugin": "^8.14.0",
     "@typescript-eslint/parser": "^8.14.0",
-    "@vitest/ui": "^2.1.5",
+    "@vitest/ui": "^2.1.8",
     "cypress": "~13.15.2",
     "cypress-ct-qwik": "~0.3.0",
     "cypress-real-events": "^1.13.0",
