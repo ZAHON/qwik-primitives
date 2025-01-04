@@ -173,8 +173,8 @@ importers:
         specifier: ^1.12.0
         version: 1.12.0(eslint@8.57.0)(typescript@5.6.3)
       prettier:
-        specifier: ^3.3.3
-        version: 3.3.3
+        specifier: ^3.4.2
+        version: 3.4.2
       typescript:
         specifier: 5.6.3
         version: 5.6.3
