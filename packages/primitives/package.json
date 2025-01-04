@@ -49,7 +49,7 @@
     "@floating-ui/dom": "^1.6.12"
   },
   "devDependencies": {
-    "@builder.io/qwik": "1.10.0",
+    "@builder.io/qwik": "1.12.0",
     "@types/eslint": "^9.6.1",
     "@types/node": "^22.9.0",
     "@typescript-eslint/eslint-plugin": "^8.14.0",
