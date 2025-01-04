@@ -11,7 +11,7 @@
   "dependencies": {
     "@astrojs/tailwind": "^5.1.4",
     "@builder.io/qwik": "^1.12.0",
-    "@qwikdev/astro": "^0.7.5",
+    "@qwikdev/astro": "^0.7.6",
     "astro": "^5.1.2",
     "astro-icon": "^1.1.5",
     "class-variance-authority": "^0.7.1",
