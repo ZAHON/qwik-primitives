@@ -1,0 +1,16 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+import { twm } from '@/utilities/twm';
+import { baseLayoutRootStyles } from './base-layout-root.styles';
+
+import '@/styles/globals.css';
+
+type Props = HTMLAttributes<'html'>;
+
+const { class: className, ...others } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en-us" data-radius="medium" class={twm(baseLayoutRootStyles(), className)} {...others}>
+  <slot />
+</html>

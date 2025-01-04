@@ -1,0 +1,12 @@
+---
+import './fonts.css';
+
+const fonts = [
+  'https://cdn.jsdelivr.net/fontsource/fonts/geist-sans@latest/latin-400-normal.woff2',
+  'https://cdn.jsdelivr.net/fontsource/fonts/geist-sans@latest/latin-500-normal.woff2',
+  'https://cdn.jsdelivr.net/fontsource/fonts/geist-sans@latest/latin-700-normal.woff2',
+  'https://cdn.jsdelivr.net/fontsource/fonts/geist-mono@latest/latin-400-normal.woff2',
+];
+---
+
+{fonts.map((font) => <link rel="preload" as="font" type="font/woff2" crossorigin="anonymous" href={font} />)}

@@ -1,0 +1,28 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+import { minify } from 'terser';
+import { Fonts } from '@/components/fonts';
+import { themesScript } from '@/scripts/themes-script';
+import { prefersReducedMotionScript } from '@/scripts/prefers-reduced-motion-script';
+
+const themesScriptMinify = await minify(`(${themesScript.toString()})()`);
+const prefersReducedMotionScriptMinify = await minify(`(${prefersReducedMotionScript.toString()})()`);
+
+type Props = HTMLAttributes<'head'>;
+
+const props = Astro.props;
+---
+
+<head {...props}>
+  <Fonts />
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <meta name="generator" content={Astro.generator} />
+
+  <script set:html={themesScriptMinify.code} />
+  <script set:html={prefersReducedMotionScriptMinify.code} />
+
+  <slot />
+</head>
