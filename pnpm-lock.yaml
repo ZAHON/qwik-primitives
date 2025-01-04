@@ -9,8 +9,8 @@ importers:
   .:
     devDependencies:
       prettier:
-        specifier: ^3.3.3
-        version: 3.3.3
+        specifier: ^3.4.2
+        version: 3.4.2
       turbo:
         specifier: ^2.3.0
         version: 2.3.0
@@ -35,7 +35,7 @@ importers:
         version: 1.9.1(@types/node@22.7.5)(rollup@4.21.3)(typescript@5.6.3)
       '@builder.io/qwik-labs':
         specifier: github:QwikDev/qwik-labs-build#main
-        version: https://codeload.github.com/QwikDev/qwik-labs-build/tar.gz/2ddd12fa29866e39d76dfbb9adf45cd7ec88c29b(vite@5.4.8(@types/node@22.7.5))(zod@3.23.8)
+        version: https://codeload.github.com/QwikDev/qwik-labs-build/tar.gz/7ca9c1fb357b0aad497a7215da1eaad4cb0839d3(vite@5.4.8(@types/node@22.7.5))(zod@3.23.8)
       '@storybook/addon-a11y':
         specifier: ^8.3.5
         version: 8.3.5(storybook@8.3.5)
@@ -246,8 +246,8 @@ packages:
     resolution: {integrity: sha512-GEM4Ybjg9edSWzAtp38mAyb2lIeuQYlcpyrDJ9W/KhXPoIQ7CAjhE2w1XaYXrtfg4iJOgCkiCXjL3JxobxNLxw==}
     engines: {node: '>=16.8.0 <18.0.0 || >=18.11'}
 
-  '@builder.io/qwik-labs@https://codeload.github.com/QwikDev/qwik-labs-build/tar.gz/2ddd12fa29866e39d76dfbb9adf45cd7ec88c29b':
-    resolution: {tarball: https://codeload.github.com/QwikDev/qwik-labs-build/tar.gz/2ddd12fa29866e39d76dfbb9adf45cd7ec88c29b}
+  '@builder.io/qwik-labs@https://codeload.github.com/QwikDev/qwik-labs-build/tar.gz/7ca9c1fb357b0aad497a7215da1eaad4cb0839d3':
+    resolution: {tarball: https://codeload.github.com/QwikDev/qwik-labs-build/tar.gz/7ca9c1fb357b0aad497a7215da1eaad4cb0839d3}
     version: 0.0.1
     engines: {node: '>=16.8.0 <18.0.0 || >=18.11'}
     peerDependencies:
@@ -3705,6 +3705,11 @@ packages:
     engines: {node: '>=14'}
     hasBin: true
 
+  prettier@3.4.2:
+    resolution: {integrity: sha512-e9MewbtFo+Fevyuxn/4rrcDAaq0IYxPGLvObpQjiZBMAzB9IGmzlnG9RZy3FFas+eBMu2vA0CszMeduow5dIuQ==}
+    engines: {node: '>=14'}
+    hasBin: true
+
   pretty-bytes@5.6.0:
     resolution: {integrity: sha512-FFw039TmrBqFK8ma/7OL3sDz/VytdtJr044/QUJtH0wK9lb9jLq9tJyIxUwtQJHwar2BqtiA4iCWSwo9JLkzFg==}
     engines: {node: '>=6'}
@@ -4831,7 +4836,7 @@ snapshots:
       - terser
       - typescript
 
-  '@builder.io/qwik-labs@https://codeload.github.com/QwikDev/qwik-labs-build/tar.gz/2ddd12fa29866e39d76dfbb9adf45cd7ec88c29b(vite@5.4.8(@types/node@22.7.5))(zod@3.23.8)':
+  '@builder.io/qwik-labs@https://codeload.github.com/QwikDev/qwik-labs-build/tar.gz/7ca9c1fb357b0aad497a7215da1eaad4cb0839d3(vite@5.4.8(@types/node@22.7.5))(zod@3.23.8)':
     dependencies:
       vite: 5.4.8(@types/node@22.7.5)
       zod: 3.23.8
@@ -9047,6 +9052,8 @@ snapshots:
       prettier: 3.3.3
 
   prettier@3.3.3: {}
+
+  prettier@3.4.2: {}
 
   pretty-bytes@5.6.0: {}
 
