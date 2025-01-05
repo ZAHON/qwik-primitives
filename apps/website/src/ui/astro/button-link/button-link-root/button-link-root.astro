@@ -1,0 +1,77 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+import { twm } from '@/utilities/twm';
+import { buttonLinkRootStyles } from './button-link-root.styles';
+
+interface Props extends HTMLAttributes<'a'> {
+  /**
+   * The URL that the button link points to.
+   */
+  href: string;
+
+  /**
+   * Whether the button link lead to external source.
+   */
+  external?: boolean;
+
+  /**
+   * Whether the button link should open in a new tab.
+   */
+  openInNewTab?: boolean;
+
+  /**
+   * The size of the button link.
+   * @default "2"
+   */
+  size?: '1' | '2' | '3' | '4';
+
+  /**
+   * The shape of the button link.
+   * @default "button'"
+   */
+  shape?: 'button' | 'icon';
+
+  /**
+   * The variant of the button link.
+   * @default "solid"
+   */
+  variant?: 'solid' | 'soft' | 'ghost';
+
+  /**
+   * The color of the button link.
+   * @default "primary"
+   */
+  color?: 'default' | 'primary' | 'success' | 'warning' | 'danger';
+
+  /**
+   * Uses a higher contrast color for the button link.
+   */
+  highContrast?: boolean;
+
+  /**
+   * Overrides the value of the button link border radius inherited from the theme.
+   */
+  radius?: 'none' | 'small' | 'medium' | 'large' | 'full';
+}
+
+const {
+  external,
+  openInNewTab,
+  size = '2',
+  shape = 'button',
+  variant = 'solid',
+  color = 'primary',
+  highContrast = false,
+  radius,
+  class: className,
+  ...others
+} = Astro.props;
+---
+
+<a
+  rel={external ? 'noopener noreferrer' : undefined}
+  target={openInNewTab ? '_blank' : undefined}
+  data-radius={radius}
+  class={twm(buttonLinkRootStyles({ size, shape, variant, color, highContrast }), className)}
+  {...others}><slot /></a
+>
