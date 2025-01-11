@@ -1,0 +1,71 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+import { twm } from '@/utilities/twm';
+import { navLinkRootStyles } from './nav-link-root.styles';
+
+interface Props extends HTMLAttributes<'a'> {
+  /**
+   * The URL that the nav link points to.
+   */
+  href: string;
+
+  /**
+   * Whether the nav link lead to external source.
+   */
+  external?: boolean;
+
+  /**
+   * Whether the nav link should open in a new tab.
+   */
+  openInNewTab?: boolean;
+
+  /**
+   * Used to identify the link as the currently active page.
+   */
+  active?: boolean;
+
+  /**
+   * The size of the nav link.
+   * @default "2"
+   */
+  size?: '1' | '2' | '3';
+
+  /**
+   * The color of the nav link.
+   * @default "primary"
+   */
+  color?: 'default' | 'primary' | 'success' | 'warning' | 'danger';
+
+  /**
+   * Uses a higher contrast color for the nav link.
+   */
+  highContrast?: boolean;
+
+  /**
+   * Overrides the value of the badge border radius inherited from the theme.
+   */
+  radius?: 'none' | 'small' | 'medium' | 'large' | 'full';
+}
+
+const {
+  external,
+  openInNewTab,
+  active,
+  size = '2',
+  color = 'primary',
+  highContrast = false,
+  radius,
+  class: className,
+  ...others
+} = Astro.props;
+---
+
+<a
+  rel={external ? 'noopener noreferrer' : undefined}
+  target={openInNewTab ? '_blank' : undefined}
+  aria-current={active ? 'page' : undefined}
+  data-active={active ? '' : undefined}
+  data-radius={radius}
+  class={twm(navLinkRootStyles({ size, color, highContrast }), className)}
+  {...others}><slot /></a
+>
