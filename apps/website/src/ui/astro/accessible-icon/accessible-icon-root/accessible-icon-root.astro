@@ -1,0 +1,19 @@
+---
+import type { HTMLTag, Polymorphic } from 'astro/types';
+import { twm } from '@/utilities/twm';
+import { accessibleIconRootStyles } from './accessible-icon-root.styles';
+
+type Props<Tag extends HTMLTag = 'span'> = Polymorphic<{
+  /**
+   * Shorthand for changing the default rendered element into a semantically appropriate alternative.
+   * @default "span"
+   */
+  as: Tag;
+}>;
+
+const { as: Tag = 'span', class: className, ...others } = Astro.props;
+---
+
+<Tag aria-hidden="true" class={twm(accessibleIconRootStyles(), className)} {...others}>
+  <slot />
+</Tag>
