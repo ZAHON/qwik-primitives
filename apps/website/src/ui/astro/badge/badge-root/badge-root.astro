@@ -1,0 +1,56 @@
+---
+import type { HTMLTag, Polymorphic } from 'astro/types';
+import { twm } from '@/utilities/twm';
+import { badgeRootStyles } from './badge-root.styles';
+
+type Props<Tag extends HTMLTag = 'span'> = Polymorphic<{
+  /**
+   * Shorthand for changing the default rendered element into a semantically appropriate alternative.
+   * @default "span"
+   */
+  as: Tag;
+
+  /**
+   * The size of the badge.
+   * @default "1"
+   */
+  size?: '1' | '2' | '3';
+
+  /**
+   * The variant of the badge.
+   * @default "soft"
+   */
+  variant?: 'solid' | 'soft';
+
+  /**
+   * The color of the badge.
+   * @default "primary"
+   */
+  color?: 'default' | 'primary' | 'success' | 'warning' | 'danger';
+
+  /**
+   * Uses a higher contrast color for the badge.
+   */
+  highContrast?: boolean;
+
+  /**
+   * Overrides the value of the badge border radius inherited from the theme.
+   */
+  radius?: 'none' | 'small' | 'medium' | 'large' | 'full';
+}>;
+
+const {
+  as: Tag = 'span',
+  size = '1',
+  variant = 'soft',
+  color = 'primary',
+  highContrast = false,
+  radius,
+  class: className,
+  ...others
+} = Astro.props;
+---
+
+<Tag data-radius={radius} class={twm(badgeRootStyles({ size, variant, color, highContrast }), className)} {...others}>
+  <slot />
+</Tag>
