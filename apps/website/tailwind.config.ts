@@ -337,6 +337,20 @@ export default {
         sans: ['Geist Sans', 'Geist Sans Fallback', ...fontFamily.sans],
         mono: ['Geist Mono', 'Geist Mono Fallback', ...fontFamily.mono],
       },
+      keyframes: {
+        'mobile-menu-content-show': {
+          '0%': { opacity: '0.8', transform: 'translate(0%, 110%)' },
+          '100%': { opacity: '1', transform: 'translate(0%, 0%)' },
+        },
+        'mobile-menu-content-hide': {
+          '0%': { opacity: '1', transform: 'translate(0%, 0%)' },
+          '100%': { opacity: '0.8', transform: 'translate(0, 110%)' },
+        },
+      },
+      animation: {
+        'mobile-menu-content-show': 'mobile-menu-content-show 500ms cubic-bezier(0.32, 0.72, 0, 1)',
+        'mobile-menu-content-hide': 'mobile-menu-content-hide 500ms cubic-bezier(0.32, 0.72, 0, 1)',
+      },
     },
   },
   plugins: [],
