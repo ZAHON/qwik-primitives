@@ -1,0 +1,16 @@
+---
+import { Link } from '@/ui/astro/link';
+import { AccessibleIcon } from '@/ui/astro/accessible-icon';
+import { VisuallyHidden } from '@/ui/astro/visually-hidden';
+import { QwikLogoAndText } from '@/svgs/qwik-logo-and-text';
+
+const pathname = new URL(Astro.request.url).pathname;
+---
+
+<Link.Root aria-current={pathname === '/' ? 'page' : undefined} href="/" color="default" highContrast={true}>
+  <AccessibleIcon.Root>
+    <QwikLogoAndText height={28} width={94} />
+  </AccessibleIcon.Root>
+
+  <VisuallyHidden.Root>Qwik Primitives home page</VisuallyHidden.Root>
+</Link.Root>

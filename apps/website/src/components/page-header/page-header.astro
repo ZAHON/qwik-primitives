@@ -1,0 +1,43 @@
+---
+import { QuickNav } from '@/components/quick-nav';
+import { MobileMenu } from '@/components/mobile-menu';
+import { Separator } from '@/ui/astro/separator';
+import { PageHeaderScrollWatcher } from './page-header-scroll-watcher';
+import { PageHeaderNav } from './page-header-nav';
+import { PageHeaderLogoHomeLink } from './page-header-logo-home-link';
+import { PageHeaderVersionBadge } from './page-header-version-badge';
+import { PageHeaderGithubLink } from './page-header-github-link';
+import { PageHeaderThemeSwitch } from './page-header-theme-switch';
+import { PageHeaderScrollingScript } from './page-header-scrolling-script';
+import { pageHeaderStyles } from './page-header.styles';
+
+const pathname = new URL(Astro.request.url).pathname;
+const variant = ['/'].includes(pathname) ? 'ghost' : 'default';
+---
+
+{variant === 'ghost' && <PageHeaderScrollWatcher />}
+
+<header data-page-header={variant === 'ghost' ? '' : undefined} class={pageHeaderStyles({ variant })}>
+  <PageHeaderNav>
+    <div class="flex items-center gap-x-3">
+      <PageHeaderLogoHomeLink />
+      <PageHeaderVersionBadge />
+    </div>
+
+    <div class="flex h-full items-center">
+      <QuickNav variant="desktop" />
+
+      <Separator.Root orientation="vertical" class="ml-3 mr-1.5 hidden h-1/2 lg:block" />
+
+      <div class="flex gap-x-1.5">
+        <PageHeaderGithubLink />
+        <PageHeaderThemeSwitch />
+        <MobileMenu>
+          <QuickNav slot="header" variant="mobile" />
+        </MobileMenu>
+      </div>
+    </div>
+  </PageHeaderNav>
+
+  {variant === 'ghost' && <PageHeaderScrollingScript />}
+</header>

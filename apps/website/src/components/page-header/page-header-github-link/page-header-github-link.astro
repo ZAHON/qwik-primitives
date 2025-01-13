@@ -1,0 +1,23 @@
+---
+import { Icon } from 'astro-icon/components';
+import { ButtonLink } from '@/ui/astro/button-link';
+import { AccessibleIcon } from '@/ui/astro/accessible-icon';
+import { VisuallyHidden } from '@/ui/astro/visually-hidden';
+import { pageHeaderGithubLinkStyles } from './page-header-github-link.styles';
+---
+
+<ButtonLink.Root
+  href="https://github.com/ZAHON/qwik-primitives"
+  external={true}
+  openInNewTab={true}
+  shape="icon"
+  color="default"
+  variant="ghost"
+  class={pageHeaderGithubLinkStyles()}
+>
+  <AccessibleIcon.Root>
+    <Icon name="github-logo" height={16} width={16} />
+  </AccessibleIcon.Root>
+
+  <VisuallyHidden.Root>View GitHub</VisuallyHidden.Root>
+</ButtonLink.Root>
