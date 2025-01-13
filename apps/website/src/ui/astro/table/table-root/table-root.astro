@@ -1,0 +1,37 @@
+---
+import type { HTMLTag, Polymorphic } from 'astro/types';
+import { twm } from '@/utilities/twm';
+import { tableRootStyles } from './table-root.styles';
+
+type Props<Tag extends HTMLTag = 'div'> = Polymorphic<{
+  /**
+   * Shorthand for changing the default rendered element into a semantically appropriate alternative.
+   * @default "div"
+   */
+  as: Tag;
+
+  /**
+   * The size of the table.
+   * @default "2"
+   */
+  size?: '1' | '2' | '3';
+
+  /**
+   * The variant of the table.
+   * @default "surface"
+   */
+  variant?: 'surface' | 'ghost';
+
+  /**
+   * The table layout algorithm.
+   * @default "auto"
+   */
+  layout?: 'auto' | 'fixed';
+}>;
+
+const { as: Tag = 'div', size = '2', variant = 'surface', layout = 'auto', class: className, ...others } = Astro.props;
+---
+
+<Tag class={twm(tableRootStyles({ size, variant, layout }), className)} {...others}>
+  <slot />
+</Tag>

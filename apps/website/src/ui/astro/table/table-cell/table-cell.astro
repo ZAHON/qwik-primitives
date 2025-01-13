@@ -1,0 +1,19 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+import { twm } from '@/utilities/twm';
+import { tableCellStyles } from './table-cell.styles';
+
+interface Props extends HTMLAttributes<'td'> {
+  /**
+   * Control how horizontal space is distributed within the table cell.
+   * @default "start"
+   */
+  justify?: 'start' | 'center' | 'end';
+}
+
+const { justify = 'start', class: className, ...others } = Astro.props;
+---
+
+<td class={twm(tableCellStyles({ justify }), className)} {...others}>
+  <slot />
+</td>

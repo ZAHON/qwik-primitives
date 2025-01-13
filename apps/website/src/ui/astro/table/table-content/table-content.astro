@@ -1,0 +1,13 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+import { twm } from '@/utilities/twm';
+import { tableContentStyles } from './table-content.styles';
+
+type Props = HTMLAttributes<'table'>;
+
+const { class: className, ...others } = Astro.props;
+---
+
+<table class={twm(tableContentStyles(), className)} {...others}>
+  <slot />
+</table>

@@ -1,0 +1,25 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+import { twm } from '@/utilities/twm';
+import { tableCaptionStyles } from './table-caption.styles';
+
+interface Props extends HTMLAttributes<'caption'> {
+  /**
+   * The alignment of a caption inside of a table.
+   * @default 'top'
+   */
+  side?: 'top' | 'bottom';
+
+  /**
+   * When `true`, caption will be hide from the screen in an accessible way.
+   * @default true
+   */
+  visuallyHidden?: boolean;
+}
+
+const { side = 'top', visuallyHidden = true, class: className, ...others } = Astro.props;
+---
+
+<caption class={twm(tableCaptionStyles({ side, visuallyHidden }), className)} {...others}>
+  <slot />
+</caption>

@@ -1,0 +1,19 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+import { twm } from '@/utilities/twm';
+import { tableRowHeaderCellStyles } from './table-row-header-cell.styles';
+
+interface Props extends HTMLAttributes<'th'> {
+  /**
+   * Control how horizontal space is distributed within the table cell.
+   * @default "start"
+   */
+  justify?: 'start' | 'center' | 'end';
+}
+
+const { justify = 'start', class: className, ...others } = Astro.props;
+---
+
+<th scope="row" class={twm(tableRowHeaderCellStyles({ justify }), className)} {...others}>
+  <slot />
+</th>
