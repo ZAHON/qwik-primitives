@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.0.32
+
+### 🚀 Features
+
+- Add `AspectRatio` component.
+
 ## 0.0.31
 
 ### 🚀 Features
