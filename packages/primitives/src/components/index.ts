@@ -1,6 +1,7 @@
 export * as Accordion from './accordion';
 export * as Alert from './alert';
 export * as AlertDialog from './alert-dialog';
+export * as AspectRatio from './aspect-ratio';
 export * as Avatar from './avatar';
 export * as Breadcrumbs from './breadcrumbs';
 export * as Button from './button';
