@@ -1,0 +1,45 @@
+---
+import { QuickNavLabel } from './quick-nav-label';
+import { QuickNavList } from './quick-nav-list';
+import { QuickNavItem } from './quick-nav-item';
+import { QuickNavLink } from './quick-nav-link';
+import { quickNavStyles } from './quick-nav.styles';
+
+interface Props {
+  /**
+   * The variant of the quick navigation.
+   */
+  variant: 'mobile' | 'desktop';
+}
+
+const { variant } = Astro.props;
+const id = `quick-nav-${crypto.randomUUID()}`;
+const pathname = new URL(Astro.request.url).pathname;
+---
+
+<div role="group" class={quickNavStyles({ variant })}>
+  <QuickNavLabel id={id}>Quick navigation</QuickNavLabel>
+
+  <QuickNavList aria-labelledby={id}>
+    {
+      variant === 'mobile' && (
+        <QuickNavItem>
+          <QuickNavLink href="/" active={pathname === '/'}>
+            Home
+          </QuickNavLink>
+        </QuickNavItem>
+      )
+    }
+
+    <QuickNavItem>
+      <QuickNavLink href="/docs/overview/introduction" active={pathname.includes('/docs')}>
+        {variant === 'mobile' && 'Docs'}
+        {variant === 'desktop' && 'Documentation'}
+      </QuickNavLink>
+    </QuickNavItem>
+
+    <QuickNavItem>
+      <QuickNavLink href="/showcase" active={pathname === '/showcase'}>Showcase</QuickNavLink>
+    </QuickNavItem>
+  </QuickNavList>
+</div>

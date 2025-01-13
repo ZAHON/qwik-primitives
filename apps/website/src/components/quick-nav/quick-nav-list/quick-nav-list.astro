@@ -1,0 +1,16 @@
+---
+import { quickNavListStyles } from './quick-nav-list.styles';
+
+interface Props {
+  /**
+   * The unique id of the element that labels the list.
+   */
+  'aria-labelledby': string;
+}
+
+const props = Astro.props;
+---
+
+<ul class={quickNavListStyles()} {...props}>
+  <slot />
+</ul>

@@ -1,0 +1,16 @@
+---
+import { VisuallyHidden } from '@/ui/astro/visually-hidden';
+
+interface Props {
+  /**
+   * The unique id for the label.
+   */
+  id: string;
+}
+
+const props = Astro.props;
+---
+
+<VisuallyHidden.Root {...props}>
+  <slot />
+</VisuallyHidden.Root>
