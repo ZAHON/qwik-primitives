@@ -1,0 +1,43 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+import { twm } from '@/utilities/twm';
+import { codeRootStyles } from './code-root.styles';
+
+interface Props extends HTMLAttributes<'code'> {
+  /**
+   * The size of the code.
+   * @default "3"
+   */
+  size?: '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9';
+
+  /**
+   * The variant of the badge.
+   * @default "soft"
+   */
+  variant?: 'solid' | 'soft';
+
+  /**
+   * The color of the badge.
+   * @default "primary"
+   */
+  color?: 'default' | 'primary' | 'success' | 'warning' | 'danger';
+
+  /**
+   * Uses a higher contrast color for the badge.
+   */
+  highContrast?: boolean;
+}
+
+const {
+  size = '3',
+  variant = 'soft',
+  color = 'primary',
+  highContrast = false,
+  class: className,
+  ...others
+} = Astro.props;
+---
+
+<code class={twm(codeRootStyles({ size, variant, color, highContrast }), className)} {...others}>
+  <slot />
+</code>
