@@ -1,15 +1,13 @@
 ---
 import type { HTMLAttributes } from 'astro/types';
-import { listenKeys } from 'nanostores';
 import { twm } from '@/utilities/twm';
 import { headingLinkContentStyles } from './heading-link-content.styles';
-import { $headingLinkStore } from '../heading-link-store';
 
 interface Props extends HTMLAttributes<'a'> {
   /**
    * The URL that the link points to.
    */
-  href?: string;
+  href: string;
 
   /**
    * Whether the link lead to external source.
@@ -22,13 +20,10 @@ interface Props extends HTMLAttributes<'a'> {
   openInNewTab?: boolean;
 }
 
-const { href, external, openInNewTab, class: className, ...others } = Astro.props;
-
-listenKeys($headingLinkStore, ['id'], () => {});
+const { external, openInNewTab, class: className, ...others } = Astro.props;
 ---
 
 <a
-  href={href ? href : $headingLinkStore.get().id ? `#${$headingLinkStore.get().id}` : undefined}
   rel={external ? 'noopener noreferrer' : undefined}
   target={openInNewTab ? '_blank' : undefined}
   class={twm(headingLinkContentStyles(), className)}

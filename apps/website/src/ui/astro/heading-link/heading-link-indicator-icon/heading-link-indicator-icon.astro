@@ -1,0 +1,31 @@
+---
+import { Icon } from 'astro-icon/components';
+import { twm } from '@/utilities/twm';
+import { headingLinkIndicatorIconStyles } from './heading-link-indicator-icon.styles';
+
+interface Props {
+  /**
+   * The height of the icon in pixels.
+   */
+  height?: number;
+
+  /**
+   * The width of the icon in pixels.
+   */
+  width?: number;
+
+  /**
+   * The CSS class for the element.
+   */
+  class?: string;
+}
+
+const { height, width, class: className } = Astro.props;
+---
+
+<Icon
+  name="link"
+  height={height}
+  width={width}
+  class={twm(headingLinkIndicatorIconStyles({ height: Boolean(height), width: Boolean(width) }), className)}
+/>

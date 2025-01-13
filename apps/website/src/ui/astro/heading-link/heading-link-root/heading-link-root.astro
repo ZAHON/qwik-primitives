@@ -2,7 +2,6 @@
 import type { HTMLAttributes } from 'astro/types';
 import { twm } from '@/utilities/twm';
 import { headingLinkRootStyles } from './heading-link-root.styles';
-import { $headingLinkStore } from '../heading-link-store';
 
 interface Props extends HTMLAttributes<'h1'> {
   /**
@@ -30,8 +29,6 @@ interface Props extends HTMLAttributes<'h1'> {
 }
 
 const { id, level = '1', size = '6', highContrast = true, class: className, ...others } = Astro.props;
-
-$headingLinkStore.set({ id, size });
 ---
 
 {

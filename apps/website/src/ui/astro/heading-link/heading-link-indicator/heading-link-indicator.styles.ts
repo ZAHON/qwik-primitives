@@ -1,6 +1,6 @@
 import { cva } from 'class-variance-authority';
 
-export const headingLinkIconStyles = cva([
+export const headingLinkIndicatorStyles = cva([
   'pointer-events-none',
   'text-default-alpha-11',
   'opacity-0',
