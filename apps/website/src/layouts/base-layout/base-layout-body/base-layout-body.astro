@@ -1,6 +1,7 @@
 ---
 import type { HTMLAttributes } from 'astro/types';
 import { twm } from '@/utilities/twm';
+import { PageHeader } from '@/components/page-header';
 import { baseLayoutBodyStyles } from './base-layout-body.styles';
 
 type Props = HTMLAttributes<'body'>;
@@ -9,5 +10,6 @@ const { class: className, ...others } = Astro.props;
 ---
 
 <body class={twm(baseLayoutBodyStyles(), className)} {...others}>
+  <PageHeader />
   <slot />
 </body>
