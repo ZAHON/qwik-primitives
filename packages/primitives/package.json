@@ -9,14 +9,15 @@
   "keywords": [
     ""
   ],
-  "main": "./lib/index.qwik.mjs",
+  "main": "./lib/index.qwik.cjs",
   "qwik": "./lib/index.qwik.mjs",
+  "module": "./lib/index.qwik.mjs",
   "types": "./lib-types/index.d.ts",
   "exports": {
     ".": {
+      "types": "./lib-types/index.d.ts",
       "import": "./lib/index.qwik.mjs",
-      "require": "./lib/index.qwik.cjs",
-      "types": "./lib-types/index.d.ts"
+      "require": "./lib/index.qwik.cjs"
     }
   },
   "files": [

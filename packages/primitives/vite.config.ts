@@ -15,13 +15,18 @@ export default defineConfig(() => {
     build: {
       target: 'es2020',
       lib: {
-        entry: './src/index.ts',
+        entry: 'src/index.ts',
+        name: 'primitives',
         formats: ['es', 'cjs'],
-        fileName: (format) => `index.qwik.${format === 'es' ? 'mjs' : 'cjs'}`,
+        fileName: (format, entryName) => `${entryName}.qwik.${format === 'es' ? 'mjs' : 'cjs'}`,
       },
       rollupOptions: {
         // externalize deps that shouldn't be bundled into the library
         external: [/^node:.*/, ...excludeAll(dependencies), ...excludeAll(peerDependencies)],
+        output: {
+          preserveModules: true,
+          preserveModulesRoot: 'src',
+        },
       },
     },
     plugins: [qwikVite(), tsconfigPaths()],
