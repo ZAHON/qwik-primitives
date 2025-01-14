@@ -1,0 +1,17 @@
+---
+import type { HTMLTag, Polymorphic } from 'astro/types';
+
+type Props<Tag extends HTMLTag = 'p'> = Polymorphic<{
+  /**
+   * Shorthand for changing the default rendered element into a semantically appropriate alternative.
+   * @default "p"
+   */
+  as: Tag;
+}>;
+
+const { as: Tag = 'p', ...others } = Astro.props;
+---
+
+<Tag {...others}>
+  <slot />
+</Tag>

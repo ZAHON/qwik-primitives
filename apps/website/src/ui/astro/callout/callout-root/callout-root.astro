@@ -1,0 +1,43 @@
+---
+import type { HTMLTag, Polymorphic } from 'astro/types';
+import { twm } from '@/utilities/twm';
+import { calloutRootStyles } from './callout-root.styles';
+
+type Props<Tag extends HTMLTag = 'div'> = Polymorphic<{
+  /**
+   * Shorthand for changing the default rendered element into a semantically appropriate alternative.
+   * @default "div"
+   */
+  as: Tag;
+
+  /**
+   * The size of the callout.
+   * @default "2"
+   */
+  size?: '1' | '2' | '3';
+
+  /**
+   * The color of the callout.
+   * @default "primary"
+   */
+  color?: 'default' | 'primary' | 'success' | 'warning' | 'danger';
+
+  /**
+   * Uses a higher contrast color for the callout.
+   */
+  highContrast?: boolean;
+}>;
+
+const {
+  as: Tag = 'div',
+  size = '2',
+  color = 'primary',
+  highContrast = false,
+  class: className,
+  ...others
+} = Astro.props;
+---
+
+<Tag class={twm(calloutRootStyles({ size, color, highContrast }), className)} {...others}>
+  <slot />
+</Tag>
