@@ -15,4 +15,10 @@ try {
 }
 ---
 
-{version && <Badge.Root size="2">v{version}</Badge.Root>}
+{
+  version && (
+    <Badge.Root aria-label={`Qwik Primitives version ${version}`} size="2">
+      v{version}
+    </Badge.Root>
+  )
+}
