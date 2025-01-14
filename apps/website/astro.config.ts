@@ -9,5 +9,17 @@ import mdx from '@astrojs/mdx';
 
 export default defineConfig({
   trailingSlash: 'never',
-  integrations: [qwikdev(), tailwind(), icon(), AutoImport({ imports: [] }), mdx()],
+  integrations: [
+    qwikdev(),
+    tailwind(),
+    icon(),
+    AutoImport({
+      imports: [
+        {
+          './src/components/page-hgroup': ['PageHgroup'],
+        },
+      ],
+    }),
+    mdx(),
+  ],
 });
