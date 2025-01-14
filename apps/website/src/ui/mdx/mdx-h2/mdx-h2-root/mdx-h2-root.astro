@@ -1,0 +1,23 @@
+---
+import { HeadingLink } from '@/ui/astro/heading-link';
+import { MDXH2RootStyles } from './mdx-h2-root.styles';
+
+interface Props {
+  /**
+   * The unique id for the mdx h2.
+   */
+  id: string;
+}
+
+const { id } = Astro.props;
+---
+
+<HeadingLink.Root id={id} as="h2" size="6" class={MDXH2RootStyles()}>
+  <HeadingLink.Content href={`#${id}`}>
+    <slot />
+
+    <HeadingLink.Indicator>
+      <HeadingLink.IndicatorIcon height={15} width={15} />
+    </HeadingLink.Indicator>
+  </HeadingLink.Content>
+</HeadingLink.Root>
