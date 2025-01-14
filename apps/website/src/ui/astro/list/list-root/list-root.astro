@@ -1,0 +1,31 @@
+---
+import type { HTMLTag, Polymorphic } from 'astro/types';
+import { twm } from '@/utilities/twm';
+import { listRootStyles } from './list-root.styles';
+
+type Props<Tag extends Extract<HTMLTag, 'ul' | 'ol'> = 'ul'> = Polymorphic<{
+  /**
+   * Shorthand for changing the default rendered element into a semantically appropriate alternative.
+   * @default "ul"
+   */
+  as: Tag;
+
+  /**
+   * The size of the unordered list.
+   * @default "3"
+   */
+  size?: '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9';
+
+  /**
+   * Uses a higher contrast color for the unordered list.
+   * @default true
+   */
+  highContrast?: boolean;
+}>;
+
+const { as: Tag = 'ul', size = '3', highContrast = true, class: className, ...others } = Astro.props;
+---
+
+<Tag class={twm(listRootStyles({ as: Tag, size, highContrast }), className)} {...others}>
+  <slot />
+</Tag>
