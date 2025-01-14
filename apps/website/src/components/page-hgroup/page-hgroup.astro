@@ -1,0 +1,23 @@
+---
+import { PageHgroupTitle } from './page-hgroup-title';
+import { PageHgroupDescription } from './page-hgroup-description';
+
+interface Props {
+  /**
+   * The title of the page.
+   */
+  title: string;
+
+  /**
+   * The description of the page.
+   */
+  description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<hgroup>
+  <PageHgroupTitle>{title}</PageHgroupTitle>
+  <PageHgroupDescription>{description}</PageHgroupDescription>
+</hgroup>
