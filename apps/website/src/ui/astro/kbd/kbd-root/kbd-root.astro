@@ -1,0 +1,19 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+import { twm } from '@/utilities/twm';
+import { kbdRootStyles } from './kbd-root.styles';
+
+interface Props extends HTMLAttributes<'kbd'> {
+  /**
+   * The size of the kbd.
+   * @default "3"
+   */
+  size?: '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9';
+}
+
+const { size = '3', class: className, ...others } = Astro.props;
+---
+
+<kbd class={twm(kbdRootStyles({ size }), className)} {...others}>
+  <slot />
+</kbd>
