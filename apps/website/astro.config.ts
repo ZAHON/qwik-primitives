@@ -7,6 +7,12 @@ import icon from 'astro-icon';
 import AutoImport from 'astro-auto-import';
 import mdx from '@astrojs/mdx';
 
+import { cssVariablesTheme } from './src/shiki/css-variables-theme';
+import { codeToPreCode } from './src/shiki/transformers/code-to-pre-code';
+import { removeLineClassAttribute } from './src/shiki/transformers/remove-line-class-attribute';
+import { metaHighlight } from './src/shiki/transformers/meta-highlight';
+import { metaWordHighlight } from './src/shiki/transformers/meta-word-highlight';
+
 export default defineConfig({
   trailingSlash: 'never',
   integrations: [
@@ -20,6 +26,11 @@ export default defineConfig({
         },
       ],
     }),
-    mdx(),
+    mdx({
+      shikiConfig: {
+        theme: cssVariablesTheme,
+        transformers: [codeToPreCode(), removeLineClassAttribute(), metaHighlight(), metaWordHighlight()],
+      },
+    }),
   ],
 });
