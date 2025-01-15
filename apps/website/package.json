@@ -17,6 +17,7 @@
     "astro": "^5.1.2",
     "astro-auto-import": "^0.4.4",
     "astro-icon": "^1.1.5",
+    "cheerio": "^1.0.0",
     "class-variance-authority": "^0.7.1",
     "qwik-primitives": "workspace:*",
     "tailwind-merge": "^2.6.0",
