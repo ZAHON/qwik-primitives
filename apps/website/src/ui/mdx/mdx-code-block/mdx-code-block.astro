@@ -1,0 +1,20 @@
+---
+import * as cheerio from 'cheerio';
+import { MDXCodeBlockPre } from './mdx-code-block-pre';
+import { MDXCodeBlockCopyButton } from './mdx-code-block-copy-button';
+import { mdxCodeBlockStyles } from './mdx-code-block.styles';
+
+let code: string | undefined = undefined;
+
+if (Astro.slots.has('default')) {
+  const html = await Astro.slots.render('default');
+  const $ = cheerio.load(html);
+
+  code = $('code').text().trim();
+}
+---
+
+<div class={mdxCodeBlockStyles()}>
+  <MDXCodeBlockPre><slot /></MDXCodeBlockPre>
+  {code && <MDXCodeBlockCopyButton value={code} />}
+</div>
