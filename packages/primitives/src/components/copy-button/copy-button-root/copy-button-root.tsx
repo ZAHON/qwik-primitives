@@ -13,7 +13,7 @@ export const CopyButtonRoot = component$<CopyButtonRootProps>((props) => {
 
   const handleClick$ = $(async () => {
     if (!disabled) {
-      const handleCopyStatusChange = (status: 'copied' | 'error') => {
+      const handleCopyStatusChange = (status: 'idle' | 'copied' | 'error') => {
         if (onCopyStatusChange$) onCopyStatusChange$(status);
       };
 
@@ -24,7 +24,11 @@ export const CopyButtonRoot = component$<CopyButtonRootProps>((props) => {
           clearTimeout(copyTimeout.value);
 
           copied.value = true;
-          copyTimeout.value = window.setTimeout(() => (copied.value = false), timeout);
+
+          copyTimeout.value = window.setTimeout(() => {
+            copied.value = false;
+            handleCopyStatusChange('idle');
+          }, timeout);
 
           handleCopyStatusChange('copied');
         } catch {
