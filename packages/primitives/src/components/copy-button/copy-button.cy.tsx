@@ -100,6 +100,25 @@ describe('CopyButton', () => {
       cy.get('@log').should('be.calledWith', 'copied');
     });
 
+    it('should call onCopyStatusChange$ function with value "idle" after copy operation end', () => {
+      cy.window()
+        .its('console')
+        .then((console) => {
+          cy.spy(console, 'log').as('log');
+        });
+
+      cy.mount(
+        <CopyButton.Root
+          onCopyStatusChange$={(status) => console.log(status)}
+          value={COPY_BUTTON_ROOT_VALUE}
+          data-testid={COPY_BUTTON_ROOT_TESTID}
+        />
+      );
+      cy.get(`[data-testid="${COPY_BUTTON_ROOT_TESTID}"]`).realClick();
+      cy.wait(5000);
+      cy.get('@log').should('be.calledWith', 'idle');
+    });
+
     it('should be not disabled when is not disabled', () => {
       cy.mount(
         <CopyButton.Root disabled={false} value={COPY_BUTTON_ROOT_VALUE} data-testid={COPY_BUTTON_ROOT_TESTID} />
