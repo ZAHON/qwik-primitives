@@ -23,9 +23,4 @@ interface Props {
 const { height, width, class: className } = Astro.props;
 ---
 
-<Icon
-  name="link"
-  height={height}
-  width={width}
-  class={twm(headingLinkIndicatorIconStyles({ height: Boolean(height), width: Boolean(width) }), className)}
-/>
+<Icon name="link" height={height} width={width} class={twm(headingLinkIndicatorIconStyles(), className)} />
