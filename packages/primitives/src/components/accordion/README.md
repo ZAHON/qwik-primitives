@@ -394,7 +394,7 @@ You can nest inside of an `Accordion.ItemIndicator` extra decorative elements, s
 // index.tsx
 import type { PropsOf } from '@builder.io/qwik';
 import { component$, useStyles$ } from '@builder.io/qwik';
-import { Accordion } from '@/components';
+import { Accordion } from 'qwik-primitives';
 import styles from './styles.css?inline';
 
 const ChevronLeftIcon = component$<PropsOf<'svg'>>((props) => {
