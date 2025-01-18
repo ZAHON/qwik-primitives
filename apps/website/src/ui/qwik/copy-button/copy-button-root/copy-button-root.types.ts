@@ -23,7 +23,7 @@ export interface CopyButtonRootProps extends PropsOf<'button'> {
   /**
    * The function to be called when the value is copied to the clipboard.
    */
-  onCopyStatusChange$?: QRL<(status: 'copied' | 'error') => void>;
+  onCopyStatusChange$?: QRL<(status: 'idle' | 'copied' | 'error') => void>;
 
   /**
    * When `true`, prevents the user from interacting with the copy button.
