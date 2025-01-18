@@ -3,6 +3,7 @@ import * as Collapsible from '.';
 
 const COLLAPSIBLE_ROOT_TESTID = 'COLLAPSIBLE_ROOT_TESTID';
 const COLLAPSIBLE_TRIGGER_TESTID = 'COLLAPSIBLE_TRIGGER_TESTID';
+const COLLAPSIBLE_INDICATOR_TESTID = 'COLLAPSIBLE_INDICATOR_TESTID';
 const COLLAPSIBLE_PANEL_TESTID = 'COLLAPSIBLE_PANEL_TESTID';
 const COLLAPSIBLE_CONTENT_TESTID = 'COLLAPSIBLE_CONTENT_TESTID';
 
@@ -133,7 +134,7 @@ describe('Collapsible', () => {
       cy.get(`[data-testid="${COLLAPSIBLE_TRIGGER_TESTID}"]`).should('have.not.attr', 'data-disabled');
     });
 
-    it('should have attribute data-disabled when <Collapsible.Root> is disabled', () => {
+    it('should have attribute data-disabled with empty value when <Collapsible.Root> is disabled', () => {
       cy.mount(
         <Collapsible.Root disabled={true}>
           <Collapsible.Trigger data-testid={COLLAPSIBLE_TRIGGER_TESTID} />
@@ -298,6 +299,143 @@ describe('Collapsible', () => {
     });
   });
 
+  describe('Indicator', () => {
+    it('should be <span> element', () => {
+      cy.mount(
+        <Collapsible.Root>
+          <Collapsible.Indicator data-testid={COLLAPSIBLE_INDICATOR_TESTID} />
+        </Collapsible.Root>
+      );
+      cy.get(`[data-testid="${COLLAPSIBLE_INDICATOR_TESTID}"]`).should('have.prop', 'tagName').should('eq', 'SPAN');
+    });
+
+    it('should be element provided via as prop', () => {
+      cy.mount(
+        <Collapsible.Root>
+          <Collapsible.Indicator as={Primitive.div} data-testid={COLLAPSIBLE_INDICATOR_TESTID} />
+        </Collapsible.Root>
+      );
+      cy.get(`[data-testid="${COLLAPSIBLE_INDICATOR_TESTID}"]`).should('have.prop', 'tagName').should('not.eq', 'SPAN');
+      cy.get(`[data-testid="${COLLAPSIBLE_INDICATOR_TESTID}"]`).should('have.prop', 'tagName').should('eq', 'DIV');
+    });
+
+    it('should contain passed children', () => {
+      const COLLAPSIBLE_INDICATOR_TEXT = 'COLLAPSIBLE_INDICATOR_TEXT';
+
+      cy.mount(
+        <Collapsible.Root>
+          <Collapsible.Indicator data-testid={COLLAPSIBLE_INDICATOR_TESTID}>
+            {COLLAPSIBLE_INDICATOR_TEXT}
+          </Collapsible.Indicator>
+        </Collapsible.Root>
+      );
+      cy.get(`[data-testid="${COLLAPSIBLE_INDICATOR_TESTID}"]`).should('have.text', COLLAPSIBLE_INDICATOR_TEXT);
+    });
+
+    it('should have attribute aria-hidden with value "true"', () => {
+      cy.mount(
+        <Collapsible.Root>
+          <Collapsible.Indicator data-testid={COLLAPSIBLE_INDICATOR_TESTID} />
+        </Collapsible.Root>
+      );
+      cy.get(`[data-testid="${COLLAPSIBLE_INDICATOR_TESTID}"]`).should('have.attr', 'aria-hidden', 'true');
+    });
+
+    it('should have not attribute data-disabled when <Collapsible.Root> is not disabled', () => {
+      cy.mount(
+        <Collapsible.Root disabled={false}>
+          <Collapsible.Indicator data-testid={COLLAPSIBLE_INDICATOR_TESTID} />
+        </Collapsible.Root>
+      );
+      cy.get(`[data-testid="${COLLAPSIBLE_INDICATOR_TESTID}"]`).should('have.not.attr', 'data-disabled');
+    });
+
+    it('should have attribute data-disabled with empty value when <Collapsible.Root> is disabled', () => {
+      cy.mount(
+        <Collapsible.Root disabled={true}>
+          <Collapsible.Indicator data-testid={COLLAPSIBLE_INDICATOR_TESTID} />
+        </Collapsible.Root>
+      );
+      cy.get(`[data-testid="${COLLAPSIBLE_INDICATOR_TESTID}"]`).should('have.attr', 'data-disabled', '');
+    });
+
+    it('should have attribute data-state with value "closed" when <Collapsible.Root> is closed', () => {
+      cy.mount(
+        <Collapsible.Root defaultOpen={false}>
+          <Collapsible.Indicator data-testid={COLLAPSIBLE_INDICATOR_TESTID} />
+        </Collapsible.Root>
+      );
+      cy.get(`[data-testid="${COLLAPSIBLE_INDICATOR_TESTID}"]`).should('have.attr', 'data-state', 'closed');
+    });
+
+    it('should have attribute data-state with value "open" when <Collapsible.Root> is open', () => {
+      cy.mount(
+        <Collapsible.Root defaultOpen={true}>
+          <Collapsible.Indicator data-testid={COLLAPSIBLE_INDICATOR_TESTID} />
+        </Collapsible.Root>
+      );
+      cy.get(`[data-testid="${COLLAPSIBLE_INDICATOR_TESTID}"]`).should('have.attr', 'data-state', 'open');
+    });
+
+    it('should have inline style pointer-events with value "none"', () => {
+      cy.mount(
+        <Collapsible.Root>
+          <Collapsible.Indicator data-testid={COLLAPSIBLE_INDICATOR_TESTID} />
+        </Collapsible.Root>
+      );
+      cy.get(`[data-testid="${COLLAPSIBLE_INDICATOR_TESTID}"]`)
+        .invoke('attr', 'style')
+        .should('contain', 'pointer-events', 'none');
+    });
+
+    it('should have inline style provided via style prop', () => {
+      const COLLAPSIBLE_INDICATOR_COLOR = 'rgb(1, 2, 3)';
+
+      cy.mount(
+        <Collapsible.Root>
+          <Collapsible.Indicator
+            style={{ color: COLLAPSIBLE_INDICATOR_COLOR }}
+            data-testid={COLLAPSIBLE_INDICATOR_TESTID}
+          />
+        </Collapsible.Root>
+      );
+      cy.get(`[data-testid="${COLLAPSIBLE_INDICATOR_TESTID}"]`)
+        .invoke('attr', 'style')
+        .should('contain', `color: ${COLLAPSIBLE_INDICATOR_COLOR}`);
+    });
+
+    it('should have attribute data-qwik-primitives-collapsible-indicator with empty value', () => {
+      cy.mount(
+        <Collapsible.Root>
+          <Collapsible.Indicator data-testid={COLLAPSIBLE_INDICATOR_TESTID} />
+        </Collapsible.Root>
+      );
+      cy.get(`[data-testid="${COLLAPSIBLE_INDICATOR_TESTID}"]`).should(
+        'have.attr',
+        'data-qwik-primitives-collapsible-indicator',
+        ''
+      );
+    });
+
+    it('should have attribute data-scope with value "collapsible"', () => {
+      cy.mount(
+        <Collapsible.Root>
+          <Collapsible.Indicator data-testid={COLLAPSIBLE_INDICATOR_TESTID} />
+        </Collapsible.Root>
+      );
+      cy.get(`[data-testid="${COLLAPSIBLE_INDICATOR_TESTID}"]`).should('have.attr', 'data-scope', 'collapsible');
+    });
+
+    it('should have attribute data-part with value "indicator"', () => {
+      cy.mount(
+        <Collapsible.Root>
+          <Collapsible.Indicator data-testid={COLLAPSIBLE_INDICATOR_TESTID} />
+        </Collapsible.Root>
+      );
+      cy.get(`[data-testid="${COLLAPSIBLE_INDICATOR_TESTID}"]`).should('have.attr', 'data-part', 'indicator');
+    });
+  });
+
   describe('Panel', () => {
     it('should be <div> element', () => {
       cy.mount(
@@ -338,7 +476,7 @@ describe('Collapsible', () => {
       cy.get(`[data-testid="${COLLAPSIBLE_PANEL_TESTID}"]`).should('have.not.attr', 'data-disabled');
     });
 
-    it('should have attribute data-disabled when <Collapsible.Root> is disabled', () => {
+    it('should have attribute data-disabled with empty value when <Collapsible.Root> is disabled', () => {
       cy.mount(
         <Collapsible.Root disabled={true}>
           <Collapsible.Panel data-testid={COLLAPSIBLE_PANEL_TESTID} />
@@ -597,7 +735,7 @@ describe('Collapsible', () => {
       cy.get(`[data-testid="${COLLAPSIBLE_CONTENT_TESTID}"]`).should('have.not.attr', 'data-disabled');
     });
 
-    it('should have attribute data-disabled when <Collapsible.Root> is disabled', () => {
+    it('should have attribute data-disabled with empty value when <Collapsible.Root> is disabled', () => {
       cy.mount(
         <Collapsible.Root disabled={true}>
           <Collapsible.Content data-testid={COLLAPSIBLE_CONTENT_TESTID} />
