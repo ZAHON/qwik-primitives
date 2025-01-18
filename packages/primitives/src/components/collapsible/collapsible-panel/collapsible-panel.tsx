@@ -1,6 +1,6 @@
 import type { CollapsiblePanelProps } from './collapsible-panel.types';
 import { component$, useContext, useId, useSignal, useTask$, Slot } from '@builder.io/qwik';
-import { isServer, isBrowser } from '@builder.io/qwik/build';
+import { isServer } from '@builder.io/qwik/build';
 import { composeRefs } from '@/utilities';
 import { CollapsibleContext } from '../collapsible-context';
 
@@ -11,7 +11,7 @@ import { CollapsibleContext } from '../collapsible-context';
 export const CollapsiblePanel = component$<CollapsiblePanelProps>((props) => {
   const { as, ref, id, onOpen$, onClose$, style, ...others } = props;
 
-  const { isOpen, isPanelHide, panelStatus, panelId, disabled } = useContext(CollapsibleContext);
+  const { isOpen, isDisabled, isPanelHide, panelStatus, panelId } = useContext(CollapsibleContext);
 
   const autoId = useId();
 
@@ -22,12 +22,6 @@ export const CollapsiblePanel = component$<CollapsiblePanelProps>((props) => {
     track(() => id);
 
     panelId.value = id || `qwik-primitives-collapsible-panel-${autoId}`;
-  });
-
-  useTask$(({ cleanup }) => {
-    cleanup(() => {
-      if (isBrowser) panelId.value = undefined;
-    });
   });
 
   useTask$(({ track }) => {
@@ -144,7 +138,7 @@ export const CollapsiblePanel = component$<CollapsiblePanelProps>((props) => {
       data-scope="collapsible"
       data-part="panel"
       data-state={isOpen.value ? 'open' : 'closed'}
-      data-disabled={disabled ? '' : undefined}
+      data-disabled={isDisabled.value ? '' : undefined}
       style={{
         display: 'grid',
         gridTemplateRows: isOpen.value ? '1fr' : '0fr',

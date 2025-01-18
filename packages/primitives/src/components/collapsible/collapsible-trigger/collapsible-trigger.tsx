@@ -9,12 +9,12 @@ import { CollapsibleContext } from '../collapsible-context';
 export const CollapsibleTrigger = component$<CollapsibleTriggerProps>((props) => {
   const { as, onClick$, ...others } = props;
 
-  const { isOpen, setIsOpen$, disabled, panelId } = useContext(CollapsibleContext);
+  const { isOpen, setIsOpen$, isDisabled, panelId } = useContext(CollapsibleContext);
 
   useTask$(async () => undefined);
 
   const handleClick$ = $(() => {
-    if (!disabled) setIsOpen$(!isOpen.value);
+    if (!isDisabled.value) setIsOpen$(!isOpen.value);
   });
 
   const Component = as || 'button';
@@ -22,14 +22,14 @@ export const CollapsibleTrigger = component$<CollapsibleTriggerProps>((props) =>
   return (
     <Component
       type="button"
-      disabled={disabled}
+      disabled={isDisabled.value}
       aria-controls={panelId.value}
       aria-expanded={panelId.value ? isOpen.value : undefined}
       data-qwik-primitives-collapsible-trigger=""
       data-scope="collapsible"
       data-part="trigger"
       data-state={isOpen.value ? 'open' : 'closed'}
-      data-disabled={disabled ? '' : undefined}
+      data-disabled={isDisabled.value ? '' : undefined}
       onClick$={[onClick$, handleClick$]}
       {...others}
     >

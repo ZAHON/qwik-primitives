@@ -12,6 +12,11 @@ export interface CollapsibleContextValue {
   setIsOpen$: QRL<(open: boolean) => void>;
 
   /**
+   * When `true`, prevents the user from interacting with the collapsible.
+   */
+  isDisabled: ReadonlySignal<boolean | undefined>;
+
+  /**
    * The controlled hide state of the collapsible panel.
    */
   isPanelHide: Signal<boolean>;
@@ -25,9 +30,4 @@ export interface CollapsibleContextValue {
    * The unique id of the collapsible panel.
    */
   panelId: Signal<string | undefined>;
-
-  /**
-   * When `true`, prevents the user from interacting with the collapsible.
-   */
-  disabled: boolean | undefined;
 }
