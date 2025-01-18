@@ -18,7 +18,7 @@ export const MobileMenuClose = component$(() => {
   return (
     <Dialog.Close data-qwik-primitives-auto-focus="" class={twm(iconButtonStyles)}>
       <AccessibleIcon.Root>
-        <CrossIcon height={16} width={16} />
+        <CrossIcon height={16} width={16} class="size-4" />
       </AccessibleIcon.Root>
 
       <VisuallyHidden.Root>Close navigation</VisuallyHidden.Root>

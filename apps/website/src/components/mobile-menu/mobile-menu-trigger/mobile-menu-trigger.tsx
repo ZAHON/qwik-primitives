@@ -19,7 +19,7 @@ export const MobileMenuTrigger = component$(() => {
   return (
     <Dialog.Trigger class={twm(iconButtonStyles, mobileMenuTriggerStyles())}>
       <AccessibleIcon.Root>
-        <HamburgerMenuIcon height={16} width={16} />
+        <HamburgerMenuIcon height={16} width={16} class="size-4" />
       </AccessibleIcon.Root>
 
       <VisuallyHidden.Root>Open navigation</VisuallyHidden.Root>
