@@ -11,7 +11,7 @@ export const MDXComponents = {
   h2: MDXH2,
   h3: MDXH3,
   p: MDXP,
-  code: MDXCode.Root,
+  code: MDXCode,
   ul: MDXUl.Root,
   pre: MDXCodeBlock,
   precode: MDXPreCode,

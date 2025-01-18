@@ -1,1 +1,1 @@
-export * as MDXCode from './mdx-code';
+export { default as MDXCode } from './mdx-code.astro';
