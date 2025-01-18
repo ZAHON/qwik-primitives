@@ -8,7 +8,7 @@ import { MDXPreCode } from './mdx-pre-code';
 import { MDXKbd } from './mdx-kbd';
 
 export const MDXComponents = {
-  h2: MDXH2.Root,
+  h2: MDXH2,
   h3: MDXH3.Root,
   p: MDXP.Root,
   code: MDXCode.Root,
