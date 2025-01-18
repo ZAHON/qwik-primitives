@@ -1,1 +1,1 @@
-export * as MDXUl from './mdx-ul';
+export { default as MDXUl } from './mdx-ul.astro';

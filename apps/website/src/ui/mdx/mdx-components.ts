@@ -12,7 +12,7 @@ export const MDXComponents = {
   h3: MDXH3,
   p: MDXP,
   code: MDXCode,
-  ul: MDXUl.Root,
+  ul: MDXUl,
   pre: MDXCodeBlock,
   precode: MDXPreCode,
   em: MDXKbd,
