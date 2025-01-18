@@ -101,12 +101,12 @@ Contains all the parts of a collapsible. This component is based on the `div` el
 | `disabled`      | `boolean`                      | `-`     | When `true`, prevents the user from interacting with the collapsible.                                                                                                                                                                   |
 | `style`         | `CSSProperties`                | `-`     | The inline style for the element.                                                                                                                                                                                                       |
 
-| Data attribute    | Values                |
-| ----------------- | --------------------- |
-| `[data-scope]`    | `"collapsible"`       |
-| `[data-part]`     | `"root"`              |
-| `[data-state]`    | `"open" \| "closed"`  |
-| `[data-disabled]` | Present when disabled |
+| Data attribute    | Values                 |
+| ----------------- | ---------------------- |
+| `[data-scope]`    | `"collapsible"`        |
+| `[data-part]`     | `"root"`               |
+| `[data-state]`    | `"open" \| "closed"`   |
+| `[data-disabled]` | Present when disabled. |
 
 ### Trigger
 
@@ -117,12 +117,28 @@ The button that toggles the collapsible. This component is based on the `button`
 | `as`    | `FunctionComponent` | `-`     | Change the default rendered element for the one passed as, merging their props and behavior. Read our [Composition](https://github.com/ZAHON/qwik-primitives/blob/main/packages/primitives/docs/composition.md) guide for more details. |
 | `style` | `CSSProperties`     | `-`     | The inline style for the element.                                                                                                                                                                                                       |
 
-| Data attribute    | Values                |
-| ----------------- | --------------------- |
-| `[data-scope]`    | `"collapsible"`       |
-| `[data-part]`     | `"trigger"`           |
-| `[data-state]`    | `"open" \| "closed"`  |
-| `[data-disabled]` | Present when disabled |
+| Data attribute    | Values                 |
+| ----------------- | ---------------------- |
+| `[data-scope]`    | `"collapsible"`        |
+| `[data-part]`     | `"trigger"`            |
+| `[data-state]`    | `"open" \| "closed"`   |
+| `[data-disabled]` | Present when disabled. |
+
+### Indicator
+
+An optional decorative element that indicates the state of the collapsible. This component is based on the `span` element.
+
+| Prop    | Type                | Default | Description                                                                                                                                                                                                                             |
+| ------- | ------------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `as`    | `FunctionComponent` | `-`     | Change the default rendered element for the one passed as, merging their props and behavior. Read our [Composition](https://github.com/ZAHON/qwik-primitives/blob/main/packages/primitives/docs/composition.md) guide for more details. |
+| `style` | `CSSProperties`     | `-`     | The inline style for the element.                                                                                                                                                                                                       |
+
+| Data attribute    | Values                 |
+| ----------------- | ---------------------- |
+| `[data-scope]`    | `"collapsible"`        |
+| `[data-part]`     | `"indicator"`          |
+| `[data-state]`    | `"open" \| "closed"`   |
+| `[data-disabled]` | Present when disabled. |
 
 ### Panel
 
@@ -135,12 +151,12 @@ The panel that expands/collapses. This component is based on the `div` element.
 | `onClose$` | `QRL<() => void>`   | `-`     | Event handler called when the panel is fully close. If you animate the size of the panel when it closes this event handler was call after animation end.                                                                                |
 | `style`    | `CSSProperties`     | `-`     | The inline style for the element.                                                                                                                                                                                                       |
 
-| Data attribute    | Values                |
-| ----------------- | --------------------- |
-| `[data-scope]`    | `"collapsible"`       |
-| `[data-part]`     | `"panel"`             |
-| `[data-state]`    | `"open" \| "closed"`  |
-| `[data-disabled]` | Present when disabled |
+| Data attribute    | Values                 |
+| ----------------- | ---------------------- |
+| `[data-scope]`    | `"collapsible"`        |
+| `[data-part]`     | `"panel"`              |
+| `[data-state]`    | `"open" \| "closed"`   |
+| `[data-disabled]` | Present when disabled. |
 
 ### Content
 
@@ -151,12 +167,12 @@ The component that contains the collapsible content. Must be nested inside `Coll
 | `as`    | `FunctionComponent` | `-`     | Change the default rendered element for the one passed as, merging their props and behavior. Read our [Composition](https://github.com/ZAHON/qwik-primitives/blob/main/packages/primitives/docs/composition.md) guide for more details. |
 | `style` | `CSSProperties`     | `-`     | The inline style for the element.                                                                                                                                                                                                       |
 
-| Data attribute    | Values                |
-| ----------------- | --------------------- |
-| `[data-scope]`    | `"collapsible"`       |
-| `[data-part]`     | `"content"`           |
-| `[data-state]`    | `"open" \| "closed"`  |
-| `[data-disabled]` | Present when disabled |
+| Data attribute    | Values                 |
+| ----------------- | ---------------------- |
+| `[data-scope]`    | `"collapsible"`        |
+| `[data-part]`     | `"content"`            |
+| `[data-state]`    | `"open" \| "closed"`   |
+| `[data-disabled]` | Present when disabled. |
 
 ## Examples
 
@@ -217,13 +233,76 @@ const CollapsibleDemo = component$(() => {
 }
 ```
 
+### Rotated icon when panel open
+
+You can nest inside of a `Collapsible.Indicator` extra decorative elements, such as chevrons, and rotate it when the panel is open.
+
+```tsx
+// index.tsx
+import type { PropsOf } from '@builder.io/qwik';
+import { component$, useStyles$ } from '@builder.io/qwik';
+import { Collapsible } from 'qwik-primitives';
+import styles from './styles.css?inline';
+
+const ChevronLeftIcon = component$<PropsOf<'svg'>>((props) => {
+  return (
+    <svg
+      aria-hidden="true"
+      focusable="false"
+      width="15"
+      height="15"
+      viewBox="0 0 15 15"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M8.84182 3.13514C9.04327 3.32401 9.05348 3.64042 8.86462 3.84188L5.43521 7.49991L8.86462 11.1579C9.05348 11.3594 9.04327 11.6758 8.84182 11.8647C8.64036 12.0535 8.32394 12.0433 8.13508 11.8419L4.38508 7.84188C4.20477 7.64955 4.20477 7.35027 4.38508 7.15794L8.13508 3.15794C8.32394 2.95648 8.64036 2.94628 8.84182 3.13514Z"
+        fill="currentColor"
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+      ></path>
+    </svg>
+  );
+});
+
+const CollapsibleDemo = component$(() => {
+  useStyles$(styles);
+
+  return (
+    <Collapsible.Root>
+      <Collapsible.Trigger>
+        What is Qwik Primitives?
+        <Collapsible.Indicator class="collapsible-indicator">
+          <ChevronLeftIcon class="collapsible-indicator-icon" />
+        </Collapsible.Indicator>
+      </Collapsible.Trigger>
+      <Collapsible.Panel>
+        <Collapsible.Content>
+          Qwik Primitives is a UI toolkit for building accessible web apps and design systems with Qwik. It provides a
+          set of low-level UI components and primitives which can be the foundation for your design system
+          implementation.
+        </Collapsible.Content>
+      </Collapsible.Panel>
+    </Collapsible.Root>
+  );
+});
+```
+
+```css
+/* styles.css */
+.collapsible-indicator[data-state='open'] > .collapsible-indicator-icon {
+  transform: rotate(-90deg);
+}
+```
+
 ## Accessibility
 
 Adheres to the [Disclosure WAI-ARIA design pattern](https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/).
 
 ### Keyboard Interactions
 
-| Key     | Description                   |
-| ------- | ----------------------------- |
-| `Space` | Opens/closes the collapsible. |
-| `Enter` | Opens/closes the collapsible. |
+| Key              | Description                   |
+| ---------------- | ----------------------------- |
+| <kbd>Space</kbd> | Opens/closes the collapsible. |
+| <kbd>Enter</kbd> | Opens/closes the collapsible. |
