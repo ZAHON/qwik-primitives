@@ -6,6 +6,7 @@ import { MDXUl } from './mdx-ul';
 import { MDXCodeBlock } from './mdx-code-block';
 import { MDXPreCode } from './mdx-pre-code';
 import { MDXKbd } from './mdx-kbd';
+import { MDXA } from './mdx-a';
 
 export const MDXComponents = {
   h2: MDXH2,
@@ -16,4 +17,5 @@ export const MDXComponents = {
   pre: MDXCodeBlock,
   precode: MDXPreCode,
   em: MDXKbd,
+  a: MDXA,
 };

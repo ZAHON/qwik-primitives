@@ -1,0 +1,19 @@
+---
+import { Link } from '@/ui/astro/link';
+import { ExternalLinkIcon } from '@/icons/external-link-icon';
+
+interface Props {
+  /**
+   * The URL that the link points to.
+   */
+  href: string;
+}
+
+const { href } = Astro.props;
+
+const isExternal = href.split('/')[0] === 'https:';
+---
+
+<Link.Root href={href} external={isExternal} openInNewTab={true}
+  ><slot />{isExternal && <ExternalLinkIcon width="14" height="14" class="size-3.5" />}</Link.Root
+>
