@@ -9,7 +9,7 @@ import { MDXKbd } from './mdx-kbd';
 
 export const MDXComponents = {
   h2: MDXH2,
-  h3: MDXH3.Root,
+  h3: MDXH3,
   p: MDXP.Root,
   code: MDXCode.Root,
   ul: MDXUl.Root,

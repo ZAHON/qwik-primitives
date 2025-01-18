@@ -1,1 +1,1 @@
-export * as MDXH3 from './mdx-h3';
+export { default as MDXH3 } from './mdx-h3.astro';
