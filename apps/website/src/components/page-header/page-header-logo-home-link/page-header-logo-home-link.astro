@@ -9,7 +9,7 @@ const pathname = new URL(Astro.request.url).pathname;
 
 <Link.Root aria-current={pathname === '/' ? 'page' : undefined} href="/" color="default" highContrast={true}>
   <AccessibleIcon.Root>
-    <QwikLogoAndText height={28} width={94} />
+    <QwikLogoAndText height={28} width={94} class="h-7 w-[5.875rem]" />
   </AccessibleIcon.Root>
 
   <VisuallyHidden.Root>Qwik Primitives home page</VisuallyHidden.Root>

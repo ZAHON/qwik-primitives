@@ -14,8 +14,8 @@ export const PageHeaderThemeSwitch = component$(() => {
   return (
     <BaseButton.Root shape="icon" color="default" variant="ghost" onClick$={handleClick$}>
       <AccessibleIcon.Root>
-        <SunIcon height={16} width={16} class="block dark:hidden" />
-        <MoonIcon height={16} width={16} class="hidden dark:block" />
+        <SunIcon height={16} width={16} class="block size-4 dark:hidden" />
+        <MoonIcon height={16} width={16} class="hidden size-4 dark:block" />
       </AccessibleIcon.Root>
 
       <VisuallyHidden.Root>Toggle theme</VisuallyHidden.Root>
