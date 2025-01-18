@@ -1,6 +1,6 @@
 ---
-import { Icon } from 'astro-icon/components';
 import { twm } from '@/utilities/twm';
+import { LinkIcon } from '@/icons/link-icon';
 import { headingLinkIndicatorIconStyles } from './heading-link-indicator-icon.styles';
 
 interface Props {
@@ -23,4 +23,4 @@ interface Props {
 const { height, width, class: className } = Astro.props;
 ---
 
-<Icon name="link" height={height} width={width} class={twm(headingLinkIndicatorIconStyles(), className)} />
+<LinkIcon height={height} width={width} class={twm(headingLinkIndicatorIconStyles(), className)} />
