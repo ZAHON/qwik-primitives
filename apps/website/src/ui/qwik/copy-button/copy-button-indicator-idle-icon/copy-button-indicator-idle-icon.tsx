@@ -19,7 +19,7 @@ export const CopyButtonIndicatorIdleIcon = component$<CopyButtonIndicatorIdleIco
     <CopyIcon
       height={getIconSize(size)}
       width={getIconSize(size)}
-      class={twm(copyButtonIndicatorIdleIconStyles(), className)}
+      class={twm(copyButtonIndicatorIdleIconStyles({ size }), className)}
       {...others}
     />
   );

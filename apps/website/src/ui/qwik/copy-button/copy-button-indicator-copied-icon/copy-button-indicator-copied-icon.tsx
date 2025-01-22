@@ -19,7 +19,7 @@ export const CopyButtonIndicatorCopiedIcon = component$<CopyButtonIndicatorCopie
     <CheckIcon
       height={getIconSize(size)}
       width={getIconSize(size)}
-      class={twm(copyButtonIndicatorCopiedIconStyles(), className)}
+      class={twm(copyButtonIndicatorCopiedIconStyles({ size }), className)}
       {...others}
     />
   );

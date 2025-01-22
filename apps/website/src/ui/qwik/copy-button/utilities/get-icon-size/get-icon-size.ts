@@ -1,7 +1,7 @@
 export const getIconSize = (size: '1' | '2' | '3' | '4') => {
   switch (size) {
     case '1': {
-      return 14;
+      return 15;
     }
     case '2': {
       return 16;
