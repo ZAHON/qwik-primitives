@@ -183,8 +183,8 @@ export const SpoilerPanel = component$<SpoilerPanelProps>((props) => {
       data-state={isOpen.value ? 'open' : 'closed'}
       data-disabled={disabled ? '' : undefined}
       style={{
+        overflow: 'hidden',
         height: panelHeight.value,
-        overflow: panelStatus.value === 'open' ? undefined : 'hidden',
         animationDuration: cancelFirstAnimation.value ? '0s' : undefined,
         ...panelMinHeightCSSVar.value,
         ...panelMaxHeightCSSVar.value,
