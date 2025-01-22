@@ -17,6 +17,7 @@ export const CollapsibleRoot = component$<CollapsibleRootProps>((props) => {
     onChange$: onOpenChange$,
   });
 
+  const state = useComputed$(() => (isOpen.value ? 'open' : 'closed'));
   const isDisabled = useComputed$(() => disabled);
 
   const isPanelHide = useSignal(!isOpen.value);
@@ -32,7 +33,7 @@ export const CollapsibleRoot = component$<CollapsibleRootProps>((props) => {
       data-qwik-primitives-collapsible-root=""
       data-scope="collapsible"
       data-part="root"
-      data-state={isOpen.value ? 'open' : 'closed'}
+      data-state={state.value}
       data-disabled={isDisabled.value ? '' : undefined}
       {...others}
     >
