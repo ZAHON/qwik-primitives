@@ -11,7 +11,7 @@ import { SpoilerContext } from '../spoiler-context';
 export const SpoilerPanel = component$<SpoilerPanelProps>((props) => {
   const { as, ref, id, minHeight = '0px', onOpen$, onClose$, style, ...others } = props;
 
-  const { isOpen, panelId, contentHeight, disabled } = useContext(SpoilerContext);
+  const { isOpen, isDisabled, panelId, contentHeight } = useContext(SpoilerContext);
 
   const autoId = useId();
 
@@ -181,7 +181,7 @@ export const SpoilerPanel = component$<SpoilerPanelProps>((props) => {
       data-scope="spoiler"
       data-part="panel"
       data-state={isOpen.value ? 'open' : 'closed'}
-      data-disabled={disabled ? '' : undefined}
+      data-disabled={isDisabled.value ? '' : undefined}
       style={{
         overflow: 'hidden',
         height: panelHeight.value,

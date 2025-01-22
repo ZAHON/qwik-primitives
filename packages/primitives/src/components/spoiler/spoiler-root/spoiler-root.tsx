@@ -18,11 +18,12 @@ export const SpoilerRoot = component$<SpoilerRootProps>((props) => {
   });
 
   const state = useComputed$(() => (isOpen.value ? 'open' : 'closed'));
+  const isDisabled = useComputed$(() => disabled);
 
   const panelId = useSignal<string | undefined>(undefined);
   const contentHeight = useSignal<number | undefined>(undefined);
 
-  useContextProvider(SpoilerContext, { isOpen, setIsOpen$, panelId, contentHeight, disabled });
+  useContextProvider(SpoilerContext, { isOpen, setIsOpen$, isDisabled, panelId, contentHeight });
 
   const Component = as || 'div';
 
@@ -32,7 +33,7 @@ export const SpoilerRoot = component$<SpoilerRootProps>((props) => {
       data-scope="spoiler"
       data-part="root"
       data-state={state.value}
-      data-disabled={disabled ? '' : undefined}
+      data-disabled={isDisabled.value ? '' : undefined}
       {...others}
     >
       <Slot />

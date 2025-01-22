@@ -9,12 +9,12 @@ import { SpoilerContext } from '../spoiler-context';
 export const SpoilerTrigger = component$<SpoilerTriggerProps>((props) => {
   const { as, onClick$, ...others } = props;
 
-  const { isOpen, setIsOpen$, panelId, disabled } = useContext(SpoilerContext);
+  const { isOpen, setIsOpen$, isDisabled, panelId } = useContext(SpoilerContext);
 
   useTask$(async () => undefined);
 
   const handleClick$ = $(() => {
-    if (!disabled) setIsOpen$(!isOpen.value);
+    if (!isDisabled.value) setIsOpen$(!isOpen.value);
   });
 
   const Component = as || 'button';
@@ -22,14 +22,14 @@ export const SpoilerTrigger = component$<SpoilerTriggerProps>((props) => {
   return (
     <Component
       type="button"
-      disabled={disabled}
+      disabled={isDisabled.value}
       aria-controls={panelId.value}
       aria-expanded={panelId.value ? isOpen.value : undefined}
       data-qwik-primitives-spoiler-trigger=""
       data-scope="spoiler"
       data-part="trigger"
       data-state={isOpen.value ? 'open' : 'closed'}
-      data-disabled={disabled ? '' : undefined}
+      data-disabled={isDisabled.value ? '' : undefined}
       onClick$={[onClick$, handleClick$]}
       {...others}
     >

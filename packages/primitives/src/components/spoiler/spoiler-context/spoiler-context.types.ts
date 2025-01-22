@@ -12,6 +12,11 @@ export interface SpoilerContextValue {
   setIsOpen$: QRL<(open: boolean) => void>;
 
   /**
+   * When `true`, prevents the user from interacting with the spoiler.
+   */
+  isDisabled: ReadonlySignal<boolean | undefined>;
+
+  /**
    * The unique id of the spoiler panel.
    */
   panelId: Signal<string | undefined>;
@@ -20,9 +25,4 @@ export interface SpoilerContextValue {
    * The height of the spoiler content.
    */
   contentHeight: Signal<number | undefined>;
-
-  /**
-   * When `true`, prevents the user from interacting with the spoiler.
-   */
-  disabled: boolean | undefined;
 }

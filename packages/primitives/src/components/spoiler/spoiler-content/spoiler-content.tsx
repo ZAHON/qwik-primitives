@@ -12,7 +12,7 @@ import { SpoilerContext } from '../spoiler-context';
 export const SpoilerContent = component$<SpoilerContentProps>((props) => {
   const { as, ref, ...others } = props;
 
-  const { isOpen, contentHeight, disabled } = useContext(SpoilerContext);
+  const { isOpen, isDisabled, contentHeight } = useContext(SpoilerContext);
 
   const contentRef = useSignal<HTMLElement | undefined>(undefined);
 
@@ -67,7 +67,7 @@ export const SpoilerContent = component$<SpoilerContentProps>((props) => {
       data-scope="spoiler"
       data-part="content"
       data-state={isOpen.value ? 'open' : 'closed'}
-      data-disabled={disabled ? '' : undefined}
+      data-disabled={isDisabled.value ? '' : undefined}
       {...others}
     >
       <Slot />
