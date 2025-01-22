@@ -1,5 +1,5 @@
 import type { SpoilerRootProps } from './spoiler-root.types';
-import { component$, useSignal, useContextProvider, Slot } from '@builder.io/qwik';
+import { component$, useComputed$, useSignal, useContextProvider, Slot } from '@builder.io/qwik';
 import { useControllableState } from '@/hooks/use-controllable-state';
 import { SpoilerContext } from '../spoiler-context';
 
@@ -17,6 +17,8 @@ export const SpoilerRoot = component$<SpoilerRootProps>((props) => {
     onChange$: onOpenChange$,
   });
 
+  const state = useComputed$(() => (isOpen.value ? 'open' : 'closed'));
+
   const panelId = useSignal<string | undefined>(undefined);
   const contentHeight = useSignal<number | undefined>(undefined);
 
@@ -29,7 +31,7 @@ export const SpoilerRoot = component$<SpoilerRootProps>((props) => {
       data-qwik-primitives-spoiler-root=""
       data-scope="spoiler"
       data-part="root"
-      data-state={isOpen.value ? 'open' : 'closed'}
+      data-state={state.value}
       data-disabled={disabled ? '' : undefined}
       {...others}
     >
