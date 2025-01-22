@@ -42,7 +42,7 @@ Spoiler component can be uncontrolled or controlled.
 
 ```tsx
 import { component$ } from '@builder.io/qwik';
-import { Spoiler } from '@/components';
+import { Spoiler } from 'qwik-primitives';
 
 const SpoilerDemo = component$(() => {
   return (
@@ -67,7 +67,7 @@ const SpoilerDemo = component$(() => {
 
 ```tsx
 import { component$, useSignal } from '@builder.io/qwik';
-import { Spoiler } from '@/components';
+import { Spoiler } from 'qwik-primitives';
 
 const SpoilerDemo = component$(() => {
   const isOpen = useSignal(false);
@@ -128,6 +128,22 @@ The button that toggles the spoiler. This component is based on the `button` ele
 | `[data-state]`    | `"open" \| "closed"`  |
 | `[data-disabled]` | Present when disabled |
 
+### Indicator
+
+An optional decorative element that can indicate the state of the spoiler. This component is based on the `span` element.
+
+| Prop    | Type                | Default | Description                                                                                                                                                                                                                             |
+| ------- | ------------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `as`    | `FunctionComponent` | `-`     | Change the default rendered element for the one passed as, merging their props and behavior. Read our [Composition](https://github.com/ZAHON/qwik-primitives/blob/main/packages/primitives/docs/composition.md) guide for more details. |
+| `style` | `CSSProperties`     | `-`     | The inline style for the element.                                                                                                                                                                                                       |
+
+| Data attribute    | Values                 |
+| ----------------- | ---------------------- |
+| `[data-scope]`    | `"spoiler"`            |
+| `[data-part]`     | `"indicator"`          |
+| `[data-state]`    | `"open" \| "closed"`   |
+| `[data-disabled]` | Present when disabled. |
+
 ### Panel
 
 The panel that expands/collapses. This component is based on the `div` element.
@@ -177,7 +193,7 @@ Use the `--qwik-primitives-spoiler-panel-min-height` and `--qwik-primitives-spoi
 ```tsx
 // index.tsx
 import { component$, useStyles$ } from '@builder.io/qwik';
-import { Spoiler } from '@/components';
+import { Spoiler } from 'qwik-primitives';
 import styles from './styles.css?inline';
 
 const SpoilerDemo = component$(() => {
@@ -237,7 +253,7 @@ You can also pass a CSS variable to the `minHeight` property. This will allow yo
 ```tsx
 // index.tsx
 import { component$, useStyles$ } from '@builder.io/qwik';
-import { Spoiler } from '@/components';
+import { Spoiler } from 'qwik-primitives';
 import styles from './styles.css?inline';
 
 const SpoilerDemo = component$(() => {
@@ -274,6 +290,72 @@ const SpoilerDemo = component$(() => {
 }
 ```
 
+### Rotated icon when panel open
+
+You can nest inside of a `Spoiler.Indicator` extra decorative elements, such as chevrons, and rotate it when the panel is open.
+
+```tsx
+// index.tsx
+import type { PropsOf } from '@builder.io/qwik';
+import { component$, useStyles$ } from '@builder.io/qwik';
+import { Spoiler } from 'qwik-primitives';
+import styles from './styles.css?inline';
+
+const ChevronLeftIcon = component$<PropsOf<'svg'>>((props) => {
+  return (
+    <svg
+      aria-hidden="true"
+      focusable="false"
+      width="15"
+      height="15"
+      viewBox="0 0 15 15"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M8.84182 3.13514C9.04327 3.32401 9.05348 3.64042 8.86462 3.84188L5.43521 7.49991L8.86462 11.1579C9.05348 11.3594 9.04327 11.6758 8.84182 11.8647C8.64036 12.0535 8.32394 12.0433 8.13508 11.8419L4.38508 7.84188C4.20477 7.64955 4.20477 7.35027 4.38508 7.15794L8.13508 3.15794C8.32394 2.95648 8.64036 2.94628 8.84182 3.13514Z"
+        fill="currentColor"
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+      ></path>
+    </svg>
+  );
+});
+
+const SpoilerDemo = component$(() => {
+  useStyles$(styles);
+
+  return (
+    <Spoiler.Root>
+      <Spoiler.Trigger>
+        Toggle content
+        <Spoiler.Indicator class="spoiler-indicator">
+          <ChevronLeftIcon class="spoiler-indicator-icon" />
+        </Spoiler.Indicator>
+      </Spoiler.Trigger>
+      <Spoiler.Panel minHeight="60px">
+        <Spoiler.Content>
+          <p>
+            Qwik Primitives is a UI toolkit for building accessible web apps and design systems with Qwik. It provides a
+            set of low-level UI components and primitives which can be the foundation for your design system
+            implementation.
+          </p>
+          <div style={{ height: '300px', backgroundColor: 'purple' }} />
+        </Spoiler.Content>
+      </Spoiler.Panel>
+    </Spoiler.Root>
+  );
+});
+```
+
+```css
+/* styles.css */
+.spoiler-indicator[data-state='open'] > .spoiler-indicator-icon {
+  transform: rotate(-90deg);
+}
+```
+
 ## Accessibility
 
 ### Differences to Collapsible component
@@ -282,7 +364,7 @@ At first glance, the `Spoiler` component does not differ much from the `Collapsi
 
 ### Keyboard Interactions
 
-| Key     | Description               |
-| ------- | ------------------------- |
-| `Space` | Opens/closes the spoiler. |
-| `Enter` | Opens/closes the spoiler. |
+| Key              | Description               |
+| ---------------- | ------------------------- |
+| <kbd>Space</kbd> | Opens/closes the spoiler. |
+| <kbd>Enter</kbd> | Opens/closes the spoiler. |
