@@ -6,7 +6,7 @@ An interactive component which expands/collapses a panel.
 
 - Full keyboard navigation.
 
-- Can be controlled or uncontrolled.
+- Can be or controlled uncontrolled.
 
 - Adheres to the [Disclosure WAI-ARIA design pattern](https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/).
 
