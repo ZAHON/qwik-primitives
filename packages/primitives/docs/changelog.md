@@ -1,5 +1,29 @@
 # Changelog
 
+## 0.0.33
+
+### 🚀 Features
+
+- Add `"idle"` as new paramteter value of the `onCopyStatusChange$` prop for the `CopyButton.Root` component.
+
+- Add `Indicator` part for the `Collapsible` component. You can nest inside of this part extra decorative elements, such as chevrons, and rotate it when the panel is open.
+
+- Add `Indicator` part for the `Spoiler` component. You can nest inside of this part extra decorative elements, such as chevrons, and rotate it when the panel is open.
+
+### 🚨 Breaking Changes
+
+- Remove for the `Spoiler.Panel` component the inline style `overflow` with a dynamic value depending on the panel's open state. From now on, this component always has inline style `overflow` with value `“hidden”`.
+
+### 🐞 Bug Fixes
+
+- Fix the problem that the `data-state` attribute of the `Collapsible.Root` component did not change its value in the browser environment.
+
+- Fix issue related to the fact that the `disabled` prop for the `Collapsible.Root` component does not work in the browser environment. From now on, it is possible to dynamically change the value of this prop in browser environments.
+
+- Fix the problem that the `data-state` attribute of the `Spoiler.Root` component did not change its value in the browser environment.
+
+- Fix issue related to the fact that the `disabled` prop for the `Spoiler.Root` component does not work in the browser environment. From now on, it is possible to dynamically change the value of this prop in browser environments.
+
 ## 0.0.32
 
 ### 🚀 Features
