@@ -1,0 +1,32 @@
+---
+import { twm } from '@/utilities/twm';
+import { FeaturesListItem } from './features-list-item';
+import { FeaturesListItemMarker } from './features-list-item-marker';
+import { FeaturesListItemContent } from './features-list-item-content';
+import { featuresListStyles } from './features-list.styles';
+
+interface Props {
+  /**
+   * The items of the features list.
+   */
+  items: string[];
+
+  /**
+   * The CSS class for the element.
+   */
+  class?: string;
+}
+
+const { items, class: className } = Astro.props;
+---
+
+<ul class={twm(featuresListStyles(), className)}>
+  {
+    items.map((item) => (
+      <FeaturesListItem>
+        <FeaturesListItemMarker />
+        <FeaturesListItemContent content={item} />
+      </FeaturesListItem>
+    ))
+  }
+</ul>

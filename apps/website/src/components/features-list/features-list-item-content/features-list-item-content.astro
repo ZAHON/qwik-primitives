@@ -1,0 +1,14 @@
+---
+import { parse } from './utilities';
+
+interface Props {
+  /**
+   * The feature item content.
+   */
+  content: string;
+}
+
+const { content } = Astro.props;
+---
+
+<Fragment set:html={parse(content)} />
