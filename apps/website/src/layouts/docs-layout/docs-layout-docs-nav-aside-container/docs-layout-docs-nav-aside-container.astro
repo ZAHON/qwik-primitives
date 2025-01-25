@@ -1,0 +1,13 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+import { twm } from '@/utilities/twm';
+import { docsLayoutDocsNavAsideContainerStyles } from './docs-layout-docs-nav-aside-container.styles';
+
+type Props = HTMLAttributes<'div'>;
+
+const { class: className, ...others } = Astro.props;
+---
+
+<div class={twm(docsLayoutDocsNavAsideContainerStyles(), className)} {...others}>
+  <slot />
+</div>

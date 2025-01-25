@@ -1,0 +1,13 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+import { twm } from '@/utilities/twm';
+import { docsLayoutMainStyles } from './docs-layout-main.styles';
+
+type Props = HTMLAttributes<'main'>;
+
+const { class: className, ...others } = Astro.props;
+---
+
+<main class={twm(docsLayoutMainStyles(), className)} {...others}>
+  <slot />
+</main>

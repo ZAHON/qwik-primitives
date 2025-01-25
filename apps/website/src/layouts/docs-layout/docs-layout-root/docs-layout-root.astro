@@ -1,0 +1,12 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+import { BaseLayout } from '@/layouts/base-layout';
+
+type Props = HTMLAttributes<'html'>;
+
+const props = Astro.props;
+---
+
+<BaseLayout.Root {...props}>
+  <slot />
+</BaseLayout.Root>

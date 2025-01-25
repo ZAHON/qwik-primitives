@@ -1,0 +1,18 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+import { parseKbdSyntax } from '@/utilities/parse-kbd-syntax';
+
+type Props = HTMLAttributes<'article'>;
+
+const props = Astro.props;
+
+let html: string | undefined = undefined;
+
+if (Astro.slots.has('default')) {
+  const content = await Astro.slots.render('default');
+
+  html = parseKbdSyntax(content);
+}
+---
+
+<article set:html={html} {...props} />

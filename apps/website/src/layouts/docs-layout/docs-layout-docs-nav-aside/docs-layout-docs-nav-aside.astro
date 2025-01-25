@@ -1,0 +1,14 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+import { twm } from '@/utilities/twm';
+import { scrollbarStyles } from '@/styles/shared/scrollbar';
+import { docsLayoutDocsNavAsideStyles } from './docs-layout-docs-nav-aside.styles';
+
+type Props = HTMLAttributes<'aside'>;
+
+const { class: className, ...others } = Astro.props;
+---
+
+<aside class={twm(docsLayoutDocsNavAsideStyles(), scrollbarStyles({ size: '1' }), className)} {...others}>
+  <slot />
+</aside>
