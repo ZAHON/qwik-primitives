@@ -1,0 +1,44 @@
+---
+import { getCollection, render } from 'astro:content';
+import { DocsLayout } from '@/layouts/docs-layout';
+import { MDXComponents } from '@/ui/mdx/mdx-components';
+import { DocsNav } from '@/components/docs-nav';
+import { TableOfContents } from '@/components/table-of-contents';
+
+export const getStaticPaths = async () => {
+  const docsEntries = await getCollection('componentsContent');
+
+  return docsEntries.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+};
+
+const { entry } = Astro.props;
+const { Content, headings } = await render(entry);
+---
+
+<DocsLayout.Root>
+  <DocsLayout.Head />
+  <DocsLayout.Body>
+    <DocsLayout.Content>
+      <DocsLayout.DocsNavAsideContainer>
+        <DocsLayout.DocsNavAside>
+          <DocsNav variant="desktop" />
+        </DocsLayout.DocsNavAside>
+      </DocsLayout.DocsNavAsideContainer>
+
+      <DocsLayout.Main>
+        <DocsLayout.Article>
+          <Content components={MDXComponents} />
+        </DocsLayout.Article>
+      </DocsLayout.Main>
+
+      <DocsLayout.TableOfContentsAsideContainer>
+        <DocsLayout.TableOfContentsAside>
+          <TableOfContents headings={headings} />
+        </DocsLayout.TableOfContentsAside>
+      </DocsLayout.TableOfContentsAsideContainer>
+    </DocsLayout.Content>
+  </DocsLayout.Body>
+</DocsLayout.Root>
