@@ -1,0 +1,46 @@
+---
+import { Table } from '@/ui/astro/table';
+import { getComponentPartData } from '@/utilities/get-component-part-data';
+import { DataAttributesTableAttributeCell } from './data-attributes-table-attribute-cell';
+import { DataAttributesTableValuesCell } from './data-attributes-table-values-cell';
+import { dataAttributesTableStyles } from './data-attributes-table.styles';
+
+interface Props {
+  /**
+   * The id of the component.
+   */
+  id: string;
+
+  /**
+   * The part of the component.
+   */
+  part: string;
+}
+
+const props = Astro.props;
+const partData = await getComponentPartData(props);
+---
+
+<Table.Root class={dataAttributesTableStyles()}>
+  <Table.ScrollArea>
+    <Table.Content>
+      <Table.Header>
+        <Table.Row>
+          <Table.ColumnHeaderCell>Data attribute</Table.ColumnHeaderCell>
+          <Table.ColumnHeaderCell>Values</Table.ColumnHeaderCell>
+        </Table.Row>
+      </Table.Header>
+
+      <Table.Body>
+        {
+          partData.dataAttributes.map(({ attribute, values }) => (
+            <Table.Row>
+              <DataAttributesTableAttributeCell attribute={attribute} />
+              <DataAttributesTableValuesCell values={values} />
+            </Table.Row>
+          ))
+        }
+      </Table.Body>
+    </Table.Content>
+  </Table.ScrollArea>
+</Table.Root>

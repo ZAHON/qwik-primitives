@@ -1,0 +1,19 @@
+---
+import { Table } from '@/ui/astro/table';
+import { Code } from '@/ui/astro/code';
+
+interface Props {
+  /**
+   * The name of the attribute.
+   */
+  attribute: string;
+}
+
+const { attribute } = Astro.props;
+---
+
+<Table.RowHeaderCell>
+  <Code.Root size="2">
+    {attribute}
+  </Code.Root>
+</Table.RowHeaderCell>
