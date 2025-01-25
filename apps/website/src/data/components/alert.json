@@ -1,0 +1,35 @@
+{
+  "parts": [
+    {
+      "part": "root",
+      "props": [
+        {
+          "prop": "as",
+          "required": false,
+          "type": "FunctionComponent",
+          "defaultValue": null,
+          "description": "Change the default rendered element for the one passed as, merging their props and behavior."
+        },
+        {
+          "prop": "style",
+          "required": false,
+          "type": "CSSProperties",
+          "defaultValue": null,
+          "description": "The inline style for the element."
+        }
+      ],
+      "dataAttributes": [
+        {
+          "attribute": "[data-scope]",
+          "values": "`\"alert\"`"
+        },
+        {
+          "attribute": "[data-part]",
+          "values": "`\"root\"`"
+        }
+      ],
+      "CSSVariables": null
+    }
+  ],
+  "keyboardInteractions": null
+}
