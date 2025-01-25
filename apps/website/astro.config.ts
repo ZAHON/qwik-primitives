@@ -26,6 +26,7 @@ export default defineConfig({
           './src/components/props-table': ['PropsTable'],
           './src/components/data-attributes-table': ['DataAttributesTable'],
           './src/components/css-variables-table': ['CSSVariablesTable'],
+          './src/components/keyboard-interactions-table': ['KeyboardInteractionsTable'],
         },
       ],
     }),
