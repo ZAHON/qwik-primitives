@@ -1,0 +1,38 @@
+---
+import type { MarkdownHeading } from 'astro';
+import { TableOfContentsHeading } from './table-of-contents-heading';
+import { TableOfContentsList } from './table-of-contents-list';
+import { TableOfContentsItem } from './table-of-contents-item';
+import { TableOfContentsLink } from './table-of-contents-link';
+import { tableOfContentsStyles } from './table-of-contents.styles';
+
+interface Props {
+  /**
+   * An array of all headings.
+   */
+  headings: MarkdownHeading[];
+}
+
+const { headings } = Astro.props;
+const id = `table-of-contents-${crypto.randomUUID()}`;
+---
+
+<nav aria-labelledby={id} class={tableOfContentsStyles()}>
+  <TableOfContentsHeading id={id}>Quick nav</TableOfContentsHeading>
+
+  <TableOfContentsList>
+    <TableOfContentsItem>
+      <TableOfContentsLink href="#_top" depth={1}>Overview</TableOfContentsLink>
+    </TableOfContentsItem>
+
+    {
+      headings.map(({ depth, slug, text }) => (
+        <TableOfContentsItem>
+          <TableOfContentsLink href={`#${slug}`} depth={depth}>
+            {text}
+          </TableOfContentsLink>
+        </TableOfContentsItem>
+      ))
+    }
+  </TableOfContentsList>
+</nav>

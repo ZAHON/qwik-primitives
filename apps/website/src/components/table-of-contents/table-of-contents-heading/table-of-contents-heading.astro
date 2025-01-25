@@ -1,0 +1,16 @@
+---
+import { tableOfContentsHeadingStyles } from './table-of-contents-heading.styles';
+
+interface Props {
+  /**
+   * The unique id for the heading.
+   */
+  id: string;
+}
+
+const props = Astro.props;
+---
+
+<h4 aria-label="Table of contents" class={tableOfContentsHeadingStyles()} {...props}>
+  <slot />
+</h4>

@@ -1,0 +1,31 @@
+---
+import { Link } from '@/ui/astro/link';
+import { tableOfContentsLinkStyles } from './table-of-contents-link.styles';
+
+interface Props {
+  /**
+   * The URL that the hyperlink points to.
+   */
+  href: string;
+
+  /**
+   * The depth of the link.
+   */
+  depth: number;
+}
+
+const { href, depth } = Astro.props;
+---
+
+{
+  [1, 2, 3, 4, 5, 6].includes(depth) && (
+    <Link.Root
+      href={href}
+      color="default"
+      size="2"
+      class={tableOfContentsLinkStyles({ depth: depth as 1 | 2 | 3 | 4 | 5 | 6 })}
+    >
+      <slot />
+    </Link.Root>
+  )
+}
