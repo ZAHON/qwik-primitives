@@ -1,0 +1,60 @@
+---
+title: Alert
+description: Display a brief, important message in a way that attracts the user's attention without interrupting the user's task.
+category: Feedback
+source: https://github.com/ZAHON/qwik-primitives/tree/main/packages/primitives/src/components/alert
+issue: https://github.com/ZAHON/qwik-primitives/issues/new?title=[Alert]%20Issue
+---
+
+import { AlertDemo } from '@/demos/components/alert-demo';
+import AlertDemoTsx from '@/demos/components/alert-demo/index.tsx?raw';
+import AlertDemoCss from '@/demos/components/alert-demo/styles.css?raw';
+
+<ArticleHeader
+  title={frontmatter.title}
+  description={frontmatter.description}
+  links={{ source: frontmatter.source, issue: frontmatter.issue }}
+/>
+
+<CodePresentation tsx={AlertDemoTsx} css={AlertDemoCss}>
+  <AlertDemo />
+</CodePresentation>
+
+## Features
+
+<FeaturesList
+  items={['Adheres to the [Alert WAI-ARIA design pattern](https://www.w3.org/WAI/ARIA/apg/patterns/alert/).']}
+/>
+
+## Import
+
+```tsx
+import { Alert } from 'qwik-primitives';
+```
+
+## Anatomy
+
+Import the component.
+
+```tsx
+import { component$ } from '@builder.io/qwik';
+import { Alert } from 'qwik-primitives';
+
+const AlertDemo = component$(() => {
+  return <Alert.Root />;
+});
+```
+
+## API Reference
+
+### Root
+
+Contains the content for the alert. This component is based on the `div` element.
+
+<PropsTable id="alert" part="root" />
+
+<DataAttributesTable id="alert" part="root" />
+
+## Accessibility
+
+Adheres to the [Alert WAI-ARIA design pattern](https://www.w3.org/WAI/ARIA/apg/patterns/alert/).
