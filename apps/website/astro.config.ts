@@ -18,7 +18,11 @@ export default defineConfig({
     qwikdev(),
     tailwind(),
     AutoImport({
-      imports: [{}],
+      imports: [
+        {
+          './src/components/article-header': ['ArticleHeader'],
+        },
+      ],
     }),
     mdx({
       shikiConfig: {
