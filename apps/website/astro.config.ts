@@ -23,6 +23,7 @@ export default defineConfig({
           './src/components/article-header': ['ArticleHeader'],
           './src/components/code-presentation': ['CodePresentation'],
           './src/components/features-list': ['FeaturesList'],
+          './src/components/props-table': ['PropsTable'],
         },
       ],
     }),
