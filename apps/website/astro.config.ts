@@ -18,11 +18,7 @@ export default defineConfig({
     qwikdev(),
     tailwind(),
     AutoImport({
-      imports: [
-        {
-          './src/components/page-hgroup': ['PageHgroup'],
-        },
-      ],
+      imports: [{}],
     }),
     mdx({
       shikiConfig: {
