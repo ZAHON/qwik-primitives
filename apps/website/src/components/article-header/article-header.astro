@@ -1,0 +1,53 @@
+---
+import { ArticleHeaderTitle } from './article-header-title';
+import { ArticleHeaderContent } from './article-header-content';
+import { ArticleHeaderDescription } from './article-header-description';
+import { ArticleHeaderLinks } from './article-header-links';
+import { ArticleHeaderLink } from './article-header-link';
+
+interface Props {
+  /**
+   * The title of the article.
+   */
+  title: string;
+
+  /**
+   * The description of the article.
+   */
+  description: string;
+
+  /**
+   * The links of the entry.
+   */
+  links?: {
+    /**
+     * The links to view source of the entry.
+     */
+    source: string;
+
+    /**
+     * The links to report an issue of the entry.
+     */
+    issue: string;
+  };
+}
+
+const { title, description, links } = Astro.props;
+---
+
+<header>
+  <ArticleHeaderTitle>{title}</ArticleHeaderTitle>
+
+  <ArticleHeaderContent>
+    <ArticleHeaderDescription>{description}</ArticleHeaderDescription>
+
+    {
+      links && (
+        <ArticleHeaderLinks>
+          <ArticleHeaderLink href={links.source}>View source</ArticleHeaderLink>
+          <ArticleHeaderLink href={links.issue}>Report an issue</ArticleHeaderLink>
+        </ArticleHeaderLinks>
+      )
+    }
+  </ArticleHeaderContent>
+</header>

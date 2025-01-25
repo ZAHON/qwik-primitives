@@ -1,0 +1,8 @@
+---
+import { Heading } from '@/ui/astro/heading';
+import { articleHeaderTitleStyles } from './article-header-title.styles';
+---
+
+<Heading.Root id="_top" size="8" class={articleHeaderTitleStyles()}>
+  <slot />
+</Heading.Root>

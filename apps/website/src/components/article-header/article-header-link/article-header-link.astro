@@ -1,0 +1,22 @@
+---
+import { Link } from '@/ui/astro/link';
+import { AccessibleIcon } from '@/ui/astro/accessible-icon';
+import { ArrowTopRightIcon } from '@/icons/arrow-top-right-icon';
+
+interface Props {
+  /**
+   * The URL that the link points to.
+   */
+  href: string;
+}
+
+const props = Astro.props;
+---
+
+<Link.Root external={true} openInNewTab={true} {...props}>
+  <slot />
+
+  <AccessibleIcon.Root>
+    <ArrowTopRightIcon height={15} width={15} class="size-[0.9375rem]" />
+  </AccessibleIcon.Root>
+</Link.Root>
