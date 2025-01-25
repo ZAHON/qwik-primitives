@@ -6,7 +6,6 @@ export const mdxCodeBlockPreStyles = cva([
   'text-[calc(0.85*var(--font-size-3))]',
   'leading-3',
   'tracking-[calc(-0.007em+var(--letter-spacing-3))]',
-  'text-[var(--syntax-highlighter-foreground)]',
   'overflow-x-auto',
   'selection:bg-primary-selection',
   'focus:outline-none',

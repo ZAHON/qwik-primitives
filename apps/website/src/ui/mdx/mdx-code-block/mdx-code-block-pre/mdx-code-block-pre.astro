@@ -1,5 +1,7 @@
 ---
+import { twm } from '@/utilities/twm';
+import { scrollbarStyles } from '@/styles/shared/scrollbar';
 import { mdxCodeBlockPreStyles } from './mdx-code-block-pre.styles';
 ---
 
-<pre class={mdxCodeBlockPreStyles()}><slot /></pre>
+<pre class={twm(mdxCodeBlockPreStyles(), scrollbarStyles({ size: '1' }))}><slot /></pre>
