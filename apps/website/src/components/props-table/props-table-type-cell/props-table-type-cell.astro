@@ -1,0 +1,48 @@
+---
+import { Table } from '@/ui/astro/table';
+import { Code } from '@/ui/astro/code';
+import { Text } from '@/ui/astro/text';
+import { Link } from '@/ui/astro/link';
+import { parse } from './utilities';
+
+interface Props {
+  /**
+   * The name of the prop.
+   */
+  prop: string;
+
+  /**
+   * The type of the prop.
+   */
+  type: string | number | boolean;
+
+  /**
+   * The description of the prop.
+   */
+  description: string;
+}
+
+const { prop, type, description } = Astro.props;
+---
+
+<Table.Cell>
+  <div class="flex flex-col items-start gap-y-1">
+    <Code.Root size="2" color="default">
+      {type}
+    </Code.Root>
+
+    <Fragment set:html={parse(description)} />
+
+    {
+      prop === 'as' && (
+        <Text.Root size="2">
+          Read our{' '}
+          <Link.Root href="/docs/guides/composition" size="2" openInNewTab={true}>
+            Composition
+          </Link.Root>{' '}
+          guide for more details.
+        </Text.Root>
+      )
+    }
+  </div>
+</Table.Cell>

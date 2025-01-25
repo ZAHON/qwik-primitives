@@ -1,0 +1,25 @@
+---
+import { Table } from '@/ui/astro/table';
+import { Code } from '@/ui/astro/code';
+
+interface Props {
+  /**
+   * The name of the prop.
+   */
+  prop: string;
+
+  /**
+   * Whether the prop is required.
+   */
+  required: boolean;
+}
+
+const { prop, required } = Astro.props;
+---
+
+<Table.RowHeaderCell>
+  <Code.Root size="2">
+    {prop}
+    {required && <span aria-hidden="true">*</span>}
+  </Code.Root>
+</Table.RowHeaderCell>

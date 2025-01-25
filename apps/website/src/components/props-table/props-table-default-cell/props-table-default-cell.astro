@@ -1,0 +1,34 @@
+---
+import { DashIcon } from '@/icons/dash-icon';
+import { Table } from '@/ui/astro/table';
+import { Code } from '@/ui/astro/code';
+import { AccessibleIcon } from '@/ui/astro/accessible-icon';
+import { VisuallyHidden } from '@/ui/astro/visually-hidden';
+
+interface Props {
+  /**
+   * The prop default value.
+   */
+  defaultValue: string | number | boolean | null;
+}
+
+const { defaultValue } = Astro.props;
+---
+
+<Table.Cell>
+  {
+    defaultValue ? (
+      <Code.Root size="2" color="default">
+        {defaultValue}
+      </Code.Root>
+    ) : (
+      <>
+        <AccessibleIcon.Root class="text-default-alpha-11">
+          <DashIcon height={15} width={15} class="size-[0.9375rem]" />
+        </AccessibleIcon.Root>
+
+        <VisuallyHidden.Root>No default value</VisuallyHidden.Root>
+      </>
+    )
+  }
+</Table.Cell>

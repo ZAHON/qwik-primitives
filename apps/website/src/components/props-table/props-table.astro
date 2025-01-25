@@ -1,0 +1,49 @@
+---
+import { Table } from '@/ui/astro/table';
+import { getComponentPartData } from '@/utilities/get-component-part-data';
+import { PropsTablePropCell } from './props-table-prop-cell';
+import { PropsTableDefaultCell } from './props-table-default-cell';
+import { PropsTableTypeCell } from './props-table-type-cell';
+import { propsTableStyles } from './props-table.styles';
+
+interface Props {
+  /**
+   * The id of the component.
+   */
+  id: string;
+
+  /**
+   * The part of the component.
+   */
+  part: string;
+}
+
+const props = Astro.props;
+const partData = await getComponentPartData(props);
+---
+
+<Table.Root class={propsTableStyles()}>
+  <Table.ScrollArea>
+    <Table.Content>
+      <Table.Header>
+        <Table.Row>
+          <Table.ColumnHeaderCell>Prop</Table.ColumnHeaderCell>
+          <Table.ColumnHeaderCell>Default</Table.ColumnHeaderCell>
+          <Table.ColumnHeaderCell>Type</Table.ColumnHeaderCell>
+        </Table.Row>
+      </Table.Header>
+
+      <Table.Body>
+        {
+          partData.props.map(({ prop, required, defaultValue, type, description }) => (
+            <Table.Row>
+              <PropsTablePropCell prop={prop} required={required} />
+              <PropsTableDefaultCell defaultValue={defaultValue} />
+              <PropsTableTypeCell prop={prop} type={type} description={description} />
+            </Table.Row>
+          ))
+        }
+      </Table.Body>
+    </Table.Content>
+  </Table.ScrollArea>
+</Table.Root>
