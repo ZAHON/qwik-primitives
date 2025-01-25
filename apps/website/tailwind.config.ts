@@ -346,10 +346,23 @@ export default {
           '0%': { opacity: '1', transform: 'translate(0%, 0%)' },
           '100%': { opacity: '0.8', transform: 'translate(0, 110%)' },
         },
+
+        'code-presentation-spoiler-panel-down': {
+          '0%': { height: 'var(--qwik-primitives-spoiler-panel-min-height)' },
+          '100%': { height: 'var(--qwik-primitives-spoiler-panel-max-height)' },
+        },
+
+        'code-presentation-spoiler-panel-up': {
+          '0%': { height: 'var(--qwik-primitives-spoiler-panel-max-height)' },
+          '100%': { height: 'var(--qwik-primitives-spoiler-panel-min-height)' },
+        },
       },
       animation: {
         'mobile-menu-content-show': 'mobile-menu-content-show 500ms cubic-bezier(0.32, 0.72, 0, 1)',
         'mobile-menu-content-hide': 'mobile-menu-content-hide 500ms cubic-bezier(0.32, 0.72, 0, 1)',
+
+        'code-presentation-spoiler-panel-down': 'code-presentation-spoiler-panel-down 350ms cubic-bezier(0, 0, 0.2, 1)',
+        'code-presentation-spoiler-panel-up': 'code-presentation-spoiler-panel-up 350ms cubic-bezier(0, 0, 0.2, 1)',
       },
     },
   },
