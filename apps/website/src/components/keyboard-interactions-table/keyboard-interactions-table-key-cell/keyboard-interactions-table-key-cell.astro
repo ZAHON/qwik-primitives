@@ -1,0 +1,19 @@
+---
+import { Table } from '@/ui/astro/table';
+import { Kbd } from '@/ui/astro/kbd';
+
+interface Props {
+  /**
+   * The name of the key.
+   */
+  key: string;
+}
+
+const { key } = Astro.props;
+---
+
+<Table.RowHeaderCell>
+  <Kbd.Root size="2">
+    {key}
+  </Kbd.Root>
+</Table.RowHeaderCell>

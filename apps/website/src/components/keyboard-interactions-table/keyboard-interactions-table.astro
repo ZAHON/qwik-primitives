@@ -1,0 +1,46 @@
+---
+import { Table } from '@/ui/astro/table';
+import { getComponentData } from '@/utilities/get-component-data';
+import { KeyboardInteractionsTableKeyCell } from './keyboard-interactions-table-key-cell';
+import { KeyboardInteractionsTableDescriptionCell } from './keyboard-interactions-table-description-cell';
+import { keyboardInteractionsTableStyles } from './keyboard-interactions-table.styles';
+
+interface Props {
+  /**
+   * The id of the component.
+   */
+  id: string;
+}
+
+const { id } = Astro.props;
+const componentData = await getComponentData({ id });
+const componentKeyboardInteractions = componentData.keyboardInteractions;
+
+if (!componentKeyboardInteractions) {
+  throw Error(`No keyboard interactions found for component with id ${id}`);
+}
+---
+
+<Table.Root class={keyboardInteractionsTableStyles()}>
+  <Table.ScrollArea>
+    <Table.Content>
+      <Table.Header>
+        <Table.Row>
+          <Table.ColumnHeaderCell>Key</Table.ColumnHeaderCell>
+          <Table.ColumnHeaderCell>Description</Table.ColumnHeaderCell>
+        </Table.Row>
+      </Table.Header>
+
+      <Table.Body>
+        {
+          componentKeyboardInteractions.map(({ key, description }) => (
+            <Table.Row>
+              <KeyboardInteractionsTableKeyCell key={key} />
+              <KeyboardInteractionsTableDescriptionCell description={description} />
+            </Table.Row>
+          ))
+        }
+      </Table.Body>
+    </Table.Content>
+  </Table.ScrollArea>
+</Table.Root>

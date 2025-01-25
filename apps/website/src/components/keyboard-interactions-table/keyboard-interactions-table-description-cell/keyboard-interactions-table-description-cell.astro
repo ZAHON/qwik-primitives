@@ -1,0 +1,17 @@
+---
+import { Table } from '@/ui/astro/table';
+import { parse } from './utilities';
+
+interface Props {
+  /**
+   * The description of the key.
+   */
+  description: string;
+}
+
+const { description } = Astro.props;
+---
+
+<Table.Cell>
+  <Fragment set:html={parse(description)} />
+</Table.Cell>
