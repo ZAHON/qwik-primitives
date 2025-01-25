@@ -1,0 +1,16 @@
+---
+import { docsNavHeadingStyles } from './docs-nav-heading.styles';
+
+interface Props {
+  /**
+   * The unique id for the heading.
+   */
+  id: string;
+}
+
+const { id } = Astro.props;
+---
+
+<h4 id={`docs-nav-${id}`} class={docsNavHeadingStyles()}>
+  <slot />
+</h4>

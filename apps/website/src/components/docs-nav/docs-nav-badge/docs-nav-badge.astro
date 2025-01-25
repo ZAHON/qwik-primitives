@@ -1,0 +1,36 @@
+---
+import { Badge } from '@/ui/astro/badge';
+
+interface Props {
+  /**
+   * The statuse of the badge.
+   */
+  status: 'Alpha' | 'New' | 'Updated';
+}
+
+const { status } = Astro.props;
+---
+
+{
+  status === 'Alpha' && (
+    <Badge.Root variant="soft" color="primary">
+      <slot />
+    </Badge.Root>
+  )
+}
+
+{
+  status === 'New' && (
+    <Badge.Root variant="solid" color="primary">
+      <slot />
+    </Badge.Root>
+  )
+}
+
+{
+  status === 'Updated' && (
+    <Badge.Root variant="soft" color="default">
+      <slot />
+    </Badge.Root>
+  )
+}

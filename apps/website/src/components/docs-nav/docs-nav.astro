@@ -1,0 +1,76 @@
+---
+import { getCollection } from 'astro:content';
+import { AccessibleIcon } from '@/ui/astro/accessible-icon';
+import { GithubLogoIcon } from '@/icons/github-logo-icon';
+import { DocsNavLabel } from './docs-nav-label';
+import { DocsNavGroup } from './docs-nav-group';
+import { DocsNavHeading } from './docs-nav-heading';
+import { DocsNavList } from './docs-nav-list';
+import { DocsNavItem } from './docs-nav-item';
+import { DocsNavLink } from './docs-nav-link';
+import { DocsNavBadge } from './docs-nav-badge';
+import { docsNavStyles } from './docs-nav.styles';
+
+interface Props {
+  /**
+   * The variant of the docs navigation.
+   */
+  variant: 'mobile' | 'desktop';
+}
+
+const componentsContent = await getCollection('componentsContent');
+
+const { variant } = Astro.props;
+const id = `docs-nav-${crypto.randomUUID()}`;
+const pathname = new URL(Astro.request.url).pathname;
+---
+
+<nav aria-labelledby={id} class={docsNavStyles()}>
+  <DocsNavLabel id={id}>Docs navigation</DocsNavLabel>
+
+  <DocsNavGroup>
+    <DocsNavHeading id="components">Components</DocsNavHeading>
+
+    <DocsNavList aria-labelledby="components">
+      {
+        componentsContent.map(({ id, data }) => {
+          const href = `/docs/components/${id}`;
+          const active = pathname === href;
+
+          return (
+            <DocsNavItem>
+              <DocsNavLink href={href} active={active}>
+                {data.title}
+                {data.status && <DocsNavBadge status={data.status}>{data.status}</DocsNavBadge>}
+              </DocsNavLink>
+            </DocsNavItem>
+          );
+        })
+      }
+    </DocsNavList>
+  </DocsNavGroup>
+
+  {
+    variant === 'mobile' && (
+      <DocsNavGroup>
+        <DocsNavHeading id="resources">Resources</DocsNavHeading>
+
+        <DocsNavList aria-labelledby="resources">
+          <DocsNavItem>
+            <DocsNavLink
+              href="https://github.com/ZAHON/qwik-primitives"
+              active={false}
+              external={true}
+              openInNewTab={true}
+            >
+              <AccessibleIcon.Root>
+                <GithubLogoIcon height={15} width={15} class="size-[0.9375rem]" />
+              </AccessibleIcon.Root>
+              GitHub
+            </DocsNavLink>
+          </DocsNavItem>
+        </DocsNavList>
+      </DocsNavGroup>
+    )
+  }
+</nav>

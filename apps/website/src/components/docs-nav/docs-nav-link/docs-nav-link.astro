@@ -1,0 +1,32 @@
+---
+import { NavLink } from '@/ui/astro/nav-link';
+import { docsNavLinkStyles } from './docs-nav-link.styles';
+
+interface Props {
+  /**
+   * The URL that the quick navigation link points to.
+   */
+  href: string;
+
+  /**
+   * Used to identify the link as the currently active page.
+   */
+  active: boolean;
+
+  /**
+   * Whether the nav link lead to external source.
+   */
+  external?: boolean;
+
+  /**
+   * Whether the nav link should open in a new tab.
+   */
+  openInNewTab?: boolean;
+}
+
+const props = Astro.props;
+---
+
+<NavLink.Root highContrast={true} color="default" radius="full" class={docsNavLinkStyles()} {...props}>
+  <slot />
+</NavLink.Root>
