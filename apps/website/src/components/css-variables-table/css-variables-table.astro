@@ -1,0 +1,51 @@
+---
+import { Table } from '@/ui/astro/table';
+import { getComponentPartData } from '@/utilities/get-component-part-data';
+import { CSSVariablesTableVariableCell } from './css-variables-table-variable-cell';
+import { CSSVariablesTableDescriptionCell } from './css-variables-table-description-cell';
+import { cssVariablesTableStyles } from './css-variables-table.styles';
+
+interface Props {
+  /**
+   * The id of the component.
+   */
+  id: string;
+
+  /**
+   * The part of the component.
+   */
+  part: string;
+}
+
+const { id, part } = Astro.props;
+const partData = await getComponentPartData({ id, part });
+const partCSSVariables = partData.CSSVariables;
+
+if (!partCSSVariables) {
+  throw Error(`No CSS variables found for component part ${part} with id ${id}`);
+}
+---
+
+<Table.Root class={cssVariablesTableStyles()}>
+  <Table.ScrollArea>
+    <Table.Content>
+      <Table.Header>
+        <Table.Row>
+          <Table.ColumnHeaderCell>CSS Variable</Table.ColumnHeaderCell>
+          <Table.ColumnHeaderCell>Description</Table.ColumnHeaderCell>
+        </Table.Row>
+      </Table.Header>
+
+      <Table.Body>
+        {
+          partCSSVariables.map(({ variable, description }) => (
+            <Table.Row>
+              <CSSVariablesTableVariableCell variable={variable} />
+              <CSSVariablesTableDescriptionCell description={description} />
+            </Table.Row>
+          ))
+        }
+      </Table.Body>
+    </Table.Content>
+  </Table.ScrollArea>
+</Table.Root>
