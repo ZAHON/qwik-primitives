@@ -1,0 +1,17 @@
+.aspect-ratio-wrapper {
+  width: 18.75rem;
+  border-radius: 0.25rem;
+  overflow: hidden;
+  box-shadow:
+    0 0 0 1px #00104010,
+    0 2px 3px -2px #00104010,
+    0 3px 12px -4px #0000001a,
+    0 4px 16px -8px #0000001a;
+}
+
+.aspect-ratio-image {
+  user-select: none;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
