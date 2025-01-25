@@ -1,0 +1,72 @@
+{
+  "parts": [
+    {
+      "part": "root",
+      "props": [
+        {
+          "prop": "as",
+          "required": false,
+          "type": "FunctionComponent",
+          "defaultValue": null,
+          "description": "Change the default rendered element for the one passed as, merging their props and behavior."
+        },
+        {
+          "prop": "ratio",
+          "required": false,
+          "type": "number",
+          "defaultValue": 1,
+          "description": "The desired ratio, e.g. `16 / 9`."
+        },
+        {
+          "prop": "style",
+          "required": false,
+          "type": "CSSProperties",
+          "defaultValue": null,
+          "description": "The inline style for the element."
+        }
+      ],
+      "dataAttributes": [
+        {
+          "attribute": "[data-scope]",
+          "values": "`\"aspect-ratio\"`"
+        },
+        {
+          "attribute": "[data-part]",
+          "values": "`\"root\"`"
+        }
+      ],
+      "CSSVariables": null
+    },
+    {
+      "part": "content",
+      "props": [
+        {
+          "prop": "as",
+          "required": false,
+          "type": "FunctionComponent",
+          "defaultValue": null,
+          "description": "Change the default rendered element for the one passed as, merging their props and behavior."
+        },
+        {
+          "prop": "style",
+          "required": false,
+          "type": "CSSProperties",
+          "defaultValue": null,
+          "description": "The inline style for the element."
+        }
+      ],
+      "dataAttributes": [
+        {
+          "attribute": "[data-scope]",
+          "values": "`\"aspect-ratio\"`"
+        },
+        {
+          "attribute": "[data-part]",
+          "values": "`\"content\"`"
+        }
+      ],
+      "CSSVariables": null
+    }
+  ],
+  "keyboardInteractions": null
+}
