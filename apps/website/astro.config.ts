@@ -24,6 +24,7 @@ export default defineConfig({
           './src/components/code-presentation': ['CodePresentation'],
           './src/components/features-list': ['FeaturesList'],
           './src/components/props-table': ['PropsTable'],
+          './src/components/data-attributes-table': ['DataAttributesTable'],
         },
       ],
     }),
