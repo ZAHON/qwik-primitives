@@ -2,6 +2,8 @@
 
 An image element with a fallback for representing the user.
 
+> This coponent uses the [`useVisibleTask$()`](https://qwik.dev/docs/components/tasks/#usevisibletask) hook that eagerly executes code on the client by default when the component becomes visible. You can use `strategy` prop on [`Avatar.Root`](#root) to determine when the `VisibleTask` should first execute.
+
 ## Features
 
 - Automatic and manual control over when the image renders.
