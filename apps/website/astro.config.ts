@@ -21,6 +21,7 @@ export default defineConfig({
       imports: [
         {
           './src/components/article-header': ['ArticleHeader'],
+          './src/components/code-presentation': ['CodePresentation'],
         },
       ],
     }),
