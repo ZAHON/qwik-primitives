@@ -1,0 +1,94 @@
+---
+title: Aspect Ratio
+description: Displays content within a desired ratio.
+category: Data display
+source: https://github.com/ZAHON/qwik-primitives/tree/main/packages/primitives/src/components/aspect-ratio
+issue: https://github.com/ZAHON/qwik-primitives/issues/new?title=[AspectRatio]%20Issue
+---
+
+import { AspectRatioDemo } from '@/demos/components/aspect-ratio-demo';
+import AspectRatioDemoTsx from '@/demos/components/aspect-ratio-demo/index.tsx?raw';
+import AspectRatioDemoCss from '@/demos/components/aspect-ratio-demo/styles.css?raw';
+
+<ArticleHeader
+  title={frontmatter.title}
+  description={frontmatter.description}
+  links={{ source: frontmatter.source, issue: frontmatter.issue }}
+/>
+
+<CodePresentation tsx={AspectRatioDemoTsx} css={AspectRatioDemoCss}>
+  <AspectRatioDemo />
+</CodePresentation>
+
+## Features
+
+<FeaturesList items={['Accepts any custom ratio.']} />
+
+## Import
+
+```tsx
+import { AspectRatio } from 'qwik-primitives';
+```
+
+## Anatomy
+
+Import all parts and piece them together.
+
+```tsx
+import { component$ } from '@builder.io/qwik';
+import { AspectRatio } from 'qwik-primitives';
+
+const AspectRatioDemo = component$(() => {
+  return (
+    <AspectRatio.Root>
+      <AspectRatio.Content />
+    </AspectRatio.Root>
+  );
+});
+```
+
+## API Reference
+
+### Root
+
+Contains all the parts of an aspect ratio. This component is based on the `div` element.
+
+<PropsTable id="aspect-ratio" part="root" />
+
+<DataAttributesTable id="aspect-ratio" part="root" />
+
+### Content
+
+Contains the content you want to constrain to a given ratio. This component is based on the `div` element.
+
+<PropsTable id="aspect-ratio" part="content" />
+
+<DataAttributesTable id="aspect-ratio" part="content" />
+
+## Examples
+
+### Iframe embed
+
+You can limit to a certain ratio any content, for example, image or inline frame element.
+
+```tsx
+import { component$ } from '@builder.io/qwik';
+import { AspectRatio } from 'qwik-primitives';
+
+const AspectRatioDemo = component$(() => {
+  return (
+    <div style={{ width: '18.75rem', overflow: 'hidden' }}>
+      <AspectRatio.Root ratio={16 / 9}>
+        <AspectRatio.Content>
+          <iframe
+            src="https://www.youtube.com/embed/2yJgwwDcgV8?si=KwBAFYZpeWUf3EOA"
+            title="YouTube video player"
+            style={{ objectFit: 'cover', height: '100%', width: '100%', border: 'none' }}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          />
+        </AspectRatio.Content>
+      </AspectRatio.Root>
+    </div>
+  );
+});
+```
