@@ -25,6 +25,7 @@ export default defineConfig({
           './src/components/features-list': ['FeaturesList'],
           './src/components/props-table': ['PropsTable'],
           './src/components/data-attributes-table': ['DataAttributesTable'],
+          './src/components/css-variables-table': ['CSSVariablesTable'],
         },
       ],
     }),
