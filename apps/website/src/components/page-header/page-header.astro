@@ -1,6 +1,7 @@
 ---
 import { QuickNav } from '@/components/quick-nav';
 import { MobileMenu } from '@/components/mobile-menu';
+import { DocsNav } from '@/components/docs-nav';
 import { Separator } from '@/ui/astro/separator';
 import { PageHeaderScrollWatcher } from './page-header-scroll-watcher';
 import { PageHeaderNav } from './page-header-nav';
@@ -34,6 +35,7 @@ const variant = ['/'].includes(pathname) ? 'ghost' : 'default';
         <PageHeaderThemeSwitch />
         <MobileMenu>
           <QuickNav slot="header" variant="mobile" />
+          <DocsNav slot="body" variant="mobile" />
         </MobileMenu>
       </div>
     </div>
