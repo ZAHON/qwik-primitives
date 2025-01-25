@@ -1,6 +1,18 @@
 import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
 
+const componentsContent = defineCollection({
+  loader: glob({ pattern: '**/*.mdx', base: './src/content/docs/components' }),
+  schema: z.object({
+    status: z.enum(['Alpha', 'New', 'Updated']).optional(),
+    title: z.string(),
+    description: z.string(),
+    category: z.enum(['Data display', 'Inputs', 'Buttons', 'Navigation', 'Feedback', 'Overlays', 'Typography', 'Misc']),
+    source: z.string().url(),
+    issue: z.string().url(),
+  }),
+});
+
 const componentsData = defineCollection({
   loader: glob({ pattern: '**/*.json', base: './src/data/components' }),
   schema: z.object({
@@ -45,4 +57,4 @@ const componentsData = defineCollection({
   }),
 });
 
-export const collections = { componentsData };
+export const collections = { componentsContent, componentsData };
