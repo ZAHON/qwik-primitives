@@ -1,6 +1,7 @@
 ---
 import type { HTMLTag, Polymorphic } from 'astro/types';
 import { twm } from '@/utilities/twm';
+import { scrollbarStyles } from '@/styles/shared/scrollbar';
 import { tableScrollAreaStyles } from './table-scroll-area.styles';
 
 type Props<Tag extends HTMLTag = 'div'> = Polymorphic<{
@@ -9,11 +10,17 @@ type Props<Tag extends HTMLTag = 'div'> = Polymorphic<{
    * @default "div"
    */
   as: Tag;
+
+  /**
+   * The size of the scrollbars.
+   * @default "1"
+   */
+  size?: '1' | '2' | '3';
 }>;
 
-const { as: Tag = 'div', class: className, ...others } = Astro.props;
+const { as: Tag = 'div', size = '1', class: className, ...others } = Astro.props;
 ---
 
-<Tag data-table-scroll-area="" class={twm(tableScrollAreaStyles(), className)} {...others}>
+<Tag data-table-scroll-area="" class={twm(tableScrollAreaStyles(), scrollbarStyles({ size }), className)} {...others}>
   <slot />
 </Tag>
