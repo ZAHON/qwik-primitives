@@ -1,0 +1,13 @@
+.alert-root {
+  padding: 1rem;
+  background-color: #feebec;
+  color: #c40006d3;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  letter-spacing: 0em;
+  border-radius: 0.5rem;
+}
+
+.alert-root::selection {
+  background-color: #ff000632;
+}
