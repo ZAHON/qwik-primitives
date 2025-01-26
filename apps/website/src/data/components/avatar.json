@@ -1,0 +1,116 @@
+{
+  "parts": [
+    {
+      "part": "root",
+      "props": [
+        {
+          "prop": "as",
+          "required": false,
+          "type": "FunctionComponent",
+          "defaultValue": null,
+          "description": "Change the default rendered element for the one passed as, merging their props and behavior."
+        },
+        {
+          "prop": "strategy",
+          "required": false,
+          "type": "\"intersection-observer\" | \"document-ready\" | \"document-idle\"",
+          "defaultValue": "\"intersection-observer\"",
+          "description": "The strategy to use to determine when the image should load. \n - `\"intersection-observer\"` means that image will load when the element is visible in the viewport. \n - `\"document-ready\"` means that image will load when the document is ready. \n - `\"document-idle\"` means that image will load when the document is idle."
+        },
+        {
+          "prop": "style",
+          "required": false,
+          "type": "CSSProperties",
+          "defaultValue": null,
+          "description": "The inline style for the element."
+        }
+      ],
+      "dataAttributes": [
+        {
+          "attribute": "[data-scope]",
+          "values": "`\"avatar\"`"
+        },
+        {
+          "attribute": "[data-part]",
+          "values": "`\"root\"`"
+        }
+      ],
+      "CSSVariables": null
+    },
+    {
+      "part": "image",
+      "props": [
+        {
+          "prop": "as",
+          "required": false,
+          "type": "FunctionComponent",
+          "defaultValue": null,
+          "description": "Change the default rendered element for the one passed as, merging their props and behavior."
+        },
+        {
+          "prop": "onLoadingStatusChange$",
+          "required": false,
+          "type": "QRL<(status: \"idle\" | \"loading\" | \"loaded\" | \"error\") => void>",
+          "defaultValue": null,
+          "description": "A callback providing information about the loading status of the image. This is useful in case you want to control more precisely what to render as the image is loading."
+        },
+        {
+          "prop": "style",
+          "required": false,
+          "type": "CSSProperties",
+          "defaultValue": null,
+          "description": "The inline style for the element."
+        }
+      ],
+      "dataAttributes": [
+        {
+          "attribute": "[data-scope]",
+          "values": "`\"avatar\"`"
+        },
+        {
+          "attribute": "[data-part]",
+          "values": "`\"image\"`"
+        }
+      ],
+      "CSSVariables": null
+    },
+    {
+      "part": "fallback",
+      "props": [
+        {
+          "prop": "as",
+          "required": false,
+          "type": "FunctionComponent",
+          "defaultValue": null,
+          "description": "Change the default rendered element for the one passed as, merging their props and behavior."
+        },
+        {
+          "prop": "delayMs",
+          "required": false,
+          "type": "number",
+          "defaultValue": null,
+          "description": "Useful for delaying rendering so it only appears for those with slower connections."
+        },
+        {
+          "prop": "style",
+          "required": false,
+          "type": "CSSProperties",
+          "defaultValue": null,
+          "description": "The inline style for the element."
+        }
+      ],
+      "dataAttributes": [
+        {
+          "attribute": "[data-scope]",
+          "values": "`\"avatar\"`"
+        },
+        {
+          "attribute": "[data-part]",
+          "values": "`\"fallback\"`"
+        }
+      ],
+      "CSSVariables": null
+    }
+  ],
+  "keyboardInteractions": null
+}
