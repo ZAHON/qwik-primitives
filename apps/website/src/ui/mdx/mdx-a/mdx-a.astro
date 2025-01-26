@@ -11,9 +11,10 @@ interface Props {
 
 const { href } = Astro.props;
 
-const isExternal = href.split('/')[0] === 'https:';
+const isExternalLink = href.split('/')[0] === 'https:';
+const isSectionLink = href.split('')[0] === '#';
 ---
 
-<Link.Root href={href} external={isExternal} openInNewTab={true}
-  ><slot />{isExternal && <ExternalLinkIcon width="15" height="15" class="size-[0.9375rem]" />}</Link.Root
+<Link.Root href={href} external={isExternalLink} openInNewTab={!isSectionLink}
+  ><slot />{isExternalLink && <ExternalLinkIcon width="15" height="15" class="size-[0.9375rem]" />}</Link.Root
 >
