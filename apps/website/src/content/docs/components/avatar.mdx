@@ -1,0 +1,105 @@
+---
+title: Avatar
+description: An image element with a fallback for representing the user.
+category: Data display
+source: https://github.com/ZAHON/qwik-primitives/tree/main/packages/primitives/src/components/avatar
+issue: https://github.com/ZAHON/qwik-primitives/issues/new?title=[Avatar]%20Issue
+---
+
+import { AvatarDemo } from '@/demos/components/avatar-demo';
+import AvatarDemoTsx from '@/demos/components/avatar-demo/index.tsx?raw';
+import AvatarDemoCss from '@/demos/components/avatar-demo/styles.css?raw';
+
+<ArticleHeader
+  title={frontmatter.title}
+  description={frontmatter.description}
+  links={{ source: frontmatter.source, issue: frontmatter.issue }}
+/>
+
+> This coponent uses the [`useVisibleTask$()`](https://qwik.dev/docs/components/tasks/#usevisibletask) hook that eagerly executes code on the client by default when the component becomes visible. You can use `strategy` prop on [`Avatar.Root`](#root) to determine when the `VisibleTask` should first execute.
+
+<CodePresentation tsx={AvatarDemoTsx} css={AvatarDemoCss}>
+  <AvatarDemo />
+</CodePresentation>
+
+## Features
+
+<FeaturesList
+  items={[
+    'Automatic and manual control over when the image renders.',
+    'Optionally delay fallback rendering to avoid content flashing.',
+  ]}
+/>
+
+## Import
+
+```tsx
+import { Avatar } from 'qwik-primitives';
+```
+
+## Anatomy
+
+Import all parts and piece them together.
+
+```tsx
+import { component$ } from '@builder.io/qwik';
+import { Avatar } from 'qwik-primitives';
+
+const AvatarDemo = component$(() => {
+  return (
+    <Avatar.Root>
+      <Avatar.Image />
+      <Avatar.Fallback />
+    </Avatar.Root>
+  );
+});
+```
+
+### Root
+
+Contains all the parts of an avatar. This component is based on the `span` element.
+
+<PropsTable id="avatar" part="root" />
+
+<DataAttributesTable id="avatar" part="root" />
+
+### Image
+
+The image to render. By default it will only render when it has loaded. You can use the `onLoadingStatusChange$` handler if you need more control. This component is based on the `img` element.
+
+<PropsTable id="avatar" part="image" />
+
+<DataAttributesTable id="avatar" part="image" />
+
+### Fallback
+
+An element that renders when the image hasn't loaded. This means whilst it's loading, or if there was an error. If you notice a flash during loading, you can provide a `delayMs` prop to delay its rendering so it only renders for those with slower connections. For more control, use the `onLoadingStatusChange$` handler on `Avatar.Image`. This component is based on the `span` element.
+
+<PropsTable id="avatar" part="fallback" />
+
+<DataAttributesTable id="avatar" part="fallback" />
+
+## Examples
+
+### Avoid flash during loading
+
+By default `Avatar.Fallback` will render when the image hasn't loaded. This means whilst it's loading, or if there was an error.
+
+If you notice a flash during loading, use the `delayMs` prop to delay its rendering, so it only renders for those with slower internet connections.
+
+```tsx {11} /delayMs/
+import { component$ } from '@builder.io/qwik';
+import { Avatar } from 'qwik-primitives';
+
+const AvatarDemo = component$(() => {
+  return (
+    <Avatar.Root>
+      <Avatar.Image
+        src="https://images.unsplash.com/photo-1492633423870-43d1cd2775eb?&w=128&h=128&dpr=2&q=80"
+        alt="Colm Tuite"
+      />
+      <Avatar.Fallback delayMs={600}>CT</Avatar.Fallback>
+    </Avatar.Root>
+  );
+});
+```
