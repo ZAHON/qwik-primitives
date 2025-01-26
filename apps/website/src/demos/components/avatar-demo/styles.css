@@ -1,0 +1,40 @@
+.wrapper {
+  display: flex;
+  column-gap: 0.75rem;
+}
+
+.avatar-root {
+  height: 2.5rem;
+  width: 2.5rem;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  vertical-align: middle;
+  overflow: hidden;
+  user-select: none;
+  border-radius: 9999px;
+  background-color: #f5eeff;
+}
+
+.avatar-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+}
+
+.avatar-fallback {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f5eeff;
+  color: #43009db8;
+  font-size: 1.125rem;
+  line-height: 2.5rem;
+  letter-spacing: -0.0025em;
+  font-weight: 500;
+  border-radius: inherit;
+  overflow: hidden;
+}
