@@ -1,0 +1,8 @@
+---
+import { Blockquote } from '@/ui/astro/blockquote';
+import { mdxBlockquoteStyles } from './mdx-blockquote.styles';
+---
+
+<Blockquote.Root class={mdxBlockquoteStyles()}>
+  <slot />
+</Blockquote.Root>
