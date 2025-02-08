@@ -1,0 +1,53 @@
+{
+  "parts": [
+    {
+      "part": "root",
+      "props": [
+        {
+          "prop": "as",
+          "required": false,
+          "type": "FunctionComponent",
+          "defaultValue": null,
+          "description": "Change the default rendered element for the one passed as, merging their props and behavior."
+        },
+        {
+          "prop": "style",
+          "required": false,
+          "type": "CSSProperties",
+          "defaultValue": null,
+          "description": "The inline style for the element."
+        },
+        {
+          "prop": "orientation",
+          "required": false,
+          "type": "\"horizontal\" | \"vertical\"",
+          "defaultValue": "\"horizontal\"",
+          "description": "The orientation of the separator."
+        },
+        {
+          "prop": "decorative",
+          "required": false,
+          "type": "boolean",
+          "defaultValue": null,
+          "description": "When `true`, signifies that it is purely visual, carries no semantic meaning and ensures it is not present in the accessibility tree."
+        }
+      ],
+      "dataAttributes": [
+        {
+          "attribute": "[data-scope]",
+          "values": "`\"separator\"`"
+        },
+        {
+          "attribute": "[data-part]",
+          "values": "`\"root\"`"
+        },
+        {
+          "attribute": "[data-orientation]",
+          "values": "`\"vertical\" | \"horizontal\"`"
+        }
+      ],
+      "CSSVariables": null
+    }
+  ],
+  "keyboardInteractions": null
+}
