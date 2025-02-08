@@ -1,7 +1,8 @@
 ---
 import { Code } from '@/ui/astro/code';
+import { mdxCodeStyles } from './mdx-code.styles';
 ---
 
-<Code.Root>
+<Code.Root class={mdxCodeStyles()}>
   <slot />
 </Code.Root>
