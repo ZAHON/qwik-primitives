@@ -1,0 +1,79 @@
+---
+title: Separator
+description: Visually or semantically separates content.
+category: Misc
+source: https://github.com/ZAHON/qwik-primitives/tree/main/packages/primitives/src/components/separator
+issue: https://github.com/ZAHON/qwik-primitives/issues/new?title=[Separator]%20Issue
+---
+
+import { SeparatorDemo } from '@/demos/components/separator-demo';
+import SeparatorDemoTsx from '@/demos/components/separator-demo/index.tsx?raw';
+import SeparatorDemoCss from '@/demos/components/separator-demo/styles.css?raw';
+
+<ArticleHeader
+  title={frontmatter.title}
+  description={frontmatter.description}
+  links={{ source: frontmatter.source, issue: frontmatter.issue }}
+/>
+
+<CodePresentation tsx={SeparatorDemoTsx} css={SeparatorDemoCss}>
+  <SeparatorDemo />
+</CodePresentation>
+
+## Features
+
+<FeaturesList items={['Supports horizontal and vertical orientations.']} />
+
+## Import
+
+```tsx
+import { Separator } from 'qwik-primitives';
+```
+
+## Anatomy
+
+Import the component.
+
+```tsx
+import { component$ } from '@builder.io/qwik';
+import { Separator } from 'qwik-primitives';
+
+const SeparatorDemo = component$(() => {
+  return <Separator.Root />;
+});
+```
+
+## API Reference
+
+### Root
+
+<PropsTable id="separator" part="root" />
+
+<DataAttributesTable id="separator" part="root" />
+
+## Examples
+
+### Vertical orientation
+
+Use the `orientation` prop to create a vertical separator.
+
+```tsx {8,10} /orientation/
+import { component$ } from '@builder.io/qwik';
+import { Separator } from 'qwik-primitives';
+
+const SeparatorDemo = component$(() => {
+  return (
+    <div style={{ height: '1rem', display: 'flex', alignItems: 'center' }}>
+      <span>Blog</span>
+      <Separator.Root orientation="vertical" style={{ margin: '0 1rem', height: '100%', width: '0.0625rem', backgroundColor: '#000000' }} />
+      <span>Docs</span>
+      <Separator.Root orientation="vertical" style={{ margin: '0 1rem', height: '100%', width: '0.0625rem', backgroundColor: '#000000' }} />
+      <span>Source</span>
+    </div>
+  );
+});
+```
+
+## Accessibility
+
+Adheres to the [separator role requirements](https://www.w3.org/TR/wai-aria-1.2/#separator).
