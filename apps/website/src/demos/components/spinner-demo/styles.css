@@ -1,0 +1,80 @@
+.spinner-root {
+  --spinner-animation-duration: 800ms;
+
+  height: 1.5rem;
+  width: 1.5rem;
+  display: block;
+  position: relative;
+  opacity: 0.65;
+}
+
+.spinner-leaf {
+  position: absolute;
+  top: 0;
+  left: calc(50% - 12.5% / 2);
+  height: 100%;
+  width: 12.5%;
+  color: #eeeef0;
+  animation-name: spinner-leaf-fade !important;
+  animation-duration: var(--spinner-animation-duration) !important;
+  animation-timing-function: linear !important;
+  animation-iteration-count: infinite !important;
+}
+
+.spinner-leaf::before {
+  content: '';
+  display: block;
+  height: 30%;
+  width: 100%;
+  border-radius: 0.1875rem;
+  background-color: currentColor;
+}
+
+.spinner-leaf:nth-child(1) {
+  transform: rotate(0deg);
+  animation-delay: calc(-8 / 8 * var(--spinner-animation-duration)) !important;
+}
+
+.spinner-leaf:nth-child(2) {
+  transform: rotate(45deg);
+  animation-delay: calc(-7 / 8 * var(--spinner-animation-duration)) !important;
+}
+
+.spinner-leaf:nth-child(3) {
+  transform: rotate(90deg);
+  animation-delay: calc(-6 / 8 * var(--spinner-animation-duration)) !important;
+}
+
+.spinner-leaf:nth-child(4) {
+  transform: rotate(135deg);
+  animation-delay: calc(-5 / 8 * var(--spinner-animation-duration)) !important;
+}
+
+.spinner-leaf:nth-child(5) {
+  transform: rotate(180deg);
+  animation-delay: calc(-4 / 8 * var(--spinner-animation-duration)) !important;
+}
+
+.spinner-leaf:nth-child(6) {
+  transform: rotate(225deg);
+  animation-delay: calc(-3 / 8 * var(--spinner-animation-duration)) !important;
+}
+
+.spinner-leaf:nth-child(7) {
+  transform: rotate(270deg);
+  animation-delay: calc(-2 / 8 * var(--spinner-animation-duration)) !important;
+}
+
+.spinner-leaf:nth-child(8) {
+  transform: rotate(315deg);
+  animation-delay: calc(-1 / 8 * var(--spinner-animation-duration)) !important;
+}
+
+@keyframes spinner-leaf-fade {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.25;
+  }
+}
