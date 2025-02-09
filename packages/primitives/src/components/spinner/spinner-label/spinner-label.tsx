@@ -1,5 +1,5 @@
 import type { SpinnerLabelProps } from './spinner-label.types';
-import { component$, Slot } from '@builder.io/qwik';
+import { component$, useComputed$, Slot } from '@builder.io/qwik';
 import { visuallyHiddenStyle } from '@/_internal/utilities';
 
 /**
@@ -10,6 +10,8 @@ import { visuallyHiddenStyle } from '@/_internal/utilities';
 export const SpinnerLabel = component$<SpinnerLabelProps>((props) => {
   const { as, visuallyHidden = true, style, ...others } = props;
 
+  const labelStyle = useComputed$(() => ({ ...(visuallyHidden && visuallyHiddenStyle), ...style }));
+
   const Component = as || 'span';
 
   return (
@@ -18,10 +20,7 @@ export const SpinnerLabel = component$<SpinnerLabelProps>((props) => {
       data-scope="spinner"
       data-part="label"
       data-visually-hidden={visuallyHidden ? '' : undefined}
-      style={{
-        ...(visuallyHidden && visuallyHiddenStyle),
-        ...style,
-      }}
+      style={labelStyle.value}
       {...others}
     >
       <Slot />
