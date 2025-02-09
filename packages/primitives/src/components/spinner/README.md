@@ -72,10 +72,11 @@ The fallback loading text. This text by default will be only visible to screen r
 | `visuallyHidden` | `boolean`           | `true`  | When `true`, label will be hide from the screen in an accessible way.                                                                                                                                                                   |
 | `style`          | `CSSProperties`     | `-`     | The inline style for the element.                                                                                                                                                                                                       |
 
-| Data attribute | Values      |
-| -------------- | ----------- |
-| `[data-scope]` | `"spinner"` |
-| `[data-part]`  | `"label"`   |
+| Data attribute           | Values                                    |
+| ------------------------ | ----------------------------------------- |
+| `[data-scope]`           | `"spinner"`                               |
+| `[data-part]`            | `"label"`                                 |
+| `[data-visually-hidden]` | Present when the label is visually hidden |
 
 ## Examples
 
