@@ -1,0 +1,76 @@
+{
+  "parts": [
+    {
+      "part": "root",
+      "props": [
+        {
+          "prop": "as",
+          "required": false,
+          "type": "FunctionComponent",
+          "defaultValue": null,
+          "description": "Change the default rendered element for the one passed as, merging their props and behavior."
+        },
+        {
+          "prop": "style",
+          "required": false,
+          "type": "CSSProperties",
+          "defaultValue": null,
+          "description": "The inline style for the element."
+        }
+      ],
+      "dataAttributes": [
+        {
+          "attribute": "[data-scope]",
+          "values": "`\"spinner\"`"
+        },
+        {
+          "attribute": "[data-part]",
+          "values": "`\"root\"`"
+        }
+      ],
+      "CSSVariables": null
+    },
+    {
+      "part": "label",
+      "props": [
+        {
+          "prop": "as",
+          "required": false,
+          "type": "FunctionComponent",
+          "defaultValue": null,
+          "description": "Change the default rendered element for the one passed as, merging their props and behavior."
+        },
+        {
+          "prop": "visuallyHidden",
+          "required": false,
+          "type": "boolean",
+          "defaultValue": true,
+          "description": "When `true`, label will be hide from the screen in an accessible way."
+        },
+        {
+          "prop": "style",
+          "required": false,
+          "type": "CSSProperties",
+          "defaultValue": null,
+          "description": "The inline style for the element."
+        }
+      ],
+      "dataAttributes": [
+        {
+          "attribute": "[data-scope]",
+          "values": "`\"spinner\"`"
+        },
+        {
+          "attribute": "[data-part]",
+          "values": "`\"label\"`"
+        },
+        {
+          "attribute": "[data-visually-hidden]",
+          "values": "Present when the label is visually hidden"
+        }
+      ],
+      "CSSVariables": null
+    }
+  ],
+  "keyboardInteractions": null
+}
