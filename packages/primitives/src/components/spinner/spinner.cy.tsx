@@ -76,7 +76,25 @@ describe('Spinner', () => {
       cy.get(`[data-testid="${SPINNER_LABEL_TESTID}"]`).should('have.text', SPINNER_LABEL_TEXT);
     });
 
-    it('should have not visually hidden style when visuallyHidden is false', () => {
+    it('should have not attribute data-visually-hidden when is not visuallyHidden', () => {
+      cy.mount(
+        <Spinner.Root>
+          <Spinner.Label visuallyHidden={false} data-testid={SPINNER_LABEL_TESTID} />
+        </Spinner.Root>
+      );
+      cy.get(`[data-testid="${SPINNER_LABEL_TESTID}"]`).should('have.not.attr', 'data-visually-hidden');
+    });
+
+    it('should have attribute data-visually-hidden with empty value when is visuallyHidden', () => {
+      cy.mount(
+        <Spinner.Root>
+          <Spinner.Label visuallyHidden={true} data-testid={SPINNER_LABEL_TESTID} />
+        </Spinner.Root>
+      );
+      cy.get(`[data-testid="${SPINNER_LABEL_TESTID}"]`).should('have.attr', 'data-visually-hidden', '');
+    });
+
+    it('should have not visually hidden style when is not visuallyHidden', () => {
       cy.mount(
         <Spinner.Root>
           <Spinner.Label visuallyHidden={false} data-testid={SPINNER_LABEL_TESTID} />
@@ -90,7 +108,7 @@ describe('Spinner', () => {
         );
     });
 
-    it('should have visually hidden style when visuallyHidden is true', () => {
+    it('should have visually hidden style when is visuallyHidden', () => {
       cy.mount(
         <Spinner.Root>
           <Spinner.Label visuallyHidden={true} data-testid={SPINNER_LABEL_TESTID} />
