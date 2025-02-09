@@ -17,6 +17,7 @@ export const SpinnerLabel = component$<SpinnerLabelProps>((props) => {
       data-qwik-primitives-spinner-label=""
       data-scope="spinner"
       data-part="label"
+      data-visually-hidden={visuallyHidden ? '' : undefined}
       style={{
         ...(visuallyHidden && visuallyHiddenStyle),
         ...style,
