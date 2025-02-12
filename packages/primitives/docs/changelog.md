@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.0.34
+
+### 🚀 Features
+
+- Add `data-visually-hidden` attribute for `Spinner.Label` component.
+
+- Add ability to dynamic change inline style for `Spinner.Label` component.
+
+- Add `Skeleton` component.
+
 ## 0.0.33
 
 ### 🚀 Features
